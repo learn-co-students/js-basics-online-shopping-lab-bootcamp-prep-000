@@ -32,6 +32,7 @@ function viewCart() {
 
   for (let i = 0; i < l; i++) {
     let itemAndPrice = cart[i]
+    console.log(itemAndPrice[0]);
     let item = Object.keys(itemAndPrice)[0]
     let price = itemAndPrice[item]
 
