@@ -4,24 +4,27 @@ function getCart() {
   return cart
 }
 
-function setCart(c) {
-  cart = c
+function setCart(array) {
+  cart = array
 }
 
 function addToCart(item) {
-  const price = Math.floor(Math.random() * 100)
+  const price = Math.floor(Math.random() * 100);
 
-  cart.push({ [item]: price })
+  cart.push({[item] : price});
 
   console.log(`${item} has been added to your cart.`)
 
   return cart
 }
 
+addToCart("shoes")
+
+
 function viewCart() {
   const l = cart.length
 
-  if (!l) {
+  if (l === 0) {
     return console.log("Your shopping cart is empty.")
   }
 
