@@ -65,6 +65,7 @@ function removeFromCart(nameItem) {
 
         if (itemObj.hasOwnProperty(nameItem)) {
             //number of elements to remove = 1
+
             cart.splice(i, 1);
             isExist = true;
         }
