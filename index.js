@@ -152,64 +152,50 @@ test -  1.  does the cart have the item?
               cart should = []
 */
 
-/*
-function removeFromCart(item) {
-  for (var i = cart.length - 1; i >= 0; i--) {
-    var itemObj = cart[i];
-    for (var item in itemObj) {
-      if (itemObj.hasOwnProperty(item)) {
-        cart.splice(i, 1);
-      } else {
-          return console.log("That item is not in your cart.");
-      }
-    }
-  } return cart;
-}
-*/
-
-/*
-function removeFromCart(item) {
-  for (var i = cart.length - 1; i > 0; i--) {
-    var check = cart[i].hasOwnProperty(item)
-      if (!check) {
-        return console.log('That item is not in your cart.');
-    } else {
-        for (var i = cart.length - 1; i > 0; i--) {
-          cart.splice(i, 1);
-      }
-    }       return cart;
-  }
-}
-*/
 function removeFromCart(item) {
 for (var i = 0; i < cart.length; i++) {
   var cartObj = cart[i]
     var checkProp = cartObj.hasOwnProperty(item);
       if (checkProp === false) {
         return console.log('That item is not in your cart.');
-    } else {
+          return console.log(cart);
+    } else if(checkProp === true) {
         cart.splice(i, 1);
+          return console.log(cart);
     }
-  } return cart;
+  }
 }
+
 /*
 ~chrome console check~
 var obj = [{'pizza': 2}, {'soda': 4}];
 
 function checkProp(item) {
-for (var i = obj.length - 1; i > 0; i--) {
-  var check = obj[i].hasOwnProperty(item);
-    console.log(check);
- } return obj;
+for (var i = 0; i < obj.length; i++) {
+  var check = obj[i]
+    var newcheck = check.hasOwnProperty(item);
+    //console.log(check.hasOwnProperty(item));
+    console.log(newcheck);
+    if (newcheck === false) {
+    console.log("thats not there!");
+return console.log(obj);
+  } else if (newcheck === true) {
+  obj.splice(i, 1);
+return console.log(obj);
+  }
+ }
 }
 
+
+checkProp('pizza');
+
+console.log(obj[1].hasOwnProperty('pizza'));
+console.log(obj[0].hasOwnProperty('pizza'));
 checkProp(5);
 checkProp('4');
 checkProp(4);
-checkProp(100);
-console.log(obj[1].hasOwnProperty('pizza'));
-console.log(obj[0].hasOwnProperty('pizza'));
 */
+
 /*
 describe('#placeOrder', function() {
   it("doesn't let you place an order if you don't provide a credit card number", function() {
