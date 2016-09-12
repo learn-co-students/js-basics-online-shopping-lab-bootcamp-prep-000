@@ -152,19 +152,32 @@ test -  1.  does the cart have the item?
               cart should = []
 */
 
+
 function removeFromCart(item) {
 for (var i = 0; i < cart.length; i++) {
-  var cartObj = cart[i]
+  var cartObj = cart[i];
     var checkProp = cartObj.hasOwnProperty(item);
-      if (checkProp === false) {
-        return console.log('That item is not in your cart.');
-          return console.log(cart);
-    } else if(checkProp === true) {
+    if (checkProp === null) {
+        return console.log("That item is not in your cart.");
+    } else {
         cart.splice(i, 1);
-          return console.log(cart);
     }
   }
 }
+
+/*
+function removeFromCart(item) {
+for (var i in cart) {
+  for (var item in cart[i]) {
+    //if (cart.i[item] !== item) {
+        cart.splice(i, 1);
+    } if (cart.i.hasO)//else {
+        return console.log("That item is not in your cart.");
+      }
+    }
+  }
+}
+*/
 
 /*
 ~chrome console check~
