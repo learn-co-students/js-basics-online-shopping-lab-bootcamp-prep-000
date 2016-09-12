@@ -167,7 +167,7 @@ function removeFromCart(item) {
 }
 */
 
-
+/*
 function removeFromCart(item) {
   for (var i = cart.length - 1; i > 0; i--) {
     var check = cart[i].hasOwnProperty(item)
@@ -180,7 +180,18 @@ function removeFromCart(item) {
     }       return cart;
   }
 }
-
+*/
+function removeFromCart(item) {
+for (var i = 0; i < cart.length; i++) {
+  var cartObj = cart[i]
+    var checkProp = cartObj.hasOwnProperty(item);
+      if (checkProp === false) {
+        return console.log('That item is not in your cart.');
+    } else {
+        cart.splice(i, 1);
+    }
+  } return cart;
+}
 /*
 ~chrome console check~
 var obj = [{'pizza': 2}, {'soda': 4}];
