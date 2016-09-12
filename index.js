@@ -71,22 +71,6 @@ test - 1. check if cart exisit
        4. print "In your cart, you have " + viewAnnouncement + "."
 */
 
-/*
-function viewCart() {
-  if (cart) {
-    var viewAnnouncement = [];
-      for (var i = 0; i < cart.length; i++) {
-        var viewPrice = Object.keys(cart[i]);
-          for (var viewPrice in cart[i]) {
-            viewAnnouncement.push(` ${Object.keys(cart[i])} at $${cart[i][viewPrice]}`);
-      }
-    }         console.log("In your cart, you have " + viewAnnouncement + ".");
-  } else {
-       console.log("Your shopping cart is empty.");
-    }
-}
-*/
-
 function viewCart() {
   if (!cart.length) {
     console.log("Your shopping cart is empty.");
@@ -152,62 +136,14 @@ test -  1.  does the cart have the item?
               cart should = []
 */
 
-
 function removeFromCart(item) {
-for (var i = 0; i < cart.length; i++) {
-  var cartObj = cart[i];
-    var checkProp = cartObj.hasOwnProperty(item);
-    if (checkProp === null) {
-        return console.log("That item is not in your cart.");
-    } else {
-        cart.splice(i, 1);
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      cart.splice(i, 1);
+        return cart;
     }
-  }
+  }       return console.log("That item is not in your cart.");
 }
-
-/*
-function removeFromCart(item) {
-for (var i in cart) {
-  for (var item in cart[i]) {
-    //if (cart.i[item] !== item) {
-        cart.splice(i, 1);
-    } if (cart.i.hasO)//else {
-        return console.log("That item is not in your cart.");
-      }
-    }
-  }
-}
-*/
-
-/*
-~chrome console check~
-var obj = [{'pizza': 2}, {'soda': 4}];
-
-function checkProp(item) {
-for (var i = 0; i < obj.length; i++) {
-  var check = obj[i]
-    var newcheck = check.hasOwnProperty(item);
-    //console.log(check.hasOwnProperty(item));
-    console.log(newcheck);
-    if (newcheck === false) {
-    console.log("thats not there!");
-return console.log(obj);
-  } else if (newcheck === true) {
-  obj.splice(i, 1);
-return console.log(obj);
-  }
- }
-}
-
-
-checkProp('pizza');
-
-console.log(obj[1].hasOwnProperty('pizza'));
-console.log(obj[0].hasOwnProperty('pizza'));
-checkProp(5);
-checkProp('4');
-checkProp(4);
-*/
 
 /*
 describe('#placeOrder', function() {
