@@ -63,15 +63,13 @@ function removeFromCart(item) {
   console.log("That item is not in your cart.")
 }
 
-
-
 function placeOrder(number) {
   var emptyArray = [];
   if (number === undefined) {
     console.log('We don\'t have a credit card on file for you to place your order.')
   }
   else {
-    console.log(`Your total cost is ${total()}, which will be charged to the card ${number}`)
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${number}.`)
     setCart(emptyArray)
   }
 }
