@@ -20,63 +20,51 @@ function getCart() {
   return cart;
 }
 
+
 function addToCart(item) {
-  var price = Math.floor(Math.random() * 100);
-  cart.push({item: price});
+  const price = Math.floor(Math.random() * 100);
+  cart.push({[item]: price});
   console.log(`${item} has been added to your cart.`);
   return cart;
 }
 
-var itemNames = Object.keys(cart);
-
 function viewCart() {
-  var list = 'In your cart, you have ';
   if(cart.length === 0) {
-    console.log('Your shopping cart is empty.');
+    return console.log('Your shopping cart is empty.');
   }
-  else {
-    for(var i = 0, l = cart.length; i < l; i++) {
-      for(var item in cart[i]) {
-        list += item + ' at' + ' $' + cart[i][item] + ', ';
-      }
-    }
-    list = list.replace(/,$/,"") + ".";
-    console.log(list);
+  const itemsAndPrices = [];
+
+  for(let i = 0; i < cart.length; i++) {
+    let itemAndPrice = cart[i];
+    let item = Object.keys(itemAndPrice)[0];
+    let price = itemAndPrice[item];
+
+    itemsAndPrices.push(`${item} at \$${price}`);
   }
+  console.log(`In your cart, you have ${itemsAndPrices.join(', ')}.`);
 }
 
-function removeFromCart(removeItem) {
-  var c = getCart();
-  if(hasItem(getCart(), removeItem)) {
-    for(let i = 0, l = c.length; i < l; i++) {
-      console.log(c[i]);
-      var index = getCart().indexOf(c[i]);
-      getCart().splice(index, 1);
-      console.log(getCart());
-      return getCart();
+function removeFromCart(item) {
+  let itemInCart = false;
+
+  for(let i = 0; i < cart.length; i++) {
+    if(cart[i].hasOwnProperty(item)) {
+      itemInCart = true;
+      cart = cart.slice(0, i).concat(cart.slice(i + 1));
     }
   }
-  else {
-    console.log('That item is not in your cart.');
+  if(!itemInCart) {
+    console.log('That item is not in your cart.')
   }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
   if(!cardNumber) {
-    console.log("We don't have a credit card on file for you to place your order");
+    console.log('We don\'t have a credit card on file for you to place your order.');
   }
   else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
-    cart = [];
   }
-}
-
-function hasItem(c, item) {
-  for (let i = 0, l = c.length; i < l; i++) {
-    if (c[i].hasOwnProperty(item)) {
-      return true
-    }
-  }
-
-  return false
+  cart = [];
 }
