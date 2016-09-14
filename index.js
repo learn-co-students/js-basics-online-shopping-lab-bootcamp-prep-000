@@ -32,9 +32,11 @@ function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   }  else {
+    var a = "In your cart, you have "
         for (var key in cart) {
-    console.log(`In your cart, you have ${key} at $${cart[key]}`)
-  }
+          a += (key + "at $" + cart[key] + ", "
+        }
+  console.log(a)
 }
 }
 
