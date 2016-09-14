@@ -40,21 +40,20 @@ function viewCart() {
 
 function removeFromCart(removeitem) {
   for (var i = 0; i < cart.length; i++) {
-  if (cart[i].hasOwnProperty('removeitem')) {
-    cart[i].remove(removeitem)
-    return cart
-  }  else {
+    if (cart[i].hasOwnProperty('removeitem')) {
+      cart[i].remove(removeitem)
+      return cart
+    }  else {
     console.log("That item is not in your cart.")
   }
-}
+  }
 }
 
 function placeOrder(number) {
-if (number === undefined) {
-  console.log("We don't have a credit card on file for you to place your order.")
-}
-else {
-  console.log (`Your total cost is $${total()}, which will be charged to the card ${number}.`)
-}
-return cart = []
+  if (number === undefined) {
+    console.log("We don't have a credit card on file for you to place your order.")
+  } else {
+      console.log (`Your total cost is $${total()}, which will be charged to the card ${number}.`)
+  }
+  return cart = []
 }
