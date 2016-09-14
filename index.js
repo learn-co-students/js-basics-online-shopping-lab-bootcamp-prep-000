@@ -36,17 +36,20 @@ var addToCart = function(item2Buy) {
   var viewCart = function(array) {
   var str = "In your cart, you have ";
 
-  for (var i = 0, l = cart.length; i < l; i++) {
-    var keys = Object.keys(cart[i]);
+  for (var i = 0, l = array.length; i < l; i++) {
+    var keys = Object.keys(array[i]);
     str += keys + " at ";
-    for (var item in cart[i]) {
-        if(i === cart.length -1) {
-          str += cart[i][item] + ".";
+    for (var item in array[i]) {
+         if(i === array.length -1) {
+          str += "$" + array[i][item] + ".";
         }
         else {
-          str += cart[i][item] + ", ";
+          str += "$" + array[i][item] + ", ";
       }
     }
+  }
+  if(array.length <= 0){
+    str = "Your shopping cart is empty.";
   }
   console.log(str);
 }
