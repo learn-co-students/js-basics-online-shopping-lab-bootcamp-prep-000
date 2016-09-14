@@ -12,7 +12,6 @@ function total() {
       t += cart[i][item]
     }
   }
-
   return t
 }
 
@@ -30,25 +29,21 @@ function addToCart(item) {
 }
 
 function viewCart() {
-
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
-  }
-  else {
+  }  else {
         for (var key in cart) {
     console.log(`In your cart, you have ${key} at $${cart[key]}`)
   }
-} }
+}
 }
 
 function removeFromCart(removeitem) {
   for (var i = 0; i < cart.length; i++) {
   if (cart[i].hasOwnProperty('removeitem')) {
-cart[i].remove(removeitem)
-return cart
-  }
-
-  else {
+    cart[i].remove(removeitem)
+    return cart
+  }  else {
     console.log("That item is not in your cart.")
   }
 }
