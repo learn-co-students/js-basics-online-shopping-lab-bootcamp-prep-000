@@ -33,11 +33,12 @@ function viewCart() {
     console.log("Your shopping cart is empty.")
   }  else {
     var str = "In your cart, you have "
-      /*  for (var key in cart) {
-          str += (key + "at $" + cart[key] + ", ")
-        } */
-  console.log(str)
-  debugger;
+    for (var i = 0; i < cart.length; i++) {
+        for (var key in cart[i]) {
+          str += key + "at $" + cart[i][key] + ", "
+        }
+      }
+      console.log(str + ".")
 }
 }
 
