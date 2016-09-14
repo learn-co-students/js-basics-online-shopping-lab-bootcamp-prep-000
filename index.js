@@ -20,7 +20,6 @@ var cart = []
 
 function getCart() {
   return cart;
-
 }
 
 function addToCart(item) {
@@ -30,17 +29,37 @@ function addToCart(item) {
   return cart
 }
 
-var yourCart = []
 function viewCart() {
 
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   }
   else {
-for (var i = 0; i < cart.length; i++) {
-    for (var key in cart) {
-      yourCart.push(`${key} at $${cart[key]}`)
-    console.log("In your cart, you have " + yourCart.join() + ".")
-
-}
+        for (var key in cart) {
+    console.log(`In your cart, you have ${key} at $${cart[key]}`)
+  }
 } }
+}
+
+function removeFromCart(removeitem) {
+  for (var i = 0; i < cart.length; i++) {
+  if (cart[i].hasOwnProperty('removeitem')) {
+cart[i].remove(removeitem)
+return cart
+  }
+
+  else {
+    console.log("That item is not in your cart.")
+  }
+}
+}
+
+function placeOrder(number) {
+if (number === undefined) {
+  console.log("We don't have a credit card on file for you to place your order.")
+}
+else {
+  console.log (`Your total cost is $${total()}, which will be charged to the card ${number}.`)
+}
+return cart = []
+}
