@@ -34,7 +34,7 @@ function viewCart() {
   }  else {
     var str = "In your cart, you have "
         for (var key in cart) {
-          str += (key + "at $" + cart[key] + ", "
+          str += (key + "at $" + cart[key] + ", ")
         }
   console.log(str)
   debugger;
