@@ -28,29 +28,49 @@ function addToCart(item) {
   return cart
 }
 
-function viewCart() {
+/* function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   }  else {
-    var str = "In your cart, you have "
-    for (var i = 0; i < cart.length; i++) {
+    //  let str = "In your cart, you have "
+      for (var i = 0; i < cart.length; i++) {
         for (var key in cart[i]) {
-          str += key + "at $" + cart[i][key] + ", "
+          console.log("In your cart, you have: "+key+" $"+cart[i][key]);
         }
       }
-      console.log(str + ".")
+    }
+}
+
+*/
+
+
+function viewCart() {
+
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty.")
+  }  else {
+    const itemsAndPrices = [];
+    const l = cart.length
+      for (let i = 0; i < l; i++) {
+        let itemAndPrice = cart[i]
+        let item = Object.keys(itemAndPrice)[0]
+        let price = itemAndPrice[item]
+    itemsAndPrices.push(`${item} at \$${price}`)
+  }
+  console.log(`In your cart, you have ${itemsAndPrices.join(', ')}.`)
 }
 }
 
 function removeFromCart(removeitem) {
   for (var i = 0; i < cart.length; i++) {
-    if (cart[i].hasOwnProperty('removeitem')) {
-      cart[i].remove(removeitem)
-      return cart
-    }  else {
+    if (cart[i].hasOwnProperty(removeitem)) {
+      cart = cart.slice(0, i).concat(cart.slice(i + 1))
+    } 
+  }
     console.log("That item is not in your cart.")
-  }
-  }
+
+
+  return cart
 }
 
 function placeOrder(number) {
