@@ -7,7 +7,6 @@ function setCart(newCart) {
 
 function total() {
   let t = 0
-
   for (var i = 0, l = cart.length; i < l; i++) {
     for (var item in cart[i]) {
       t += cart[i][item]
@@ -45,23 +44,27 @@ function viewCart(){
 
 
 function removeFromCart(name) {
+  var foundIt = false;
   for (var i = 0; i < cart.length; i++){
     for (var item in cart[i]){
       if (cart[i].hasOwnProperty(name) === true) {
       cart.splice(i,1);
-
-    } else {
+      foundIt = true;
+     }
+    }
+    if (foundIt === false) {
       console.log('That item is not in your cart.');
     }
   }
  }
-}
+
 
 function placeOrder(number){
-  if (number === null){
-    console.log("We don’t have a credit card on file for you to place your order.")
+    var totalCost = total();
+  if (number === undefined || number === null){
+    return console.log('We don\’t have a credit card on file for you to place your order.')
   } else {
-    console.log('Your total cost is');
+    console.log("Your total cost is $" + totalCost + ", which will be charged to the card 123.");
     return cart = [];
     }
 }
