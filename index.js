@@ -52,9 +52,9 @@ function removeFromCart(name) {
       foundIt = true;
      }
     }
-    if (foundIt === false) {
-      console.log('That item is not in your cart.');
-    }
+  }
+  if (foundIt === false) {
+    console.log('That item is not in your cart.');
   }
  }
 
@@ -62,7 +62,7 @@ function removeFromCart(name) {
 function placeOrder(number){
     var totalCost = total();
   if (number === undefined || number === null){
-    return console.log('We don\’t have a credit card on file for you to place your order.')
+    return console.log("We don't have a credit card on file for you to place your order.")
   } else {
     console.log("Your total cost is $" + totalCost + ", which will be charged to the card 123.");
     return cart = [];
