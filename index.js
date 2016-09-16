@@ -22,7 +22,7 @@ REFACTORED WAY
 **************************/
 function viewCart(){
   if (cart.length>0){
-    var empArray = [];
+    var empArray = []; //Used in order to push the items and price pairs in one line later.
     for (var i=0; i<cart.length; i++){
     	for(var keyItem in cart[i]){
       empArray.push(` ${keyItem} at $${cart[i][keyItem]}`);
@@ -39,13 +39,15 @@ function removeFromCart(itemToBeRemoved){
 
  for(var i=0; i < cart.length; i++){
    var someObj = Object.assign(cart[i]);
-    if(someObj.hasOwnProperty(`${itemToBeRemoved}`)){
+   var someItem = someObj.hasOwnProperty(itemToBeRemoved);
+    if(someItem === true){
        cart.splice(cart[i],1);
     }
-  else {
-      console.log("That item is not in your cart.")
-      }
-  } return cart;
+    	else if (someItem === false){
+		      console.log("That item is not in your cart.");
+	       }
+  }
+  return cart;
 }
 
 
