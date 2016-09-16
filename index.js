@@ -36,21 +36,28 @@ function viewCart(){
 }
 
 function removeFromCart(itemToBeRemoved){
-
  for(var i=0; i < cart.length; i++){
    var someObj = Object.assign(cart[i]);
-   var someItem = someObj.hasOwnProperty(itemToBeRemoved);
-    if(someItem === true){
+   var someItem = someObj.hasOwnProperty(`${itemToBeRemoved}`);
+    if(someItem === true ){
        cart.splice(cart[i],1);
     }
-    	else if (someItem === false){
-		      console.log("That item is not in your cart.");
-	       }
   }
+	if (someItem === false || cart.length === 0){
+		console.log("That item is not in your cart.");
+	}
   return cart;
 }
 
-
+function placeOrder(cardNumber){
+  if (cardNumber === undefined){
+    console.log("We don't have a credit card on file for you to place your order.");
+  }
+  else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+  }
+  return cart.length=0;
+}
 
 function total() {
   let t = 0
