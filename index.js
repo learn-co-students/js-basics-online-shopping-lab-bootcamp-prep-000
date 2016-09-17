@@ -4,7 +4,6 @@ function setCart(newCart) {
   cart = newCart;
 }
 
-
 function total() {
   let t = 0
 
@@ -17,68 +16,65 @@ function total() {
   return t
 }
 
-
 var getCart = function() {
   return cart;
 }
 
-
-var addToCart = function(item2Buy) {
+var addToCart = function(item) {
   var price = Math.floor(Math.random(0) * 100);
   var obj = {};
-  obj[item2Buy] = price;
+  obj[item] = price;
   cart.push(obj);
 
-  console.log(`${item2Buy} has been added to your cart.`);
+  console.log(`${item} has been added to your cart.`);
+
   return cart;
 }
 
-  var viewCart = function() {
-
-  var str = "In your cart, you have ";
-
-  for (var i = 0; i < cart.length;  i++) {
-    var keys = Object.keys(cart[i]);
-    str += keys + " at ";
-    for (var item in cart[i]) {
+var viewCart = function() {
+  if(cart.length === 0) {
+    console.log("Your shopping cart is empty.");
+  }
+  else {
+    var str = "In your cart, you have ";
+    for(var i = 0; i < cart.length; i++) {
+      for(var item in cart[i]) {
+        str += `${item} at $${cart[i][item]}`;
          if(i === cart.length -1) {
-          str += "$" + cart[i][item] + ".";
-        }
-        else {
-          str += "$" + cart[i][item] + ", ";
+           str += '.';
+         }
+         else {
+           str+= ', ';
+         }
       }
     }
+    console.log(str);
   }
-  if(cart.length <= 0){
-    str = "Your shopping cart is empty.";
-  }
-  console.log(str);
 }
 
 var removeFromCart = function(item) {
-  var keys = Object.keys(cart);
-  var count = 0;
-
-  for(var i = 0; i < cart.length; i++) {
-   if(cart[i][item]) {
-     count++;
-     cart.splice(cart.indexOf(item), 1)
-   }
-
-  }
-   if(count === 0){
-     console.log("That item is not in your cart.")
-   }
+  if(cart.length === 0){
+   console.log("That item is not in your cart.")
+ }
+  for(var i = 0; i < cart.length; i++){
+      for(var thing in cart[i]){
+        if(item === thing) {
+          cart.splice(i, 1);
+          return cart;
+        }
+        else {
+          console.log("That item is not in your cart.")
+        }
+      }
+    }
 }
 
-
-var placeOrder = function(cc) {
-  if(arguments.length === 0) {
-    console.log("We don't have a credit card on file for you to place your order.");
+var placeOrder = function(cardNumber) {
+  if(arguments.length === 0){
+    console.log("We don't have a credit card on file for you to place your order.")
   }
   else {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${cc}.`);
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
   }
   cart = [];
-
 }
