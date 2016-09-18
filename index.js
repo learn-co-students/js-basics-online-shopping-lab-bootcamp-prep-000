@@ -32,23 +32,22 @@ function addToCart(item) {
 function viewCart() {
 
 let keys = []
-
-  for (var key = cart.keys(cart[i]), i = 0, l = cart.length; i < l; i++) {
-    keys.push(key)
+let cartView = []
+let stringView = ""
+var i = 0
+  for (var i = 0, l = cart.length; i < l; i++) {
+    keys.push(cart[i])
   }
   if (cart.length < 1) {
       console.log("Your shopping cart is empty.")
   } else {
-    let cartView = []
     for (var i = 0, l = cart.length; i < l; i++) {
-      for (keys[i] in cart[i]) {
         cartView.push(`${keys[i]} at $${cart[i]}`)
-      }
     }
-      cartView = cartView.join(", ")
-
-      console.log(`In your cart you have ${cartView}.`)
+      stringView = cartView.join(", ")
   }
+      console.log(`In your cart you have ${stringView}.`)
+
 }
 
 function removeFromCart(item) {
