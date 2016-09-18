@@ -1,6 +1,4 @@
-var cart = {}
-var keys = Object.keys(cart)
-var keyIndex = []
+var cart;
 
 function setCart(newCart) {
   cart = newCart;
@@ -25,8 +23,7 @@ function getCart() {
 function addToCart(item) {
   function generatePrice() {
     var price = Math.random()
-    Math.floor(price)
-    return price
+    price = Math.floor(price)
   }
   var object = {item: generatePrice()}
   cart.push(object)
@@ -35,13 +32,23 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  if (cart.length < 1) {
-    console.log("Your shopping cart is empty.")
-  } else {
-    for (keys in cart) {
-    console.log(`In your cart you have ${keys} at $${cart[keys]}.`)
+  function cartKeys() {
+    let keys = []
+    for (var key = cart.keys(cart[i]), i = 0, l = cart.length; i < l; i++) {
+      keys.push(key)
+      return keys
     }
-
+  }
+  if (cart.length < 1) {
+      console.log("Your shopping cart is empty.")
+  } else {
+    let cartView = []
+    for (var i = 0, l = cart.length; i < l; i++) {
+      for (cartKeys()[i] in cart[i]) {
+        cartView.push(`${cartKeys()[i]} at $${cart[i]}`)
+      }
+    }
+      console.log(`In your cart you have ${cartView}.`)
   }
 }
 
@@ -50,5 +57,14 @@ function removeFromCart(item) {
     delete cart[item]
   } else {
     console.log("That item is not in your cart.")
+  }
+}
+
+function placeOrder(cardNum) {
+  if (cardNum === null) {
+    console.log("We don't have a credit card on file for you to place your order.")
+  } else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNum}.`)
+    cart = []
   }
 }
