@@ -23,8 +23,8 @@ function getCart() {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100)
-  var object = {item: price}
-  cart.push(object)
+  var itemPrice = {item: price}
+  cart.push(itemPrice)
   console.log(`${item} has been added to your cart.`)
   return cart
 }
@@ -34,15 +34,14 @@ function viewCart() {
 let keys = []
 let cartView = []
 let stringView = ""
-var i = 0
   for (var i = 0, l = cart.length; i < l; i++) {
-    keys.push(cart[i])
+    keys.push(Object.keys(cart[i])[0])
   }
   if (cart.length < 1) {
       console.log("Your shopping cart is empty.")
   } else {
     for (var i = 0, l = cart.length; i < l; i++) {
-        cartView.push(`${keys[i]} at $${cart[i]}`)
+        cartView.push(`${keys[i]} at $${cart[i][keys[i]]}`)
     }
       stringView = cartView.join(", ")
   }
