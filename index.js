@@ -53,10 +53,10 @@ function viewCart() {
 }
 
 function removeFromCart(item) {
-  if (cart.hasOwnProperty(item)) {
-    delete cart[item]
-  } else {
-    console.log("That item is not in your cart.")
+  for (var i = 0, l = cart.length; i < l; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      return cart.splice(i, 1)
+    }
   }
 }
 
