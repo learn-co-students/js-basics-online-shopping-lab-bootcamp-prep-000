@@ -20,12 +20,10 @@ function getCart() {
   return cart
 }
 
+
 function addToCart(item) {
-  function generatePrice() {
-    var price = Math.random()
-    price = Math.floor(price)
-  }
-  var object = {item: generatePrice()}
+  var price = Math.floor(Math.random() * 100)
+  var object = {item: price}
   cart.push(object)
   console.log(`${item} has been added to your cart.`)
   return cart
@@ -53,10 +51,15 @@ function viewCart() {
 }
 
 function removeFromCart(item) {
+  var foundIt = false
   for (var i = 0, l = cart.length; i < l; i++) {
     if (cart[i].hasOwnProperty(item)) {
-      return cart.splice(i, 1)
+      cart.splice(i, 1)
+      foundIt = true
     }
+  }
+  if (foundIt === false || cart.length === 0) {
+    console.log("That item is not in your cart.")
   }
 }
 
