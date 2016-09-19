@@ -23,12 +23,12 @@ function getCart() {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100)
-  var itemPrice = {item: price}
+  var itemPrice = {[item]: price}
   cart.push(itemPrice)
   console.log(`${item} has been added to your cart.`)
   return cart
 }
-
+debugger;
 function viewCart() {
 
 let keys = []
@@ -38,15 +38,14 @@ let stringView = ""
     keys.push(Object.keys(cart[i])[0])
   }
   if (cart.length < 1) {
-      console.log("Your shopping cart is empty.")
+    console.log("Your shopping cart is empty.")
   } else {
     for (var i = 0, l = cart.length; i < l; i++) {
-        cartView.push(`${keys[i]} at $${cart[i][keys[i]]}`)
+        cartView.push(`${keys[i]} at $${cart[i[1]]}`)
     }
       stringView = cartView.join(", ")
-  }
       console.log(`In your cart you have ${stringView}.`)
-
+  }
 }
 
 function removeFromCart(item) {
@@ -63,10 +62,10 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNum) {
-  if (cardNum === null) {
-    console.log("We don't have a credit card on file for you to place your order.")
-  } else {
+  if (cardNum) {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNum}.`)
     cart = []
+  } else {
+    console.log("We don't have a credit card on file for you to place your order.")
   }
 }
