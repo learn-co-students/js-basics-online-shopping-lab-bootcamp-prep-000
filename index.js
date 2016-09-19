@@ -37,15 +37,15 @@ let stringView = ""
   for (var i = 0, l = cart.length; i < l; i++) {
     keys.push(Object.keys(cart[i])[0])
   }
-  if (cart.length < 1) {
-    console.log("Your shopping cart is empty.")
-  } else {
-    for (var i = 0, l = cart.length; i < l; i++) {
-        cartView.push(`${keys[i]} at $${cart[i[1]]}`)
+    if (cart.length < 1) {
+      console.log("Your shopping cart is empty.")
+    } else {
+      for (var i = 0, l = cart.length; i < l; i++) {
+          cartView.push(`${keys[i]} at $${cart[i][keys[i]]}`)
+        }
+        stringView = cartView.join(", ")
+        console.log(`In your cart you have ${stringView}.`)
     }
-      stringView = cartView.join(", ")
-      console.log(`In your cart you have ${stringView}.`)
-  }
 }
 
 function removeFromCart(item) {
