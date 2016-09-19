@@ -28,23 +28,22 @@ function addToCart(item) {
   console.log(`${item} has been added to your cart.`)
   return cart
 }
-debugger;
-function viewCart() {
 
+function viewCart() {
 let keys = []
 let cartView = []
 let stringView = ""
   for (var i = 0, l = cart.length; i < l; i++) {
     keys.push(Object.keys(cart[i])[0])
   }
-    if (cart.length < 1) {
-      console.log("Your shopping cart is empty.")
-    } else {
+    if (cart.length) {
       for (var i = 0, l = cart.length; i < l; i++) {
           cartView.push(`${keys[i]} at $${cart[i][keys[i]]}`)
         }
-        stringView = cartView.join(", ")
-        console.log(`In your cart you have ${stringView}.`)
+      stringView = cartView.join(", ")
+      console.log(`In your cart, you have ${stringView}.`)
+    } else {
+      console.log("Your shopping cart is empty.")
     }
 }
 
