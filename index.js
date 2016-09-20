@@ -32,19 +32,16 @@ function viewCart() {
   if (cart.length === 0) {
     console.log ("Your shopping cart is empty.");
   }else {
-    var new_cart = "In your cart, you have ";
+    var new_cart = [];
     for (var i = 0; i < cart.length; i++) {
       for (var item in cart[i]){
-       new_cart += `${item} at $${cart[i][item]}`
+       new_cart.push(`${item} at $${cart[i][item]}`)
 
-      if (i === cart.length -1){
-        new_cart += ".";
-      }else {
-        new_cart += ", ";
-      }
+
     }
   }
-  console.log(new_cart)
+
+  console.log(`In your cart you have ${new_cart}.`)
 
 }
 }
