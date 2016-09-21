@@ -44,13 +44,15 @@ function viewCart() {
 }
 
 function removeFromCart(name){
+  var foundIt = false;
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].hasOwnProperty(name)) {
        cart.splice(i, 1)
-    } else{
+       foundIt = true
+    }
+  }
+    if (foundit === false){
     console.log("That item is not in your cart.");
   }
-
-}
-return cart
+  return cart;
 }
