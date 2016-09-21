@@ -22,26 +22,35 @@ function getCart() {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100)
-  cart.push(`${item}: ${price}`)
+  cart.push({[item]: price})
   console.log(`${item} has been added to your cart.`)
   return cart
 }
 
 function viewCart() {
-
   if (cart.length === 0) {
-    console.log ("Your shopping cart is empty.");
-  }else {
-    var new_cart = [];
+    console.log("Your shopping cart is empty.");
+  }else{
+    var str = [];
     for (var i = 0; i < cart.length; i++) {
-      for (var item in cart[i]){
-       new_cart.push(`${item} at $${cart[i][item]}`)
+        var itemObject = cart[i]
+        var item = Object.keys(itemObject)[0]
+        var price = itemObject[item]
+        str.push(`${item} at $${price}`)
+      }
+      var new_str = str.join(", ");
+      console.log(`In your cart, you have ${new_str}.`)
+}
+}
 
-
-    }
+function removeFromCart(name){
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(name)) {
+       cart.splice(i, 1)
+    } else{
+    console.log("That item is not in your cart.");
   }
 
-  console.log(`In your cart you have ${new_cart}.`)
-
 }
+return cart
 }
