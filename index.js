@@ -44,15 +44,25 @@ function viewCart() {
 }
 
 function removeFromCart(name){
-  var foundIt = false;
+  var foundIt = false;// foundIt is a boolean variable that we have used
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].hasOwnProperty(name)) {
        cart.splice(i, 1)
        foundIt = true
     }
   }
-    if (foundit === false){
+    if (foundIt === false){
     console.log("That item is not in your cart.");
   }
   return cart;
+}
+
+function placeOrder(cardNumber){
+  if (cardNumber === ""){
+    console.log('We don\'t have a credit card on file for you to place your order.')
+  }else{
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+  }
+  cart.splice(0, cart.length)
+  return cart
 }
