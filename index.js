@@ -49,6 +49,34 @@ function viewCart() {
       itemAtPrice.push(`${item} at \$${price}`)
     }
 
-    console.log(`In your cart, you have ${itemAtPrice.join(', ')}`)
+    console.log(`In your cart, you have ${itemAtPrice.join(', ')}.`)
   }
+}
+
+function removeFromCart(removeItem) {
+  var itemInCart = false
+
+  for (var i = 0; i < cart.length; i++) {
+    var cart3 = cart[i] //cart3 equals one object at a time from cart
+
+    if (cart3.hasOwnProperty(removeItem)) {
+      itemInCart = true
+      cart = cart.slice(0, i).concat(cart.slice(i + 1))
+      return cart
+    }
+  }
+
+  if (itemInCart === false) {
+    console.log(`That item is not in your cart.`)
+  }
+}
+
+function placeOrder(ccNumber) {
+  if (ccNumber === undefined) {
+    console.log(`We don't have a credit card on file for you to place your order.`)
+  }
+
+  console.log(`Your total cost is \$${total()}, which will be charged to the card ${ccNumber}.`)
+
+  cart = []
 }
