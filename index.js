@@ -31,37 +31,35 @@ function viewCart() {
 
 function total() {
   let t = 0
-
   for (var i = 0, l = cart.length; i < l; i++) {
     for (var item in cart[i]) {
       t += cart[i][item]
     }
   }
-
   return t
 }
 
 function removeFromCart (item) {
   for (var i = 0; i < cart.length; i++) {
-    for (var key in cart[i]) {
-      if (key === item) {
-        cart = cart.slice(0, i).concat(cart.slice(i+1));
-        return cart;
-      }
+    if (cart[i].hasOwnProperty(item)) {
+      cart = cart.slice(0, i).concat(cart.slice(i+1));
+      return cart;
     }
   }
-  return "That itme is not in your cart."
+  console.log("That item is not in your cart.")
 }
 
 function placeOrder(number) {
   if (number === undefined) {
-    return "We don't have a credit card on file for you to place your order."
+    console.log("We don't have a credit card on file for you to place your order.")
   } else {
-    for (i = 0; i < cart.length; i++) {
+/*
+    for (var i = 0; i < cart.length; i++) {
       for (var key in cart[i]) {
         removeFromCart(key);
       }
-    }
-    return "Your total cost is $${total()}, which will be charged to the card ${number}.";
+    }*/
+    cart = [];
+    console.log("Your total cost is $" + total() +", which will be charged to the card " + number + ".");
   }
 }
