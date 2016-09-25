@@ -53,13 +53,11 @@ function placeOrder(number) {
   if (number === undefined) {
     console.log("We don't have a credit card on file for you to place your order.")
   } else {
-/*
     for (var i = 0; i < cart.length; i++) {
       for (var key in cart[i]) {
         removeFromCart(key);
       }
-    }*/
-    cart = [];
+    }
     console.log("Your total cost is $" + total() +", which will be charged to the card " + number + ".");
   }
 }
