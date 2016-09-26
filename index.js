@@ -6,7 +6,6 @@ function setCart(newCart) {
 
 function total() {
   let t = 0
-
   for (var i = 0, l = cart.length; i < l; i++) {
     for (var item in cart[i]) {
       t += cart[i][item]
@@ -16,23 +15,23 @@ function total() {
 }
 
 function getCart() {
-  return cart;
+  return cart
 }
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100);
   cart.push({item: price});
   console.log(item + ' has been added to your cart.');
-  return cart;
+  return cart
 }
 
 function viewCart() {
   if (cart.length > 0) {
-    var stringForLog = '';
+    var stringForLog = ''
     for (var i = 0; i < cart.length; i++) {
-      var object = cart[i]
-      var itemName = Object.keys(object)[0]
-      var itemPrice = object[itemName]
+      var object = cart[i],
+          itemName = Object.keys(object)[0],
+          itemPrice = object[itemName];
       stringForLog += itemName + ' at $' + itemPrice + ', '
       console.log('the object is ' + cart[i]);
       console.log('itemName is ' + itemName);
