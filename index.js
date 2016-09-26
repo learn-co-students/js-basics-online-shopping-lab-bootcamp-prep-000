@@ -41,22 +41,6 @@ function viewCart() {
   }
 }
 
-// function viewCart() {
-//   if (cart.length > 0) {
-//     var stringArr = [];
-//     for (var i = 0; i < cart.length; i++) {
-//         var itemObject = cart[i]
-//         var item = Object.keys(itemObject)[0]
-//         var price = itemObject[item]
-//         str.push(`${item} at $${price}`)
-//       }
-//       var new_str = str.join(", ");
-//       console.log(`In your cart, you have ${new_str}.`)
-//   } else {
-//     console.log("Your shopping cart is empty.");
-//   }
-// }
-
 function removeFromCart(thing) {
   var found = false;
   for (var i = 0; i < cart.length; i++) {
