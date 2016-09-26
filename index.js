@@ -20,43 +20,55 @@ function getCart() {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100);
-  cart.push({item: price});
+  cart.push({[item]: price});
   console.log(item + ' has been added to your cart.');
   return cart
 }
 
 function viewCart() {
   if (cart.length > 0) {
-    var stringForLog = ''
+    var stringArr = [];
     for (var i = 0; i < cart.length; i++) {
-      var object = cart[i],
-          itemName = Object.keys(object)[0],
-          itemPrice = object[itemName];
-      stringForLog += itemName + ' at $' + itemPrice + ', '
-      console.log('the object is ' + cart[i]);
-      console.log('itemName is ' + itemName);
-      console.log('itemPrice is ' + itemPrice);
-      console.log('stringForLog is ' + stringForLog);
+      var object = cart[i]
+      var itemName = Object.keys(object)[0]
+      var itemPrice = object[itemName]
+      stringArr.push(`${itemName} at $${itemPrice}`)
     }
-    console.log('In your cart you have ' + stringForLog + '.');
+    var joinedString = stringArr.join(', ');
+    console.log(`In your cart, you have ${joinedString}.`)
   } else {
     console.log('Your shopping cart is empty.');
   }
 }
+
+// function viewCart() {
+//   if (cart.length > 0) {
+//     var stringArr = [];
+//     for (var i = 0; i < cart.length; i++) {
+//         var itemObject = cart[i]
+//         var item = Object.keys(itemObject)[0]
+//         var price = itemObject[item]
+//         str.push(`${item} at $${price}`)
+//       }
+//       var new_str = str.join(", ");
+//       console.log(`In your cart, you have ${new_str}.`)
+//   } else {
+//     console.log("Your shopping cart is empty.");
+//   }
+// }
 
 function removeFromCart(thing) {
   var found = false;
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].hasOwnProperty(thing)) {
       cart.splice(cart[i],1)
-      // delete cart[i];
     }
     return cart;
   }
   console.log('That item is not in your cart.');
 }
 
-function placeOrder(thing, cardNumber) {
+function placeOrder(cardNumber) {
   if (cardNumber === undefined) {
     console.log('We don\'t have a credit card on file for you to place your order.');
   } else {
