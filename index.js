@@ -3,7 +3,7 @@ var cart;
 var cart = []; // i added
 var item; // i added
 var price = Math.floor(Math.random()*100); // i added
-var cardNumber = 123; // i added
+var cardNumber; // i added
 
 function setCart(newCart) {
   cart = newCart;
