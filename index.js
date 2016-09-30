@@ -64,7 +64,7 @@ function viewCart() {
 function removeFromCart(item) {
   for (var item in cart) {
   if (!cart.hasOwnProperty(item)) { //if cart does NOT have item
-      //console.log(`That item is not in your cart.`);  -- seems like this should go here??
+      //console.log(`That item is not in your cart.`);  //-- seems like this should go here??
     } else if (cart.hasOwnProperty(item)) { //if cart does have item
       cart.pop(item);
     } return cart;
@@ -82,10 +82,6 @@ function removeFromCart(item) {
 
 //new version:
 
-// if (typeof variable !== 'undefined') {
-//     // the variable is defined
-// }
-
 function placeOrder(cardNumber) {
     if (typeof cardNumber !== 'undefined') { //if typeof variable, cardNumber, exists (AKA isn't undefined)
       console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
@@ -95,44 +91,8 @@ function placeOrder(cardNumber) {
   }
 }
 
-// function placeOrder(cardNumber) {
-//   //code here
-//   for (var cardNumber in cart) {
-//     if (cart.hasOwnProperty(cardNumber)) { //if cart does have cardNumber
-//
-//         var cardObject = cart[cardNumber];
-//         var cardKey = Object.keys(cardObject)[0]; //cardKey
-//         var cardValue = cardObject[cardKey]; //cardValue
-//         cardNumber = cardValue;
-//
-//       console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
-//       cart.length = 0;
-//     }
-//   } //console.log(`We don't have a credit card on file for you to place your order.`);
-// }
-
-
-//below works for "we don't have your card", but not for if they do have card
-
-// function placeOrder(cardNumber) {
-//   //code here
-//   for (var cardNumber in cart) {
-//   if (!cart.hasOwnProperty(cardNumber)) { //if cart does NOT have cardNumber
-//       //console.log(`We don't have a credit card on file for you to place your order.`);  -- seems like this should go here??
-//     } else if (cart.hasOwnProperty(cardNumber)) { //if cart does have cardNumber
-//
-//         // var cardObject = cart[cardNumber];
-//         // var cardKey = Object.keys(cardObject)[0]; //cardKey
-//         // var cardValue = cardObject[cardKey]; //cardValue
-//
-//       console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
-//       cart.length = 0;
-//     }
-//   } console.log(`We don't have a credit card on file for you to place your order.`);
-// }
-
-
-
+//////
+////
 //notes for viewCart:::
 
 
@@ -149,7 +109,6 @@ function placeOrder(cardNumber) {
 // }
 
 
-
 //new way
 
 // function viewCart() {
@@ -163,7 +122,6 @@ function placeOrder(cardNumber) {
 // }
 
 
-//
 //best so far: <<<<<<<---------
 
 // function viewCart() {
