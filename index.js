@@ -44,23 +44,22 @@ function viewCart() {
 
 function removeFromCart(item) {
 
-  if (!cart.length == 0) {
+  let hasItem = false;
 
-    for (let i = 0, l = cart.length; i < l; i++) {
-
-      if (cart[i].hasOwnProperty(item) === true) {
-        cart.splice(i, 1);
-        return cart;
-      } else {
-        if (i === cart.length - 1) {
-          console.log(`That item is not in your cart.`);
-      }
+  for (let i = 0, l = cart.length; i < l; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      hasItem = true;
+      cart.splice(i, 1);
     }
   }
-} else {
-    console.log(`That item is not in your cart.`)
+
+  if (!hasItem) {
+    console.log(`That item is not in your cart.`);
   }
-}
+
+  return cart;
+  }
+
 
 function placeOrder(cardNumber) {
   if (!cardNumber) {
