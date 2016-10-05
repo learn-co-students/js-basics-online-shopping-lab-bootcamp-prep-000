@@ -1,4 +1,5 @@
-var cart = [];
+var cart = [{iphone: 250}, {xbox: 300}]
+
 
 function setCart(newCart) {
   cart = newCart;
@@ -12,19 +13,27 @@ function addToCart(item){
   var price = Math.floor(Math.random() * 100);
   cart.push(item);
   cart.item = price;
-  console.log(item + " has been added to your cart");
+  console.log(item + " has been added to your cart.");
   return cart
 }
 
-function viewCart(){
-  for (var item in cart) {
-    if (cart > 0){
-  console.log("In your cart, you have " + item + " at " + cart.item)
-} else {
-    console.log("Your shopping cart is empty")
-    }
-  }
+function viewCart()
+{
+  var newCartArr = [];
+  var keys = Object.keys(cart);
+
+  for( var i = 0, l = keys.length; i < l; i++)
+  {
+    newCartArr.push(`${keys[i]} at $${cart[keys[i]]}`);
 }
+    if (newCartArr.length > 0){
+      console.log('In your cart, you have ' + newCartArr.join(', ') + '.')
+    } else {
+      console.log('Your shopping cart is empty.')
+    }
+
+  }
+
 
 
 function removeFromCart(item){
@@ -59,3 +68,5 @@ function total() {
   }
   return t
 }
+
+viewCart();
