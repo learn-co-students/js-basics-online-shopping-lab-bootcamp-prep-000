@@ -1,4 +1,4 @@
-var cart = [{iphone: 250}, {xbox: 300}]
+var cart = [{iphone: 250}, {xbox: 300}];
 
 
 function setCart(newCart) {
