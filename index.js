@@ -1,4 +1,4 @@
-var cart = []
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
@@ -24,7 +24,7 @@ function getCart() {
 function addToCart(item) {
 var price = Math.floor(Math.random() * 10);
 var obj = {};
-obj[`${item}`] = price;
+obj[item] = price;
 cart.push(obj);
 console.log(`${item} has been added to your cart.`);
 return cart;
@@ -34,12 +34,16 @@ function viewCart() {
   if (cart.length === 0) {
     console.log('Your shopping cart is empty.');
   } else {
-    var array = [];
-    for (var item in cart) {
-      array.push(`${item} at ${cart[item]}.`);
+    var inYourCart = ['In your cart, you have'];
+    var concatter = [];
+    for (var i = 0; i < cart.length; i++) {
+      var cartItem = cart[i]; // {iphone: 250}
+      var itemKey = Object.keys(cartItem)[0];
+      var itemValue = cartItem[itemKey];
+      concatter.push(` ${itemKey} at $${itemValue}`);
     }
-    var inCart = 'In your cart, you have ';
-    console.log(inCart.concat(array.join(', ')) + '.');
+      var finalCart = inYourCart.concat(concatter);
+      console.log(`${finalCart}.`);
   }
 }
 
