@@ -1,8 +1,8 @@
-var cart = [{iphone: 250}, {xbox: 300}];
+var cart = [];
 
 
 function setCart(newCart) {
-  cart = newCart;
+  cart = newCart
 }
 
 function getCart(){
@@ -20,11 +20,12 @@ function addToCart(item){
 function viewCart()
 {
   var newCartArr = [];
-  var keys = Object.keys(cart);
-
-  for( var i = 0, l = keys.length; i < l; i++)
+  for( var i = 0, l = cart.length; i < l; i++)
   {
-    newCartArr.push(`${keys[i]} at $${cart[keys[i]]}`);
+      let itemAndPrice = cart[i]
+      let item = Object.keys(itemAndPrice)[0]
+      let price = itemAndPrice[item]
+    newCartArr.push(item + " at " + "$" + price);
 }
     if (newCartArr.length > 0){
       console.log('In your cart, you have ' + newCartArr.join(', ') + '.')
@@ -53,8 +54,10 @@ function placeOrder(ccNum){
   if(ccNum == undefined){
     console.log("We don't have a credit card on file for you to place your order.");
   } else {
-    console.log("Your total cost is $${total()}, which will be charged to the card ${ccNum}.");
-    cart.length = 0;
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${ccNum}.`);
+    while(cart.length > 0){
+      cart.pop();
+    }
   }
 }
 
@@ -68,5 +71,3 @@ function total() {
   }
   return t
 }
-
-viewCart();
