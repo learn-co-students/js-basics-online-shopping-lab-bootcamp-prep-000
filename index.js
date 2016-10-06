@@ -28,8 +28,8 @@ return cart;
 }
 
 function viewCart(){
-if (cart.length == 0) {return console.log('Your shopping cart is empty.')}
-{ const cartSentence = [];
+if (cart.length === 0) {return console.log('Your shopping cart is empty.')}
+else{ const cartSentence = [];
 var cartItems = Object.keys(cart);
 for (var cartItems in cart) {
 cartSentence.push(`${cartItems} at ${cart[cartItems]}`)};
