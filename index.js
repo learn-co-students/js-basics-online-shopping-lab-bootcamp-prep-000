@@ -38,19 +38,34 @@ function viewCart() {
   var msg = []
   for (var i in cart) {
     var item = Object.keys(cart[i]);
+    var price = cart[i][item]
 
-    msg.push(`${item} at \$${cart[i][item]}`)
+    msg.push(`${item} at \$${price}`)
 
     console.log(`In your cart, you have ${msg.join(', ')}.`)
-
   }
 }
 
-
 function removeFromCart(item) {
+  for (var i in cart) {
+    if (cart[i].hasOwnProperty(item)) {
+      cart.splice(cart.indexOf(i), 1)
 
+      return cart
+    }
+  }
+
+  console.log(`That item is not in your cart.`)
+  return cart
 }
 
-function placeOrder(ccnum) {
+function placeOrder(cardNumber) {
+  if (typeof cardNumber === 'undefined') {
+    console.log(`We don\'t have a credit card on file for you to place your order.`)
+  } else {
+    console.log(`Your total cost is \$${total()}, which will be charged to the card ${cardNumber}.`)
+    cart = []
+  }
 
+  return cart
 }
