@@ -38,14 +38,16 @@ function viewCart() {
   }
 
   var msg = []
-  for (var i = 0; i < cart.length; i++) {
-    var price = Object.keys(cart[i][1]);
-    var item = Object.keys(cart[i][0]);
-    msg.push(`${item} at \$${price}`);
+  for (var i in cart) {
+    var item = Object.keys(cart[i]);
+
+    msg.push(`${item} at \$${cart[i][item]}`)
 
     console.log(`In your cart, you have ${msg.join(', ')}.`)
+
   }
 }
+
 
 function removeFromCart(item) {
 
