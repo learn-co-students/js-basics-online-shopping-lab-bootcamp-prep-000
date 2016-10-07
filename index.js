@@ -52,16 +52,15 @@ cartSentence.push(`${itemSolo} at \$${itemPrice}`);
 function removeFromCart(item)
 {
   var foundIt = false;
-  for (var i = 0, l = cart.length; i < l; i++);
+  for (var i = 0, l = cart.length; i < l; i++)
   {
     if (cart[i].hasOwnProperty(item))
     {
-      var itemAndPrice = cart[i];
-      delete itemAndPrice[item];
+      cart.splice(i, 1);
       foundIt = true;
     }
 }
-  if (foundIt === false){console.log("That item is not in your cart.")}
+  if (!foundIt){console.log("That item is not in your cart.")}
 }
 
 function placeOrder(cardNumber) {
