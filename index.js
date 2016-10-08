@@ -34,7 +34,7 @@ function viewCart() {
   if (cart.length === 0) {
     console.log('Your shopping cart is empty.');
   } else {
-    var inYourCart = ['In your cart, you have'];
+    var inYourCart = 'In your cart, you have';
     var concatter = [];
     for (var i = 0; i < cart.length; i++) {
       var cartItem = cart[i]; // {iphone: 250}
@@ -42,16 +42,19 @@ function viewCart() {
       var itemValue = cartItem[itemKey];
       concatter.push(` ${itemKey} at $${itemValue}`);
     }
-      var finalCart = inYourCart.concat(concatter);
-      console.log(`${finalCart}.`);
+      console.log(`${inYourCart}${concatter}.`);
   }
 }
 
 function removeFromCart(item) {
-if (cart.hasOwnProperty(item)) {
-  delete cart.item;
-  return cart;
-} else {
-console.log('That item is not in your cart.');
+  for (var i = 0; i < cart.length; i++) {
+    for (var key in cart[i]) {
+    if (key == item) {
+      cart.splice(i, 1);
+      console.log(cart);
+    } else {
+      console.log('That item is not in your cart.');
+    }
+  }
 }
 }
