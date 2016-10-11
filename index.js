@@ -68,24 +68,9 @@ function add(a, b) {
 }
 
 function placeOrder(cardNumber) {
-if (arguments.length === 0) {
-  console.log('We don\'t have a credit card on file for you to place your order.');
-} else {
-  var itemPrices = [];
-  for (var i = 0; i < cart.length; i++) {
-  var cartItem = cart[i]; // {iphone: 250}
-  var itemKey = Object.keys(cartItem)[0]; // grab the key of just that one specific cart item.
-  var itemValue = cartItem[itemKey];
-  itemPrices.push(itemValue);
+  if (!cardNumber) {
+    console.log('We don\'t have a credit card on file for you to place your order.');
+  }
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+  cart = [];
 }
-console.log(`Your total cost is $${itemPrices.reduce(add, 0)}, which will be charged to the card ${cardNumber}. `)
-}
-cart.length = 0;
-console.log(cart);
-console.log(itemPrices);
-}
-
-addToCart('calzone');
-addToCart('bokbok');
-addToCart('pea');
-placeOrder(123);
