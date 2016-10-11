@@ -63,6 +63,10 @@ function removeFromCart(item) {
       return cart;
 }
 
+function add(a, b) {
+    return a + b;
+}
+
 function placeOrder(cardNumber) {
 if (arguments.length === 0) {
   console.log('We don\'t have a credit card on file for you to place your order.');
@@ -74,12 +78,14 @@ if (arguments.length === 0) {
   var itemValue = cartItem[itemKey];
   itemPrices.push(itemValue);
 }
-console.log(`Your total cost is $${itemPrices[0]}, which will be charged to the card ${cardNumber}. `)
+console.log(`Your total cost is $${itemPrices.reduce(add, 0)}, which will be charged to the card ${cardNumber}. `)
 }
-cart.shift();
+cart.length = 0;
 console.log(cart);
 console.log(itemPrices);
 }
 
 addToCart('calzone');
+addToCart('bokbok');
+addToCart('pea');
 placeOrder(123);
