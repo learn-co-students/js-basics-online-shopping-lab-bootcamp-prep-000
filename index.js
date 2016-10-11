@@ -38,7 +38,7 @@ function viewCart() {
     var concatter = [];
     for (var i = 0; i < cart.length; i++) {
       var cartItem = cart[i]; // {iphone: 250}
-      var itemKey = Object.keys(cartItem)[0];
+      var itemKey = Object.keys(cartItem)[0]; // grab the key of just that one specific cart item.
       var itemValue = cartItem[itemKey];
       concatter.push(` ${itemKey} at $${itemValue}`);
     }
@@ -46,15 +46,40 @@ function viewCart() {
   }
 }
 
+
+
 function removeFromCart(item) {
+  var itemInCart = false;
   for (var i = 0; i < cart.length; i++) {
-    for (var key in cart[i]) {
-    if (key == item) {
+    if (cart[i].hasOwnProperty(item)) {
+      itemInCart = true;
       cart.splice(i, 1);
-      console.log(cart);
-    } else {
-      console.log('That item is not in your cart.');
     }
   }
+
+  if (!itemInCart) {
+  	console.log('That item is not in your cart.');
+  }
+      return cart;
 }
+
+function placeOrder(cardNumber) {
+if (arguments.length === 0) {
+  console.log('We don\'t have a credit card on file for you to place your order.');
+} else {
+  var itemPrices = [];
+  for (var i = 0; i < cart.length; i++) {
+  var cartItem = cart[i]; // {iphone: 250}
+  var itemKey = Object.keys(cartItem)[0]; // grab the key of just that one specific cart item.
+  var itemValue = cartItem[itemKey];
+  itemPrices.push(itemValue);
 }
+console.log(`Your total cost is $${itemPrices[0]}, which will be charged to the card ${cardNumber}. `)
+}
+cart.shift();
+console.log(cart);
+console.log(itemPrices);
+}
+
+addToCart('calzone');
+placeOrder(123);
