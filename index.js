@@ -44,5 +44,6 @@ function viewCart(){
       tmpArry.push(` ${objNames} at $${obj[objNames]}`)
     }
   }
-  return console.log("In your cart, you have" + tmpArry);
+  console.log("In your cart, you have" + tmpArry +".");
+  return cart
 }
