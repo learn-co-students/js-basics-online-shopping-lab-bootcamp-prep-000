@@ -26,7 +26,7 @@ function getCart(){
 
 function addToCart(item){
   var obj={};
-  obj.item=Math.floor(getRandomArbitrary(0,100))
+  obj[item]=Math.floor(getRandomArbitrary(0,100))
   cart.push(obj)
   console.log(`${item} has been added to your cart.`);
   return cart;
@@ -43,6 +43,6 @@ function viewCart(){
       var objNames= Object.keys(obj)    //object key is assined a new variable
       tmpArry.push(` ${objNames} at $${obj[objNames]}`)
     }
-    return console.log("In your cart, you have" + tmpArry);
   }
+  return console.log("In your cart, you have" + tmpArry);
 }
