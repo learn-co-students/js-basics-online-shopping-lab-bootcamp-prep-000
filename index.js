@@ -47,3 +47,24 @@ function viewCart(){
   console.log("In your cart, you have" + tmpArry +".");
   return cart
 }
+
+function removeFromCart(item){
+  for(var i=0; i<cart.length; i++){
+    var obj= cart[i]
+    if(obj.hasOwnProperty(item)){
+      cart.splice(i,1)
+      return cart
+    }
+  }
+  return console.log("That item is not in your cart.")
+ }
+
+function placeOrder(cardNumber){
+  if(cardNumber==0 || cardNumber==null ){
+    console.log("We don\'t have a credit card on file for you to place your order.")
+  }
+  else{
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    setCart(cart=[])
+  }
+}
