@@ -19,13 +19,35 @@ function viewCart () {
     for(var i = 0; i < cart.length; i ++) {
       var pair = cart[i];
       var cartItem = Object.keys(pair)
-      itemPrice.push (`${cartItem} at $${pair[cartItem[i]]}`)
+      itemPrice.push (`${cartItem} at $${pair[cartItem]}`)
       var string = itemPrice.join(', ');
 }
       console.log(`In your cart, you have ${string}.`)
 }else{
   console.log("Your shopping cart is empty.")
   }
+}
+
+function removeFromCart(name){
+      for(var i = 0; i < cart.length; i++){
+      var pair = cart[i];
+      if (pair.hasOwnProperty(name)){
+      cart.splice(i, 1);
+      return cart;
+}
+}
+      if (cart.hasOwnProperty(name) === false){
+    console.log("That item is not in your cart.")
+    }
+  }
+
+function placeOrder(cardNumber){
+    if (cardNumber === undefined){
+    console.log("We don't have a credit card on file for you to place your order.");
+} else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    cart.splice(0);
+}
 }
 
 function setCart(newCart) {
