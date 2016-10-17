@@ -45,7 +45,7 @@ const ItemAndPrice = [] // creating empty array 'item&price' to store the 'item'
     let item = Object.keys(ItemPriceObj)[0] // getting 'item(key)' sepratly from the above retrieved 'item-price' 'obj. pair' //
     let price = ItemPriceObj[item] // getting 'price(value)' sepratly from the above retrieved 'item-price' 'obj. pair' //
 
-    inp.push (`${item} at \$${price}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
+    ItemAndPrice.push (`${item} at \$${price}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
   } // end of for body
 
   console.log(`In your cart you have ${ItemAndPrice}.`)
