@@ -1,4 +1,4 @@
-var cart;
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
@@ -14,4 +14,40 @@ function total() {
   }
 
   return t
+}
+
+function getCart()
+{
+  return cart;
+}
+
+function addToCart(item) {
+  const price = Math.floor(Math.random() * 100)
+
+  cart.push({item:price})
+
+  console.log(`${item} has been added to your cart.`)
+
+  return getCart()
+}
+
+function viewCart()
+{
+  const l = cart.length
+
+  if(!l)
+  {console.log("Your shopping cart is empty.")}
+
+const inp = [] // creating empty array 'item&price' to store the 'item' & 'price' to be retrieved from below for body //
+
+  for(let i = 0; i < l; i++)
+  { /// begin of for body
+    let ip = cart[i] // getting ind. 'itmp-price obj. pair' from 'cart'(array of multiple itemp-price obj. pairs) //
+    let it = Object.keys(ip)[0] // getting 'item(key)' sepratly from the above retrieved 'item-price' 'obj. pair' //
+    let pr = ip[it] // getting 'price(value)' sepratly from the above retrieved 'item-price' 'obj. pair' //
+
+    inp.push (`${it} at \$${pr}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
+  } // end of for body
+
+  console.log(`In your cart you have ${inp}.`)
 }
