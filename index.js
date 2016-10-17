@@ -37,16 +37,17 @@ function viewCart()
   if(!cart.length)
   {console.log("Your shopping cart is empty.")}
 
-const ItemAndPrice = [] // creating empty array 'item&price' to store the 'item' & 'price' to be retrieved from below for body //
+  else {
+const ItemAndPrice = []
 
   for(let i = 0; i < cart.length; i++)
-  { /// begin of for body
-    let ItemPriceObj = cart[i] // getting ind. 'itmp-price obj. pair' from 'cart'(array of multiple itemp-price obj. pairs) //
-    let item = Object.keys(ItemPriceObj)[0] // getting 'item(key)' sepratly from the above retrieved 'item-price' 'obj. pair' //
-    let price = ItemPriceObj[item] // getting 'price(value)' sepratly from the above retrieved 'item-price' 'obj. pair' //
+  {
+    let ItemPriceObj = cart[i]
+    let item = Object.keys(ItemPriceObj)[0]
+    let price = ItemPriceObj[item]
 
-    ItemAndPrice.push (`${item} at \$${price}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
-  } // end of for body
-
-  console.log(`In your cart you have ${ItemAndPrice}.`)
+    ItemAndPrice.push (`${item} at \$${price}`)
+  }
+    console.log(`In your cart you have ${ItemAndPrice}.`)
+}
 }
