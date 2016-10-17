@@ -33,21 +33,20 @@ function addToCart(item) {
 
 function viewCart()
 {
-  const l = cart.length
 
-  if(!l)
+  if(!cart.length)
   {console.log("Your shopping cart is empty.")}
 
-const inp = [] // creating empty array 'item&price' to store the 'item' & 'price' to be retrieved from below for body //
+const ItemAndPrice = [] // creating empty array 'item&price' to store the 'item' & 'price' to be retrieved from below for body //
 
-  for(let i = 0; i < l; i++)
+  for(let i = 0; i < cart.length; i++)
   { /// begin of for body
-    let ip = cart[i] // getting ind. 'itmp-price obj. pair' from 'cart'(array of multiple itemp-price obj. pairs) //
-    let it = Object.keys(ip)[0] // getting 'item(key)' sepratly from the above retrieved 'item-price' 'obj. pair' //
-    let pr = ip[it] // getting 'price(value)' sepratly from the above retrieved 'item-price' 'obj. pair' //
+    let ItemPriceObj = cart[i] // getting ind. 'itmp-price obj. pair' from 'cart'(array of multiple itemp-price obj. pairs) //
+    let item = Object.keys(ItemPriceObj)[0] // getting 'item(key)' sepratly from the above retrieved 'item-price' 'obj. pair' //
+    let price = ItemPriceObj[item] // getting 'price(value)' sepratly from the above retrieved 'item-price' 'obj. pair' //
 
-    inp.push (`${it} at \$${pr}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
+    inp.push (`${item} at \$${price}`) // clubbing above retrieved 'item' & 'price' & storing them into empty array 'inp' //
   } // end of for body
 
-  console.log(`In your cart you have ${inp}.`)
+  console.log(`In your cart you have ${ItemAndPrice}.`)
 }
