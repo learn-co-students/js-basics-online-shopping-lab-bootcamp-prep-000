@@ -97,7 +97,7 @@ describe('#placeOrder', function() {
   });
 
   it("lets you place an order with a credit card", function() {
-    addToCart('pizza')
+    //addToCart('pizza')
 
     const t = total()
 
