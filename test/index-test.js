@@ -96,18 +96,17 @@ describe('#placeOrder', function() {
     )
   });
 
-  it("lets print message that shows the total and the cardNumber used", function() {
-    addToCart('pizza')
-    var testcardNumber = "123"
+  it("lets you place an order with a credit card", function() {
+      addToCart('pizza')
 
-    const t = total()
+      const t = total()
 
-    placeOrder(testcardNumber);
-
-    expect(console.log).toHaveBeenCalledWith(
-    `Your total cost is $${total()}, which will be charged to the card ${testcardNumber}.`
-    )
-  });
+      placeOrder(123);
+  
+      expect(console.log).toHaveBeenCalledWith(
+        `Your total cost is $${t}, which will be charged to the card 123.`
+      )
+    });
 
   it('empties the cart', function() {
     addToCart('pizza')
