@@ -34,27 +34,27 @@ var string = 'In your cart, you have ';
 }
 
 function removeFromCart (item) {
+  var newCart = [];
   for (var i=0; i<cart.length; i++) {
   if (cart[i].hasOwnProperty(item)){
-    var newCart = [];
-    for (var i=0; i<cart.length; i++) {
-      if (item != cart[i].toString) {
-        var newthing = {
-          [item] : cart[i][Object.keys(cart[i]).toString()]
-        }
-        newCart.push(newthing);
-      }
-    }
-    setCart(newCart)
-    return cart;
+    cart.splice(i,1);
+    console.log(cart);
   }
   else {
-    console.log ("That item is not in your cart.")
+    console.log("That item is not in your cart.");
   }
 }
 }
 
 function placeOrder(number) {
+if (!!number) {
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${number}.`);
+  cart = [];
+}
+else {
+  console.log ("We don't have a credit card on file for you to place your order.");
+}
+
 
 }
 
