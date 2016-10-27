@@ -10,7 +10,7 @@ function setCart(newCart) {
 
 function addToCart (item) {
  var thing = {
-   item : Math.floor(Math.random()*100)
+   [item] : Math.floor(Math.random()*100)
  }
  cart.push(thing);
  console.log(`${item} has been added to your cart.`);
@@ -18,21 +18,40 @@ function addToCart (item) {
 }
 
 function viewCart () {
-var string = "In your cart you have ";
-  if (cart.length >= 0) {
-    for (var i=0; i<cart.length; i++) {
-      string += cart[i];
-      return string;
+var string = 'In your cart, you have ';
+  if (cart.length > 0) {
+    for (var i=0; i<cart.length-1; i++) {
+//     string += Object.keys(cart[i]).toString() + " at " + Object.values(cart[i]).toString();
+      string += Object.keys(cart[i]).toString() + " at $" + cart[i][Object.keys(cart[i]).toString()] + ", ";
     }
+    string += Object.keys(cart[cart.length-1]).toString() + " at $" + cart[cart.length-1][Object.keys(cart[cart.length-1]).toString()] + ".";
+    console.log(string);
   }
   else {
-    return "Your shopping cart is empty."
+    console.log('Your shopping cart is empty.');
   }
 
 }
 
 function removeFromCart (item) {
-
+  for (var i=0; i<cart.length; i++) {
+  if (cart[i].hasOwnProperty(item)){
+    var newCart = [];
+    for (var i=0; i<cart.length; i++) {
+      if (item != cart[i].toString) {
+        var newthing = {
+          [item] : cart[i][Object.keys(cart[i]).toString()]
+        }
+        newCart.push(newthing);
+      }
+    }
+    setCart(newCart)
+    return cart;
+  }
+  else {
+    console.log ("That item is not in your cart.")
+  }
+}
 }
 
 function placeOrder(number) {
