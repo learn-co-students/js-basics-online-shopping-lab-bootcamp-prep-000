@@ -27,7 +27,7 @@ function viewCart(){
   } else {
     return `In your cart, you have ${newArray.join(', ')}.`
   }
-}
+} 
 /*function viewCart(){
   var item = Object.keys(cart)
   var newArray = new Array();
