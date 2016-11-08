@@ -1,5 +1,4 @@
 var cart = []
-var item = Object.keys(cart)
 
 function setCart(newCart) {
   cart = newCart;
@@ -10,37 +9,34 @@ function getCart(){
 }
 
 function addToCart(item){
-  var price = Math.random() * 100
-  var price = Math.floor()
-  cart.push({item: price})
+  var price = Math.floor(Math.random() * 100)
+  /*cart.push({item: price})*/
+  cart.push({[item]: price})
   console.log(`${item} has been added to your cart.`)
   return cart
 }
 
 function viewCart(){
   var newArray = new Array();
-  for (var i = 0, l = item.length; i < l; i++) {
-    newArray.push(`${item[i]} at $${cart[item[i]]}`)
+  for (var i = 0, l = cart.length; i < l; i++) {
+    var item = Object.keys(cart[i])[0]
+    var price = cart[i][item]
+    newArray.push(`${item} at $${price}`)
   }
   if (cart.length === 0){
-    return "Your shopping cart is empty."
+    console.log ("Your shopping cart is empty.")
   } else {
-    return `In your cart, you have ${newArray.join(', ')}.`
-  }
-} 
-/*function viewCart(){
-  var item = Object.keys(cart)
-  var newArray = new Array();
-  for (var i = 0, l = item.length; i < l; i++) {
-    newArray.push(`${item[i]} at $${cart[item[i]]}`)
-    if (cart.length === 0){
-      return "Your shopping cart is empty."
-    } else {
-      return `In your cart, you have ${newArray.join(', ')}.`
-    }
+    console.log (`In your cart, you have ${newArray.join(', ')}.`)
   }
 }
-*/
+function removeFromCart(item){
+  if (cart.hasOwnProperty(item) === false){
+    console.log("That item is not in your cart.")
+  } else {
+    delete cart.item
+    return cart
+  }
+}
 
 function total() {
   let t = 0
