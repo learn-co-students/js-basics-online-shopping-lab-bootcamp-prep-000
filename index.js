@@ -23,8 +23,7 @@ function total() {
       t += cart[i][item]
     }
   }
-
-  return t
+ return t
 }
 
 function viewCart () {
@@ -60,24 +59,14 @@ function removeFromCart (item) {
 
 function placeOrder (creditCardNumber) {
 
-     var cart =[];
-    if (cart.length===0) {
+    if (creditCardNumber===undefined) {
     console.log("We don't have a credit card on file for you to place your order.")
   }
 
-    for (var i=0; cart.length > i; i++) {
-
-    var itemAndPrice = cart[i];
-    var item =Object.keys(itemAndPrice)[0]
-    var itemPrice = itemAndPrice[item]
-
-
-    cart.push(`${creditCardNumber}`)
-    var totalCost = totalCost[i]+ `${itemPrice[i]}`;
-
-    console.log(`Your total cost is \$${totalCost}, which will be charged to the card
-      ${array}.`)
-  }
-
+    else {
+    var totalPrice = total();
+    console.log(`Your total cost is \$${totalPrice}, which will be charged to the card
+    ${creditCardNumber}.`)
+}
     return cart;
-  }
+}
