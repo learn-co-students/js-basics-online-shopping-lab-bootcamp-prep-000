@@ -1,22 +1,17 @@
 var cart = [];
-function setCart(cart) {
-
+function setCart(newCart) {
+cart = newCart;
 
 }
 
-function getCart () { // this is the first function //
-
+function getCart() {
   return cart;
 }
 
 function addToCart (item) {
-
-  var price = Math.floor(Math.random() * 100);
-
-  cart.push({item:price});
-
-  console.log(`${item} has been added to your cart.`)
-
+  var price = Math.floor(Math.random()*100);
+  cart.push({[item]: price});
+  console.log (`${item} has been added to your cart.`);
   return cart;
 }
 
@@ -32,24 +27,57 @@ function total() {
   return t
 }
 
-
-
-
-
-function viewCart() {
-    var array = [];
-    if (cart.length===0) {
-    console.log("Your shopping cart is empty.");
-    }
-
-    for (var i = 0; i < cart.length ; i++) {
-    var itemAndPrice = cart[i]
-    var item = Object.keys(itemAndPrice)[0]
-    var price = itemAndPrice[item]
-
+function viewCart () {
+  var array=[];
+  if (cart.length===0) {
+    console.log("Your shopping cart is empty.")
+  }
+  for (var i=0; cart.length > i;i++) {
+    var itemAndPrice = cart[i];
+    var item = Object.keys(itemAndPrice)[0];
+    var price = itemAndPrice[item];
     array.push(`${item} at \$${price}`)
+  }
+  console.log (`In your cart, you have ${array.join(", ")}.`)
+}
 
+
+function removeFromCart (item) {
+        if (cart.length===0) {
+        console.log ("That item is not in your cart.")
+        }
+
+        for (var i=0; cart.length > i;i++) {
+          var itemAndPrice = cart[i]
+
+
+        if (itemAndPrice.hasOwnProperty(item)){
+            cart.splice([i],1)
+        }
+      }
+        return cart;
+      }
+
+function placeOrder (creditCardNumber) {
+
+     var cart =[];
+    if (cart.length===0) {
+    console.log("We don't have a credit card on file for you to place your order.")
   }
 
-  console.log(`In your cart, you have ${array.join(', ')}.`);
-}
+    for (var i=0; cart.length > i; i++) {
+
+    var itemAndPrice = cart[i];
+    var item =Object.keys(itemAndPrice)[0]
+    var itemPrice = itemAndPrice[item]
+
+
+    cart.push(`${creditCardNumber}`)
+    var totalCost = totalCost[i]+ `${itemPrice[i]}`;
+
+    console.log(`Your total cost is \$${totalCost}, which will be charged to the card
+      ${array}.`)
+  }
+
+    return cart;
+  }
