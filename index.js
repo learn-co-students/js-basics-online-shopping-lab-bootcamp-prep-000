@@ -36,11 +36,41 @@ function viewCart() {
   if (cart.length === 0){
     console.log("Your shopping cart is empty.")
   } else {
-    var items = Object.keys(cart)
-    for (var i = 0, l = items.length; i < l; i++) {
-      var array = []
-      array.push(`${items[i]} at ${cart[items[i]]}`)
-      console.log(`In your cart you have ${array.join(' ')}.`)
+    var array = []
+    for (var i = 0, l = cart.length; i < l; i++) {
+      var item = Object.keys(cart[i])[0]
+      array.push(`${item} at $${cart[i][item]}`)
     }
+    console.log(`In your cart, you have ${array.join(', ')}.`)
+  }
+}
+
+
+function removeFromCart(itemName){
+  var foundItem = false
+
+  for (var i = 0, l = cart.length; i < l; i++) {
+
+    if (cart[i].hasOwnProperty(itemName) === true) {
+      foundItem = true
+    }
+
+    if (foundItem === true) {
+      cart.splice(i, 1)
+      console.log(cart)
+    }
+  }
+
+  if (foundItem === false) {
+    console.log('That item is not in your cart.')
+  }
+}
+
+function placeOrder(cardNumber) {
+  if (cardNumber !== undefined) {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    cart = []
+  } else {
+    console.log("We don't have a credit card on file for you to place your order.")
   }
 }
