@@ -14,7 +14,6 @@ afterEach(function() {
 describe('#addToCart', function() {
   it("should add an item to the cart", function() {
     addToCart('pizza')
-
     expect(getCart().length).toEqual(1);
   });
 
