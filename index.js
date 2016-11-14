@@ -12,11 +12,10 @@ function addToCart(item){
 }
 
 function viewCart(){
-  var newArr = Object.keys(cart)
-  if (newArr.length > 0){
+  if (cart.length > 0){
     var list = []
-    for (var item in cart){
-      list = [...list, `${item} at $${cart[item]}`]
+    for (var i = 0; i < cart.length; i++){
+      list = [...list, `${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}`]
     }
     list.join(', ')
     console.log(`In your cart, you have ${list}.`)
@@ -26,11 +25,18 @@ function viewCart(){
 }
 
 function removeFromCart(item){
-  if (cart.hasOwnProperty(item)){
-    delete cart[item]
-  } else{
-    console.log(`That item is not in your cart.`)
+  for (i=0; i<cart.length; i++) {
+    var deleted = 0
+    if (Object.keys(cart[i]) = item) {
+      deleted = deleted + 1
+      delete.cart[i]
+    }
   }
+    if (cart.hasOwnProperty(item)){
+      delete cart[i]
+    } else{
+      console.log(`That item is not in your cart.`)
+    }
 }
 
 function setCart(newCart) {
