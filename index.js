@@ -21,10 +21,12 @@ function getCart(){
 }
 
 function addToCart(newitem){
- (newitem*Math.random()).Math.floor()
-
+newItemPrice=Math.floor(Math.random()*100);
+cart({newitem:newItemPrice})
+return (newitem "has been added to your cart.")
 }
 
+/*
 function viewCart(){
 if (cart>=1){
   console.log("In your cart you have [item,price].")
