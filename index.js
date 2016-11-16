@@ -27,18 +27,22 @@ console.log(item + " has been added to your cart.");
 return cart
 }
 
-/*
+
+
 function viewCart(){
 if (cart>=1){
-  console.log("In your cart you have [item,price].")
+  console.log("In your cart you have ${cart[item]}")
 }
 else{
   return ("Your shopping cart is empty.");
 }
 
+
+/*
 function removeFromCArt(removethis){
   if (removethis is not in cart){
     return ("That Item is not in your cart.");
+
   }
   else{
   return  cart.pop(removethis);
