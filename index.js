@@ -34,6 +34,8 @@ if(cart.length<=0){
   console.log("Your shopping cart is empty.");
 }
 else{
-    console.log(`In your cart, you have ${cart}  `);
+for (var itemInCart in cart){
+  console.log(`In your cart, you have ${cart} at$${cart[price]}.`)
+}
 }
 }
