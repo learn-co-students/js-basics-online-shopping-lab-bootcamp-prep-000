@@ -21,8 +21,8 @@ function getCart(){
 }
 
 function addToCart(item){
-var price=Math.floor(Math.random()*100);
-cart[({item: price)}];
+var price=Math.floor(Math.random())*100;
+cart.append[{item: price}];
 return (item + " has been added to your cart.")
 }
 
