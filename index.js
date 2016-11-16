@@ -30,7 +30,12 @@ return cart
 
 
 function viewCart(){
+if(cart<=0){
+  console.log("Your shoppping cart is empty.");
+}
+else{
   for (var itemInCart in cart) {
     console.log(`In your cart, you have ${itemInCart} at $ ${cart[itemInCart]}. `);
+}
 }
 }
