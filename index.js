@@ -37,4 +37,3 @@ else{
     console.log(`In your cart, you have ${cart}  `);
 }
 }
-}
