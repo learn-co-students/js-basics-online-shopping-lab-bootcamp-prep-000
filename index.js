@@ -35,7 +35,7 @@ if(cart<=0){
 }
 else{
   for (var itemInCart in cart) {
-    console.log(`In your cart, you have ${itemInCart} at $ ${cart[itemInCart]}. `);
+    console.log(`In your cart, you have ${itemInCart} at $ ${cart[price]}. `);
 }
 }
 }
