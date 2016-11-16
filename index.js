@@ -30,7 +30,7 @@ return cart
 
 
 function viewCart(){
-if(cart<=0){
+if(cart.length<=0){
   console.log("Your shoppping cart is empty.");
 }
 else{
