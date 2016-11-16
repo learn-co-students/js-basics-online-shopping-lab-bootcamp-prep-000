@@ -31,11 +31,11 @@ return cart
 
 function viewCart(){
 if(cart.length<=0){
-  console.log("Your shoppping cart is empty.");
+  console.log("Your shopping cart is empty.");
 }
 else{
   for (var itemInCart in cart) {
-    console.log(`In your cart, you have ${itemInCart} at $ ${cart[itemInCart]}. `);
+    console.log(`In your cart, you have ${cart}  `);
 }
 }
 }
