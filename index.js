@@ -20,10 +20,10 @@ function getCart(){
   return cart
 }
 
-function addToCart(newitem){
-newItemPrice=Math.floor(Math.random()*100);
-cart({newitem:newItemPrice})
-return (newitem + "has been added to your cart.")
+function addToCart(item){
+price=Math.floor(Math.random()*100);
+cart({item: price})
+return (item + "has been added to your cart.")
 }
 
 /*
