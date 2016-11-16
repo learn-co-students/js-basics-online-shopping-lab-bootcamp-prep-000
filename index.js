@@ -30,11 +30,7 @@ return cart
 
 
 function viewCart(){
-
-  for (var itemincart in cart){
-    console.log(`In your cart, you have ${cart} at $ ${cart[itemincart]}. `)
-}
-if (cart<=0){
-  console.log("Your shopping cart is empty.");
+  for (var itemInCart in cart) {
+    console.log(`In your cart, you have ${itemInCart} at $ ${cart[itemInCart]}. `);
 }
 }
