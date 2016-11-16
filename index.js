@@ -23,7 +23,7 @@ function getCart(){
 function addToCart(newitem){
 newItemPrice=Math.floor(Math.random()*100);
 cart({newitem:newItemPrice})
-return (newitem "has been added to your cart.")
+return (newitem + "has been added to your cart.")
 }
 
 /*
