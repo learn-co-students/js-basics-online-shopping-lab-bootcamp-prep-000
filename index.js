@@ -29,15 +29,16 @@ return cart
 
 function viewCart() {
 if(!cart.length){
-  console.log("Your shopping cart is empty.")
-};
+  console.log(`Your shopping cart is empty.`)
+}
+else{
 const thingAndPrice = [];
 for(let i=0; i<cart.length; i++){
 let itemobj = cart[i];
 let thing = Object.keys(itemobj);
 let price = itemobj[thing];
-thingAndPrice.push("${thing} at \$${price}");}
-console.log("In your cart, you have ${thingAndPrice.join(`,`)}.");
+thingAndPrice.push(`${thing} at \$${price}`);}
+console.log(`In your cart, you have ${thingAndPrice.join(`, `)}.`);}
 }
 
 function removeFromCart(item) {
@@ -52,10 +53,10 @@ function removeFromCart(item) {
 
 function placeOrder(credit) {
 if (!credit) {
-  console.log("We don't have a credit card on file for you to place your order.")
+  console.log(`We don't have a credit card on file for you to place your order.`)
 }
 else{
-  console.log("Your total cost is $${total()}, which will be charged to the card ${credit}.")};
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${credit}.`)};
 cart.pop();
 
 return cart
