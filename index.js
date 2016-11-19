@@ -23,26 +23,40 @@ function getCart() {
 function addToCart (item) {
   var price = Math.floor(Math.random() * 100);
   cart.push({[item]: price})
-console.log(`[item] has been added to your cart.`);
+console.log([item] + ' has been added to your cart.');
 return cart
 }
 
 function viewCart() {
-var cart = {item: price};
-for (var item in cart) {
-  console.log(`In your cart you have ${item} at ${price}.`)};
-if (cart.length = 0) {console.log(`Your shopping cart is empty.`)};
+if(!cart.length){
+  console.log("Your shopping cart is empty.")
+};
+const thingAndPrice = [];
+for(let i=0; i<cart.length; i++){
+let itemobj = cart[i];
+let thing = Object.keys(itemobj);
+let price = itemobj[thing];
+thingAndPrice.push("${thing} at \$${price}");}
+console.log("In your cart, you have ${thingAndPrice.join(`,`)}.");
 }
 
-// function viewCart() {
-//   var i = cart[i];
-//   if (cart.length > 0) {"In your cart you have ${item} at {item: price}.";}
-//
-// else {"Your shopping cart is empty.";}
-//
-// }
-
 function removeFromCart(item) {
+  if (item in cart === false) {
+    console.log("That item is not in your cart.")
+    if (cart.hasOwnProperty(item)===true){ delete cart[item];
+    }
+    cart.pop();
+    return cart;
+  }
+}
 
+function placeOrder(credit) {
+if (!credit) {
+  console.log("We don't have a credit card on file for you to place your order.")
+}
+else{
+  console.log("Your total cost is $${total()}, which will be charged to the card ${credit}.")};
+cart.pop();
 
+return cart
 }
