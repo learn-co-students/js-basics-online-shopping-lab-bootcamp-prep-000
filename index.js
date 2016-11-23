@@ -50,7 +50,11 @@ function viewCart() {
 }
 
 function removeFromCart(item) {
+  if false {
 
+  } else {
+    delete cart[item];
+  }
 }
 
 function placeOrder(cardNumber) {
