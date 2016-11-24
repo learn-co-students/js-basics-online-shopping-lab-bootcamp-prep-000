@@ -50,10 +50,18 @@ function viewCart() {
 }
 
 function removeFromCart(item) {
-  if false {
-
-  } else {
+  var itemExists = false;
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      itemExists = true;
+      cart.splice([item], 1);
+    }
+  }
+  if (itemExists) {
     delete cart[item];
+    return cart;
+  } else {
+    console.log("That item is not in your cart.");
   }
 }
 
