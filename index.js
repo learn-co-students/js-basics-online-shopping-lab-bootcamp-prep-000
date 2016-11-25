@@ -66,13 +66,10 @@ function total() {
 }
 
 function placeOrder(cardNumber){
-    var tempTotal = total();
-    cart = [];
-
     if (!cardNumber){
-        return "We don't have a credit card on file for you to place your order.";
+        console.log("We don't have a credit card on file for you to place your order.");
     } else {
-        return `Your total cost is ${tempTotal}, which will be charged to the card ${cardNumber}.`
+        console.log(`Your total cost is ${total()}, which will be charged to the card ${cardNumber}.`);
+        cart = [];
     }
-
 }
