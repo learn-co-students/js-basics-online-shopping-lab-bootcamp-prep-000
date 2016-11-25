@@ -16,7 +16,7 @@ function addToCart(item){
   return cart;
 }
 
-function viewCart(cart){
+function viewCart(){
   var itemPricePairs = [];
   var object;
   var price;
@@ -41,7 +41,6 @@ function viewCart(cart){
 function removeFromCart(item){
     var items = Object.keys(cart);
     var itemIndex = items.indexOf(item);
-
 
     if (itemIndex !== -1){
         cart.splice(itemIndex, itemIndex + 1);
