@@ -24,24 +24,36 @@ function addToCart(item){
   console.log(`${item} has been added to your cart.`)
   var price = Math.random() * 100
   price=Math.floor(price)
-  cart[item] = price
+  cart.push({[item]: price})
   return cart
 }
 ///////////viewCart works with zero length, but not with non zero
 ////////// length arrays
 function viewCart(){
-  if(Object.keys(cart).length === 0){
+  if(cart.length === 0){
     return "Your shopping cart is empty."
   }
   else{
       var items = Object.keys(cart)
-      var annoucement = "In your cart you have \n"
-      for(var items in cart) {
-        annoucement += `${items}: ${cart[items]}\n`
+      var annoucement = "In your cart, you have "
+      //for(var items in cart) {
+      for(var i = 0; i < (cart.length-1); i++){
+        annoucement += `${items} at ${cart[items[i]]}`
+        if (i===cart.length){
+          annoucement +="."
+        }else {
+          annoucement+=", "
+        }
     }
     return annoucement
   }
 }
+//////////////
+/*
+for(var items in cart){
+  console.log(`In your cart, you have ${items} at ${cart[items[i]]}!`)
+}
+*/
 ////////////// haven't checked the below in console yet
 function removeFromCart(item){
   if(cart.hasOwnProperty(item) === false){
