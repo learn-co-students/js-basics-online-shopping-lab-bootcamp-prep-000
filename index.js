@@ -32,7 +32,7 @@ function viewCart(){
   itemPricePairs = itemPricePairs.join(", ");
 
   if (cart.length > 0){
-      console.log(`In your cart you have ${itemPricePairs}.`)
+      console.log(`In your cart, you have ${itemPricePairs}.`)
   } else {
       console.log("Your shopping cart is empty.")
   }
