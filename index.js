@@ -27,47 +27,44 @@ function addToCart(item){
   cart.push({[item]: price})
   return cart
 }
-///////////viewCart works with zero length, but not with non zero
-////////// length arrays
+/////////// Print format is off, but overall it works
 function viewCart(){
   if(cart.length === 0){
-    return "Your shopping cart is empty."
+    return console.log("Your shopping cart is empty.")
   }
   else{
-      var items = Object.keys(cart)
-      var annoucement = "In your cart, you have "
-      //for(var items in cart) {
-      for(var i = 0; i < (cart.length-1); i++){
-        annoucement += `${items} at ${cart[items[i]]}`
-        if (i===cart.length){
-          annoucement +="."
+      var announcement = "In your cart, you have "
+      for(var i = 0; i < (cart.length); i++){
+         var item = Object.keys(cart[i])[0]
+        announcement += `${item} at $${cart[i][item]}`
+        if (i===cart.length-1){
+          announcement +="."
         }else {
-          annoucement+=", "
+          announcement+=", "
         }
     }
-    return annoucement
+    console.log(announcement)
+    return cart
   }
 }
-//////////////
-/*
-for(var items in cart){
-  console.log(`In your cart, you have ${items} at ${cart[items[i]]}!`)
-}
-*/
+
 ////////////// haven't checked the below in console yet
 function removeFromCart(item){
-  if(cart.hasOwnProperty(item) === false){
-    return "That item is not in your cart."
-  }else{
-     delete cart[item]
-     return cart
+  for(var i = 0; i < cart.length; i++){
+    if(cart[i].hasOwnProperty(item) === true){
+      cart = [...cart.slice(0, i), ...cart.slice(i+1)]
+      return cart
+    }
   }
+  return console.log("That item is not in your cart.")
 }
 /////////////
 function placeOrder(cardNumber){
-  if (cardNumber === null){
-    return "We don't have a credit card on file for you to place your order."
+  if (cardNumber === undefined){
+    return console.log("We don't have a credit card on file for you to place your order.")
   }else {
-    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    cart = []
+    return cart
   }
 }
