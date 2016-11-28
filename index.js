@@ -35,8 +35,8 @@ if(cart.length<1){
 }
 else{
 for (var itemInCart in cart){
-  var itemAndPrice= (itemInCart + "at $" + cart[itemInCart] )
-  console.log(`In your cart, you have ${itemAndPrice} .`)
+  var itemAndPrice= (` ${itemInCart} + "at $" + ${cart[itemInCart]} `)
 }
+  console.log(`In your cart, you have ${itemAndPrice} .`)
 }
 }
