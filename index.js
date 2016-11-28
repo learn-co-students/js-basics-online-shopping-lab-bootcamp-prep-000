@@ -34,7 +34,7 @@ if(cart.length<1){
   console.log("Your shopping cart is empty.");
 }
 else{
-for (itemInCart in cart){
+for (var itemInCart in cart){
   var itemAndPrice= (itemInCart + "at $" + cart[itemInCart] )
   console.log(`In your cart, you have ${itemAndPrice} .`)
 }
