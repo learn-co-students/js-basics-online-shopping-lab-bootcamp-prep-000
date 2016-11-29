@@ -36,8 +36,8 @@ if(cart.length<1){
 else{
 
 for (var i in cart){
-  var itemAndPrice= (` ${Object.keys(cart[i])}   at $${Object.values(cart[i])}`)
-console.log(`In your cart, you have ${itemAndPrice} .`)
+  var itemAndPrice= (` ${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
+console.log(`In your cart, you have ${itemAndPrice}.`)
 }
 }
 }
