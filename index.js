@@ -36,7 +36,7 @@ if(cart.length<1){
 else{
 
 for (var itemName in cart){
-  var itemAndPrice= (Object.keys(itemName) + " at $" + cart[itemName]+",")
+  var itemAndPrice= (` ${Object.keys(cart[itemName])} + " at $" + ${itemName}+","`)
 console.log(`In your cart, you have ${itemAndPrice} .`)
 }
 }
