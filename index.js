@@ -35,7 +35,7 @@ if(cart.length<1){
 }
 else{
 for (var i in cart){
-  var itemWithPriceArray= [];
+  var itemWithPriceArray= new Array[];
   var itemAndPrice= (`${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}`)
 itemWithpriceArray.push(itemAndPrice);
 }
