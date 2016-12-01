@@ -44,14 +44,16 @@ console.log("In your cart, you have " + itemsInCart.slice(0,-2) +".");
 
 
 function removeFromCart(removeitem){
+
 for (var i in cart){
     if(cart[i].hasOwnProperty(`${removeitem}`) == true){
-    delete cart[i][`${removeitem}`]
-    return cart
+      delete  cart[i][`${removeitem}`]
+        return cart
   }
 
-  else{
-    console.log("That item is not in your cart.");
+
+
+}
+console.log("That item is not in your cart.");
+
   }
-}
-}
