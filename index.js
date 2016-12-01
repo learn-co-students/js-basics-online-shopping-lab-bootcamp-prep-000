@@ -47,7 +47,7 @@ function removeFromCart(removeitem){
 
 for (var i in cart){
     if(cart[i].hasOwnProperty(`${removeitem}`) == true){
-      delete  cart[i][`${removeitem}`]
+      delete  cart[i]
         return cart
   }
 
