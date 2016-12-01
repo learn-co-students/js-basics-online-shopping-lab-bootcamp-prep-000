@@ -30,15 +30,17 @@ return cart
 
 
 function viewCart(){
+var itemsInCart= "";
 if(cart.length<1){
   console.log("Your shopping cart is empty.");
 }
 else{
 for (var i in cart){
-  var itemWithPriceArray= new Array[];
+
   var itemAndPrice= (`${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}`)
-itemWithpriceArray.push(itemAndPrice);
+
+itemsInCart.push(itemAndPrice);
 }
-console.log("In Your cart, you have " + itemAndPrice)
+console.log(itemsInCart)
 }
 }
