@@ -46,7 +46,7 @@ console.log("In your cart, you have " + itemsInCart.slice(0,-2) +".");
 function removeFromCart(removeitem){
 
 for (var i in cart){
-    if(cart[i].hasOwnProperty(`${removeitem}`) == true){
+    if(cart[i].hasOwnProperty(removeitem) == true){
       delete  cart[i]
         return cart
   }
