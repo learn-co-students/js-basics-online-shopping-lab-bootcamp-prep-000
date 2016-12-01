@@ -37,10 +37,10 @@ if(cart.length<1){
 else{
 for (var i in cart){
 
-  var itemAndPrice= (`${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}`)
+  var itemAndPrice= (`${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])], }`)
 
-itemsInCart.push(itemAndPrice);
+itemsInCart+= itemAndPrice; //add to items in cart before the loop stars again
 }
-console.log(itemsInCart)
+console.log("In your cart,you have " + itemsInCart)
 }
 }
