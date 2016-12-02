@@ -61,7 +61,7 @@ console.log("That item is not in your cart.");
   }
   else{
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
-  //empty cart
+  cart.splice(0)//empty cart
   }
 
 }
