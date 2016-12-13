@@ -30,7 +30,7 @@ function addToCart(product) {
 function viewCart() {
   var ini = "In your cart, you have";
   if (cart.length === 0) {
-    return "Your shopping cart is empty."
+    console.log("Your shopping cart is empty.")
   } else {
     for (var i = 0, l = cart.length; i < l; i++) {
       var cartItem = Object.keys(cart[i]);
@@ -39,7 +39,7 @@ function viewCart() {
     }
     ini = ini.slice(0, -1);
     ini += ".";
-    return ini
+    console.log(ini)
   }
 }
 
@@ -54,7 +54,7 @@ function removeFromCart(product) {
   }
   setCart(current);
   if (cart.length === previous) {
-    return "That item is not in your cart."
+    console.log("That item is not in your cart.")
   } else {
     return cart
   }
@@ -62,7 +62,7 @@ function removeFromCart(product) {
 
 function placeOrder(cardNumber) {
   if (cardNumber == null) {
-    return "We don\'t have a credit card on file for you to place your order."
+    console.log("We don\'t have a credit card on file for you to place your order.")
   } else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
     cart = [];
