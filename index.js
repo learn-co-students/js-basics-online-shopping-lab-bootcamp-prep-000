@@ -33,15 +33,14 @@ function addToCart(item) {
 function viewCart() {
   if (cart.length > 0) {
     var str = `In your cart, you have `
-    for (let i = 0, l = cart.length; i < l; i++ ) {
+    var tempArr = [];
+    for (let i = 0; i < cart.length; i++) {
       var obj = cart[i];
-      var tempArr = [];
-      for (let itemName in obj) {
-        tempArr.push(`${itemName} at ${obj[itemName]}`);
-      }
-      joined = tempArr.join(', ');
-      str += joined;
+      let item = Object.keys(obj)[0];
+      let price = Object.values(obj)[0];
+      tempArr.push(`${item} at ${price}`);
     }
+    str += tempArr.join(', ') + '.';
+    console.log(str);
   }
-  console.log(str);
 }
