@@ -1,7 +1,11 @@
-var cart;
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
+}
+
+function getCart() {
+  return cart;
 }
 
 function total() {
@@ -14,4 +18,27 @@ function total() {
   }
 
   return t
+}
+
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function addToCart(item) {
+  cart.push( { [item]: getRandomInteger() } );
+  console.log(`${item} has been added to your cart.`);
+  return getCart();
+}
+
+function viewCart() {
+  if (cart.length > 0) {
+    var str = `In your cart, you have `
+    for (let i = 0, l = cart.length; i < l; i++ ) {
+      var obj = cart[i];
+      for (let itemName in obj) {
+        str += `${itemName} at ${obj[itemName]}, `;
+      }
+    }
+  }
+  console.log(str);
 }
