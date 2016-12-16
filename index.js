@@ -40,9 +40,22 @@ function viewCart() {
       let price = Object.keys(obj).map(function(key){
         return obj[key];
       });
-      tempArr.push(`${item} at ${price}`);
+      tempArr.push(`${item} at $${price}`);
     }
     str += tempArr.join(', ') + '.';
     console.log(str);
+  } else {
+    console.log('Your shopping cart is empty.');
+  }
+}
+
+function removeFromCart(name) {
+  for (let i = 0; i < cart.length; i++) {
+    let obj = cart[i];
+    if (obj.hasOwnProperty(name)) {
+      // ???
+    } else {
+      console.log('That item is not in your cart.');
+    }
   }
 }
