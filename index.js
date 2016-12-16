@@ -35,9 +35,11 @@ function viewCart() {
     var str = `In your cart, you have `
     var tempArr = [];
     for (let i = 0; i < cart.length; i++) {
-      var obj = cart[i];
+      let obj = cart[i];
       let item = Object.keys(obj)[0];
-      let price = Object.values(obj)[0];
+      let price = Object.keys(obj).map(function(key){
+        return obj[key];
+      });
       tempArr.push(`${item} at ${price}`);
     }
     str += tempArr.join(', ') + '.';
