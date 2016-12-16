@@ -35,9 +35,12 @@ function viewCart() {
     var str = `In your cart, you have `
     for (let i = 0, l = cart.length; i < l; i++ ) {
       var obj = cart[i];
+      var tempArr = [];
       for (let itemName in obj) {
-        str += `${itemName} at ${obj[itemName]}, `;
+        tempArr.push(`${itemName} at ${obj[itemName]}`);
       }
+      joined = tempArr.join(', ');
+      str += joined;
     }
   }
   console.log(str);
