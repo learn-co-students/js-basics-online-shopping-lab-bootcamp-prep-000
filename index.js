@@ -46,6 +46,7 @@ else {
 }
 
 function removeFromCart(item) {
+  while (cart.length != 0){
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].hasOwnProperty(item) == false && i == cart.length - 1) {
     //  console.log('That item is not in your cart.');
@@ -55,5 +56,17 @@ function removeFromCart(item) {
       cart = [...cart.slice(0,i),...cart.slice(i+1)];
       return cart;
     }
+  }
+}
+console.log('That item is not in your cart.');
+}
+
+function placeOrder(cardNumber) {
+  if (cardNumber == null) {
+    console.log("We don't have a credit card on file for you to place your order.");
+  }
+  else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+    cart = [];
   }
 }
