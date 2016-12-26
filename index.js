@@ -63,20 +63,25 @@ if(i<(cart.length-1)){
 
 
 function removeFromCart(item){
+  debugger;
 for(var i=0;i<cart.length;i++){
-
+  debugger;
   if(cart[i].hasOwnProperty(item)){
     cart.splice(i,1);
 
   }
-  else{
+
+}
+
+if(cart.length==0){
     console.log(`That item is not in your cart.`);
 
-  }
 
 }
+
 return cart;
 }
+
 
 function placeOrder(cardNumber){
 

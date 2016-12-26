@@ -81,6 +81,7 @@ describe('#removeFromCart', function() {
   });
 
   it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+    debugger;
     removeFromCart("socks");
 
     expect(console.log).toHaveBeenCalledWith("That item is not in your cart.")
