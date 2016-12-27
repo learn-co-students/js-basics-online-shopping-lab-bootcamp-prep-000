@@ -23,7 +23,7 @@ function getCart() {
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100);
   cart.push({[item]: price});
-  console.log(item + " has been added to your cart.");
+  console.log(`${item} has been added to your cart.`);
   return cart;
 }
 
@@ -35,7 +35,7 @@ function viewCart() {
     for (var i = 0; i < cart.length; i++) {
       var itemKey = Object.keys(cart[i])[0];
       var itemValue = cart[i][itemKey];
-      cartList.push(itemKey + " at $" + itemValue);
+      cartList.push(`${itemKey} at $${itemValue}`);
     }
     console.log("In your cart, you have " + cartList.join(", ") + ".");
   }
@@ -53,7 +53,7 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   if(cardNumber === parseInt(cardNumber)) {
-    console.log("Your total cost is $${total()}, which will be charged to the card ${cardNumber}.");
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
     while(cart.length > 0) {
       cart.pop();
     };
