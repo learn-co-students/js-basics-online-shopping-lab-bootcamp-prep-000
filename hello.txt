@@ -1,0 +1,198 @@
+
+> js-basics-online-shopping-lab@0.1.0 test /home/ixs21870-42286/code/labs/js-basics-online-shopping-lab-bootcamp-prep-000
+> mocha -R mocha-multi --reporter-options nyan=-,json=.results.json
+
+ 0
+ 0
+ 0
+
+[4A[5C-
+[5C-
+[5C-
+[5C-
+[4A[6C_,------,
+[6C_|   /\_/\ 
+[6C^|__( - .-) 
+[6C  ""  "" 
+[4A 1
+ 0
+ 0
+
+[4A[5C-_
+[5C-_
+[5C-_
+[5C-_
+[4A[7C_,------,
+[7C_|  /\_/\ 
+[7C~|_( ^ .^) 
+[7C ""  "" 
+[4A 1
+ 1
+ 0
+
+[4A[5C-_-
+[5C-_-
+[5C-_-
+[5C-_-
+[4A[8C_,------,
+[8C_|   /\_/\ 
+[8C^|__( x .x) 
+[8C  ""  "" 
+[4A 1
+ 2
+ 0
+
+[4A[5C-_-_
+[5C-_-_
+[5C-_-_
+[5C-_-_
+[4A[9C_,------,
+[9C_|  /\_/\ 
+[9C~|_( x .x) 
+[9C ""  "" 
+[4A 1
+ 3
+ 0
+
+[4A[5C-_-_-
+[5C-_-_-
+[5C-_-_-
+[5C-_-_-
+[4A[10C_,------,
+[10C_|   /\_/\ 
+[10C^|__( x .x) 
+[10C  ""  "" 
+[4A 1
+ 4
+ 0
+
+[4A[5C-_-_-_
+[5C-_-_-_
+[5C-_-_-_
+[5C-_-_-_
+[4A[11C_,------,
+[11C_|  /\_/\ 
+[11C~|_( x .x) 
+[11C ""  "" 
+[4A 2
+ 4
+ 0
+
+[4A[5C-_-_-_-
+[5C-_-_-_-
+[5C-_-_-_-
+[5C-_-_-_-
+[4A[12C_,------,
+[12C_|   /\_/\ 
+[12C^|__( x .x) 
+[12C  ""  "" 
+[4A 2
+ 5
+ 0
+
+[4A[5C-_-_-_-_
+[5C-_-_-_-_
+[5C-_-_-_-_
+[5C-_-_-_-_
+[4A[13C_,------,
+[13C_|  /\_/\ 
+[13C~|_( x .x) 
+[13C ""  "" 
+[4A 2
+ 6
+ 0
+
+[4A[5C-_-_-_-_-
+[5C-_-_-_-_-
+[5C-_-_-_-_-
+[5C-_-_-_-_-
+[4A[14C_,------,
+[14C_|   /\_/\ 
+[14C^|__( x .x) 
+[14C  ""  "" 
+[4A 2
+ 7
+ 0
+
+[4A[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[4A[15C_,------,
+[15C_|  /\_/\ 
+[15C~|_( x .x) 
+[15C ""  "" 
+[4A 2
+ 8
+ 0
+
+[4A[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[4A[16C_,------,
+[16C_|   /\_/\ 
+[16C^|__( x .x) 
+[16C  ""  "" 
+[4A 2
+ 9
+ 0
+
+[4A[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[4A[17C_,------,
+[17C_|  /\_/\ 
+[17C~|_( x .x) 
+[17C ""  "" 
+[4A
+
+
+
+
+  2 passing (815ms)
+  9 failing
+
+  1) #addToCart logs that the item has been added:
+     Error: spy was never called with [ 'pizza has been added to your cart.' ]
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toHaveBeenCalledWith (node_modules/expect/lib/Expectation.js:333:28)
+      at Context.<anonymous> (test/index-test.js:24:25)
+
+  2) #addToCart returns the cart:
+     Error: Expected 'pizza has been added to your cart.' to equal [ { pizza: 0 } ]
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toEqual (node_modules/expect/lib/Expectation.js:81:30)
+      at Context.<anonymous> (test/index-test.js:28:32)
+
+  3) #viewCart should print each item in the cart and their cost:
+     ReferenceError: viewCart is not defined
+      at Context.<anonymous> (test/index-test.js:42:5)
+
+  4) #viewCart should print 'Your shopping cart is empty.' if the cart is empty:
+     ReferenceError: viewCart is not defined
+      at Context.<anonymous> (test/index-test.js:50:5)
+
+  5) #removeFromCart removes the item from the cart:
+     ReferenceError: removeFromCart is not defined
+      at Context.<anonymous> (test/index-test.js:78:5)
+
+  6) #removeFromCart alerts you if you're trying to remove an item that isn't in your cart:
+     ReferenceError: removeFromCart is not defined
+      at Context.<anonymous> (test/index-test.js:84:5)
+
+  7) #placeOrder doesn't let you place an order if you don't provide a credit card number:
+     ReferenceError: placeOrder is not defined
+      at Context.<anonymous> (test/index-test.js:92:5)
+
+  8) #placeOrder lets you place an order with a credit card:
+     ReferenceError: placeOrder is not defined
+      at Context.<anonymous> (test/index-test.js:104:5)
+
+  9) #placeOrder empties the cart:
+     ReferenceError: placeOrder is not defined
+      at Context.<anonymous> (test/index-test.js:116:5)
+
+
+
