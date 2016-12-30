@@ -1,0 +1,196 @@
+
+> js-basics-online-shopping-lab@0.1.0 test /home/gportela-41622/code/labs/js-basics-online-shopping-lab-bootcamp-prep-000
+> mocha -R mocha-multi --reporter-options nyan=-,json=.results.json
+
+ 0
+ 0
+ 0
+
+[4A[5C-
+[5C-
+[5C-
+[5C-
+[4A[6C_,------,
+[6C_|   /\_/\ 
+[6C^|__( - .-) 
+[6C  ""  "" 
+[4A 1
+ 0
+ 0
+
+[4A[5C-_
+[5C-_
+[5C-_
+[5C-_
+[4A[7C_,------,
+[7C_|  /\_/\ 
+[7C~|_( ^ .^) 
+[7C ""  "" 
+[4A 2
+ 0
+ 0
+
+[4A[5C-_-
+[5C-_-
+[5C-_-
+[5C-_-
+[4A[8C_,------,
+[8C_|   /\_/\ 
+[8C^|__( ^ .^) 
+[8C  ""  "" 
+[4A 3
+ 0
+ 0
+
+[4A[5C-_-_
+[5C-_-_
+[5C-_-_
+[5C-_-_
+[4A[9C_,------,
+[9C_|  /\_/\ 
+[9C~|_( ^ .^) 
+[9C ""  "" 
+[4A 3
+ 1
+ 0
+
+[4A[5C-_-_-
+[5C-_-_-
+[5C-_-_-
+[5C-_-_-
+[4A[10C_,------,
+[10C_|   /\_/\ 
+[10C^|__( x .x) 
+[10C  ""  "" 
+[4A 4
+ 1
+ 0
+
+[4A[5C-_-_-_
+[5C-_-_-_
+[5C-_-_-_
+[5C-_-_-_
+[4A[11C_,------,
+[11C_|  /\_/\ 
+[11C~|_( x .x) 
+[11C ""  "" 
+[4A 4
+ 2
+ 0
+
+[4A[5C-_-_-_-
+[5C-_-_-_-
+[5C-_-_-_-
+[5C-_-_-_-
+[4A[12C_,------,
+[12C_|   /\_/\ 
+[12C^|__( x .x) 
+[12C  ""  "" 
+[4A 4
+ 3
+ 0
+
+[4A[5C-_-_-_-_
+[5C-_-_-_-_
+[5C-_-_-_-_
+[5C-_-_-_-_
+[4A[13C_,------,
+[13C_|  /\_/\ 
+[13C~|_( x .x) 
+[13C ""  "" 
+[4A 4
+ 4
+ 0
+
+[4A[5C-_-_-_-_-
+[5C-_-_-_-_-
+[5C-_-_-_-_-
+[5C-_-_-_-_-
+[4A[14C_,------,
+[14C_|   /\_/\ 
+[14C^|__( x .x) 
+[14C  ""  "" 
+[4A 4
+ 5
+ 0
+
+[4A[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[5C-_-_-_-_-_
+[4A[15C_,------,
+[15C_|  /\_/\ 
+[15C~|_( x .x) 
+[15C ""  "" 
+[4A 4
+ 6
+ 0
+
+[4A[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[5C-_-_-_-_-_-
+[4A[16C_,------,
+[16C_|   /\_/\ 
+[16C^|__( x .x) 
+[16C  ""  "" 
+[4A 4
+ 7
+ 0
+
+[4A[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[5C-_-_-_-_-_-_
+[4A[17C_,------,
+[17C_|  /\_/\ 
+[17C~|_( x .x) 
+[17C ""  "" 
+[4A
+
+
+
+
+  4 passing (996ms)
+  7 failing
+
+  1) #viewCart should print each item in the cart and their cost:
+     TypeError: Cannot read property 'puppy' of undefined
+      at Context.<anonymous> (test/index-test.js:39:35)
+
+  2) #total adds up the prices of the items in the cart:
+     TypeError: Cannot read property 'puppy' of undefined
+      at Context.<anonymous> (test/index-test.js:63:35)
+
+  3) #removeFromCart removes the item from the cart:
+     Error: Expected false to be true
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toBe (node_modules/expect/lib/Expectation.js:66:28)
+      at Context.<anonymous> (test/index-test.js:76:41)
+
+  4) #removeFromCart alerts you if you're trying to remove an item that isn't in your cart:
+     Error: spy was never called with [ 'That item is not in your cart.' ]
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toHaveBeenCalledWith (node_modules/expect/lib/Expectation.js:333:28)
+      at Context.<anonymous> (test/index-test.js:86:25)
+
+  5) #placeOrder doesn't let you place an order if you don't provide a credit card number:
+     Error: spy was never called with [ 'We don\'t have a credit card on file for you to place your order.' ]
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toHaveBeenCalledWith (node_modules/expect/lib/Expectation.js:333:28)
+      at Context.<anonymous> (test/index-test.js:94:25)
+
+  6) #placeOrder lets you place an order with a credit card:
+     Error: spy was never called with [ 'Your total cost is $0pizza, which will be charged to the card 123.' ]
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toHaveBeenCalledWith (node_modules/expect/lib/Expectation.js:333:28)
+      at Context.<anonymous> (test/index-test.js:106:25)
+
+  7) #placeOrder empties the cart:
+     Error: Expected false to be true
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toBe (node_modules/expect/lib/Expectation.js:66:28)
+      at Context.<anonymous> (test/index-test.js:114:41)
+
+
+
