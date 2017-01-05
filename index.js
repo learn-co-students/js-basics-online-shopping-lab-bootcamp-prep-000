@@ -19,6 +19,7 @@ function total() {
   return t
 }
 
+
 function getCart() {
   return cart
 }
@@ -59,3 +60,13 @@ function placeOrder(cardNumber) {
 
   cart = []
 }
+function removeFromCart(item){
+    for (var index in cart){
+      var current = cart[index]
+      if (cart[index].hasOwnProperty(item)){
+        cart.splice(index, 1)
+        return cart
+      }
+    }
+    console.log("That item is not in your cart.")
+  }
