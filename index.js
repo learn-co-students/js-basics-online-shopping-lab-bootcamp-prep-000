@@ -1,12 +1,15 @@
 var cart=[];
 // define global variable, variables deined w = operator, initialize an empty array
+//cart = {'pizza':44, 'kindle':33, 'flatscreen':22, 'telescope':
+//this is what it will look ook like when a few items have been added
+//cart = [{'a':33}, {'b':44}, {'c':55}]
 function setCart(newCart) {
   cart = newCart;
 }
 
 function total() {
   let t = 0
-//total accepts no arguments. It iterates over
+
   for (var i = 0, l = cart.length; i < l; i++) {
     for (var item in cart[i]) {
       t += cart[i][item]
@@ -20,25 +23,39 @@ function getCart() {
   return cart
 }
 
-/*This function should automatically set a price for this item by generating a random number between 0 and 100.
-(Hint: Math.random() generates a random number in 0, 1; Math.floor() rounds a number down to the nearest integer.)
-//This function should add the item and the price as an object ({item: price}) to the cart array.
-This function should print out to the console <item> has been added to your cart. and return the cart.
-function addToCart(item) */
 function addToCart(item) {
   var itemPrice = Math.floor(Math.random() * 100);
   cart.push({ [item]: itemPrice })
-  console.log("<item> has been added to your cart.");
+  console.log(`${item}has been added to your cart.`);
   return cart
 }
-//This function should loop over every item in cart to print out
-//"In your cart, you have [item and price pairs]."
-//If there isn't anything in your cart, the function should print out
+//[{"0": {"itemname": price}} 
+/*This function should loop over every item in cart to print out
 function viewCart( ){
-  //declare a var and set it's value equal to something
+var total = cart.length    //loop over every item in the cart arr
       if (cart.length === 0) {
-        //do something
-          console.log("Your shopping cart is empty.");
-        }
- //compare conditional statements here
+        return console.log("Your shopping cart is empty.");
+      }
+
+var itemAndPrice=(`${cart[itemName]} + "at $" );
+var str = "In your cart, you have";
+  for (var itemInCart in cart) //for ...in loop
+        var itemsWithPrices = (cart[i]);
+        var item = //Object.keys for item and price at index 0;
+        var price = ;
+            //do something run some code
+        itemsWithPrices.push(`${item} at $${price}`);
+          }
+          console.log(`In your cart, you have ${itemsAndPrices.join(', ')}.`);
+    }
+}
+*/
+function placeOrder(cardNumber) {
+  if (!cardNumber) {
+    return console.log("We don't have a credit card on file for you to place your order.")
+  }
+
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+
+  cart = []
 }
