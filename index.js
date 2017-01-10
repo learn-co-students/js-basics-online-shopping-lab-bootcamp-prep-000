@@ -33,7 +33,7 @@ function viewCart() {
     if (cart.length > 0) {
       var cartItems = Object.keys(cart)
       for (var i = 0, l = cartItems.length; i < l; i++) {
-        console.log(`In your cart, you have ${cartItems[i]} at $${cart[cartItems[i]}.`)
+        console.log(`In your cart, you have ${cartItems[i]} at $${cart[cartItems[i]]}.`)
       }
     }
     else {
