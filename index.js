@@ -1,4 +1,4 @@
-var cart = {};
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
@@ -7,7 +7,7 @@ function setCart(newCart) {
 function total() {
   let t = 0
 
-  for (var i = 0, l = cObject.keys(cart).length ; i < l; i++) {
+  for (var i = 0, l = cart.length ; i < l; i++) {
     for (var item in cart[i]) {
       t += cart[i][item]
     }
