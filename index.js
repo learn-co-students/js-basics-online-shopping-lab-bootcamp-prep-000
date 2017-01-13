@@ -30,7 +30,7 @@ function addToCart(item) {
 
 function viewCart() {
   var itemAtPriceArray = [];
-  var itemNames = Object.keys(meals);
+  var itemNames = Object.keys(cart);
   if (cart.length === 0) {
     return "Your shopping cart is empty."
   } else {
