@@ -54,29 +54,23 @@ function viewCart(){
 }
 
 function removeFromCart(item_to_remove){
-  for ( var i = 0, l = cart.lenght; i <l; i++){
-    for (var item in cart[i]){
-      if (item === item_to_remove){
-
+  for ( var i = 0, l = cart.length; i <l; i++){
+    for (var thatItem in cart[i]){
+      if (thatItem === item_to_remove){
         cart.splice(i, 1)
         return cart
       }
-       console.log("That item is not in your cart.")
-      }
     }
   }
-  return cart
+     console.log("That item is not in your cart.")
+     return cart
 }
 
 function placeOrder(cardNumber){
-  if (cardNumber == undefined ){
-    console.log('we don\’t have a credit card on file for you to place your order.')
+  if (cardNumber === undefined ){
+    console.log('We don\'t have a credit card on file for you to place your order.')
   }else{
   console.log( `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
   }
-  return getCart()
+  return cart = []
 }
-
-
-// if no argument received
-//
