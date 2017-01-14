@@ -38,7 +38,6 @@ function viewCart(){
   }
 };
 
-
 /*
 function removeFromCart(item) {
   if () { // condition: item is in cart === true
