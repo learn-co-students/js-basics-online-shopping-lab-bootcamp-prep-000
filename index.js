@@ -1,4 +1,4 @@
-var cart = {};
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
@@ -22,27 +22,24 @@ function getCart() {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100);
-  var displayItem = {item : price};
+  var displayItem = {"item" : "price"};
   cart.push(displayItem);
   console.log(`${item} has been added to your cart.`);
   return cart;
 };
 
-/*
-function viewCart() {
-  var itemNames = Object.keys(cart);
+function viewCart(){
+  var string = "In your cart, you have "
   if (cart.length === 0) {
-    return "Your shopping cart is empty."
+      console.log("Your shopping cart is empty.");
   } else {
-      for (var i = 0, l = itemNames.length; i < l; i++) {
-        itemAtPriceArray.push(`${itemNames[i]} at ${cart[itemNames[i]]} `);
-      }
-      for (var i = 0, l = cart.length; i < l; i++) {
-        return `In your cart, you have ${itemAtPriceArray}.`
-      };
-  };
+    for (var items in cart) {
+    console.log( string + `${item} at ${price}.` )
+  }
 };
 
+
+/*
 function removeFromCart(item) {
   if () { // condition: item is in cart === true
    console.log("That item is not in your cart.")
