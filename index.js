@@ -21,7 +21,7 @@ function getCart() {
 }
 
 function addToCart(item) {
-  cart.push({item: Math.floor(Math.random() * 100)});
+  cart.push({[item]: Math.floor(Math.random() * 100)});
   console.log(`${item} has been added to your cart.`)
   console.log(cart)
 }
@@ -52,6 +52,6 @@ function placeOrder (cardNumber) {
     console.log("We don't have a credit card on file for you to place your order.")
   } else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
-    cart = {}
   }
+   return cart = []
 }
