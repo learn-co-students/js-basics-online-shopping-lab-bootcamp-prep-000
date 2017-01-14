@@ -30,11 +30,10 @@ function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   } else {
-    var items = Object.keys(cart);
     var intro = "In your cart, you have"
 
-    for (var i = 0, l = items.length; i < l; i++) {
-      intro = intro + ` ${cart[i]} at ${items[i]}`
+    for (var i = 0, l = cart.length; i < l; i++) {
+      intro = intro + ` ${Object.keys(cart[i])} at ${Object.values(cart[i])}`
     }
     return intro
   }
@@ -45,7 +44,7 @@ function removeFromCart (item) {
     console.log("That item is not in your cart.")
   } else {
     delete cart[item];
-    console.log(cart)
+    return cart
   }
 }
 
