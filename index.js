@@ -33,7 +33,7 @@ function viewCart() {
     var items = Object.keys(cart);
     console.log("In your cart, you have")
     for (var i = 0, l = items.length; i < l; i++) {
-      console.log(` ${items[i]} at ${cart[items[i]]}`)
+      console.log(` ${cart[i]} at ${items[i]}`)
     }
   }
 }
