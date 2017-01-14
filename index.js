@@ -31,7 +31,6 @@ function viewCart() {
   var returnString = "In your cart, you have "
   if (cart.length > 0){
     for (var i = 0; i < cart.length; i++){
-      debugger
         for (var e in cart[i]){
           if (i < cart.length - 1){
             returnString = returnString + e + " at $" + cart[i][e] + ", ";
