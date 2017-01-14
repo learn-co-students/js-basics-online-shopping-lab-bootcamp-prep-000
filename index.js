@@ -32,9 +32,11 @@ function viewCart() {
   } else {
     var items = Object.keys(cart);
     var intro = "In your cart, you have"
+
     for (var i = 0, l = items.length; i < l; i++) {
-      console.log(intro + `${cart[i]} at ${items[i]}`)
+      intro = intro + ` ${cart[i]} at ${items[i]}`
     }
+    return intro
   }
 }
 
