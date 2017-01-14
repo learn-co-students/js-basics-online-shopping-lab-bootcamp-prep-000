@@ -31,9 +31,9 @@ function viewCart() {
     console.log("Your shopping cart is empty.")
   } else {
     var items = Object.keys(cart);
-    console.log("In your cart, you have")
+    var intro = "In your cart, you have"
     for (var i = 0, l = items.length; i < l; i++) {
-      console.log(` ${cart[i]} at ${items[i]}`)
+      console.log(intro + `${cart[i]} at ${items[i]}`)
     }
   }
 }
