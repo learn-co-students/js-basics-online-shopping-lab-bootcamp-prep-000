@@ -35,7 +35,7 @@ function viewCart(){
         arr.push(` ${itemname} at $${cart[i][itemname]}`)
     }
 
-    console.log(`In your cart, you have${arr}. `);
+    console.log(`In your cart, you have${arr}.`);
 
   }else{
     console.log('Your shopping cart is empty.');
