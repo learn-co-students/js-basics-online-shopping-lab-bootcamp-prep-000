@@ -58,15 +58,11 @@ function placeOrder(cardNumber){
    }
 }
 function removeFromCart(item){
-
-  for (var i = 0, l = cart.length; i < l; i++) {
-    for (var itemInCart in cart[i]) {
-      if(itemInCart === item){
-        cart.splice(i,1)
-        return true
-      }
-    }
+  for (var i = 0; i < cart.length; i++){
+      if (cart[i].hasOwnProperty(item)){
+          delete cart[i]
+          return cart
+      } 
   }
   console.log("That item is not in your cart.");
-  return false
 }
