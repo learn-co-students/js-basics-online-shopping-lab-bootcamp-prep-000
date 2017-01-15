@@ -41,3 +41,33 @@ function viewCart(){
     console.log('Your shopping cart is empty.');
   }
 }
+
+function removeFromCart(item){
+  if(cart.length === 0)
+  {
+    console.log('That item is not in your cart.');
+  }else
+  {
+    for(var i = 0; i < cart.length; i++)
+    {
+      if(cart[i].hasOwnProperty(item))
+      {
+        cart.splice(i,1);
+        return cart
+      }
+      console.log('That item is not in your cart.');
+    }
+  }
+}
+
+
+function placeOrder(number){
+  if(typeof number !== 'undefined'){
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${number}.`);
+    cart.length = 0;
+  }
+  else {
+    console.log("We don't have a credit card on file for you to place your order.");
+
+  }
+}
