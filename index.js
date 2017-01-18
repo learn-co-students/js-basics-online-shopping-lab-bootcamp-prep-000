@@ -28,13 +28,32 @@ cart.push({[item]:price})
   return cart;
 }
 /*Define a function viewCart which does not accept any arguments. This function should loop over every item in cart to print out "In your cart, you have [item and price pairs].". If there isn't anything in your cart, the function should print out "Your shopping cart is empty.".*/
-function viewCart(){
-  var newCart=[];
-  if (cart.length===0) {
-    return `Your shopping cart is empty`;
+function viewCart() {
+  if (cart.length===0){
+    console.log(&#96;Your shopping cart is empty.&#96;)
   }
-  for(var item in cart){
-   newCart.push(` ${[item]} at \$${cart[item]}`)
+
+  var result = `In your cart, you have `;
+  for(var i=0;i<cart.length;i++){
+    for(var item in cart[i]){
+      if(i===0){
+        result += `${cart[i]} at ${cart[i][item]}`
+      }
+    result += `, ${cart[i]} at ${cart[i][item]}`
+    }
   }
-  console.log(`In your cart, you have${newCart}.`)
+  result += '.'
+  console.log(result)
+}
+
+
+
+/*Define a function removeFromCart which accepts one argument, the name of the item you wish to remove. If the item isn't in the cart, the function should print out "That item is not in your cart.". If the item is in your cart, it should remove the object from the cart array. Then return the cart. (HINT: Check each object's key to see if it matches the parameter, then remove it if it matches. You might find hasOwnProperty to be useful.)*/
+function removeFromCart(item){
+  if(cart.hasOwnProperty(item)) {
+    delete cart[item]
+  }
+  else{
+    console.log(`That item is not in your cart`)
+  }
 }
