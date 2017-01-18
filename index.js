@@ -50,7 +50,7 @@ function viewCart() {
   for(var i=0;i<cart.length;i++){
     for(var item in cart[i]){
       if(i===0){
-        result += `${cart[i]} at ${cart[i][item]} `
+        result += `${item} at ${cart[i][item]} `
       }else{
     result += `, ${item} at ${cart[i][item]}`
   }
