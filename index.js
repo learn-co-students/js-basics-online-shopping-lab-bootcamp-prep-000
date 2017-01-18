@@ -24,29 +24,25 @@ function addToCart(item){
   console.log(`${item} has been added to your cart.`)
   return cart
 }
+
 function viewCart(){
-  if(cart.length === 0){
+ if(cart.length === 0){
     console.log("Your shopping cart is empty.")
-  }
-  else{
-    var result = "In your cart, you have "
-    for (var i = 0, l = cart.length; i < l; i++) {
-      if(i != 0){
-        result += ", "
-      }
-      for (var item in cart[i]) {
-        if(i === 0){
-          result += `${item} at ${cart[i][item]}`
-        }
-        else{
-          result += `${item} at $${cart[i][item]}`
-        }
-      }
+   return undefined
+ }
+ var result = "In your cart, you have "
+ for(var index = 0; index < cart.length; index++){
+    if(index !== 0){
+      result += ","
     }
-    result += "."
-    console.log(result);
+    var item  = Object.keys(cart[index])[0]
+    var price = Object.values(cart[index])[0]
+    result += ` ${item} at $${price}`
   }
+  result += "."
+  console.log(result)
 }
+
 function placeOrder(cardNumber){
   if(cardNumber === undefined){
     console.log("We don\'t have a credit card on file for you to place your order.")
