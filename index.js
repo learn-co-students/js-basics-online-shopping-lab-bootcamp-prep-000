@@ -6,13 +6,10 @@ function setCart(newCart) {
 
 function total() {
   let t = 0
-
-  for (var i = 0, l = cart.length; i < l; i++) {
-    for (var item in cart[i]) {
-      t += cart[i][item]
-    }
+  for (var index = 0; index < cart.length; index++) {
+      t += Object.values(cart[index])[0]
   }
-  return (t >= 0 ? parseInt(t) : NaN)
+  return t
 }
 function getCart(){
   return cart
