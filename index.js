@@ -28,19 +28,20 @@ function viewCart() {
   for (var i=0; i<cart.length; i++) {
     var item = items[i]
     var price = cart[item]
-    itemAndPrices.push(`${item} at ${price}`)
+    itemAndPrices.push(`${item} at \$${price}`)
   }
   console.log(`In your cart, you have ${itemAndPrices.join(', ')}.`)
 }
 
 
 function removeFromCart(item) {
-  for (i=0;i<cart.length; i++) {
-    if (cart[i].hasOwnProperty(item)) {
-      delete cart[item]
+  for (var i=0;i<cart.length; i++) {
+    if (!cart[i].hasOwnProperty(item)) {
+      console.log("That item is not in your cart.")
     } else {
-    console.log("That item is not in your cart.")
+      delete cart[item]
     }
+  }
   return cart
 }
 
@@ -50,7 +51,7 @@ function placeOrder(creditCard) {
     console.log("We don't have a credit card on file for you to place your order.")
   }
 
-  console.log(`Your total cost is ${total()}, which will be charged to the card ${creditCard}.`)
+  console.log(`Your total cost is \$${total()}, which will be charged to the card ${creditCard}.`)
   cart = []
 }
 
