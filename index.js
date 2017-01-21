@@ -62,7 +62,7 @@ function viewCart() {
 function removeFromCart(item) {
   var pos = getPos(item);
   if (checkCart(item)) {
-    cart.slice(pos, 1);
+    cart = cart.slice(0,pos).concat(pos + 1, cart.length)
     return cart
   } else {
     console.log("That item is not in your cart.")
