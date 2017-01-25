@@ -31,7 +31,7 @@ function viewCart() {
   if(cart.length >= 1) {
     var cartPairs = []
     var itemName = Object.keys(cart)
-    for (i = 0, itemName.length = 1; i < 1; i++) {
+    for (i = 0, l = itemName.length; i < l; i++) {
       cartPairs.push(`${cart[itemName]} at ${itemName}`)
     }
     console.log(`In your cart, you have ${cartPairs}`)
