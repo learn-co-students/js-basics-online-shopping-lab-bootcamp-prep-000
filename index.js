@@ -30,13 +30,26 @@ function addToCart(item) {
 function viewCart() {
   if(cart.length >= 1) {
     var cartPairs = []
-    var itemName = Object.keys(cart)
-    for (i = 0, l = itemName.length; i < l; i++) {
-      cartPairs.push(`${cart[itemName]} at ${itemName}`)
+    for (var i = 0, l = cart.length; i < l; i++) {
+      var key = Object.keys(cart[i])[0]
+      var value = cart[i][key]
+      cartPairs.push(` ${key} at $${value}`)
     }
-    console.log(`In your cart, you have ${cartPairs}`)
+    console.log(`In your cart, you have${cartPairs}.`)
   }
   else {
     console.log("Your shopping cart is empty.")
+  }
+}
+
+function removeFromCart(item) {
+  for (var item in cart) {
+    if (cart.hasOwnProperty(item)) {
+      delete cart.item;
+      return cart
+    }
+    else {
+      console.log("That item is not in your cart.")
+    }
   }
 }
