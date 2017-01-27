@@ -42,14 +42,14 @@ function viewCart() {
 }
 
 function removeFromCart(item) {
-  for (var item in cart) {
-    if (cart.hasOwnProperty(item)) {
-      delete cart[item];
-      var newCart = cart.filter(Boolean);
-      return newCart
-    }
+  for (var i = 0, l = cart.length; i < l; i++) {
+    var key = Object.keys(cart[i])
+    if (key.hasOwnProperty(item)) {
+    cart = cart.slice(0, i).concat(cart.slice(i + 1));
+  }
     else {
       console.log("That item is not in your cart.")
     }
   }
+  return cart
 }
