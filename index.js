@@ -43,13 +43,20 @@ function viewCart() {
 
 function removeFromCart(item) {
   for (var i = 0, l = cart.length; i < l; i++) {
-    var key = Object.keys(cart[i])
-    if (key.hasOwnProperty(item)) {
-    cart = cart.slice(0, i).concat(cart.slice(i + 1));
+    if (cart[i].hasOwnProperty(item)) {
+    cart.splice(i, 1);
+    return cart
   }
-    else {
+}
       console.log("That item is not in your cart.")
-    }
+}
+
+function placeOrder(number){
+  if (number) {
+    console.log(`Your total cost is $${total}, which will be charged to the card ${number}.`);
+    cart = [];
   }
-  return cart
+  else {
+    console.log("We don't have a credit card on file for you to place your order.")
+  }
 }
