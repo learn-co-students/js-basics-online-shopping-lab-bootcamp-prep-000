@@ -1,4 +1,27 @@
-var cart;
+var cart = [];
+
+function getCart() {
+  return cart;
+}
+
+function addToCart(item) {
+  var price = Math.floor(Math.random() * 10);
+  cart.push({[item]: price});
+  console.log(`${item} has been added to your cart.`)
+}
+
+function viewCart() {
+  if (cart.length === 0) {
+    console.log('Your shopping cart is empty.')
+  } else {
+    var cartString = 'In your cart you have';
+    for (var i = 0, l = cart.length; i < l; i++) {
+      var cartObject = cart[i];
+      var cartItem = Object.keys(cartObject);
+      cartString += (`${[cartItem]} ${cart[i].cartItem}`);
+    }
+  }
+}
 
 function setCart(newCart) {
   cart = newCart;
