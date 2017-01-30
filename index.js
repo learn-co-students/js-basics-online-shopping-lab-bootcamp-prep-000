@@ -36,13 +36,15 @@ function viewCart () {
 
   if (cart.length > 0) {
 
-    var fullCart = "";
+    var fullCart = '';
 
-    for (var item in cart) {
-      fullCart +=  (`${item} at $${cart[item]}, `);
+    for (var i = 0; i < cart.length; i++) {
+      for (var price in cart[i]) {
+        fullCart += (`${cart[i]} at $${cart[i][price]}, `)
+      }
     }
 
-    var removeSpace = fullCart.slice(0, -1);
+var removeSpace = fullCart.slice(0, -1);
     var removeComma = removeSpace.slice(0, -1);
     var finalCart = (`In your cart, you have ${removeComma}.`);
     console.log(finalCart)
