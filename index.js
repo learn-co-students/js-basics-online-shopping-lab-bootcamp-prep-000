@@ -25,7 +25,7 @@ function getCart() {
 function addToCart(item) {
 
 var price = (Math.floor(Math.random() * 101));
-cart.push({item: price});
+cart.push({item]: price});
 
 console.log(`${item} has been added to your cart.`)
 return cart
@@ -38,16 +38,17 @@ function viewCart () {
 
     var fullCart = '';
 
-    for (var i = 0; i < cart.length; i++) {
+    for (var i = 0, l = cart.length; i < l; i++) {
       for (var price in cart[i]) {
-        fullCart += (`${cart[i]} at $${cart[i][price]}, `)
+        var item = cart[price];
+        fullCart += (`${item} at $${cart[i][price]}, `)
       }
     }
 
-var removeSpace = fullCart.slice(0, -1);
-    var removeComma = removeSpace.slice(0, -1);
-    var finalCart = (`In your cart, you have ${removeComma}.`);
-    console.log(finalCart)
+  var removeSpace = fullCart.slice(0, -1);
+  var removeComma = removeSpace.slice(0, -1);
+  var finalCart = (`In your cart, you have ${removeComma}.`);
+  console.log(finalCart)
 
 } else {
 
