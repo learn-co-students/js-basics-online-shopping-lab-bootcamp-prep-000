@@ -28,14 +28,13 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  var superVar = [];
   if (cart.length > 0) {
-    for (var j = 0, m = cart.length; j<m; j++) {
-      for (var itemz in cart) {
-        var superVar = ("In your cart, you have " + itemz + " at " + cart[itemz] + ".")
+      for (var item in cart) {
+        superVar.push (item + " at " + cart[item])
       }
       console.log ("In your cart, you have " + superVar + ".")
-    }
   } else {
-      console.log ("Your shopping cart is empty.")
-    }
+    console.log ("Your shopping cart is empty.")
+  }
 }
