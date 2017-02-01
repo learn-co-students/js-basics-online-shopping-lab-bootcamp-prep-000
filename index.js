@@ -1,7 +1,7 @@
 var cart;
 
 function setCart(newCart) {
-  cart = newCart;
+newCart = Object.keys(cart);
 }
 
 function total() {
