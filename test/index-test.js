@@ -72,11 +72,9 @@ describe('#total', function() {
 describe('#removeFromCart', function() {
   it("removes the item from the cart", function() {
     addToCart('pizza')
-
     expect(hasItem(getCart(), 'pizza')).toBe(true)
 
     removeFromCart("pizza");
-
     expect(getCart()).toEqual([]);
   });
 
