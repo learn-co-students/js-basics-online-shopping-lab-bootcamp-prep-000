@@ -62,33 +62,27 @@ function viewCart() {
 
 
 function removeFromCart(itemToRemove) {
-    if ( cart.length > 0 ) {
 
-        for (var i = 0; i < cart.length; i++) {
-              var itemsInCart = Object.keys(cart[i]);
 
-              // determine if itemToRemove is actually in the cart
-              if (cart[i].hasOwnProperty(itemToRemove)) {
-                 // console.log('remove the item');
+    for (var i = 0; i < cart.length; i++) {
+          var itemsInCart = Object.keys(cart[i]);
 
-                 // remove the item from the carts array
-                 cart.splice(cart[i], 1);
+          // determine if itemToRemove is actually in the cart
+          if (cart[i].hasOwnProperty(itemToRemove)) {
+             // console.log('remove the item');
 
-                 // return the cart array
-                 return cart;
+             // remove the item from the carts array
+             cart.splice(cart[i], 1);
 
-              } else {
+             // return the cart array
+             return cart;
 
-                console.log('That item is not in your cart.');
-
-              }
-        }
-
-      } else {
-        // if cart array is empty, skip above and do this!
-        console.log('That item is not in your cart.');
-      }
+          }
+    }
+    
+    console.log('That item is not in your cart.')
 }
+
 
 function placeOrder(cc) {
     if ( cc ) {
