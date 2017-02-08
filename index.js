@@ -10,47 +10,26 @@ function setCart(newCart) {
 
 function addToCart(item) {
   var price = Math.floor(Math.random() * 100);
-  cart.push({item: price});
+  cart.push({[item] : price});
   console.log(`${item} has been added to your cart.`);
   return cart;
 };
 
-var itemName = Object.keys(cart)
-
 function viewCart() {
-  for (var item in cart) {
-    var itemName = Object.keys(cart[item]);
-    var cost = item.value;
-    if(item.length > 0) {
-    console.log(`In your cart, you have ${itemName} at $${cost}.`);
-  } else {
-    console.log('Your shopping cart is empty.');
+  var itemList = [];
+  if(cart.length == 0) {
+    console.log('Your shopping cart is empty.')
   }
-}
-};
-
-function viewCart() {
-  for(var item in cart) {
-    if(cart.hasOwnProperty(item)) {
-      var itemName = Object.keys(cart[item]);
-      var value = cart[item];
-      console.log(`In your cart, you have ${itemName} at $${value}.`);
-      } else {
-      console.log('Your shopping cart is empty.');
-      }
+  else {
+    for(var i = 0; i < cart.length; i++) {
+      var itemAndPrice = cart[i];
+      var itemName = Object.keys(itemAndPrice)
+      var itemCost = itemAndPrice[itemName]
+      itemList.push(`${itemName} at $${itemCost}`);
+      console.log(`In your cart, you have ${itemList.join(", ")}.`)
     }
-  };
-
-function removeFromCart(item) {
-  for(var stuff in cart) {
-    if(stuff.hasOwnProperty(item)) {
-      console.log(`That item is not in your cart.`)
-    } else {
-      delete cart.item;
   }
 }
-  return cart;
-};
 
 function total() {
   let t = 0
@@ -63,3 +42,25 @@ function total() {
 
   return t
 };
+
+function removeFromCart(item) {
+  for(let i = 0; i < cart.length; i++) {
+    if(cart[i].hasOwnProperty(item)) {
+      cart.splice(i, 1);
+      getCart();
+    }
+  }
+  console.log('That item is not in your cart.')
+}
+
+function placeOrder(creditCardNumber) {
+  if(creditCardNumber == undefined) {
+    console.log('We don\'t have a credit card on file for you to place your order.')
+  }
+  else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${creditCardNumber}.`)
+    var newCart = []
+    setCart(newCart);
+    getCart()
+  }
+}
