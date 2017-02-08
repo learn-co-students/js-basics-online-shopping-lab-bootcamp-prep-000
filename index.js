@@ -1,4 +1,17 @@
-var cart;
+var cart = [];
+
+function getCart() {
+  return cart
+}
+
+function addToCart(item) {
+  /* This function should automatically set a price
+  for this item by generating a random number in 0, 1;
+  use Math.floor() rounds a number down to the nearest integer.)
+  This function should add the item and the price as an object ({item: price})
+  to the cart array. And return the cart.
+  */
+}
 
 function setCart(newCart) {
   cart = newCart;
