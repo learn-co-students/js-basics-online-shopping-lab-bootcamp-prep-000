@@ -1,4 +1,4 @@
-var cart;
+var cart =[]
 
 function setCart(newCart) {
   cart = newCart;
@@ -14,4 +14,14 @@ function total() {
   }
 
   return t
+}
+
+function getCart(){
+  return cart;
+}
+
+function addToCart(item){
+  math.floor(math.random())
+  cart.push()
+
 }
