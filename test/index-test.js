@@ -39,7 +39,7 @@ describe('#viewCart', function() {
     addToCart("socks");
     addToCart("puppy");
     addToCart("iPhone");
-
+    
     const socksCost = getCart()[0]["socks"];
     const puppyCost = getCart()[1]["puppy"];
     const iPhoneCost = getCart()[2]["iPhone"];
