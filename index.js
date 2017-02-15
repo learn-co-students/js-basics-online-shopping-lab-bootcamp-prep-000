@@ -21,27 +21,27 @@ function getCart() {
 }
 
 function addToCart(item) {
-  var price = Math.floor(Math.random())
-  cart.push({ item: price })
+  var price = Math.floor(Math.random()*100)
+  cart.push({[item]: price})
   console.log(item + " has been added to your cart.")
-  getCart()
+  return cart
 }
 
 function viewCart() {
-  if (cart = []) {
+  if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   }
   else {
-    for (let i = 0; i < cart.length; i++) {
-      console.log("In your cart, you have " + Object.keys(cart[i]) + ".")
+    for (var item in cart) {
+      console.log("In your cart, you have " + ${cart[item]} + " at " + $${cart[item[1]]} + ".")
     }
   }
 }
 
 function removeFromCart(item) {
-  cart.hasOwnProperty(item)
+  cart.hasOwnProperty([item])
 
-  getCart()
+  return cart
 }
 
 function placeOrder(creditCard) {
@@ -51,5 +51,6 @@ function placeOrder(creditCard) {
   else {
     console.log("Your total cost is $" + total() + ", which will be charged to the card 123.")
     setCart()
+    return cart
   }
 }
