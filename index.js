@@ -32,16 +32,22 @@ function viewCart() {
     console.log("Your shopping cart is empty.")
   }
   else {
+    var itemPricePairs = []
     for (var item in cart) {
-      console.log("In your cart, you have " + ${cart[item]} + " at " + $${cart[item[1]]} + ".")
+      itemPricePairs.push(" " + Object.keys(cart[item]) + " at $"+ cart[item][Object.keys(cart[item])])
     }
+    console.log("In your cart, you have" + itemPricePairs + ".")
   }
 }
 
 function removeFromCart(item) {
-  cart.hasOwnProperty([item])
-
-  return cart
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      cart.splice(i)
+      return cart
+    }
+  }
+  console.log("That item is not in your cart.")
 }
 
 function placeOrder(creditCard) {
@@ -50,7 +56,7 @@ function placeOrder(creditCard) {
   }
   else {
     console.log("Your total cost is $" + total() + ", which will be charged to the card 123.")
-    setCart()
+    cart = []
     return cart
   }
 }
