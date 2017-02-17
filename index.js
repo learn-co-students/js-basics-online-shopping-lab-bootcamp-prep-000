@@ -27,6 +27,7 @@ function addToCart(item) {
   return cart;
 }
 
+/*
 function viewCart() {
   var items = [];
   // check if cart is not empty with if statement
@@ -44,6 +45,29 @@ function viewCart() {
   else {
     console.log("Your shopping cart is empty.")
   }
+}
+*/
+
+// following code was written by kristyburge @ learnslackers.slack.com
+function viewCart() {
+    if ( cart.length > 0 ) {
+        // create a list of cart items in an array
+        var list = [];
+        for(var i = 0; i < cart.length; i++) {
+            // grab the object keys from the cart array
+            // console.log(Object.keys(cart[i]));
+            var myItems = Object.keys(cart[i]);
+
+            // push each key/value pair onto the list array
+            list.push( " " + myItems + " at $" + cart[i][myItems] );
+        }
+        // return the list of items and prices array
+        console.log('In your cart, you have' + list + ".");
+
+    } else {
+        // if cart is empty, let the shopper know
+        console.log('Your shopping cart is empty.');
+    }
 }
 
 /*
