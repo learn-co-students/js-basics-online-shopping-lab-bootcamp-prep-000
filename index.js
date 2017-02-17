@@ -46,6 +46,7 @@ function viewCart() {
   }
 }
 
+/*
 function removeFromCart(item) {
   // iterate over cart items with for
   for (let i = 0; i < cart.length; i++) {
@@ -61,4 +62,27 @@ function removeFromCart(item) {
   }
     // return contents of cart
     return cart;
+} */
+
+// the following code was suggested by Artmour on learnslackers.slack.com
+function removeFromCart(itemToRemove) {
+  for (var i = 0; i < cart.length; i++) {
+        var itemsInCart = Object.keys(cart[i]);
+
+        // determine if itemToRemove is actually in the cart
+        if (cart[i].hasOwnProperty(itemToRemove)) {
+           // console.log('remove the item');
+
+           // remove the item from the carts array
+           cart.splice(cart[i], 1);
+
+           // return the cart array
+           return cart;
+        } 
+  }
+  console.log('That item is not in your cart.')
+}
+
+function placeOrder(creditCardNumber) {
+    return 'true'
 }
