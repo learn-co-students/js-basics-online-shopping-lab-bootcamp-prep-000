@@ -46,13 +46,9 @@ for(let i = 0; i < cart.length; i++){//Go through each element of array
   if(cart[i].hasOwnProperty(item)){
      cart.splice(i, 1);//remove object at element i
      return cart;
+     }
     }
-  else {//if no keys in the array match the item
-        if(i === cart.length - 1){//if false at last element of cart
-            console.log('That item is not in your cart.');
-        }
-      }
-    }
+   console.log('That item is not in your cart.');//only runs once for loop in completed
   }
 
   function placeOrder(cardNumber) {
