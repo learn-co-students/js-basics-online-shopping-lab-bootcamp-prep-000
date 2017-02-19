@@ -50,8 +50,8 @@ function removeFromCart(item){
 }
 
 function placeOrder(ccNumber){
-  if(ccInfo) {
-console.log(`Your total cost is $${total()}, which will be charged to the card ${ccInfo}.`);
+  if(ccNumber) {
+console.log(`Your total cost is $${total()}, which will be charged to the card ${ccNumber}.`);
   cart = [];
 } else {
   console.log("We don't have a credit card on file for you to place your order.");
