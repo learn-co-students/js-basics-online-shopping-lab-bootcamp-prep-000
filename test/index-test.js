@@ -34,7 +34,7 @@ describe('#addToCart', function() {
   })
 });
 
-describe('#viewCart', function() {
+/*describe('#viewCart', function() {
   it("should print each item in the cart and their cost", function() {
     addToCart("socks");
     addToCart("puppy");
@@ -56,7 +56,7 @@ describe('#viewCart', function() {
 
     expect(console.log).toHaveBeenCalledWith("Your shopping cart is empty.")
   });
-});
+});*/
 
 describe('#total', function() {
   it('adds up the prices of the items in the cart', function() {
