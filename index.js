@@ -15,21 +15,16 @@ function addToCart(item) {
 }
 function viewCart() {
   var cartLength = cart.length
-
   if (!cartLength) {
     return console.log("Your shopping cart is empty.")
   }
-
   var itemsAndPrices = []
-
   for (let i = 0; i < cartLength; i++) {
     let itemAndPrice = cart[i]
     let item = Object.keys(itemAndPrice)[0]
     let price = itemAndPrice[item]
-
     itemsAndPrices.push(`${item} at \$${price}`)
   }
-
   console.log(`In your cart, you have ${itemsAndPrices.join(', ')}.`)
 }
 function removeFromCart(item) {
@@ -40,7 +35,6 @@ function removeFromCart(item) {
       cart = cart.slice(0, i).concat(cart.slice(i + 1))
     }
   }
-
   if (!itemInCart) {
     console.log("That item is not in your cart.")
   }
