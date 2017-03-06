@@ -25,22 +25,15 @@ function viewCart() {
   }
 }
 function removeFromCart(item) {
-  if (!cart.length) {
-     console.log(`That item is not in your cart.`);
-  }
-  else {
-     for (var i in cart) {
+  var initCart = cart.length;
+  for (var i = 0; i < cart.length; i++) {
       if (cart[i].hasOwnProperty(item)) {
-        var newCart = [...cart.slice(0,i),...cart.slice(i,cart.length-1)];
-        cart = newCart;
-      }
-      else {
-        console.log(`That item is not in your cart.`);
-      }
+        cart = [...cart.slice(0,i),...cart.slice(i+1)];
+      }}
+  if (initCart === cart.length) {    
+    console.log(`That item is not in your cart.`);
   }
- }
-//  return cart;
-}
+}      
 function setCart(newCart) {
   cart = newCart;
 }
