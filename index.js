@@ -1,4 +1,4 @@
-var cart;
+/**  var cart;
 
 function setCart(newCart) {
   cart = newCart;
@@ -14,4 +14,4 @@ function total() {
   }
 
   return t
-}
+}   **/
