@@ -1,4 +1,4 @@
-/*global afterEach, beforeEach, describe, it */
+/*global afterEach, beforeEach, describe, it *
 
 
 beforeEach(function() {
@@ -133,3 +133,4 @@ function hasItem(c, item) {
 
   return false
 }
+**/
