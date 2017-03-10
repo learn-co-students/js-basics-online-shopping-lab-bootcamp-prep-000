@@ -35,6 +35,12 @@ describe('#addToCart', function() {
 });
 
 describe('#viewCart', function() {
+  it("should print 'Your shopping cart is empty.' if the cart is empty", function() {
+    viewCart();
+
+    expect(console.log).toHaveBeenCalledWith("Your shopping cart is empty.")
+  });
+
   it("should print each item in the cart and their cost", function() {
     addToCart("socks");
     addToCart("puppy");
@@ -49,12 +55,6 @@ describe('#viewCart', function() {
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have socks at $${socksCost}, puppy at $${puppyCost}, iPhone at $${iPhoneCost}.`
     )
-  });
-
-  it("should print 'Your shopping cart is empty.' if the cart is empty", function() {
-    viewCart();
-
-    expect(console.log).toHaveBeenCalledWith("Your shopping cart is empty.")
   });
 });
 
