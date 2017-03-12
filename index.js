@@ -1,7 +1,20 @@
-var cart;
+var cart = [];
 
 function setCart(newCart) {
   cart = newCart;
+}
+
+function getCart(){
+  return cart
+}
+
+function addToCart(item){
+  var number = Math.random()
+  var rounded = number * Math.floor()
+  var price = rounded * 100
+  cart.item = price
+  console.log(`${item} has been added to your cart.`)
+  return cart
 }
 
 function total() {
