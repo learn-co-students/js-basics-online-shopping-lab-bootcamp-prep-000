@@ -58,5 +58,26 @@ var viewCart = () => {
         console.log(cartContents);
       }
 
+//---------------------------------------------------
+var removeFromCart = (item) =>{
+  debugger;
 
+  for (var i = 0; i<cart.length; ++i){
+    if (cart[i].hasOwnProperty(item)){
+      cart.splice(i,1);
+      return cart
+    }
+  }
+  console.log('That item is not in your cart.');
+}
+
+//---------------------------------------------------
+var placeOrder = (card) =>{
+  if (card === undefined){
+    console.log('We don\'t have a credit card on file for you to place your order.')
+    return
+  }
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${card}.`)
+  cart = []
+  return cart
 }
