@@ -9,9 +9,7 @@ function getCart(){
 }
 
 function addToCart(item){
-  var number = Math.random()
-  var rounded = 1 + number * Math.floor()
-  var price = rounded * 100
+  var price = Math.floor(Math.random() * 100)
   cart.push(`{item: price}`)
   console.log(`${item} has been added to your cart.`)
   return cart
@@ -25,7 +23,7 @@ function viewCart(){
   else{
   //while(cart.length > i){
   for(var item in cart){
-    console.log(`In your cart, you have ${item} at ${cart[item]}`)
+    console.log(`In your cart, you have ${item} at ${cart[item]}.`)
     //i++
     }
   }
