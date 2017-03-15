@@ -18,8 +18,8 @@ function addToCart(item){
 }
 
 function viewCart(){
-  if(cart[0] === " "){
-    "Your shopping car is empty."
+  if(cart[0] === undefined){
+    return "Your shopping cart is empty."
   }
   else{
     for(var item in cart){
