@@ -12,7 +12,7 @@ function addToCart(item){
   var number = Math.random()
   var rounded = number * Math.floor()
   var price = 1 + rounded * 100
-  cart.push({item:price})
+  cart.push(`{item:price}`)
   console.log(`${item} has been added to your cart.`)
   return cart
 }
