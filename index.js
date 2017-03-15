@@ -18,7 +18,15 @@ function addToCart(item){
 }
 
 function viewCart(){
-  
+  if(cart[0] === " "){
+    "Your shopping car is empty."
+  }
+  else{
+    for(var item in cart){
+      console.log(`In your cart, you have ${item} for ${cart[item]}.`)
+    }
+  }
+
 }
 
 function total() {
