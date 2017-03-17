@@ -131,9 +131,7 @@ const viewCart = () => {
   }
 
   const removeFromCart = (item) => {
-    let filteredCart = cart.filter((storedItem)=>{
-    return !storedItem[item]
-    })
+    let filteredCart = cart.filter((storedItem)=> !storedItem[item])
     if (filteredCart.length === cart.length){
       console.log("That item is not in your cart.")
     }
