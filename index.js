@@ -25,6 +25,7 @@ function viewCart(){
     var key = Object.keys(cart[i])
     console.log(`In your cart, you have ${cart[i]} at ${cart[key]}.`)
 
+
     }
   }
 }
