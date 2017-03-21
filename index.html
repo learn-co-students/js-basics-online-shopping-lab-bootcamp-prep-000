@@ -1,20 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Shopping!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
-  </head>
-  <body>
-    <div id="mocha"></div>
-    <script src="node_modules/mocha/mocha.js"></script>
-    <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="index.js"></script>
-    <script src="test/index-test.js"></script>
-    <script>
-      mocha.run();
-    </script>
-  </body>
-</html>
+var cart = []
+
+function setCart(newCart) {
+  cart = newCart;
+}
+
+function total() {
+  let t = 0
+
+  for (var i = 0, l = cart.length; i < l; i++) {
+    for (var item in cart[i]) {
+      t += cart[i][item]
+    }
+  }
+
+  return t
+}
+function getCart(){
+  return cart
+}
+
+function addToCart(item){
+  var price = Math.floor(Math.random()*100)
+  var cartitem = {}
+  cartitem[item] = price
+  cart.push(cartitem)
+  console.log(`${item} has been added to your cart.`)
+  return cart
+}
+
+function viewCart(){
+  var cartsize = cart.length
+  if (cartsize === 0){
+    console.log("Your shopping cart is empty.")
+  }
+  else {
+    var newCart = []
+    for(var i = 0; i < cartsize; i++){
+      var cartitem = cart[i]
+      var cartkey = Object.keys(cartitem)[0]
+      var cartvalue = cartitem[cartkey]
+      newCart.push(`${cartkey} at $${cartvalue}`)
+    }
+    console.log(`In your cart, you have ${newCart.join(', ')}.`)
+  }
+}

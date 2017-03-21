@@ -52,7 +52,7 @@ describe('#viewCart', function() {
   });
 
   it("should print 'Your shopping cart is empty.' if the cart is empty", function() {
-    viewCart();
+    viewCart()
 
     expect(console.log).toHaveBeenCalledWith("Your shopping cart is empty.")
   });
