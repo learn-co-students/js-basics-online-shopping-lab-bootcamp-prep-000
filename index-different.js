@@ -26,23 +26,21 @@ return cart;
 };
 
 function viewCart(){
-  var string = 'In your cart, you have';
   if (cart.length === 0){
     console.log("Your shopping cart is empty.");
   }
   else {
     for (var i=0; i<cart.length; i++){
       for (var key in cart[i]){
-        string += ` ${key} at $${cart[i][key]},`
+        console.log(`In your cart, you have ${key} at $${cart[i][key]}.`);
       }
-    };
-    string = string.replace(/.$/,".")
-    console.log(string);
+    }
   }
 }
 
 function removeFromCart (item){
   var foundIt = false;
+
   for (var i=0; i<cart.length; i++){
     for (var key in cart[i]){
       if (key === item){
