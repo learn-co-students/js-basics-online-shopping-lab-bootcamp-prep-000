@@ -1,0 +1,13 @@
+var r = []
+function viewCart(){
+  if(cart.length>0){
+    for (var i = 0; i < cart.length; i++) {
+      var itemType = Object.keys(cart[i])
+      r.unshift(` ${itemType[0]} at $${cart[i][itemType[0]]}`)
+    }
+    console.log(`In your cart, you have${r}.`)
+  }
+  else if(cart.length === 0){
+    return "Your shopping cart is empty."
+  }
+}
