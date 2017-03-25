@@ -1,3 +1,4 @@
+//Some text for submitting lesson...
 var cart = [];
 
 function setCart(newCart) {
