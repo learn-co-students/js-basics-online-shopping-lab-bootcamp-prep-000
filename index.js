@@ -24,11 +24,13 @@ function viewCart(){
   for(var i = 0; cart.length > i; i++){
     var key = Object.keys(cart[i])
     	for (var price in key){
-    	console.log(`In your cart, you have ${key} at ${cart[i][key]}.`)
+
     	}
+      return `In your cart, you have ${key} at $${cart[i][key]}.`
   	}
 	}
 }
+
 function removeFromCart(itemName){
   if(cart.hasOwnProperty(`${itemName}`)){
     var index = cart.indexOf(`${itemName}`)
