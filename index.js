@@ -23,13 +23,12 @@ function viewCart(){
   else{
   for(var i = 0; cart.length > i; i++){
     var key = Object.keys(cart[i])
-    console.log(`In your cart, you have ${cart[i]} at ${cart[key]}.`)
-
-
+      for (var price in key){
+        console.log(`In your cart, you have ${key} at ${[key]}.`)
+      }
     }
   }
 }
-
 function removeFromCart(itemName){
   if(cart.hasOwnProperty(`${itemName}`)){
     var index = cart.indexOf(`${itemName}`)
