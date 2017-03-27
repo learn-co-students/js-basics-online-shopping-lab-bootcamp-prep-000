@@ -17,17 +17,17 @@ function addToCart(item){
 
 function viewCart(){
 
-  if(cart[0] === undefined){
+  if(cart.length == 0){
     return "Your shopping cart is empty."
     }
   else{
   for(var i = 0; cart.length > i; i++){
     var key = Object.keys(cart[i])
-      for (var price in key){
-        console.log(`In your cart, you have ${key} at ${[key]}.`)
-      }
-    }
-  }
+    	for (var price in key){
+    	console.log(`In your cart, you have ${key} at ${cart[i][key]}.`)
+    	}
+  	}
+	}
 }
 function removeFromCart(itemName){
   if(cart.hasOwnProperty(`${itemName}`)){
