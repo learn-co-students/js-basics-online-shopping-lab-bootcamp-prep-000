@@ -28,6 +28,7 @@ function getCart() {
 function addToCart( item ) {
   const price = randomNum();
 	let obj = {};
+  
   obj[item] = price;
   cart.push(obj);
 
