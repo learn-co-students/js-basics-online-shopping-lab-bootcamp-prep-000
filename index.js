@@ -21,14 +21,14 @@ function viewCart(){
     return "Your shopping cart is empty."
     }
   else{
-  for(var i = 0; cart.length > i; i++){
-    var key = Object.keys(cart[i])
-    	for (var price in key){
+  //for(var i = 0; cart.length > i; i++){
+    var key = Object.keys(cart[0])
+	   var keyTwo = Object.keys(cart[1])
+	    var keyThree = Object.keys(cart[2])
 
-    	}
-      return `In your cart, you have ${key} at $${cart[i][key]}.`
-  	}
-	}
+      return `In your cart, you have ${key} at $${cart[0][key]}, ${keyTwo} at $${cart[1][keyTwo]}, ${keyThree} at $${cart[2][keyThree]}.`
+  		}
+
 }
 
 function removeFromCart(itemName){
