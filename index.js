@@ -18,16 +18,22 @@ function addToCart(item){
 function viewCart(){
 
   if(cart.length == 0){
-    return "Your shopping cart is empty."
+    console.log("Your shopping cart is empty.")
     }
   else{
-  //for(var i = 0; cart.length > i; i++){
-    var key = Object.keys(cart[0])
-	   var keyTwo = Object.keys(cart[1])
-	    var keyThree = Object.keys(cart[2])
+    var items = []
+    for(var i = 0; cart.length > i; i++){ // [{pizza: 24}, {socks: 25}, {iPad: 75}]
+      var key = Object.keys(cart[i])[0] // 'pizza'
+      var price = cart[i][key] // 24
+      items.push(`${key} at $${price}`)
+      // ['socks at $98', 'puppy at $33', 'iPhone at $16']
+      // socks at $98, puppy at $33, iPhone at $16
+  	  //  var keyTwo = Object.keys(cart[1])
+  	  //   var keyThree = Object.keys(cart[2])
 
-      return `In your cart, you have ${key} at $${cart[0][key]}, ${keyTwo} at $${cart[1][keyTwo]}, ${keyThree} at $${cart[2][keyThree]}.`
-  		}
+    }
+    console.log(`In your cart, you have ${items.join(', ')}.`)
+	}
 
 }
 
@@ -37,10 +43,9 @@ function removeFromCart(itemName){
     cart.splice(index, 1)
     return cart
   }
-else{
-  return "That item is not in your cart."
-}
-
+    else{
+      return "That item is not in your cart."
+    }
 
 }
 
