@@ -33,18 +33,19 @@ function viewCart(){
   var allItems = ""
   var messageArray=[]
 
-  if (cart.length===0){
-    console.log('Your shopping cart is empty.');
-  }
-  else{
     for (var currentCart in cart)
     {
       messageArray.push(`${currentCart} at ${cart[currentCart]}`)
-}
+    }
       for (var ii = 0; ii < messageArray.length-1 ; ii++){
           allItems = allItems + messageArray[ii] + ", "
         }
         allItems = allItems + messageArray[messageArray.length-1] + "."
-        }
+
+  if (cart.length===0){
+    console.log('Your shopping cart is empty.');
+  }
+else{
     console.log(`In your cart, you have ${allItems}`)
+  }
 }
