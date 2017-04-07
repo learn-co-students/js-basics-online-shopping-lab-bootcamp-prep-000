@@ -6,7 +6,7 @@ function getCart(){
 
 function addToCart(item){
   var addedItem = item
-  var price = Math.random(Math.random()*100)
+  var price = Math.floor(Math.random()*100)
   cart.push({addedItem : price})
   console.log(`${item} has been added to your cart.`)
   return cart
@@ -29,19 +29,19 @@ function total() {
 }
 
 function viewCart(){
-  var currentItem
+  var currentItem, key, value
   var allItems = ""
   var messageArray=[]
 
-    for (var currentCart in cart)
-    {
-      messageArray.push(`${currentCart} at ${cart[currentCart]}`)
+    for (var ii=0;ii<cart.length;ii++){
+      for (var currentCart in cart[ii]){
+      messageArray.push(`${currentCart} at ${cart[ii]}`)
     }
-      for (var ii = 0; ii < messageArray.length-1 ; ii++){
-          allItems = allItems + messageArray[ii] + ", "
+      for (var jj = 0; ii < messageArray.length-1 ; jj++){
+          allItems = allItems + messageArray[jj] + ", "
         }
         allItems = allItems + messageArray[messageArray.length-1] + "."
-
+}
   if (cart.length===0){
     console.log('Your shopping cart is empty.');
   }
