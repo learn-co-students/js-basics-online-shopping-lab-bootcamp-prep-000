@@ -5,11 +5,10 @@ function getCart(){
 }
 
 function addToCart(item){
-  var addedItem = item
-  var price = Math.floor(Math.random()*100)
-  cart.push({addedItem : price})
-  console.log(`${item} has been added to your cart.`)
-  return cart
+  var price = Math.floor(Math.random()*100);
+  cart.push({[item]:price});
+  console.log(`${item} has been added to your cart.`);
+  return cart;
 }
 
 function setCart(newCart) {
@@ -29,23 +28,39 @@ function total() {
 }
 
 function viewCart(){
-  var currentItem, key, value
-  var allItems = ""
-  var messageArray=[]
+  var currentItem, itemName, itemPrice;
+  var allItems = "";
+  var messageArray=[];
 
-    for (var ii=0;ii<cart.length;ii++){
+     for (var ii=0;ii<cart.length;ii++){
       for (var currentCart in cart[ii]){
-      messageArray.push(`${currentCart} at ${cart[ii]}`)
-    }
-      for (var jj = 0; ii < messageArray.length-1 ; jj++){
-          allItems = allItems + messageArray[jj] + ", "
+      messageArray.push(`${currentCart} at $${cart[ii][currentCart]}`);
+      }
+   }
+      for (var jj = 0; jj < messageArray.length-1 ; jj++){
+          allItems = allItems + messageArray[jj] + ", ";
         }
-        allItems = allItems + messageArray[messageArray.length-1] + "."
-}
+        allItems = allItems + messageArray[messageArray.length-1] + ".";
+
   if (cart.length===0){
     console.log('Your shopping cart is empty.');
   }
 else{
-    console.log(`In your cart, you have ${allItems}`)
+    console.log(`In your cart, you have ${allItems}`);
   }
+}
+
+function removeFromCart(itemToRemove){
+  var cartItems =[];
+  for (var ii = 0; ii<cart.length;ii++){
+  for (var currentCart in cart[ii]){
+    cartItems.push(currentCart);
+  }
+  }
+  if (cartItems.hasOwnProperty(itemToRemove)){
+    console.log("This item is in your cart.")
+  }
+  else{
+  console.log("That item is not in your cart.");
+}
 }
