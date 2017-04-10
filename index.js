@@ -1,5 +1,5 @@
 var cart = [];
-//var itemToPurchase = "";
+var cardNumber = '';
 
 function setCart(newCart) {
   cart = newCart;
@@ -18,7 +18,7 @@ function total() {
   return t
 } // end of function total
 
-function getCart{
+function getCart(){
 
   return cart;
 } // end of function getCart
@@ -31,13 +31,13 @@ var itemToPurchase = {item : price};
 
 cart.push(itemToPurchase);
 
-console.log(<item> + " has been added to your cart.");
+console.log(" ${item} has been added to your cart.");
 
 return cart;
 
 } //end of function itemPrice
 
-function viewCart{
+function viewCart(){
 
   var itemNames = Object.keys(cart);
 
@@ -46,14 +46,12 @@ function viewCart{
     for (var i = 0, l = itemNames.length; i < l; i++){
 
     console.log('In your cart you have ${itemNames[i]} for ${cart[itemNames[i]]}.');
-
-    }  else {
+  } // end of for-loop
+    }else {
 
           console.log('Your shopping cart is empty.');
 
           } // end of if-else statement
-
-        }// end of for-looop
 
 } // end of function viewCart
 
@@ -65,7 +63,13 @@ function removeFromCart(item){
 
     for (var i = 0, l = itemNames.length; i < l; i++){
 
-      if(item == itemNames[i]) // check name of item to see if it matches itemnames in cart
+      if(cart.hasOwnProperty(item)){ // check name of item to see if it matches itemnames in cart
+
+        var position = cart.indexOf(item);
+
+        cart.splice(position,1);
+
+        return cart;
 
     }  else { //How do I loop through the whole cart array and check all the item names??
 
@@ -76,3 +80,20 @@ function removeFromCart(item){
         }// end of for-looop
 
 } // end of function removeFromCart
+
+function placeOrder(cardNumber){
+
+  if (cardNumber == Null){
+
+    console.log ( "We don't have a credit card on file for you to place your order.");
+
+  }else {
+
+    console.log( "Your total cost is $${total()}, which will be charged to the card ${cardNumber}.")
+
+    cart.length = 0; // empty the array by setting its length to 0
+
+    return cart;
+  } //end of if-else statement
+
+} // end of function placeOrder
