@@ -38,8 +38,8 @@ function viewCart(){
 }
 
 function removeFromCart(itemName){
-  if(cart.hasOwnProperty(`${itemName}`)){
-    var index = cart.indexOf(`${itemName}`)
+  if(cart.hasOwnProperty([itemName]){
+    index = cart.indexOf([itemName])
     cart.splice(index, 1)
     return cart
   }
@@ -48,6 +48,23 @@ function removeFromCart(itemName){
     }
 
 }
+//var cart = [{trees : 24}, {ice : 15}, {car : 7}]
+
+//
+// function removeFromCart(itemName){
+//   for(i = 0; i < cart.length; i++){
+// 	if(cart.hasOwnProperty === itemName){
+//     	var index = cart.indexOf(itemName)
+//     	cart.splice(index, 1)
+//     return cart
+//     }
+//  	else{
+//     return "That item is not in your cart."
+//  	}
+// 	}
+// }
+//
+// removeFromCart("ice")
 
 function total() {
   let t = 0
