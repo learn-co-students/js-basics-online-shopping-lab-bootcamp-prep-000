@@ -78,6 +78,7 @@ function removeFromCart(item){
           } // end of if-else statement
 
         }// end of for-looop
+} // end of if statement
 
 } // end of function removeFromCart
 
