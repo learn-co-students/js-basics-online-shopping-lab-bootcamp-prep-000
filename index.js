@@ -37,35 +37,21 @@ function viewCart(){
 
 }
 
-function removeFromCart(itemName){
-  if(cart.hasOwnProperty([itemName]){
-    index = cart.indexOf([itemName])
-    cart.splice(index, 1)
-    return cart
-  }
-    else{
-      return "That item is not in your cart."
-    }
 
-}
 //var cart = [{trees : 24}, {ice : 15}, {car : 7}]
 
-//
-// function removeFromCart(itemName){
-//   for(i = 0; i < cart.length; i++){
-// 	if(cart.hasOwnProperty === itemName){
-//     	var index = cart.indexOf(itemName)
-//     	cart.splice(index, 1)
-//     return cart
-//     }
-//  	else{
-//     return "That item is not in your cart."
-//  	}
-// 	}
-// }
-//
-// removeFromCart("ice")
 
+function removeFromCart(itemName){
+  for(var i = 0; i < cart.length; i++){
+	   if(cart[i].hasOwnProperty(itemName)){
+    	cart.splice(i, 1)
+      return cart
+      }
+
+	}
+  console.log("That item is not in your cart.")
+}
+//
 function total() {
   let t = 0
 
@@ -77,3 +63,14 @@ function total() {
 
   return t
 }
+
+
+function placeOrder(cardNumber){
+  if(cardNumber === undefinied){
+    return "We don\'t have a credit card on file for you to place your order."
+  }
+  else{
+    console.log(`Your total is $${total()}, which will be charged to the card ${cardNumber}.`)
+    cart = []
+    }
+  }
