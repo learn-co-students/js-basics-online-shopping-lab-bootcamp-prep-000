@@ -66,7 +66,7 @@ function total() {
 
 
 function placeOrder(cardNumber){
-  if(cardNumber === undefinied){
+  if(cardNumber < 0){
     return "We don\'t have a credit card on file for you to place your order."
   }
   else{
