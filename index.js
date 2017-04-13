@@ -66,11 +66,12 @@ function total() {
 
 
 function placeOrder(cardNumber){
-  if(cardNumber < 0){
-    return "We don\'t have a credit card on file for you to place your order."
+  if(cardNumber === undefined){
+
+    console.log("We don\'t have a credit card on file for you to place your order.")
   }
   else{
-    console.log(`Your total is $${total()}, which will be charged to the card ${cardNumber}.`)
-    cart = []
-    }
+    console.log(`Your total is $${total()}, which will be charged to the card ${cardNumber}.`)  
   }
+  cart = []
+}
