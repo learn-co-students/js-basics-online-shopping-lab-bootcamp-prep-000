@@ -47,26 +47,25 @@ if (cart.length === 0) {
 }
 
 function removeFromCart(item) {
-  var status;
+  var isEmpty;
 
-if (cart == 0) {
-			console.log("That item is not in your cart.");
-        }
+if (cart.length == 0) {
+			isEmpty = "true";
+        }  
 
-  for (var x = 0, j = cart.length; x < j; x++) {
+for (var x = 0, j = cart.length; x < j; x++) {
     for (var currentItem in cart[x]) {
 
         if (cart[x].hasOwnProperty(item) == true) {
           cart.splice(x, 1);
-          status = "true";
+          isEmpty = "not empty";
         }
-
-        if (status !== "true") {
-          console.log("That item is not in your cart.")
-        }
-
         }
     }
+
+if (isEmpty == "true" || isEmpty !== "not empty") {
+          console.log("That item is not in your cart.")
+        }
 	return cart;
   }
 
