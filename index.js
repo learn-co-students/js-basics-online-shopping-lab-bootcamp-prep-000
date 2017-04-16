@@ -51,16 +51,23 @@ else{
 }
 
 function removeFromCart(itemToRemove){
-  var cartItems =[];
+  var removed=false;
   for (var ii = 0; ii<cart.length;ii++){
-  for (var currentCart in cart[ii]){
-    cartItems.push(currentCart);
+    if (cart[ii].hasOwnProperty(itemToRemove)){
+      cart.splice(ii,1);
+      removed=true;
+      return cart;
+      }
+  }if(removed ===false){
+    console.log('That item is not in your cart.');
   }
-  }
-  if (cartItems.hasOwnProperty(itemToRemove)){
-    console.log("This item is in your cart.")
-  }
-  else{
-  console.log("That item is not in your cart.");
+}
+
+function placeOrder(cardNumber){
+if (cardNumber >0){
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+  cart.length=0;
+}else{
+  console.log("We don't have a credit card on file for you to place your order.")
 }
 }
