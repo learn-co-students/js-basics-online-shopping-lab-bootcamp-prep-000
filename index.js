@@ -47,7 +47,21 @@ function viewCart() {
 function removeFromCart(item) {
   for(var i=0; i<cart.length; i++) {
     var cartNamesi = Object.keys(cart[i])
-    if (if cart[i].hasOwnProperty(item)===true) {
+      if (cart[i].hasOwnProperty(item)) {
       cart.pop()
     }
-}
+  }
+    if (cart.length===0) {
+      console.log(`That item is not in your cart.`)
+    } else {
+      console.log(`That item is not in your cart.`)
+    }
+  }
+
+  function placeOrder(card) {
+    if(!card) {
+      console.log(`We don't have a credit card on file for you to place your order.`)
+    }
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${card}.`)
+    cart = [];
+  }
