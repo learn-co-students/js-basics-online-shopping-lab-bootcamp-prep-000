@@ -15,3 +15,6 @@ function total() {
 
   return t
 }
+function getCart(){
+
+}
