@@ -4,6 +4,16 @@ function setCart(newCart) {
   cart = newCart;
 }
 
+function addToCart(item) {
+  cart.push(item)
+  console.log(item + ' has been added to you cart.')
+  return cart
+}
+
+function getCart() {
+  return cart
+}
+
 function total() {
   let t = 0
 
