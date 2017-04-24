@@ -15,14 +15,14 @@ function getCart() {
 }
 
 function viewCart() {
-  if (cart.length < 1) {
+  if (getCart().length < 1) {
     console.log('Your shopping cart is empty.')
     return
   }
-  var cartContents
-  for (var key in cart) {
-    var cartLength = cart.length
-    cartContents = `${cart[key]} at $${cart[price]}`
+  var cartContents = ''
+  for (var key in getCart()) {
+    var cartLength = getCart().length
+    cartContents = `${getCart()[key]} at $${getCart()[key].price}`
     cartLength--
     if (cartLength < 1) {
       cartContents = `${cartContents}.`
