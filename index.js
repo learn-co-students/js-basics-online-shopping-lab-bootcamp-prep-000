@@ -1,11 +1,39 @@
-var cart;
+var cart = []
 
 function setCart(newCart) {
   cart = newCart;
 }
 
+function woordwaarde(query) {
+  var queryNumbers = new Array(query.length);
+  let woordwaarde = 0
+  // var vert = 150;
+  // var hor = 10;
+  for (let i = 0; i < query.length; i++) {
+      queryNumbers[i] = Number(query.charCodeAt(i) != 32 ? query.charCodeAt(i) - 64 : 0);
+      // ctx.fillText(query.charCodeAt(i) != 32 ? query.charCodeAt(i) - 64 : 0, i * 1 + hor, vert);
+      // hor += 45;
+  }
+  for (var key in queryNumbers) {
+      woordwaarde += parseInt(queryNumbers[key]);
+  }
+
+  // var debug = 175;
+  while (woordwaarde > 9) {
+      // ctx.fillText(woordwaarde, 10, debug += 35);
+      var newWoordwaarde = Number(0);
+      for (let j = 0; j < woordwaarde.toString().length; j++) {
+          newWoordwaarde += Number(woordwaarde.toString().charAt(j));
+      }
+      woordwaarde = newWoordwaarde;
+  }
+
+  return woordwaarde
+}
+
 function addToCart(item) {
   console.log(`${item} has been added to your cart.`)
+  // let preItem = {item: woordwaarde(item)}
   cart.push(item)
   return cart
 }
@@ -15,25 +43,27 @@ function getCart() {
 }
 
 function viewCart() {
-  if (getCart().length < 1) {
+  // var cart = getCart()
+  if (cart.length < 1) {
     console.log('Your shopping cart is empty.')
     return
   }
   var cartContents = ''
-  for (var key in getCart()) {
-    var cartLength = getCart().length
-    cartContents = `${getCart()[key]} at $${getCart()[key].price}`
+  var cartLength = cart.length
+  for (var key in cart) {
+    cartContents += `${cart[key]} at $${cart[key].price}`
     cartLength--
     if (cartLength < 1) {
-      cartContents = `${cartContents}.`
+      cartContents += '.'
     } else {
-      cartContents = `${cartContents}, `
+      cartContents += ', '
     }
   }
   console.log(`In your cart, you have ${cartContents}`)
 }
 
 function total() {
+  var cart = getCart()
   let t = 0
 
   for (var i = 0, l = cart.length; i < l; i++) {
@@ -43,4 +73,16 @@ function total() {
   }
 
   return t
+}
+
+function removeFromCart(item) {
+  let cart = getCart()
+  for (let myItem in cart) {
+    if (item === cart[myItem]) {
+      delete cart[item]
+      setCart(cart)
+      return getCart()
+    }
+  }
+  console.log("That item is not in your cart.")
 }
