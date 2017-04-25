@@ -11,7 +11,7 @@ function woordwaarde(query) {
   // var hor = 10;
   for (let i = 0; i < query.length; i++) {
       queryNumbers[i] = Number(query.charCodeAt(i) != 32 ? query.charCodeAt(i) - 64 : 0);
-      // ctx.fillText(query.charCodeAt(i) != 32 ? query.charCodeAt(i) - 64 : 0, i * 1 + hor, vert);
+      // ctx.fillText(query.charCodeAt(i) != 32 ? query.h(i) - 64 : 0, i * 1 + hor, vert);
       // hor += 45;
   }
   for (var key in queryNumbers) {
@@ -33,8 +33,8 @@ function woordwaarde(query) {
 
 function addToCart(item) {
   console.log(`${item} has been added to your cart.`)
-  // let preItem = {item: woordwaarde(item)}
-  cart.push(item)
+  let preItem = {[item]: woordwaarde(item)}
+  cart.push(preItem)
   return cart
 }
 
@@ -43,15 +43,15 @@ function getCart() {
 }
 
 function viewCart() {
-  // var cart = getCart()
+  var cart = getCart()
   if (cart.length < 1) {
     console.log('Your shopping cart is empty.')
     return
   }
   var cartContents = ''
   var cartLength = cart.length
-  for (var key in cart) {
-    cartContents += `${cart[key]} at $${cart[key].price}`
+  for (var key in Object.keys(cart)) {
+    cartContents += `${Object.keys(cart[key])} at $${cart[key].price}`
     cartLength--
     if (cartLength < 1) {
       cartContents += '.'
