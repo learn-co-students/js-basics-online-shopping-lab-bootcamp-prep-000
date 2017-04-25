@@ -51,7 +51,7 @@ function viewCart() {
   var cartContents = ''
   var cartLength = cart.length
   for (var key in Object.keys(cart)) {
-    cartContents += `${Object.keys(cart[key])} at $${cart[key].price}`
+    cartContents += `${Object.keys(cart[key])} at $${cart[key][Object.keys(cart[key])]}`
     cartLength--
     if (cartLength < 1) {
       cartContents += '.'
