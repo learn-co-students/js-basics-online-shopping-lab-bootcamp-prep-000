@@ -76,15 +76,16 @@ function total() {
 }
 
 function removeFromCart(item) {
-  let cart = getCart()
-  let t = 0
-  for (let myItem in cart) {
-    if (item === cart[t]) {
-      delete cart[t]
-      setCart(cart)
-      return getCart()
+  console.log(`item: ${item}`)
+  for (let key in Object.keys(cart)) {
+    console.log(`key: ${key}`)
+    for (var myItem in cart[key]) {
+      console.log(`myitem: ${myItem}`)
+      if (item === myItem) {
+        cart.splice(key, 1)
+        return getCart()
+      }
     }
-    t++
   }
   console.log("That item is not in your cart.")
 }
