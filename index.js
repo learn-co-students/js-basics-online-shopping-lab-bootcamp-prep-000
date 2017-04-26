@@ -76,11 +76,8 @@ function total() {
 }
 
 function removeFromCart(item) {
-  console.log(`item: ${item}`)
   for (let key in Object.keys(cart)) {
-    console.log(`key: ${key}`)
     for (var myItem in cart[key]) {
-      console.log(`myitem: ${myItem}`)
       if (item === myItem) {
         cart.splice(key, 1)
         return getCart()
