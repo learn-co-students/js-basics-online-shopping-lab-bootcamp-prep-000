@@ -80,7 +80,7 @@ describe('#removeFromCart', function() {
 
     expect(hasItem(getCart(), 'pizza')).toBe(true)
 
-    removeFromCart("pizza");
+    removeFromCart('pizza');
 
     expect(getCart()).toEqual([]);
   });
