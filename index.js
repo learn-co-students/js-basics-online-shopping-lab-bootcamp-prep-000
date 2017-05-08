@@ -5,7 +5,7 @@ return cart
 };
 
 function addToCart(item){
-   var price = item + Math.random(Math.floor()*100)
+   var price = Math.random(Math.floor()*100)
 cart.push({ [item]: price});
   console.log(item + ' has been added to your cart.');
   return cart;
