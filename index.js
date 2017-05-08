@@ -46,15 +46,16 @@ function viewCart(){
 }
 
 function removeFromCart(name) {
+  var itemCart = false;
   for(var i = 0; i < cart.length; i++) {
-    let itemInCart = cart[i];
-    if (itemInCart.hasOwnProperty(name) === true) {
-      cart.splice(i,1);
-      return cart;
+      if(cart[i].hasOwnProperty(name)) {
+        var itemCart = true;
+        cart.splice(i,1);
+      }
     }
-    else {console.log("That item is not in your cart.")}
-    return;
-  }
+      if(!itemCart) {console.log("That item is not in your cart.");
+        }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
