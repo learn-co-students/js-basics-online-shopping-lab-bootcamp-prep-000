@@ -29,10 +29,13 @@ function addToCart(item) {
 
 function viewCart() {
   var i = 0;
+  var cartItems = Object.keys(cart);
+  var item = cartItems[i];
+  var price = cart[item[i]];
+  var cartContents = [];
   if (cart.length > 0) {
     for (i = 0; i < cart.length - 1; i++)
-    var cartContents = [];
-    cartContents.push(`${item[i]} at ${price[i]}`);
+    cartContents.push(`${item} at ${price}`);
     return `In your cart, you have ${cartContents}.`
   } else {
     return "Your shopping cart is empty."
