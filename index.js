@@ -34,13 +34,13 @@ function viewCart() {
         var cartKeys = Object.keys(cart[i]);
         var item = cartKeys[0];
         var price = cart[i][item];
-        cartContents.push(`${item} at ${cart[item]}`);
+        cartContents.push(` ${item} at $${price}`);
         var cartList = cartContents.join();
       }
-      console.log(`In your cart, you have ${cartList}`) ;
+      console.log(`In your cart, you have${cartList}`) ;
     } else {
         console.log("Your shopping cart is empty.");
-    }
+    } 
 }
 
 
