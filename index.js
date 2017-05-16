@@ -55,10 +55,10 @@ return (cart)
 
 
 function placeOrder(cardNumber){
-if (cardNumber === null) {
+if (!cardNumber) {
   console.log(`We don't have a credit card on file for you to place your order.`)
 }else {
-  cart.length = 0
   console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+  cart.length = 0
 }
 }
