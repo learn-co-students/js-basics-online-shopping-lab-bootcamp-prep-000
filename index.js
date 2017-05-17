@@ -42,12 +42,16 @@ function viewCart(){
 }
 
 function removeFromCart(item){
-  if(cart.hasOwnProperty(item) === false){
-    console.log("That item is not in your cart.");
-  } else {
-    delete cart.item;
+for (let i = 0, l = cart.length; i<l;i++){
+    for (var remove in cart[i]){
+      if (item === remove){
+        cart.splice(i, 1);
+        return cart;
+      }
     }
-    return cart;
+  }
+console.log('That item is not in your cart.');
+return cart;
 }
 
 function placeOrder(cardNumber){
