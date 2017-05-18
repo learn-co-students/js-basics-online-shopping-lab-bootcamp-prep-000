@@ -48,12 +48,12 @@ var nonefound = true;
   for(var i = 0; i < cart.length; i++){
       if(cart[i].hasOwnProperty(namez)){
         console.log(namez);
-        delete cart[i];
+       cart.splice(i,1);
         nonefound = false;
       }
     }
 if(nonefound){
-  console.log("That item is not in your cart");
+  console.log("That item is not in your cart.");
 }
   return cart;
 }
@@ -65,10 +65,10 @@ function placeOrder(ccNumb){
 else{
   var total = 0;
   for(var i = 0; i < cart.length; i++){
-      var cartKeys = Object.keys(cart[i])[0]; // 'socks'
+      var cartKeys = Object.keys(cart[i])[0];
       total =+ cart[i][cartKeys];
   }
   cart = [];
-  console.log("Your total cost is " + total + ", which will be charged to the card " + ccNumb + ".");
+  console.log("Your total cost is $" + total + ", which will be charged to the card " + ccNumb + ".");
 }
 }
