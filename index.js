@@ -37,20 +37,23 @@ function viewCart() {
         cartContents.push(` ${item} at $${price}`);
         var cartList = cartContents.join();
       }
-      console.log(`In your cart, you have${cartList}`) ;
+      console.log(`In your cart, you have${cartList}.`) ;
     } else {
         console.log("Your shopping cart is empty.");
-    } 
+    }
 }
 
 
 
 function removeFromCart(item) {
-  if (cart.hasOwnProperty(item)){
+  for ([item] in cart) {
+    var cartObject = [item];
+    if (cartObject.hasOwnProperty([item])) {
     cart.pop(cart[item]);
     console.log(cart);
-  } else {
+    } else {
     console.log("That item is not in your cart.");
+    }
   }
 }
 
@@ -58,8 +61,8 @@ function placeOrder(cardNumber) {
   if (cardNumber === undefined){
     console.log("We don't have a credit card on file for you to place your order.");
   } else {
-    var total = total();
-    console.log(`Your total cost is ${total}, which will be charged to the card ${cardNumber}.`);
+    var totalResults = total();
+    console.log(`Your total cost is $${totalResults}, which will be charged to the card ${cardNumber}.`);
     cart.length = 0;
   }
   console.log(cart);
