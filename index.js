@@ -43,24 +43,6 @@ function viewCart() {
     }
 }
 
-
-/* function removeFromCart(item) {
-  var itemInCart = false;
-  if (cart.length >=0) {
-  for (var thing in cart) {
-    var cartObject = cart[thing];
-    if(cart.indexOf(cart[thing]) <= -1){
-      console.log("That item is not in your cart.")
-    }
-    if (cartObject.hasOwnProperty(item)) {
-    cart.splice(cart.indexOf(cart[thing]),1); // the ",1" tells it remove 1 object
-    console.log(cart);
-  } else {
-    console.log("That item is not in your cart.");
-    }
-  }
-}
-*/
 function removeFromCart(item) {
   var itemInCart = false;
   for (var i = 0; i < cart.length; i++) {
