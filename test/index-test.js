@@ -107,7 +107,6 @@ describe('#placeOrder', function() {
     const t = total()
 
     placeOrder(123);
-
     expect(console.log).toHaveBeenCalledWith(
       `Your total cost is $${t}, which will be charged to the card 123.`
     )
