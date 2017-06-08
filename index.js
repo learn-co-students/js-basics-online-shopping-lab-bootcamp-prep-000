@@ -1,22 +1,5 @@
 var cart = []
 
-/*
-var item = 'pizza'
-var price = Math.floor(Math.random() * 100)
-cart.push({[item] : price})
-console.log(cart[0][item])
-console.log(cart[0])
-
-
-addToCart("socks")
-addToCart("puppy")
-addToCart("iPhone")
-const socksCost = getCart()[0]["socks"]
-const puppyCost = getCart()[1]["puppy"]
-const iPhoneCost = getCart()[2]["iPhone"]
-viewCart()
-*/
-
 function getCart() {
   return cart
 }
@@ -44,9 +27,6 @@ function viewCart() {
   }
   console.log(message)
 }
-
-addToCart('pizza')
-removeFromCart('pizza')
 
 function removeFromCart(item) {
    for (var i = 0; i < cart.length; i++) {
