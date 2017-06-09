@@ -29,3 +29,14 @@ function addToCart(item)
   console.log(`${item} has been added to your cart.`);
   return cart;
 }
+
+function viewCart()
+{
+  if(cart.length === 0){
+    console.log("Your shopping cart is empty.");
+  } else{
+    for(var i = 0; i < cart.length; i++){
+      console.log(`In your cart you have &{}`)
+    }
+  }
+}
