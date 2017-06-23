@@ -21,17 +21,17 @@ function addToCart(item) {
 
 function viewCart() {
   var clone = Object.keys(cart)
-  var array[]
+  var array = []
   if (clone.length === 0){
     console.log("Your shopping cart is empty.")
   }
   else{
     var line = "In your cart, you have "
-    for(var i = 0; i < cart.length; i++){
-      array.push(${cart[i]} at ${cart[clone[i]]})
+    for(var i = 0; i < clone.length; i++){
+      array.push(clone[i] + " at $" + cart[clone[i]])
     }
-    console.log(line + array.join(, ))
-  }
+    console.log(line + array.join(', ') + ".")
+    }
   }
 
 
