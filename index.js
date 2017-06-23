@@ -34,12 +34,12 @@ function viewCart() {
 
 function total() {
     var clone = Object.keys(cart)
-    var total = 0
+    var totalCost = 0
 
-    for (i=0; i < clone.length; i++){
-      total += cart[clone]
+    for ( var i=0; i < clone.length; i++){
+      total += parseInt(cart[clone[i]])
   }
-  return total
+    return totalCost
 }
 
 function removeFromCart(item) {
