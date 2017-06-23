@@ -43,18 +43,18 @@ function total() {
 
 function removeFromCart(item) {
   var clone = Object.keys(cart)
-  for(var i = 0; i < cart.length; i++){
+  for(var i = 0; i < clone.length; i++){
       if(clone[i] === item){
-        //delete the item
-        cart.splice(i,1)
+        //how do I access cart array at a particular point?  splice not recognized
+        delete cart[item]
         return cart
       }
       else {
         console.log("That item is not in your cart.")
         return cart
       }
-      
-}}
+    }
+}
 
 
 //passes
