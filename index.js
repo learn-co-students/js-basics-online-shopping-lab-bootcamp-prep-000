@@ -37,7 +37,7 @@ function total() {
     var totalCost = 0
 
     for ( var i=0; i < clone.length; i++){
-      total += parseInt(cart[clone[i]])
+      totalCost += parseInt(cart[clone[i]])
   }
     return totalCost
 }
