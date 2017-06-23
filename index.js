@@ -19,26 +19,28 @@ function addToCart(item) {
   return cart
 }
 
-//review end code from last lab
 function viewCart() {
-  if (cart.length === 0){
+  var clone = Object.keys(cart)
+  var array[]
+  if (clone.length === 0){
     console.log("Your shopping cart is empty.")
   }
-
-  var line = "In your cart, you have "
-  for(var i = 0; i < cart.length; i++){
-    console.log(line, cart)
-    //
+  else{
+    var line = "In your cart, you have "
+    for(var i = 0; i < cart.length; i++){
+      array.push(${cart[i]} at ${cart[clone[i]]})
+    }
+    console.log(line + array.join(, ))
   }
-}
+  }
+
 
 function total() {
-    var clone = Object.keys(cart)
-    var totalCost = 0
-
-    for ( var i=0; i < clone.length; i++){
-      totalCost += parseInt(cart[clone[i]])
-  }
+  var clone = Object.keys(cart)
+  var totalCost = 0
+  for ( var i=0; i < clone.length; i++){
+    totalCost += parseInt(cart[clone[i]])
+    }
     return totalCost
 }
 
@@ -46,7 +48,7 @@ function removeFromCart(item) {
   var clone = Object.keys(cart)
   for(var i = 0; i < clone.length; i++){
       if(clone[i] === item){
-        //how do I access cart array at a particular point?  splice not recognized
+
         cart.splice(i,1)
         return cart
       }
