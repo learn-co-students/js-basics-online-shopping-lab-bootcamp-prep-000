@@ -41,22 +41,20 @@ function total() {
     }
 }
 
-// function removeFromCart(item) {
-//   var index
-//   for(var i = 0; i < cart.length; i++){
-//       while (!cart[i].hasOwnProperty(item)){
-//       }
-//       index = i
-//   }
+function removeFromCart(item) {
+  var clone = Object.key(cart)
+  for(var i = 0; i < cart.length; i++){
+      if(clone[i] === item){
+        //delete
+        cart.splice(i,1)
+        return cart
+      }
+      else {console.log("That item is not in your cart.")
+      }
+      return cart
+}
 
-//   if (cart[index].hasOwnProperty(item)){
-//     delete cart[index].item
-//   }
-//   else {console.log("That item is not in your cart.")
-//   }
-//   return cart
-// }
-
+//passes
 function placeOrder(cardNumber) {
   var cartTotal = total()
 
