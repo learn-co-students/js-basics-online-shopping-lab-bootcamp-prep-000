@@ -33,12 +33,13 @@ function viewCart() {
 }
 
 function total() {
-    var sum = 0
-    for (var i = 0; i < cart.length; i++){
-      sum += cart[i]
-      // need to access each line in the array
-      //if I don't know the key, how can I get to the value?
-    }
+    var clone = Object.keys(cart)
+    var total = 0
+
+    for (i=0; i < clone.length; i++){
+      total += cart[clone]
+  }
+  return total
 }
 
 function removeFromCart(item) {
@@ -47,14 +48,14 @@ function removeFromCart(item) {
       if(clone[i] === item){
         //how do I access cart array at a particular point?  splice not recognized
         cart.splice(i,1)
-        delete cart[i].item
         return cart
       }
       else {
         console.log("That item is not in your cart.")
         return cart
-      }
+    //  }
     }
+  }
 }
 
 
