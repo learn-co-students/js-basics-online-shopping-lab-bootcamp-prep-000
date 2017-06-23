@@ -1,20 +1,14 @@
-function removeFromCart(item) {
-  var clone = Object.keys(cart)
-  console.log(clone)
-  for(var i = 0; i < cart.length; i++){
-    console.log(i)
-      if(clone[i] === item){
-      console.log("Success")
-      console.log(clone[i])
-      console.log(cart)
-        cart.splice(i,1)
-        console.log(clone)
-        console.log(cart)
-
-      }
-      else {
-        console.log("That item is not in your cart.")
-
-      }
-    }
+var line = "In your cart, you have "
+for(var i = 0; i < clone.length; i++){
+  console.log(i)
+  array.push(clone[i] + " at $" + cart[clone[i]])
+  console.log(array)
 }
+console.log(line + array.join(', ') + ".")
+
+
+var line = "In your cart, you have "
+for(var i = 0; i < clone.length; i++){
+  array.push(clone[i] + " at $" + cart[clone[i]])
+}
+console.log(line + array.join(', and ') + ".")

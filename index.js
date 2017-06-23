@@ -30,7 +30,7 @@ function viewCart() {
     for(var i = 0; i < clone.length; i++){
       array.push(clone[i] + " at $" + cart[clone[i]])
     }
-    console.log(line + array.join(', ') + ".")
+    console.log(line + array.join(', and ') + ".")
     }
   }
 
