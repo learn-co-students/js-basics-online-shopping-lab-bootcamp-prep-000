@@ -42,17 +42,20 @@ function total() {
 }
 
 function removeFromCart(item) {
-  var clone = Object.key(cart)
+  var clone = Object.keys(cart)
   for(var i = 0; i < cart.length; i++){
       if(clone[i] === item){
-        //delete
+        //delete the item
         cart.splice(i,1)
         return cart
       }
-      else {console.log("That item is not in your cart.")
+      else {
+        console.log("That item is not in your cart.")
+        return cart
       }
-      return cart
-}
+      
+}}
+
 
 //passes
 function placeOrder(cardNumber) {
