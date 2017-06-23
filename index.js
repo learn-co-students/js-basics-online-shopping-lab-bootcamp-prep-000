@@ -46,7 +46,8 @@ function removeFromCart(item) {
   for(var i = 0; i < clone.length; i++){
       if(clone[i] === item){
         //how do I access cart array at a particular point?  splice not recognized
-        delete cart[item]
+        cart.splice(i,1)
+        delete cart[i].item
         return cart
       }
       else {
