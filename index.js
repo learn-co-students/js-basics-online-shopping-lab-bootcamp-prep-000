@@ -25,25 +25,26 @@ function viewCart() {
   if (cart.length === 0){
     console.log("Your shopping cart is empty.")
   }
-  else if(cart.length === 1){
-      for ( var i=0; i < cart.length; i++){
-        var arrayKey = Object.keys(cart[i])[0]
+
+   else if(cart.length <= 2){
+    for ( var i=0; i < cart.length; i++){
+      var arrayKey = Object.keys(cart[i])[0]
         array.push(arrayKey + " at $" + ((cart[i])[arrayKey]))
         console.log(line + array.join(' and ') + ".")
       }
     }
-  else if (cart.length === 2){
-    for ( var i=0; i < cart.length; i++){
-      var arrayKey = Object.keys(cart[cart.length-1])[0]
-      console.log(line + array.join(' and ') + ".")
-    }
-  }
 
     else{
-    var arrayKey = Object.keys(cart[cart.length-1])[0]
-    var lastString = " and " + arrayKey + " at $" + ((cart[cart.length-1])[arrayKey])
-    console.log(line + array.join(', ') + lastString + ".")
-    }
+      for ( var i=0; i < cart.length-1; i++){
+        var arrayKey = Object.keys(cart[i])[0]
+        array.push(arrayKey + " at $" + ((cart[i])[arrayKey]))
+      }
+        var lastIndex = cart.length-1
+        var lastKey = Object.keys(cart[lastIndex])[0]
+        var lastString = ", and " + lastKey + " at $" + ((cart[lastIndex])[lastKey])
+        console.log(line + array.join(', ') + lastString + ".")
+      }
+
 }
 
 
