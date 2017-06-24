@@ -20,34 +20,48 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  var clone = Object.keys(cart)
   var array = []
-  if (clone.length === 0){
+  var line = "In your cart, you have "
+  if (cart.length === 0){
     console.log("Your shopping cart is empty.")
   }
-  else{
-    var line = "In your cart, you have "
-    for(var i = 0; i < clone.length; i++){
-      array.push(clone[i] + " at $" + cart[clone[i]])
+  else if(cart.length === 1){
+      for ( var i=0; i < cart.length; i++){
+        var arrayKey = Object.keys(cart[i])[0]
+        array.push(arrayKey + " at $" + ((cart[i])[arrayKey]))
+        console.log(line + array.join(' and ') + ".")
+      }
     }
-    console.log(line + array.join(', and ') + ".")
+  else if (cart.length === 2){
+    for ( var i=0; i < cart.length; i++){
+      var arrayKey = Object.keys(cart[cart.length-1])[0]
+      console.log(line + array.join(' and ') + ".")
     }
   }
 
+    else{
+    var arrayKey = Object.keys(cart[cart.length-1])[0]
+    var lastString = " and " + arrayKey + " at $" + ((cart[cart.length-1])[arrayKey])
+    console.log(line + array.join(', ') + lastString + ".")
+    }
+}
 
+
+//passes
 function total() {
-  var clone = Object.keys(cart)
   var totalCost = 0
-  for ( var i=0; i < clone.length; i++){
-    totalCost += parseInt(cart[clone[i]])
+  for ( var i=0; i < cart.length; i++){
+    var arrayKey = Object.keys(cart[i])[0]
+    totalCost += parseInt((cart[i])[arrayKey])
     }
     return totalCost
 }
 
+//passes
 function removeFromCart(item) {
-  var clone = Object.keys(cart)
-  for(var i = 0; i < clone.length; i++){
-      if(clone[i] === item){
+  for(var i = 0; i < cart.length; i++){
+     var arrayKey = Object.keys(cart[i])[0]
+      if(arrayKey === item){
         cart.splice(i,1)
         return cart
       }
