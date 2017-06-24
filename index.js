@@ -48,17 +48,14 @@ function removeFromCart(item) {
   var clone = Object.keys(cart)
   for(var i = 0; i < clone.length; i++){
       if(clone[i] === item){
-
         cart.splice(i,1)
         return cart
       }
-      else {
-        console.log("That item is not in your cart.")
-        return cart
-    //  }
     }
-  }
-}
+        console.log('That item is not in your cart.')
+        return cart
+    }
+
 
 
 //passes
