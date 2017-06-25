@@ -34,7 +34,7 @@ describe("addToCart()", function() {
 
     let itemName = Object.keys(getCart()[0])[0];
     let itemPrice = getCart()[0][itemName];
-
+    console.log(`price: ${itemPrice}`)
     expect(itemName).toEqual("daikon");
     expect(Number.isInteger(itemPrice)).toBe(true);
   });
