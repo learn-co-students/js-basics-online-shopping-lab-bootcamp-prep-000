@@ -101,11 +101,7 @@ describe("viewCart()", function() {
     const mangoCost = getCart()[0]["mango"];
     const nutsCost = getCart()[1]["nuts"];
 
-    viewCart();
-
-    expect(console.log).toHaveBeenCalledWith(
-      `In your cart, you have mango at $${mangoCost} and nuts at $${nutsCost}.`
-    );
+    expect(console.log).toHaveBeenCalledWith(`In your cart, you have mango at $${mangoCost} and nuts at $${nutsCost}.`);
   });
 
   it("correctly prints a three-or-more-item cart", function() {
