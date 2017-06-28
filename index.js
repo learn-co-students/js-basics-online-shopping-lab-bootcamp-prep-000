@@ -10,15 +10,57 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var price = Math.floor(Math.random() * 100) + 1
+ var obj = { [item]: price }
+ cart.push(obj)
+ console.log(`${item} has been added to your cart.`)
+ return cart
 }
 
 function viewCart() {
-  // write your code here
+    if (cart.length === 0) {
+      return console.log("Your shopping cart is empty.")
+    }
+    else {
+      for (let i = 0; i < cart.length; i++) {
+       var item = cart[i]
+       var name = Object.keys(item)
+       var price = item[name]
+
+      if (cart.length === 1) {
+      return console.log("In your cart, you have ${name} at $${price}.")
+    }
+      else if (cart.length === 2) {
+        var b = []
+        for (let i = 0; i < cart.length; i++) {
+           b.push(`${item[i]} at $${price}`)
+           var c = b.join(" and ")
+        }
+        return console.log("In your cart, you have ${c}.")
+      }
+      else {
+        var b = []
+        for (let i = 0; i < cart.length; i++) {
+           b.push(`${item[i]} at $${price}`)
+           var c = b.join(", ")
+        }
+        return console.log("In your cart, you have ${c}.")
+      }
+    }
+  }
 }
 
 function total() {
-  // write your code here
+  for (let i = 0; i < cart.length; i++) {
+   var item = cart[i]
+   var name = Object.keys(item)
+   var price = []
+   price.push(item[name])
+     for (let j = 0; j < price.length; j++) {
+       var sum += parseInt(price[j])
+     }
+  }
+  return sum
 }
 
 function removeFromCart(item) {
@@ -26,5 +68,10 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  cart = []
+  if (cardNumber === null) {
+    return console.log("Sorry, we don't have a credit card on file for you.")
+  }
+  var final = total()
+  return console.log("Your total cost is ${final}, which will be charged to the card ${cardNumber}.")
 }
