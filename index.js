@@ -33,6 +33,7 @@ if (cart.length == 0) {
         break;
       case 2:
         itemsArray = itemsArray.join(" and ");
+        debugger;
         break;
       default:
         itemsArray[cart.length-1] = "and ".concat(itemsArray[cart.length-1]);
