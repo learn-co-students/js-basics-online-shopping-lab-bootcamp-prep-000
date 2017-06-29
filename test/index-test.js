@@ -103,9 +103,7 @@ describe("viewCart()", function() {
 
     viewCart();
 
-    expect(console.log).toHaveBeenCalledWith(
-      `In your cart, you have mango at $${mangoCost} and nuts at $${nutsCost}.`
-    );
+    expect(console.log).toHaveBeenCalledWith(`In your cart, you have mango at $${mangoCost} and nuts at $${nutsCost}.`);
   });
 
   it("correctly prints a three-or-more-item cart", function() {

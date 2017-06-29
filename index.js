@@ -9,22 +9,72 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
+function addToCart(name) {
+  console.log(`${name} has been added to your cart.`);
+  var itemPrice = Math.floor((Math.random() * 100) + 1);
+  var itemName = {[name]: itemPrice};
+  cart.push(itemName);
+  return cart;
 }
 
 function viewCart() {
-  // write your code here
-}
+if (cart.length == 0) {
+      return console.log("Your shopping cart is empty.");
+    }
+    var itemsArray = [];
+    for (let i = 0; i < cart.length; i++) {
+      var item = cart[i];
+      var name = Object.keys(item)[0];
+      let price = item[name];
+      itemsArray.push(`${name} at $${price}`);
+    }
+    switch(itemsArray.length) {
+      case 1:
+        break;
+      case 2:
+        itemsArray = itemsArray.join(" and ");
+        break;
+      default:
+        itemsArray[cart.length-1] = "and ".concat(itemsArray[cart.length-1]);
+        itemsArray = itemsArray.join(", ");
+        debugger;
+    }
+    console.log(`In your cart, you have ${itemsArray}.`);
+   }
 
 function total() {
-  // write your code here
+  var total = 0
+  for(var i = 0; i < cart.length; i++) {
+    var item  = cart[i];
+    var name  = Object.keys(item)[0];
+    var price = item[name];
+    total = total + price;
+  }
+  return total;
 }
 
-function removeFromCart(item) {
-  // write your code here
+function removeFromCart(name) {
+  var itemExists = false;
+  for(var i = 0; i < cart.length; i++) {
+    var item = cart[i];
+    if (!!item[name]) {
+      itemExists = true;
+      cart.splice(i, 1);
+    }
+  }
+
+  if (!itemExists) {
+    console.log(`That item is not in your cart.`)
+  }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var cartTotal = total();
+  if (typeof cardNumber !== 'undefined'){
+    console.log(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+    cart.splice(0, cart.length);
+
+  } else {
+    console.log("Sorry, we don't have a credit card on file for you.");
+  }
 }
