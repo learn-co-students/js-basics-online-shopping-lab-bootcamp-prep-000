@@ -26,20 +26,19 @@ if (cart.length == 0) {
       var item = cart[i];
       var name = Object.keys(item)[0];
       let price = item[name];
-      itemsArray.push(`${name} at \$${price}`);
+      itemsArray.push(`${name} at $${price}`);
     }
     switch(itemsArray.length) {
       case 1:
         break;
       case 2:
         itemsArray = itemsArray.join(" and ");
-        debugger;
         break;
       default:
         itemsArray[cart.length-1] = "and ".concat(itemsArray[cart.length-1]);
         itemsArray = itemsArray.join(", ");
+        debugger;
     }
-
     console.log(`In your cart, you have ${itemsArray}.`);
    }
 
