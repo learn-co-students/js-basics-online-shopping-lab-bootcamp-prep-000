@@ -11,10 +11,11 @@ function setCart(c) {
 
 function addToCart(item) {
   var randomPrice = Math.random() * (100 - 1) + 1;
-  var itemObj = {};
-  itemObj[item] = Math.floor(randomPrice);
-  cart.push(itemObj);
+
+  cart.push({[item]: Math.floor(randomPrice)});
+
   console.log(`${item} has been added to your cart.`);
+
   return cart;
 }
 
@@ -25,6 +26,7 @@ function viewCart() {
   if (cartLength === 0) {
     sentence = 'Your shopping cart is empty.';
   } else {
+
     for (var i = 0; i < cartLength; i++) {
       var keys = Object.keys(cart[i]);
 
