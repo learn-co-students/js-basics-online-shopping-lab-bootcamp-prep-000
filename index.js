@@ -105,18 +105,26 @@ function removeFromCart(cartItem) {
     }
   }
 //If cartItem is found in itemArray, remove item from cart at the position found in itemArray(these are the same since cart and itemArray length are equal)
+  if (cart === undefined || cart.length == 0) {
+    console.log("That item is not in your cart.")
+    return cart
+  } else {
+
   for (var y = 0; y < itemArray.length; y++) {
-    if (itemArray[y] !== cartItem && y === cart.length - 1) {
+    if (cart === undefined || cart.length == 0) {
       console.log("That item is not in your cart.")
-      //return cart
-    } else
-      if(itemArray[y] === cartItem) {
+      return cart
+    } else if (itemArray[y] !== cartItem && y === cart.length - 1) {
+      console.log("That item is not in your cart.")
+      return cart
+    } else if(itemArray[y] === cartItem) {
         //var index = cart.indexOf(cartItem)
         //cart.splice(index,1)
         cart.splice(y,1)
         return cart
     }
   }
+}
 
 }
 /*for(var x; x < cart.length; x++) {
