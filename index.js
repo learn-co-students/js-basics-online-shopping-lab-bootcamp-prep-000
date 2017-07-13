@@ -21,94 +21,68 @@ function addToCart(itemName) {
 
 function viewCart() {
   // write your code here
-  if (cart.length == 0) {
-    var currentCartList = [];
-    for (var i = 0, i < cart.length, i++) {
-      var currentObj = cart[i];
-      var keys = Object.keys(currentObj);
-      var key = keys[0];
-      var price = currentObj[key];
-      currentCartList.push(`${ key } at $${ price }`);
-      }
-    if (currentCartList.length === 1) {
-      return (`In your cart, you have ${currentCartList}.`);
-    } else if (currentCartList.length === 2) {
-      return (`In your cart, you have ${currentCartList.join( and )}`);
-    } else {
-      return (``)
-    }
-    }
-
-  } else {
-    return ("Your shopping cart is empty.")
-  }
-}
-
-
-//------------------------------------------------
-function ToddsViewCart(){
-  // First, make an empty array to hold all the "product at prices" snippets,
-  // for example "bananas at $17".
   var productsAtPrices = [];
-  // Next, loop over all the items in the cart. Notice that I'm not doing
-  // any "if/else" logic here, because if the cart is empty, there simply
-  // won't be anything in your productsAtPrices array.
-  for (var i = 0; i < cart.length; i++){
+  for (var i = 0; i < cart.length; i++) {
     var currentObj = cart[i];
     var keys = Object.keys(currentObj);
     var key = keys[0];
     var price = currentObj[key];
-    productsAtPrices.push(`${ key } at $${ price }`);
+    productsAtPrices.push(`${key} at $${price}`);
   }
-  // Now we should have an array of "products at prices". It could have any
-  // length, so we'll start to account for that. But first, make your
-  // string that's common to all cases.
   var answerString = "In your cart, you have ";
-  // If there was a single item in the cart...
-  if (productsAtPrices.length == 1){
+  if (productsAtPrices.length == 1) {
     answerString += productsAtPrices[0];
   }
-  // If there were two...
-  else if (productsAtPrices.length == 2){
+  else if (productsAtPrices.length == 2) {
     answerString += productsAtPrices[0];
     answerString += " and ";
     answerString += productsAtPrices[1];
   }
-  // Here's the tricky one. If there were three or more items...
-  else if (productsAtPrices.length >= 3){
-    // First, iterate through all the productsAtprices *except* for
-    // the last one, because we know that one looks a bit different.
-    for (var i = 0; i < (productsAtPrices.length - 1); i++){
+  else if (productsAtPrices.length >= 3) {
+    for (var i = 0; i < productsAtPrices.length - 1; i++) {
       answerString += productsAtPrices[i];
       answerString += ", ";
     }
-    //now we handle the last one.
     answerString += "and ";
     answerString += productsAtPrices[productsAtPrices.length - 1];
   }
-  // If your cart was empty, replace the answer string with the custom one.
-  else{
-    answerString = "Your shopping cart is empty"
+  else {
+    answerString = "Your shopping cart is empty";
   }
-  // Outside of all logic, put your period, since you always need it.
   answerString += ".";
-  // And print to console, of course.
   console.log(answerString);
 }
 
-
-
-
-
-
 function total() {
   // write your code here
+  var totalCost = 0;
+  for (var i = 0; i < cart.length; i++) {
+    var obj = cart[i];
+    var keys = Object.keys(obj);
+    var key = keys[0];
+    var value = obj[key];
+    totalCost += value;
+  }
+  return totalCost;
 }
 
 function removeFromCart(item) {
   // write your code here
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      cart.splice(i, 1);
+      return cart;
+    }
+  }
+  console.log("That item is not in your cart.");
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  if (isNaN(cardNumber)) {
+    console.log("Sorry, we don't have a credit card on file for you.");
+  } else {
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+  cart = [];
+  }
 }
