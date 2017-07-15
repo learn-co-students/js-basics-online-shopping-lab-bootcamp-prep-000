@@ -21,7 +21,7 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  var string="In your cart, you have";
+  var string="In your cart, you have ";
 if(cart.length===0)
 {
   console.log("Your shopping cart is empty.");
@@ -29,7 +29,7 @@ if(cart.length===0)
 else {
   for(var i=0; i<cart.length;i++)
   {
-  return(`${string} ${cart[i]} at ${cart[i]},`);
+  return(`string ${cart[i]} at ${cart[i]},`);
 }
 
 
