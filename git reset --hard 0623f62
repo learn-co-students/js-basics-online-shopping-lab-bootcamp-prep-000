@@ -1,0 +1,82 @@
+[33m7f09483[m index.js [31m(Jerry Noel, 21 hours ago)[m
+[33m0623f62[m Merge pull request #57 from learn-co-curriculum/wip-master [31m(Gabe Jackson, 5 weeks ago)[m
+[33me678be6[m Replace off-topic section on for...in loops with hint about viewCart() to clear up confusion with lab instructions (#32) [31m(Gabe Jackson, 5 weeks ago)[m
+[33m9240406[m Rewrite lab objectives to describe the specific skills honed by this lab [31m(Gabe Jackson, 5 weeks ago)[m
+[33mda30369[m Increase test coverage for removeFromCart() to close loophole whereby always removing the first item in the cart would pass the test (#39) [31m(Gabe Jackson, 5 weeks ago)[m
+[33md130b93[m Rewrite spec tests to improve coverage (checking for hard-coding) and isolation (#39 #41) [31m(Gabe Jackson, 5 weeks ago)[m
+[33m9a83aa2[m Rewrite addToCart() instructions to better explain usage of { [variable]: value } ES6 syntax [31m(Gabe Jackson, 5 weeks ago)[m
+[33m572fcdb[m Rewrite instructions for all five functions to clear up comprehension issues voiced by students (#41 #49 #50 #53) [31m(Gabe Jackson, 5 weeks ago)[m
+[33m25a9649[m Fix improperly-escaped Markdown [31m(Gabe Jackson, 5 weeks ago)[m
+[33m9fb2aac[m Change verbiage from 'hashes' to 'objects' (#41 #55) [31m(Gabe Jackson, 5 weeks ago)[m
+[33m339b706[m Remove some spaces [31m(Gabe Jackson, 6 weeks ago)[m
+[33m7b36087[m Merge pull request #47 from learn-co-curriculum/bhollan-master [31m(Avidor Turkewitz, 4 months ago)[m
+[33ma5074d4[m Add back code for getCart [31m(Avidor Turkewitz, 4 months ago)[m
+[33m7654e6e[m scoop out solution [31m(Brian Holland, 4 months ago)[m
+[33meec386e[m remove solution code from master branch [31m(Brian Holland, 4 months ago)[m
+[33m43c52c7[m Merge pull request #37 from bhollan/solution [31m(Avidor Turkewitz, 6 months ago)[m
+[33m36e6f08[m add test to check for dynamic assignment [31m(Brian Holland, 6 months ago)[m
+[33m2f0ca9a[m Merge branch 'master' into solution [31m(AnnJohn, 10 months ago)[m
+[33m4c590b3[m Merge pull request #27 from gj/patch-1 [31m(AnnJohn, 10 months ago)[m
+[33m4c5f1c0[m fix typos [31m(gabe, 10 months ago)[m
+[33m6069d77[m Merge branch 'master' into solution [31m(AnnJohn, 10 months ago)[m
+[33m936774b[m Merge pull request #26 from jonbf/jonbf-1473378328 [31m(AnnJohn, 10 months ago)[m
+[33m91bda9f[m punctuation [31m(jonbf, 10 months ago)[m
+[33mb29a52c[m closes #24 [31m(AnnJohn, 11 months ago)[m
+[33m1a2d232[m Merge branch 'master' into solution [31m(Charles Pletcher, 12 months ago)[m
+[33med60d6a[m Update tests [31m(Charles Pletcher, 12 months ago)[m
+[33mc7a2b92[m Merge branch 'master' into solution [31m(Charles Pletcher, 12 months ago)[m
+[33m001ec3c[m Update dependencies [31m(Charles Pletcher, 12 months ago)[m
+[33mb07abfb[m update tests to browser based (#22) [31m(Joseph Cutler, 12 months ago)[m
+[33m326f8ff[m Add expect to package.json [31m(Charles Pletcher, 12 months ago)[m
+[33m4620106[m Revamp tests [31m(Charles Pletcher, 12 months ago)[m
+[33m3500d9e[m Revamp tests [31m(Charles Pletcher, 12 months ago)[m
+[33m358c7f4[m Your *shopping* cart is empty [31m(Charles Pletcher, 12 months ago)[m
+[33m866f897[m Merge branch 'master' into solution [31m(Charles Pletcher, 12 months ago)[m
+[33mf48bafe[m Add test for empty cart [31m(Charles Pletcher, 12 months ago)[m
+[33m99827fc[m Merge pull request #18 from aturkewi/aturkewi-1468786666 [31m(Avidor Turkewitz, 1 year ago)[m
+[33m46a73ba[m Readme match string that placeOrder is looking for [31m(Avidor Turkewitz, 1 year ago)[m
+[33mc8d7970[m Merge pull request #17 from aturkewi/aturkewi-1468786030 [31m(Avidor Turkewitz, 1 year ago)[m
+[33mf799ef4[m Match readme to tests "That item is not in your cart." [31m(Avidor Turkewitz, 1 year ago)[m
+[33m72ca78b[m Merge pull request #13 from aturkewi/aturkewi-1468461904 [31m(Avidor Turkewitz, 1 year ago)[m
+[33m4651e1b[m Fix range syntax [31m(Avidor Turkewitz, 1 year ago)[m
+[33m96b0356[m Merge branch 'master' into solution [31m(AnnJohn, 1 year, 1 month ago)[m
+[33m8c122e9[m Merge pull request #12 from tejbans/tejbans-1466053182 [31m(AnnJohn, 1 year, 1 month ago)[m
+[33m94769fc[m Updated 'var realName' to 'var mealName'. [31m(tejbans, 1 year, 1 month ago)[m
+[33me9a02f7[m Update shopping.js [31m(Charles Pletcher, 1 year, 1 month ago)[m
+[33m79e31c5[m Update README.md [31m(Charles Pletcher, 1 year, 1 month ago)[m
+[33m2dc20d5[m Merge branch 'master' into solution [31m(AnnJohn, 1 year, 1 month ago)[m
+[33m44a32a2[m Merge pull request #11 from jasonpaulso/jasonpaulso-1464840759 [31m(AnnJohn, 1 year, 1 month ago)[m
+[33m9b367d3[m Update Readme.md, changed "argument" in "This function should accept one arguments". [31m(Jason Paul Southwell, 1 year, 2 months ago)[m
+[33m02c0d6a[m Add solution [31m(Charles Pletcher, 1 year, 2 months ago)[m
+[33m1a6da7f[m Merge branch 'master' into solution [31m(Charles Pletcher, 1 year, 2 months ago)[m
+[33mb1cba44[m Add setCart [31m(Charles Pletcher, 1 year, 2 months ago)[m
+[33m11e3aa5[m Merge branch 'master' into solution [31m(Charles Pletcher, 1 year, 2 months ago)[m
+[33m37b12f5[m Stop using phantomjs [31m(Charles Pletcher, 1 year, 2 months ago)[m
+[33m25b2e97[m Merge branch 'master' into solution [31m(AnnJohn, 1 year, 2 months ago)[m
+[33m11ecab4[m Merge pull request #9 from bhollan/master [31m(AnnJohn, 1 year, 2 months ago)[m
+[33maa8987c[m add test to check for empty cart [31m(Brian Holland, 1 year, 2 months ago)[m
+[33m4d94f6c[m merge conflicts [31m(AnnJohn, 1 year, 3 months ago)[m
+[33m5780fa9[m Merge pull request #7 from Smulligan85/Smulligan85-1461359507 [31m(AnnJohn, 1 year, 3 months ago)[m
+[33mc7e6a4c[m Updated README.md [31m(Sean Mulligan, 1 year, 3 months ago)[m
+[33m25f9b1a[m add files [31m(AnnJohn, 1 year, 3 months ago)[m
+[33mf59eb62[m Merge pull request #6 from jaeku/jaeku-1460846466 [31m(AnnJohn, 1 year, 3 months ago)[m
+[33m1e6e092[m Merge pull request #5 from jaeku/jaeku-1460844556 [31m(AnnJohn, 1 year, 3 months ago)[m
+[33m6d114e6[m edit card to card in removeitem function [31m(jaeku, 1 year, 3 months ago)[m
+[33mcb881b9[m edit purchased to purchase [31m(jaeku, 1 year, 3 months ago)[m
+[33ma07505e[m Merge pull request #4 from jeffpwang91/jeffpwang91-1458765741 [31m(AnnJohn, 1 year, 4 months ago)[m
+[33mfc88260[m Updated README.md [31m(jeffpwang91, 1 year, 4 months ago)[m
+[33m2d37747[m Merge pull request #3 from jakebrady5/master [31m(AnnJohn, 1 year, 5 months ago)[m
+[33m1d2fa66[m fixed tests 10 and 11 [31m(jakebrady5, 1 year, 6 months ago)[m
+[33mdf27513[m merge [31m(vicfriedman, 1 year, 6 months ago)[m
+[33m1964e9e[m optimize learn link [processing skip] [31m(Adam Jonas, 1 year, 6 months ago)[m
+[33m4151287[m tests [31m(vicfriedman, 1 year, 6 months ago)[m
+[33m5adf0c1[m solution with tests [31m(vicfriedman, 1 year, 6 months ago)[m
+[33mcd39fd4[m instructions [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33mb22a30b[m instrutions [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33m15e8076[m tests [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33m13c897f[m lab files [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33m373e73a[m remove item and place order [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33m7749053[m started remove item [31m(Victoria Friedman, 1 year, 6 months ago)[m
+[33md25c725[m tests for add item, view items, save credit card [31m(vicfriedman, 1 year, 6 months ago)[m
+[33m907c398[m solution [31m(vicfriedman, 1 year, 6 months ago)[m
+[33m60f658a[m objectives' [31m(vicfriedman, 1 year, 6 months ago)[m
