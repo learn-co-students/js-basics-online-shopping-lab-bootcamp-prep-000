@@ -22,9 +22,9 @@ function addToCart(itemName) {
   return cart
 }
 
-//addToCart("vanilla");
-//addToCart("watermelon");
-//addToCart("yams");
+addToCart("vanilla");
+addToCart("watermelon");
+addToCart("yams");
 
 
 function viewCart() {
@@ -69,12 +69,14 @@ function total() {
 //total()
 
 function removeFromCart(item) {
+  console.log("removing " + item)
   for (var i = 0; i < cart.length; i++) {
     var matchedItem = false
     if (cart[i].hasOwnProperty(item) === true) {
       var index = cart.indexOf(cart[i])
       cart.splice(index,1)
       matchedItem = true
+      console.log("Successfully removed " + item)
     }
   }
   if (matchedItem === false) {
@@ -84,9 +86,9 @@ function removeFromCart(item) {
   return cart
 }
 
-//removeFromCart("watermelon")
-//removeFromCart("yams")
-//removeFromCart("yams")
+removeFromCart("watermelon")
+removeFromCart("yams")
+removeFromCart("yams")
 
 function placeOrder(cardNumber) {
   // write your code here
