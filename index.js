@@ -28,13 +28,13 @@ function viewCart() {
   const firstKey = Object.keys(cart[0]);
   const firstPrice = cart[0][firstKey];
   cartContent += `${firstKey} at $${firstPrice}`;
-  
+
   if (cart.length === 1) {
     console.log(`${cartContent}.`);
   } else if (cart.length === 2) {
     const secondKey = Object.keys(cart[1]);
     const secondPrice = cart[1][secondKey];
-    console.log(`${cartContent} and ${secondKey} at $${secondPrice}.`) 
+    console.log(`${cartContent} and ${secondKey} at $${secondPrice}.`)
   } else {
     for (let i = 1; i < cart.length - 1; i++) {
       const iKey = Object.keys(cart[i]);
@@ -45,7 +45,7 @@ function viewCart() {
     const lastPrice = cart[cart.length-1][lastKey];
     console.log(cartContent + `, and ${lastKey} at $${lastPrice}.`);
   }
-}; 
+};
 
 cart = [{orange: 97}, {pear: 86}, {quince: 63}];
 viewCart();
@@ -85,4 +85,3 @@ function placeOrder(cardNumber) {
 
 placeOrder();
 placeOrder(123456);
-
