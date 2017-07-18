@@ -60,11 +60,9 @@ function total() {
   let totalCost = 0
   for (var i = 0; i < cart.length; i++) {
     for (var item in cart[i]) {
-        //console.log(cart[i])
         totalCost += cart[i][item]
     }
   }
-  //console.log(totalCost)
   return totalCost
 }
 
@@ -87,7 +85,8 @@ function removeFromCart(item) {
 }
 
 //removeFromCart("watermelon")
-//removeFromCart("nuts")
+//removeFromCart("yams")
+//removeFromCart("yams")
 
 function placeOrder(cardNumber) {
   // write your code here
