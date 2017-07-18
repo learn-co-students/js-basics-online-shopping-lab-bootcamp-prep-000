@@ -1,15 +1,3 @@
-
-
-// viewCart(cart)
-// total()
-// addToCart("vanilla");
-// addToCart("watermelon");
-// addToCart("yams");
-// removeFromCart("watermelon")
-// removeFromCart("yams")
-// removeFromCart("yams")
-
-
 var cart = [];
 
 function getCart() {
@@ -48,7 +36,7 @@ function viewCart() {
     console.log(message + items[0] + ".")
   }
   else if (length === 2) {
-    console.log(items)
+    //console.log(items)
     console.log (message + items[0] + " and " + items[1] + ".")
   }
   else if (length >= 3) {
@@ -94,10 +82,20 @@ function placeOrder(cardNumber) {
   }
   else {
     var totalCost = total()
-    console.log(totalCost)
     console.log("Your total cost is $" + totalCost + ", which will be charged to the card " + cardNumber + ".")
     return cart = [];
   }
 }
 
-//placeOrder(12345678)
+
+// viewCart(cart)
+// total()
+// addToCart("vanilla");
+// viewCart(cart)
+// addToCart("watermelon");
+// viewCart(cart)
+// addToCart("yams");
+// viewCart(cart)
+// removeFromCart("watermelon")
+// removeFromCart("yams")
+// removeFromCart("yams")
