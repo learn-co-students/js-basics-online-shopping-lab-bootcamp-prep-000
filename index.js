@@ -22,8 +22,8 @@ function addToCart(itemName) {
   return cart
 }
 
-addToCart("mango")
-addToCart("nuts")
+//addToCart("mango")
+//addToCart("nuts")
 //addToCart("bananas")
 //addToCart("cherries")
 
@@ -60,7 +60,7 @@ function total() {
   let totalCost = 0
   for (var i = 0; i < cart.length; i++) {
     for (var item in cart[i]) {
-        console.log(cart[i])
+        //console.log(cart[i])
         totalCost += cart[i][item]
     }
   }
@@ -68,19 +68,24 @@ function total() {
   return totalCost
 }
 
-total()
+//total()
 
-function removeFromCart() {
+function removeFromCart(item) {
+  var matchedItem = false
   for (var i = 0; i < cart.length; i++) {
-    console.log(cart[i])
-    //for (var item in cart[i]) {
+    if (cart[i].hasOwnProperty(item) === true) {
+      var indexForSlice = cart.indexOf(cart[i]) + 1
+      cart = cart.slice(indexForSlice)
+      matchedItem = true
     }
-  //need to loop through cart to get objects
-  //check for property
-
+  }
+  if (matchedItem === false) {
+    console.log("That item is not in your cart.")
+  }
+  return cart
 }
 
-removeFromCart()
+//removeFromCart("berries")
 
 function placeOrder(cardNumber) {
   // write your code here
