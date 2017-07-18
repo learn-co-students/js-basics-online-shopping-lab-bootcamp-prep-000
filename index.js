@@ -1,8 +1,16 @@
+
+
+// viewCart(cart)
+// total()
+// addToCart("vanilla");
+// addToCart("watermelon");
+// addToCart("yams");
+// removeFromCart("watermelon")
+// removeFromCart("yams")
+// removeFromCart("yams")
+
+
 var cart = [];
-//var itemName = "daikon"
-//var cart = [ {nuts: 4}, { mangos: 6} ]
-//var cart = [ { pears: 6} ]
-//var cart = [ {oranges: 4}, { pears: 6}, { bananas: 12}, { cherries: 100} ]
 
 function getCart() {
  return cart;
@@ -21,11 +29,6 @@ function addToCart(itemName) {
   //console.log(itemObj)
   return cart
 }
-
-addToCart("vanilla");
-addToCart("watermelon");
-addToCart("yams");
-
 
 function viewCart() {
   var items = [];
@@ -53,9 +56,6 @@ function viewCart() {
   }
  }
 
-
-//viewCart(cart)
-
 function total() {
   let totalCost = 0
   for (var i = 0; i < cart.length; i++) {
@@ -66,14 +66,15 @@ function total() {
   return totalCost
 }
 
-//total()
+
 
 function removeFromCart(item) {
+  console.log("Your shopping cart" , cart )
   console.log("removing " + item)
+  var matchedItem = false
   for (var i = 0; i < cart.length; i++) {
-    var matchedItem = false
+    var index = cart.indexOf(cart[i])
     if (cart[i].hasOwnProperty(item) === true) {
-      var index = cart.indexOf(cart[i])
       cart.splice(index,1)
       matchedItem = true
       console.log("Successfully removed " + item)
@@ -82,14 +83,21 @@ function removeFromCart(item) {
   if (matchedItem === false) {
     console.log("That item is not in your cart.")
   }
-  console.log(cart)
+  console.log("Your updated shopping cart", cart)
   return cart
 }
 
-removeFromCart("watermelon")
-removeFromCart("yams")
-removeFromCart("yams")
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if(arguments.length === 0) {
+    console.log("Sorry, we don't have a credit card on file for you.")
+  }
+  else {
+    var totalCost = total()
+    console.log(totalCost)
+    console.log("Your total cost is $" + totalCost + ", which will be charged to the card " + cardNumber + ".")
+    return cart = [];
+  }
 }
+
+//placeOrder(12345678)
