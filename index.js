@@ -19,16 +19,16 @@ function addToCart(item) {
 function viewCart(item) {
 
 }
-
-function total(item) {
-  let totalCost = 0
-   for (var i = 0; i>cart.length; i++)
-    for (var item in cart [i])
-    console.log `adds up the price of all items in the cart` ;
-    let totalCost = sorghumCost + tarragonCost;
-    return totalCost()
-  }
-    //it("adds up the price of all items in the cart", function() {
+function total() {
+ let t = 0
+ for (var i = 0, l = cart.length; i < l; i++) {
+ for (var item in cart[i]) {
+     t += cart[i][item]
+   }
+ }
+return t
+}
+    //it("adds up the price of all items in the cart"
     //addToCart("sorghum");
       //addToCart("tarragon");
       //const sorghumCost = getCart()[0]["sorghum"];
@@ -38,7 +38,6 @@ function total(item) {
       //addToCart("urchin");
       //const urchinCost = getCart()[2]["urchin"];
       //totalCost += urchinCost;
-      //xpect(total()).toBe(totalCost);
 
 function removeFromCart(item) {
 }
