@@ -20,9 +20,25 @@ function viewCart(item) {
 
 }
 
-function total() {
-
-}
+function total(item) {
+  let totalCost = 0
+   for (var i = 0; i>cart.length; i++)
+    for (var item in cart [i])
+    console.log `adds up the price of all items in the cart` ;
+    let totalCost = sorghumCost + tarragonCost;
+    return totalCost()
+  }
+    //it("adds up the price of all items in the cart", function() {
+    //addToCart("sorghum");
+      //addToCart("tarragon");
+      //const sorghumCost = getCart()[0]["sorghum"];
+      //const tarragonCost = getCart()[1]["tarragon"];
+      //let totalCost = sorghumCost + tarragonCost;
+      //expect(total()).toBe(totalCost);
+      //addToCart("urchin");
+      //const urchinCost = getCart()[2]["urchin"];
+      //totalCost += urchinCost;
+      //xpect(total()).toBe(totalCost);
 
 function removeFromCart(item) {
 }
@@ -32,7 +48,8 @@ function placeOrder(cardNumber) {
   console.log("Sorry, we don't have a credit card on file for you.")
     }
   else {
-  console.log(`Your total cost is ${total()}, which will be charged to the card ${cardNumber}.`)
+    var totalPrice = total();
+  console.log(`Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`)
   return cart = []
     }
   }
