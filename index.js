@@ -28,17 +28,6 @@ function total() {
  }
 return t
 }
-    //it("adds up the price of all items in the cart"
-    //addToCart("sorghum");
-      //addToCart("tarragon");
-      //const sorghumCost = getCart()[0]["sorghum"];
-      //const tarragonCost = getCart()[1]["tarragon"];
-      //let totalCost = sorghumCost + tarragonCost;
-      //expect(total()).toBe(totalCost);
-      //addToCart("urchin");
-      //const urchinCost = getCart()[2]["urchin"];
-      //totalCost += urchinCost;
-
 function removeFromCart(item) {
 }
 
