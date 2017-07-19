@@ -9,6 +9,7 @@ function setCart(c) {
   return cart;
 }
 
+//add items to the cart
 function addToCart(itemName) {
   var itemObj = {}
   itemObj[itemName] = Math.floor(Math.random() * 100)
@@ -18,32 +19,35 @@ function addToCart(itemName) {
   return cart
 }
 
+// view the contents of the cart and print statements
 function viewCart() {
-  var items = [];
-  var message = "In your cart, you have ";
-  if (cart.length === 0) {
-     console.log("Your shopping cart is empty.")
-   } else {
-    for (var i = 0; i < cart.length; i++) {
-      for (var item in cart[i]) {
-        items.unshift(item + " at $" + cart[i][item])
-        //console.log(items)
-      }
+  //console.log(cart)
+  var message = "In your cart, you have";
+    if (cart.length === 0) {
+      console.log("Your shopping cart is empty.")
     }
+    else if (cart.length === 1) {
+      console.log(message + " " + Object.keys(cart[0]) + " at $" + cart[0][Object.keys(cart[0])] + ".")
+    }
+    else if (cart.length >= 2) {
+      var items = []
+      for (var i = 0; i < cart.length; i++) {
+        var itemName = Object.keys(cart[i])
+        var price = cart[i][itemName]
+        items.push(itemName + " at $" + price)
+        if (i != cart.length-1) {
+          cart.length === 2 ? message += " " + items[i] : message += (" " + items[i] + ",")
+          }
+        else {
+          message += (" and " + items[i] + ".")
+        }
+    }
+    console.log(message)
   }
-  var length = items.length;
-  if (length === 1) {
-    console.log(message + items[0] + ".")
-  }
-  else if (length === 2) {
-    //console.log(items)
-    console.log (message + items[0] + " and " + items[1] + ".")
-  }
-  else if (length >= 3) {
-    console.log(message + items.slice(0,length-1).join(", ") + ", and " + items[length-1] + ".");
-  }
- }
+}
 
+
+//calculate the totalCost of all items in the cart
 function total() {
   let totalCost = 0
   for (var i = 0; i < cart.length; i++) {
@@ -55,7 +59,7 @@ function total() {
 }
 
 
-
+//remove select items from the cart
 function removeFromCart(item) {
   console.log("Your shopping cart" , cart )
   console.log("removing " + item)
@@ -75,7 +79,7 @@ function removeFromCart(item) {
   return cart
 }
 
-
+//place an order with a credit card and empty the cart
 function placeOrder(cardNumber) {
   if(arguments.length === 0) {
     console.log("Sorry, we don't have a credit card on file for you.")
@@ -88,7 +92,7 @@ function placeOrder(cardNumber) {
 }
 
 
-// viewCart(cart)
+//viewCart(cart)
 // total()
 // addToCart("vanilla");
 // viewCart(cart)
