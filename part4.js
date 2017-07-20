@@ -1,4 +1,5 @@
 
+//Code
 var cart = [];
 function getCart() {
  return cart;
@@ -91,7 +92,6 @@ function removeFromCart(itemToRemove) {
   }
 
   var itemPricePair = getCart()[theCount]
-  if(`${itemPricePair}` === 'undefined') {itemPricePair = 0}
   var evaluation = Object.keys(itemPricePair)
   var itemRemovalCheck = evaluation[0]
 
@@ -105,11 +105,19 @@ function removeFromCart(itemToRemove) {
   }
 }
 
-var creditCardNumber
-function placeOrder(creditCardNumber) {
-  if(`${creditCardNumber}` === 'undefined') {console.log(`Sorry, we don't have a credit card on file for you.`)}
-  else {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${creditCardNumber}.`)
-    cart = []
-  }
-}
+//Part 4 removeFromCart() Test
+//Removes the specified item from the cart
+addToCart("vanilla")
+addToCart("watermelon")
+addToCart("yams")
+removeFromCart("watermelon")
+const firstItem = Object.keys(getCart()[0])[0]
+const secondItem = Object.keys(getCart()[1])[0]
+console.log(`Expect ${firstItem} to equal vanilla.`) //expect(firstItem).toEqual("vanilla")
+console.log(`Expect ${secondItem} to equal yams.`) //expect(secondItem).toEqual("yams")
+removeFromCart("yams")
+console.log(`Expect ${getCart().length} to equal 1.`) //expect(getCart().length).toEqual(1)
+//Alerts you if you're trying to remove an item that isn't in your cart
+// Repeat item name from previous test to prevent hard-coding.
+removeFromCart("yams")
+console.log(`Expect "That item is not in your cart." to have been called.`) //expect(console.log).toHaveBeenCalledWith("That item is not in your cart.")

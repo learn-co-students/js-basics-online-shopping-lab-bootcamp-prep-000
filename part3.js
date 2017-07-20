@@ -1,4 +1,5 @@
 
+//Code
 var cart = [];
 function getCart() {
  return cart;
@@ -65,6 +66,7 @@ function viewCart() {
   }
 }
 
+// Part 3
 function total() {
   var itemTotalPrice = 0
   for(var i = 0; i < cart.length; i++) {
@@ -77,39 +79,15 @@ function total() {
   return itemTotalPrice
 }
 
-var itemToRemove
-function removeFromCart(itemToRemove) {
-  var counter = 0
-  var theCount = 0
-
-  for(var i = 0; i < cart.length; i++) {
-    var objectOfKeyValuePair = getCart()[i]
-    var arrayOfKey = Object.keys(objectOfKeyValuePair)
-    var key = arrayOfKey[0]
-    if(key === itemToRemove) {theCount = counter}
-    else {counter++}
-  }
-
-  var itemPricePair = getCart()[theCount]
-  if(`${itemPricePair}` === 'undefined') {itemPricePair = 0}
-  var evaluation = Object.keys(itemPricePair)
-  var itemRemovalCheck = evaluation[0]
-
-  if(itemRemovalCheck === itemToRemove) {
-    cart.splice(theCount, 1)
-    return getCart()
-  }
-  else {
-    console.log("That item is not in your cart.")
-    return getCart()
-  }
-}
-
-var creditCardNumber
-function placeOrder(creditCardNumber) {
-  if(`${creditCardNumber}` === 'undefined') {console.log(`Sorry, we don't have a credit card on file for you.`)}
-  else {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${creditCardNumber}.`)
-    cart = []
-  }
-}
+//Part 3 total() Test
+  //Adds up the price of all items in the cart
+addToCart("sorghum")
+addToCart("tarragon")
+const sorghumCost = getCart()[0]["sorghum"]
+const tarragonCost = getCart()[1]["tarragon"]
+let totalCost = sorghumCost + tarragonCost
+console.log(total() + " is equal to " + totalCost) //expect(total()).toBe(totalCost)
+addToCart("urchin")
+const urchinCost = getCart()[2]["urchin"]
+totalCost += urchinCost
+console.log(total() + " is equal to " + totalCost) // expect(total()).toBe(totalCost)
