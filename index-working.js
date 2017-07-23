@@ -16,36 +16,41 @@ function addToCart(itemName) {
   return cart
 }
 
-function priceString(cartIndex) {
-  var itemName = Object.keys(cart[cartIndex])[0]
-  var itemPrice = cart[cartIndex][itemName]
+function priceString(itemName, itemPrice) {
   return ` ${itemName} at $${itemPrice}`
 }
 
 function viewCart() {
   //In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
+  var itemName = Array();
   if (cart[0]) {
     var message = "In your cart, you have"
     if (cart.length == 1) {
-        message += priceString(0) + "."
+        itemName = Object.keys(cart[0])[0]
+        message += priceString(itemName, cart[0][itemName]) + "."
         console.log(message)
-        
+
     } else if (cart.length == 2) {
-        message += priceString(0) + " and" + priceString(1) + "."
+        itemName = Object.keys(cart[0])
+        message += priceString(itemName[0], cart[0][itemName[0]])
+        itemName = Object.keys(cart[1])
+        message += " and" + priceString(itemName[0], cart[1][itemName[0]]) + "."
         console.log(message)
 
     } else {
         for(let i = 0; i < (cart.length - 1); i++) {
-          message += priceString(i) + ","
+          itemName = Object.keys(cart[i])
+          message += priceString(itemName[0], cart[i][itemName[0]]) + ","
         }
-        message += " and" + priceString(cart.length - 1) + "."
+        itemName = Object.keys(cart[cart.length - 1])
+        message += " and" + priceString(itemName[0], cart[cart.length - 1][itemName[0]]) + "."
         console.log(message)
-    }
 
+    }
   } else {
       console.log("Your shopping cart is empty.")
-  }
 
+  }
   return
 }
 
