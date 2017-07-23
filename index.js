@@ -10,11 +10,22 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var it = Object.assign({}, {[item]: Math.floor((Math.random()*100)+1)})
+ cart.push(it)
+ console.log(`${item} has been added to your cart.`)
+ return getCart()
 }
 
+addToCart("ice cream")
+console.log(cart[0])
+
 function viewCart() {
-  // write your code here
+  if(cart.length===0) console.log("Your shopping cart is empty.")
+  else {
+    var result="In your cart, you have "
+    for(var i=0;i<cart.length-1;i++){
+    result+=`${cart[i].keys}`
+  }
 }
 
 function total() {
