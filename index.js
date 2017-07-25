@@ -80,11 +80,13 @@ return totalCost
 }
 
 function removeFromCart(item) {
-if (cart.hasOwnProperty(item) === false) {
+  for (var i =0; i < Object.keys(cart).length; i++) {
+     if (cart[i].hasOwnProperty(item)) {
+       cart = cart.slice(0, i).concat(cart.slice(i + 1))
+     }
+   }
+   if (cart.hasOwnProperty(item) === false) {
   console.log(`That item is not in your cart.`)
-}
-else {
-  delete cart[item]
 }
 return cart 
 }
