@@ -29,20 +29,17 @@ function total() {
 return t
 }
 
-function removeFromCart(itemN){
- cart.prop=0
- var index
- for (var i = 0,l=cart.length; i < l; i++)
-   for (var item in cart[i])
-     if(item == itemN){
-      index=i
-      cart.prop=1
-     }
-  if(cart.prop==1)
-   cart.splice(index-1,1)
-  else
-   console.log("That item is not in your cart.")
+function removeFromCart(item) {
+  for (var i = 0; i<cart.length; i++) {
+    var itemincart = object.getownpropertynames(cart[i])[0]
+   }
+     if(item == itemincart) {
+       cart.splice(i, 1)
+       return cart
+ } else {
+   console.log('That item is not in your cart.')
   }
+}
 
 function placeOrder(cardNumber) {
   if (cardNumber == undefined) {
