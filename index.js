@@ -1,5 +1,4 @@
 var cart = [];
-var cartContents = {};
 
 function setCart(newCart) {
   cart = newCart;
@@ -18,25 +17,47 @@ function total() {
 }
 
 function getCart(){
-  return cart
+  return cart;
 }
 
 var min = 0;
 var max = 100;
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function addToCart(item){
+  const price = Math.floor(Math.random() * 100) + 1;
+  cart.push({ [item]: price});
+  console.log(`${item} has been added to your cart.`);
+  return cart;
 }
 
-function addToCart(item){
-  var price = getRandomIntInclusive(0, 100);
-  cartContents = {[item]: price}
-  cart[cart.length] = cartContents;
-  console.log(`${cart[cart.length - 1]["item"]} has been added to your cart.`);
+function viewCart() {
+	const l = cart.length;
 
-  return cart;
+	if (!l) {
+		return console.log("Your shopping cart is empty.");
+	}
+
+	let itemsAndPrices = [];
+
+	for (let i = 0; i < l; i++) {
+		let itemAndPrice = cart[i];
+		let item = Object.keys(itemAndPrice)[0];
+		let price = itemAndPrice[item];
+
+		itemsAndPrices.push(`${item} at \$${price}`);
+	}
+
+	switch(itemsAndPrices.length) {
+		case 1:
+			break;
+		case 2:
+			itemsAndPrices = itemsAndPrices.join(" and ");
+			break;
+		default:
+			itemsAndPrices[l - 1] = "and ".concat(itemsAndPrices[l - 1]);
+			itemsAndPrices = itemsAndPrices.join(", ");
+	}
+	console.log(`In your cart, you have ${itemsAndPrices}.`);
 }
 
 
