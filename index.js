@@ -31,15 +31,15 @@ return t
 
 function removeFromCart(item) {
   for (var i = 0; i<cart.length; i++) {
-    var itemincart = item(cart[i])[0]
+    var itemInCart = Object.keys(cart[i])[0]
+    if(item == itemInCart) {
+      cart.splice(i, 1)
+      return cart
     }
-   if(item == itemIncart) {
-    cart.splice(i, 1)
-   return cart
-    } else {
-   console.log('That item is not in your cart.')
   }
-}
+console.log('That item is not in your cart.')
+ }
+
 
 function placeOrder(cardNumber) {
   if (cardNumber == undefined) {
