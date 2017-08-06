@@ -31,12 +31,12 @@ return t
 
 function removeFromCart(item) {
   for (var i = 0; i<cart.length; i++) {
-    var itemincart = object.getownpropertynames(cart[i])[0]
-   }
-     if(item == itemincart) {
-       cart.splice(i, 1)
-       return cart
- } else {
+    var itemincart = item(cart[i])[0]
+    }
+   if(item == itemIncart) {
+    cart.splice(i, 1)
+   return cart
+    } else {
    console.log('That item is not in your cart.')
   }
 }
