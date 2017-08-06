@@ -20,45 +20,51 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  var keys = Object.keys(cart);
-  console.log(keys.length);
-  if(keys.length === 0) {
+  var lencart = cart.length;
+  // var keys = Object.keys(cart);
+  console.log(`${lencart}`);
+  if(lencart === 0) {
     console.log("Your shopping cart is empty.");
-  } else if (keys.length === 1) {
-    console.log(`In your cart, you have ${keys} at $${cart[keys]}.`);
-  } else if (keys.length === 2){
-    console.log(`In your cart, you have ${keys[0]} at $${cart[keys[0]]} and ${keys[1]} at $${cart[keys[1]]}.`);
+  } else if (lencart === 1) {
+    // var obj = cart[0];
+    var keys = Object.keys(cart[0]);
+    console.log(`In your cart, you have ${keys[0]} at $${cart[0][keys[0]]}.`);
+  } else if (lencart === 2){
+    var key1 = Object.keys(cart[0]);
+    var key2 = Object.keys(cart[1]);
+    console.log(`In your cart, you have ${key1[0]} at $${cart[0][key1[0]]} and ${key2[0]} at $${cart[1][key2[0]]}.`);
   }
   else {
     var string = "In your cart, you have ";
-    for (var i = 0; i < keys.length -1; i++) {
-      string = string + `${keys[i]} at $${cart[keys[i]]}, `
+    for (var i = 0; i < lencart -1; i++) {
+      var key = Object.keys(cart[i]);
+      string = string + `${key[0]} at $${cart[i][key[0]]}, `
       // console.log(string);
     }
-    console.log(string + `and ${keys[keys.length-1]} at $${cart[keys[keys.length-1]]}.`)
+    var finalkey = Object.keys(cart[lencart-1]);
+    console.log(string + `and ${finalkey[0]} at $${cart[lencart-1][finalkey[0]]}.`)
   }
 }
 
 function total() {
   // write your code here
-  var money = 0;
-  for (var item in cart) {
-    money = money + cart[item];
+  let money = 0;
+  for (var i = 0; i < cart.length; i++) {
+    var key = Object.keys(cart[i]);
+    money = money + cart[i][key];
   }
   return money;
 }
 
 function removeFromCart(item) {
   // write your code here
-  if(cart.hasOwnProperty(item)) {
-      delete cart[item];
-      return cart;
+  for(var i =0; i < cart.length; i++){
+    if(cart[i].hasOwnProperty(item)){
+      return cart.splice(i,1);
+    }
   }
-  else {
-    console.log("That item is not in your cart.");
-    return cart;
-  }
-  // return cart;
+  console.log("That item is not in your cart.");
+  return cart;
 }
 
 function placeOrder(cardNumber) {
