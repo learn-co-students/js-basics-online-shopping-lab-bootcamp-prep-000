@@ -10,14 +10,16 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  const price = Math.floor(Math.random() * 100) + 1;
+ // write your code here
 
-  cart.push({ [item]: price });
-
-  console.log(`${item} has been added to your cart.`);
-
-  return cart;
+// set itemPrice to be a random integer;
+ const itemPrice = Math.floor(Math.random() * 100) + 1;
+ // push new object into cart
+ cart.push({[item]: itemPrice});
+ console.log(`${item} has been added to your cart.`);
+ return cart;
 }
+
 
 function viewCart() {
   const l = cart.length;
@@ -49,6 +51,19 @@ function viewCart() {
 
   console.log(`In your cart, you have ${itemsAndPrices}.`);
 }
+
+
+
+function getCart() {
+ return cart;
+}
+
+function setCart(c) {
+  cart = c;
+  return cart;
+}
+
+
 
 function total() {
   let t = 0;
