@@ -17,7 +17,15 @@ function addToCart(item) {
    return cart;
 }
 function viewCart() {
+  if (cart.length===0) {
+  console.log("Your shopping cart is empty.")
+  } else {
+ for(var i=0; i>cart.length; i++){
+  addToCart(`${itemName}`)
+  console.log(`In your cart, you have ${itemName[i]} at ${itemPrice[i]}.`)
 }
+ }
+  }
 
 function total() {
  let t = 0
@@ -39,7 +47,6 @@ function removeFromCart(item) {
   }
 console.log('That item is not in your cart.')
  }
-
 
 function placeOrder(cardNumber) {
   if (cardNumber == undefined) {
