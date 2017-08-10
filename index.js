@@ -61,17 +61,29 @@ function total() {
 }
 
 function removeFromCart(item) {
-if (!item){
-  //console.log ("That item is not in your cart.");
-  //return cart;
-}
+  var itemInCart = false;
 
-for( var i = 0; i < cart.length; i++){
-
-}
-
+  for(var i = 0, l = cart.length; i < l; i++){
+    if (cart[i].hasOwnProperty(item)){
+      itemInCart = true;
+      cart = cart.slice(0, i).concat(cart.slice(i + 1));
+      //slice is inclusive on first index, non inclusive on second number.
+      l--;
+      //use l for cart.length. keeps l independent of cart
+    }
+  }
+    if ([itemInCart]){
+    console.log("That item is not in your cart.");
+  }
+return cart;
 }
 
 function placeOrder(cardNumber) {
-
+  if(!cardNumber){
+    console.log('Sorry, we don\'t have a credit card on file for you.');
+  }
+else{
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+  cart.length = 0;
+}
 }
