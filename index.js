@@ -60,7 +60,7 @@ function total() {
   var totalValue = [];
   for (var i = 0; i < cart.length; i++) {
     totalValue.push(Number(Object.keys(cart[i]).map(key => cart[i][key])));
-  };
+  }
   var totalValue = totalValue.reduce(function(a, b) {
     return a + b;
   }, 0);
@@ -72,21 +72,20 @@ function removeFromCart(item) {
     if (cart[i].hasOwnProperty(item)) {
       cart.splice(i, 1);
       return cart;
-      }
     }
-    console.log("That item is not in your cart.");
-    return cart;
   }
-
-
-
+  console.log("That item is not in your cart.");
+  return cart;
+}
 
 function placeOrder(cardNumber) {
   const cartTotal = total();
   if (cardNumber === undefined) {
     console.log(`Sorry, we don't have a credit card on file for you.`);
   } else {
-    console.log(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+    console.log(
+      `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`
+    );
     cart = [];
   }
 }
