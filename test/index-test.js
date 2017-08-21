@@ -1,5 +1,4 @@
 /*global afterEach, beforeEach, describe, it */
-
 beforeEach(function() {
   setCart([]);
 
