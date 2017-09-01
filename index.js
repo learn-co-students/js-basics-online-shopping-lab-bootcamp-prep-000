@@ -41,6 +41,7 @@ function viewCart() {
       var itemString = `${Object.keys(cart[i])[0]} at $${cart[i][Object.keys(cart[i])]}`
       cartArray.push(itemString)
     }
+
     var last = `${Object.keys(cart[l - 1])[0]} at $${cart[l - 1][Object.keys(cart[l - 1])]}.`
     var cartString = cartArray.join(", ")
     console.log(`In your cart, you have ${cartString} and ${last}`)
