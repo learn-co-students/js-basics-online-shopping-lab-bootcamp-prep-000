@@ -98,30 +98,27 @@ function total() {
 
 function removeFromCart(item) {
     // write your code here
-    var curobj = {}
-    var keyarr=[]
-    var curkey = ""
-    var found = 0
-    for (var i = 0; i<cart.length; i++)
-    {
-    curobj =  cart[i]
-    keyarr = Object.keys(curobj)
 
-    curkey = keyarr[0]
+var itemInCart=false
 
-    if(curkey===item)
-    {
-      found=1
-      cart.splice(i,1)
+ for (let i = 0 ; i < cart.length ; i++)
+ {
+   if (cart[i].hasOwnProperty(item))
+   {
+     itemInCart = true;
+     cart = cart.slice(0, i).concat(cart.slice(i + 1));
+     //l--;
+   }
+ }
+
+ if (!itemInCart) {
+   console.log("That item is not in your cart.");
+ }
+
+ return cart;
     }
-      console.log('That item is not in your cart.')
-/*  if (found===0)
-    {
-      console.log('That item is not in your cart.')
-    }*/
 
-    }
-}
+
 
 function placeOrder(cardNumber) {
   // write your code here
