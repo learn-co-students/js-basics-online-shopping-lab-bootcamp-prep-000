@@ -19,11 +19,31 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  for(var i = 0; i < cart.length; i++) {
-    if (cart.length === 1) {
-      console.log("In your cart, you have " + cart[0][0] + "at $" + cart[0][1]);
+  var cartKeys = [];
+  var cartValues = [];
+  var threeOrMoreItems = [];
+
+  // loop through cart
+  for (var i=0; i<cart.length; i++) {
+    // loop through objects
+    for (let key in getCart()[i]) {
+      cartKeys.push(key);
+      cartValues.push(getCart()[i][key]);
     }
   }
+
+  if (getCart().length === 0) {
+    console.log("Your shopping cart is empty.");
+  } else if (getCart().length === 1) {
+    console.log("In your cart, you have " + cartKeys[0] + " at $" + cartValues[0] + ".");
+  } else if (getCart().length === 2) {
+    console.log("In your cart, you have " + cartKeys[0] + " at $" + cartValues[0] + " and " + cartKeys[1] + " at $" + cartValues[1] + ".");
+  } else
+    for (var j=0; j<cart.length-1; j++) {
+      threeOrMoreItems.push(cartKeys[j] + " at $" + cartValues[j]);
+    };
+    console.log("In your cart, you have " + threeOrMoreItems.join(', ') + ", and " + cartKeys[cart.length-1] + " at $" + cartValues[cart.length-1] + ".");
+
 }
 
 function total() {
