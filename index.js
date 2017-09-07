@@ -27,13 +27,13 @@ function viewCart() {
   var itemandprice=cart[i];
   var item=Object.keys(itemandprice)[0];
   var price=itemandprice[item]
-  string+=`${item} at ${price}, `;
+  string+=`${item} at $${price}, `;
   }
   var lastitemandprice=cart[cart.length];
   var lastitem=Object.keys(lastitemandprice)[0];
   var lastprice=lastitemandprice[lastitem];
-  string+`and ${lastitem} at ${lastprice}.`
-console.log(string+`and ${lastitem} at ${lastprice}.`)
+  string+`and ${lastitem} at $${lastprice}.`
+console.log(string+`and ${lastitem} at $${lastprice}.`)
 }
 }
 
