@@ -1,4 +1,3 @@
-//WORKING ON TOTAL() FUNCTION!!! TASK #13 IN THE README
 
 var cart = [];
 
