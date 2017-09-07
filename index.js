@@ -47,13 +47,34 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var cartTotal = 0;
+  for(var i=0; i<cart.length; i++) {
+    for (let key in getCart()[i]) {
+      cartTotal += getCart()[i][key];
+    }
+  }
+  return cartTotal;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  var notInCart = false;
+  for(var i=0; i<cart.length; i++) {
+    if (getCart()[i].hasOwnProperty(item)) {
+        cart.splice(i, 1);
+     } else if (getCart()[i].hasOwnProperty === false) {
+       notInCart = true;
+     }
+  }
+  if (notInCart = true) {
+    console.log("That item is not in your cart.");
+  }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {
+    console.log("Sorry, we don\'t have a credit card on file for you.");
+  } else
+    console.log("Your total cost is $" + total() +", which will be charged to the card " + cardNumber + ".");
+    cart.splice(0, cart.length);
 }
