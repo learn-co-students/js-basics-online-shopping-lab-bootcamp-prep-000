@@ -22,18 +22,24 @@ function viewCart() {
   if (cart.length===0){
   console.log(`Your shopping cart is empty.`)
 }else{
-  var string=`In your cart, you have`;
-  for (let i=0;i<cart.length-1;i++){
-  var itemandprice=cart[i];
-  var item=Object.keys(itemandprice)[0];
-  var price=itemandprice[item]
-  string+=`${item} at $${price}, `;
+  var string=`In your cart, you have `;
+  if (cart.length===1){
+  var onlyitem=Object.keys(cart[0])[0]
+  console.log(string+=`${onlyitem} at $${cart[0][onlyitem]}.`);
   }
+    if(cart.length>1){
+      for(var i=0;i<cart.length-1;i++){
+      var itemandprice=cart[i];
+      var item=Object.keys(itemandprice)[0];
+      var price=itemandprice[item]
+  string+=`${item} at $${price}, `;
   var lastitemandprice=cart[cart.length];
   var lastitem=Object.keys(lastitemandprice)[0];
   var lastprice=lastitemandprice[lastitem];
   string+`and ${lastitem} at $${lastprice}.`
 console.log(string+`and ${lastitem} at $${lastprice}.`)
+}
+}
 }
 }
 
