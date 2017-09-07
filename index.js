@@ -24,12 +24,16 @@ function viewCart() {
 }else{
   var string=`In your cart, you have`;
   for (let i=0;i<cart.length-1;i++){
-  var item=Object.keys(cart[i]);
-  string+=`${item[i]} at ${cart[i][item]}, `;
+  var itemandprice=cart[i];
+  var item=Object.keys(itemandprice)[0];
+  var price=itemandprice[item]
+  string+=`${item} at ${price}, `;
   }
-  var lastitem=Object.keys(cart[cart.length]);
-  string+`and ${lastitem} at ${cart[cart.length][lastitem]}.`
-console.log(string+`and ${lastitem} at ${cart[cart.length][lastitem]}.`)
+  var lastitemandprice=cart[cart.length];
+  var lastitem=Object.keys(lastitemandprice)[0];
+  var lastprice=lastitemandprice[lastitem];
+  string+`and ${lastitem} at ${lastprice}.`
+console.log(string+`and ${lastitem} at ${lastprice}.`)
 }
 }
 
