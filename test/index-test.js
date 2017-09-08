@@ -163,17 +163,18 @@ describe("removeFromCart()", function() {
     addToCart("watermelon");
     addToCart("yams");
 
-    removeFromCart("watermelon");
+    const firstResult = removeFromCart("watermelon");
 
-    const firstItem = Object.keys(getCart()[0])[0];
-    const secondItem = Object.keys(getCart()[1])[0];
+    const firstItem = Object.keys(firstResult[0])[0];
+    const secondItem = Object.keys(firstResult[1])[0];
 
     expect(firstItem).toEqual("vanilla");
     expect(secondItem).toEqual("yams");
 
-    removeFromCart("yams");
+    setCart(firstResult);
+    const secondResult = removeFromCart("yams");
 
-    expect(getCart().length).toEqual(1);
+    expect(secondResult.length).toEqual(1);
   });
 
   it("alerts you if you're trying to remove an item that isn't in your cart", function() {
