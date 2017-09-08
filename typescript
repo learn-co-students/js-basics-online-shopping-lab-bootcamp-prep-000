@@ -1,0 +1,72 @@
+Script started on Fri Sep  8 00:22:51 2017
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ fds
+bash: fds: command not found
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ ^C
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ ^C
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ :©Î©^[^[^[^[^[^[^[^[^[^[^[^[^[^[^[^[^[ ^[^[^[^[^[^[[Aopping-lab-bootcamp-prep-000$ [K
+[K[Acs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ 
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ fdsajl  end
+bash: fdsaend: command not found
+msrebeccahong-67971@rkt-953b89b5-5a7c-4921-a805-49708f712941:~/code/labs/js-basiccs-online-shopping-lab-bootcamp-prep-000$ learn
+[?25l[[90m..................[0m] - : [32minfo[0m [35musing[0m node@v6.10.1[K[[90m..................[0m] - : [32minfo[0m [35musing[0m node@v6.10.1[K[[90m..................[0m] | : [32minfo[0m [35musing[0m node@v6.10.1[K[K[?25h
+> js-basics-online-shopping-lab@0.1.0 test /home/msrebeccahong-67971/code/labs/js-basics-online-shopping-lab-bootcamp-prep-000
+> mocha -R mocha-multi --reporter-options nyan=-,json=.results.json
+
+[?25l [32m0[0m
+ [31m0[0m
+ [36m0[0m
+
+[4A[5C[38;5;154m-[0m
+[5C[38;5;154m-[0m
+[5C[38;5;154m-[0m
+[5C[38;5;154m-[0m
+[4A[6C_,------,
+[6C_|   /\_/\ 
+[6C^|__( - .-) 
+[6C  ""  "" 
+[4A [32m0[0m
+ [31m1[0m
+ [36m0[0m
+
+[4A[5C[38;5;154m_[0m
+[5C[38;5;154m_[0m
+[5C[38;5;154m_[0m
+[5C[38;5;154m_[0m
+[4A[6C_,------,
+[6C_|  /\_/\ 
+[6C~|_( x .x) 
+[6C ""  "" 
+[4A[?25h
+
+
+
+
+[92m [0m[32m 0 passing[0m[90m (412ms)[0m
+[31m  1 failing[0m
+
+[0m  1)  "before all" hook:
+[0m[31m     SyntaxError: /home/msrebeccahong-67971/code/labs/js-basics-online-shopping-lab-bootcamp-prep-000/index.js: 'return' outside of function (31:2)[0m[90m
+  [0m [90m 29 | [39m  }
+   [90m 30 | [39m  
+  [31m[1m>[22m[39m[90m 31 | [39m  [36mreturn[39m statement[33m.[39mslice([35m0[39m[33m,[39m statement[33m.[39mlength[33m-[39m[35m2[39m[33m,[39m) [33m+[39m [32m'.'[39m
+   [90m    | [39m  [31m[1m^[22m[39m
+   [90m 32 | [39m}
+   [90m 33 | [39m
+   [90m 34 | [39m[36mfunction[39m total() {[0m
+      at Parser.pp$5.raise (node_modules/babylon/lib/index.js:4454:13)
+      at Parser.pp$1.parseReturnStatement (node_modules/babylon/lib/index.js:2066:10)
+      at Parser.pp$1.parseStatement (node_modules/babylon/lib/index.js:1848:19)
+      at Parser.pp$1.parseBlockBody (node_modules/babylon/lib/index.js:2268:21)
+      at Parser.pp$1.parseTopLevel (node_modules/babylon/lib/index.js:1778:8)
+      at Parser.parse (node_modules/babylon/lib/index.js:1673:17)
+      at parse (node_modules/babylon/lib/index.js:7305:37)
+      at File.parse (node_modules/babel-core/lib/transformation/file/index.js:517:15)
+      at File.parseCode (node_modules/babel-core/lib/transformation/file/index.js:602:20)
+      at node_modules/babel-core/lib/transformation/pipeline.js:49:12
+      at File.wrap (node_modules/babel-core/lib/transformation/file/index.js:564:16)
+      at Pipeline.transform (node_
