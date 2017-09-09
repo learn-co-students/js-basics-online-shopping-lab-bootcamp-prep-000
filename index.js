@@ -10,11 +10,11 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ return `${itemName} has been added to your cart.`
 }
 
 function viewCart() {
-  // write your code here
+  return `In your cart, you have`
 }
 
 function total() {
@@ -22,9 +22,9 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+  return "That item is not in your cart."
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  return "Sorry, we don't have a credit card on file for you."
 }
