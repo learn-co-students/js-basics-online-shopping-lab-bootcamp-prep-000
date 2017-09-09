@@ -5,7 +5,7 @@
 + Practice dynamically setting properties (keys) of an object.
 + Work with `Object.keys()` and `.hasOwnProperty()` to retrieve and verify an object's keys.
 + Iterate over arrays with `for` loops
-+ Use ES6 `${template literals}` instead of `"regular, " + "old " + string + " concatenation."`
++ Use ES6 ` instead of `"regular, " + "old " + string + " concatenation."`
 + Brush up on conditionals and control flow to make some Oxford comma magic happen.
 
 ## Instructions
