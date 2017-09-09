@@ -66,7 +66,7 @@ function viewCart()
       listString += `${keys[w]} ${vals[w]}`;
 
     }
-  
+
     console.log(`${listString}`);
   }
 
