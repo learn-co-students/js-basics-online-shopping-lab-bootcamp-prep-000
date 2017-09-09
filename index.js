@@ -103,7 +103,6 @@ function removeFromCart(item)
     }else
     {
       console.log(`${notInCart}`);
-      return cart; 
     }
   }
 }
