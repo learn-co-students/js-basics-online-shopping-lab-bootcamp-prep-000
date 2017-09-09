@@ -35,7 +35,7 @@ function viewCart()
   }else if(cart.length === 1)
   {//itemList + Object.keys(cart[0]) + "at $" + cart[0].item +"."
     var objectKey = Object.keys(cart[0]);
-    console.log(`${itemList} ${objectKey} at $${cart[0][objectKey]}.`);
+    console.log(`${itemList}${objectKey} at $${cart[0][objectKey]}.`);
     //thingsIwantToPrint =`${itemList} ${objectKey} at $${cart[0][objectKey]}.`;
 
   }else if(cart.length === 2)
