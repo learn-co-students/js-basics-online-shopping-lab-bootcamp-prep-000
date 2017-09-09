@@ -92,21 +92,24 @@ function total()
 
 function removeFromCart(item)
 {
-  for(var i = 0; i < cart.length; i++)//item == Object.keys(cart[i])
-  {
-    if(cart[i].hasOwnProperty(item) === true)
-    {
-
-      return cart.splice(i, 1);
-
-    }else
+  for(var i = 0; i < cart.length; i++)
+  
+    
+    if(cart[i].hasOwnProperty(item) === false)
     {
       console.log("That item is not in your cart.");
 
-      return cart;
+      //return cart;
     }
+    if(cart[i].hasOwnProperty(item) === true)
+    {
+      cart.splice(i, 1);
+      return cart
 
+    }
   }
+  
+
 }
 
 function placeOrder(cardNumber) {
