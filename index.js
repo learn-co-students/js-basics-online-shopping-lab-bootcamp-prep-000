@@ -107,10 +107,7 @@ function removeFromCart(item)
       return cart;
 
     }
-
-
   }
-  return cart;
 }
 
 
