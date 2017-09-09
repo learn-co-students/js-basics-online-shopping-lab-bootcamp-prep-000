@@ -92,7 +92,7 @@ function total()
 
 function removeFromCart(item)
 {
-  var notInCart = "That item is not in your cart."
+  var notInCart = "That item is not in your cart.";
   for(var i = 0; i < cart.length; i++)
   {
     if(cart[i].hasOwnProperty(item) === true)
