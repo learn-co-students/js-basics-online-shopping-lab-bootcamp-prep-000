@@ -107,8 +107,9 @@ function removeFromCart(item)
 
       //return cart;
     }
+    return cart;
   }
-  return cart;
+  //return cart;
 }
 
 
