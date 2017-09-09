@@ -97,7 +97,7 @@ function removeFromCart(item)
     if(cart[i].hasOwnProperty(item) === true)
     {
 
-      var newCart = cart.splice(i, 1);
+      var newCart = cart.splice(i+1, 1);
 
       return newCart;
 
