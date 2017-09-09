@@ -108,7 +108,7 @@ function removeFromCart(item)
 
     }
 
-  
+
   }
   //return cart;
 }
