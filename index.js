@@ -92,9 +92,9 @@ function total()
 
 function removeFromCart(item)
 {
-  for(var i = 0; i < cart.length; i++)
+  for(var i = 0; i < cart.length; i++)//item == Object.keys(cart[i])
   {
-    if(item == Object.keys(cart[i]))
+    if(cart[i].hasOwnProperty(item))
     {
       cart.splice((i), 1);
       return cart;
