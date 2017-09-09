@@ -212,5 +212,5 @@ describe("placeOrder()", function() {
     placeOrder(12345678);
 
     expect(getCart()).toEqual([]);
-  });
+  })
 });
