@@ -57,7 +57,7 @@ function viewCart()
       if (i === cart.length - 1)
       {
         keys[i] = `and ${Object.keys(cart[i])}`;
-        vals[i] = `at $${cart[i][Object.keys(cart[i])]}. `;
+        vals[i] = `at $${cart[i][Object.keys(cart[i])]}.`;
       }
     }
 
