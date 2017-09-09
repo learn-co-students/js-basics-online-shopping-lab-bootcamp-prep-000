@@ -100,11 +100,11 @@ function removeFromCart(item)
       console.log("That item is not in your cart.");
       return cart;
 
-    }else
-    {
-      var newArray = cart.splice(i, 1);
-      return newArray;
-    }
+    // }else
+    // {
+    //   var newArray = cart.splice(i, 1);
+    //   return newArray;
+    // }
 
   }
 }
