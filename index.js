@@ -109,14 +109,13 @@ function removeFromCart(item)
 
 
 
-function placeOrder(cardNumber) 
+function placeOrder(cardNumber)
 {
-  if()
+  if(cardNumber > 0)
   {
-
-
-    
+    console.log("Sorry, we don't have a credit card on file for you.");
   }
-  
+
+    console.log(`Your total cost is ${total()}, which will be charged to the card ${cardNumber}`);
   
 }
