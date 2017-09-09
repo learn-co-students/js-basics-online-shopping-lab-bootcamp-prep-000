@@ -27,7 +27,7 @@ function addToCart(item)
 
 function viewCart()
 {
-  var itemList = "In your cart, you have";
+  var itemList = "In your cart, you have ";
 
   if(cart.length === 0)
   {
