@@ -99,12 +99,11 @@ function removeFromCart(item)
     {
       cart.splice(i, 1);
       return cart;
-
-    }else
-    {
-      console.log(`${notInCart}`);
     }
+    
   }
+  console.log(`${notInCart}`);
+  return cart;
 }
 
 
