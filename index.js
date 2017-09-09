@@ -52,7 +52,7 @@ function viewCart()
     for (var i = 0; i < cart.length; i++)
     {
       keys[i] = Object.keys(cart[i]);
-      vals[i] = `at $${cart[i][Object.keys(cart[i])]},`;
+      vals[i] = `at $${cart[i][Object.keys(cart[i])]}, `;
 
       if (i === cart.length - 1)
       {
