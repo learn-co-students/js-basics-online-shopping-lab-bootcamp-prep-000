@@ -94,13 +94,15 @@ function removeFromCart(item)
 {
   for(var i = 0; i < cart.length; i++)//item == Object.keys(cart[i])
   {
-    if(cart[i].hasOwnProperty(item))
+    if(cart[i].hasOwnProperty(item) === false)
     {
-      cart.splice((i), 1);
+      
+      console.log("That item is not in your cart.");
+
       return cart;
     }else
     {
-      console.log("That item is not in your cart.");
+        //cart.splice((i), 1);
       return cart;
     }
 
