@@ -1,6 +1,3 @@
-var cart = [];
-var itemName
-
 function getCart(itemName) {
   return cart;
 }
