@@ -15,13 +15,6 @@ function addToCart(item) {
  return cart
 }
 
-/*function addToCart(item) {
-  const price = Math.floor(Math.random() * 100) + 1;
-  cart.push({ [item]: price });
-  console.log(`${item} has been added to your cart.`);
-  return cart;
-}*/
-
 function viewCart() {
   const l = cart.length
   if (!l){
@@ -74,23 +67,8 @@ function removeFromCart(item) {
     console.log(`That item is not in your cart.`)}
   return cart;
 }
-
+//alternative solution
 /*function removeFromCart(item) {
-  let itemInCart = false;
-  for (let i = 0, l = cart.length; i < l; i++) {
-    if (cart[i].hasOwnProperty(item)) {
-      itemInCart = true;
-      cart = cart.slice(0, i).concat(cart.slice(i + 1));
-      l--;
-    }
-  }
-  if (!itemInCart) {
-    console.log("That item is not in your cart.");
-  }
-  return cart;
-}*/
-
-/*function removeFromCart(item) {           //alternative solution
   var items = [];
   var finalArray;
   for(var i=0; i<cart.length; i++){
@@ -104,7 +82,6 @@ function removeFromCart(item) {
     cart.splice(index, 1); console.log(cart);
   }
 }*/
-
 
 function placeOrder(cardNumber) {
   if (!cardNumber){
