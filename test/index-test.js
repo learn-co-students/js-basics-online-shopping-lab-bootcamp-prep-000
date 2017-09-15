@@ -73,6 +73,7 @@ describe("addToCart()", function() {
   it("returns the cart", function() {
     expect(addToCart("kale")).toEqual(getCart());
   });
+
 });
 
 describe("viewCart()", function() {
