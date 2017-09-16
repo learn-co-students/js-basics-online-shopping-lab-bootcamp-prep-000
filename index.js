@@ -19,9 +19,26 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  if(cart.length < 1) {
-    console.log("Your shopping cart is empty.");
-  }
+  var list = 'In your cart, you have';
+     var i = 0;
+     var l = cart.length;
+     if (l < 1) {
+       return console.log('Your shopping cart is empty.');
+     } else if (l === 1) {
+         list += ` ${Object.keys(cart[0])[0]} at $${cart[0][Object.keys(cart[0])[0]]}.`;
+         return console.log(list);
+
+       } else if (l === 2) {
+         list += ` ${Object.keys(cart[0])[0]} at $${cart[0][Object.keys(cart[0])[0]]} and ${Object.keys(cart[1])[0]} at $${cart[1][Object.keys(cart[1])[0]]}.`;
+         return console.log(list);
+       } else {
+         while (i < l - 1) {
+           list += ` ${Object.keys(cart[i])[0]} at $${cart[i][Object.keys(cart[i])[0]]},`;
+           i++;
+         }
+         list += ` and ${Object.keys(cart[i])[0]} at $${cart[i][Object.keys(cart[i])[0]]}.`;
+         return console.log(list);
+       }
 }
 
 
