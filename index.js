@@ -64,6 +64,18 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  for(var i = 0; i < cart.length; i++) {
+    if(cart[i].hasOwnProperty(item)) {
+      cart.splice(i,1);
+      return cart;
+    }
+  }
+  console.log("That item is not in your cart.");
+  return cart;
+}
+/*
+function removeFromCart(item) {
+  // write your code here
   var found = false;
   for (var i = 0; i < cart.length; i++) {
      if (Object.keys(cart[i])[0] === item) {
@@ -76,7 +88,7 @@ function removeFromCart(item) {
  }
   return cart;
 }
-
+*/
 function placeOrder(cardNumber) {
   // write your code here
   if (cardNumber === undefined) {
