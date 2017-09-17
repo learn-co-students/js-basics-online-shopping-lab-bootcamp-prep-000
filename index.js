@@ -24,7 +24,7 @@ function viewCart() {
   var cartList = []
 
   for(let i=0; i<l; i++){
-    cartList.push(`${Object.keys(cart[i])[0]} at $${cart[i][Object.keys(cart[i])][0]}`);
+    cartList.push(`${Object.keys(cart[i])[0]} at $${cart[i][Object.keys(cart[i])[0]]}`);
   }
   if(l<1){
     console.log("Your shopping cart is empty.");
@@ -33,7 +33,7 @@ function viewCart() {
     console.log(`In your cart, you have ${cartList[0]}.`)
   }
   else if (l===2) {
-    console.log(`In your caart, you have ${cartList[0]} and ${cartList[1]}.`)
+    console.log(`In your cart, you have ${cartList[0]} and ${cartList[1]}.`)
   }
   else{
     var fullCart = "In your cart, you have "
@@ -47,7 +47,7 @@ function viewCart() {
 function total() {
   var totalCart = 0
   for(let i=0; i<cart.length; i++){
-    totalCart += cart[i][Object.keys(cart[i])][0];
+    var totalCart = totalCart + cart[i][Object.keys(cart[i])[0]];
   }
   return totalCart;
 }
@@ -68,10 +68,11 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-    if(cardNumber === NaN){
+    if(cardNumber == undefined){
       console.log( "Sorry, we don't have a credit card on file for you.");
     }
     else{
-      console.log(`Your total cost is $${"total()"}, which will be charged to the card ${"cardNumber"}`);
-      var cart = [];
+      console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+      cart.length = 0;
     }
+  }
