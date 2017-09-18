@@ -104,7 +104,7 @@ describe("viewCart()", function() {
     viewCart();
 
     expect(console.log).toHaveBeenCalledWith(
-      `In your cart, you have mango at $${mangoCost} and nuts at $${nutsCost}.`
+      `In your cart, you have mango at $${mangoCost}, nuts at $${nutsCost}.`
     );
   });
 
@@ -120,7 +120,7 @@ describe("viewCart()", function() {
     viewCart();
 
     expect(console.log).toHaveBeenCalledWith(
-      `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, and quince at $${quinceCost}.`
+      `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, quince at $${quinceCost}.`
     );
 
     addToCart("rhubarb");
@@ -130,7 +130,7 @@ describe("viewCart()", function() {
     viewCart();
 
     expect(console.log).toHaveBeenCalledWith(
-      `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, quince at $${quinceCost}, and rhubarb at $${rhubarbCost}.`
+      `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, quince at $${quinceCost}, rhubarb at $${rhubarbCost}.`
     );
   });
 });
