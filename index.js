@@ -76,13 +76,6 @@ function total() {
 
   for (var i = 0; i < cart.length; i++) {
     var cartObj = cart[i];
-
-    // Version 1:
-    // for (var cartItem in cartObj) {
-    //   sum += cartObj[cartItem];
-    // }
-
-    // Version 2:
     var itemKey = Object.keys(cartObj)[0];
     sum += cartObj[itemKey];
   }
