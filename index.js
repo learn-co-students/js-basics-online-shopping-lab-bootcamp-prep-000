@@ -6,6 +6,7 @@ function getCart() {
 
 function setCart(c) {
   cart = c;
+  console.log('cart');
   return cart;
 }
 
