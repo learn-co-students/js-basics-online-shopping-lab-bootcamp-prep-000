@@ -49,19 +49,16 @@ function viewCart() {
   }
 
   var message = "In your cart, you have ";
-  var isTwoItemCart = cartLength === 2;
 
   for (var i = 0; i < cartLength; i++) {
     var isNotAtEnd = i !== (cartLength - 1);
     var isNextToLastItem = i === (cartLength - 2);
     var cartObj = cart[i];
-
-    for (var cartItem in cartObj) {
-      message += `${cartItem} at $${cartObj[cartItem]}`;
-    }
+    var itemKey = Object.keys(cartObj)[0];
+    message += `${itemKey} at $${cartObj[itemKey]}`;
 
     if(isNextToLastItem){
-      message += isTwoItemCart ?  " and " :  ", and ";
+      message += cartLength === 2 ?  " and " :  ", and ";
     }
     else if(isNotAtEnd) {
       message += ", ";
