@@ -64,7 +64,7 @@ var sum = 0
 
 function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++){
-    if (cart[i] === item) {
+    if (Object.keys(cart[i])[0] === item) {
       return cart.shift()
     }
   } else {
