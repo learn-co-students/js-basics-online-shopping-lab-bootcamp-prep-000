@@ -117,7 +117,8 @@ describe("viewCart()", function() {
     const pearCost = getCart()[1]["pear"];
     const quinceCost = getCart()[2]["quince"];
 
-    viewCart();
+    var toto = viewCart();
+    console.log(toto)
 
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, and quince at $${quinceCost}.`
