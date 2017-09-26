@@ -26,6 +26,7 @@ var inTheCartNow;
 
     for(var i = 0; i < cart.length; i++) {
       var anItemObject = cart[i];
+
       for(var item in anItemObject) {
         if(cart.length === 1) {
           inTheCartNow += `${item} at $${anItemObject[item]}.`;
@@ -69,7 +70,7 @@ function total() {
 function removeFromCart(item) {
   // write your code here
   var itemFlag = false;
-  
+
   for(var i = 0; i < cart.length; i++) {
     var anItemObject = cart[i];
 
@@ -78,7 +79,7 @@ function removeFromCart(item) {
       itemFlag = true;
     }
   }
-  
+
   if(itemFlag) {
     return cart;
   } else {
