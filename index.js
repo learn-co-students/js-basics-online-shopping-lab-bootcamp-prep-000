@@ -19,7 +19,6 @@ return cart;
 }
 
 function viewCart() {
-  // write your code here
   if (cart.length === 0) {
     return console.log("Your shopping cart is empty.");
   } else {
@@ -44,9 +43,7 @@ var lastArray = items.slice(-1);
 }
 
 function total() {
-  // write your code here
 let t = 0;
-
 for (var i = 0, l = cart.length; i < l; i++) {
    for (var item in cart[i]) {
      t += cart[i][item]
@@ -56,25 +53,20 @@ for (var i = 0, l = cart.length; i < l; i++) {
 }
 
 function removeFromCart(item) {
-item = [];
-  let itemInCart = false;
-for (let i = 0, l = cart.length; i < l; i++) {
-  if (cart[i].hasOwnProperty(item)) {
-    itemInCart = true;
-      var ncart = cart.slice(0, i).concat(cart.slice(i + 1));
-return ncart
-    }
-
-
-}
-  if (!itemInCart) {
-     console.log("That item is not in your cart.")
+   var itemInCart = false;
+   for(var i = 0; i < cart.length; i++){
+     if (cart[i].hasOwnProperty(item)) {
+       itemInCart = true;
+       cart.splice(i, 1);
+     }
    }
-
-}
+   if (!itemInCart) {
+     console.log("That item is not in your cart.");
+   }
+   return cart;
+ }
 
 function placeOrder(cardNumber) {
-  // write your code here
 if (!cardNumber) {
   return console.log("Sorry, we don't have a credit card on file for you.");
 }
