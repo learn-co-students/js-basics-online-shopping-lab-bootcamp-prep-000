@@ -16,8 +16,6 @@ function setCart(c) {
 function addToCart(item) {
   cart.push({ [item]: randomInt()})
   console.log(`${item} has been added to your cart.`)
-  console.log(cart)
-
   return cart
 }
 
