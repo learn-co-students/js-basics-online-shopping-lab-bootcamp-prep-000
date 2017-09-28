@@ -1,7 +1,11 @@
-var cart = [];
 
-function getCart() {
- return cart;
+var cart = []
+
+function getCart(itemName) {
+    var itemPrice = Math.floor(Math.random() * 100 + 1);
+    var obj = { [itemName] : itemPrice }
+    console.log(`${itemName} has been added to your cart.`);
+    return cart.push(Object.assign({}, obj, itemName))
 }
 
 function setCart(c) {
