@@ -68,9 +68,9 @@ function removeFromCart(item) {
   // iterate through cart
   for (let i = 0; i < cart.length; i++) {
 
-    name = Object.keys(cart[i])
+    name = cart[i]
 
-    if (name[0] === item) {
+    if (name.hasOwnProperty(item)) {
       cart.splice(i, 1)
       found = true
     }
@@ -91,5 +91,6 @@ function placeOrder(cardNumber) {
     console.log(`Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`)
     //clear cart
     cart = []
+
   }
 }
