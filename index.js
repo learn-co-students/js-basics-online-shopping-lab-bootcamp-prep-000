@@ -62,16 +62,28 @@ function total() {
 }
 
 function removeFromCart(item) {
-  for ( var i = 0; i < cart.length - 1; i++ ) {
-    if ( item = getItemAtIndex(i) ) {
-      cart = cart.splice(i,1)
-    }
-    else {
-      return 'That item is not in your cart.'
-    }
+  var count = 0
+  for ( var i = 0; i < cart.length; i++ ) {
+      if ( cart[i].hasOwnProperty(item) ) {
+          //console.log( Object.keys(cart[i]) )
+          cart.splice(i,1)
+          return cart
+      }
+      else if ( cart[i].hasOwnProperty(item) === false ) {
+          count = count + 1
+      }
+  }
+  if ( count === cart.length ) {
+      console.log(`That item is not in your cart.`)
   }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+    if ( undefined === cardNumber ) {
+        console.log("Sorry, we don't have a credit card on file for you.")
+    }
+    else {
+        console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+        cart = []
+    }
 }
