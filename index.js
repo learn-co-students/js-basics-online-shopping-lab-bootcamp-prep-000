@@ -19,39 +19,57 @@ function addToCart(item) {
   return cart
 }
 
+function getItemAtIndex(index) {
+  return Object.keys(cart[index])
+}
+
+function getPriceAtIndex(index) {
+  return cart[index][getItemAtIndex(index)]
+}
+
+function itemToStringAtIndex(index) {
+  return `${getItemAtIndex(index)} at $${getPriceAtIndex(index)}`
+}
+
 function viewCart() {
-  if ( null == cart || [] === cart ) {
+  if ( cart.length === 0 ) {
     console.log('Your shopping cart is empty.')
   }
-  else if ( Object.keys(cart).length = 1 ) {
-    console.log(`In your cart, you have ${cart[0]} at ${cart[0]}.`)
+  else if ( Object.keys(cart).length === 1 ) {
+    console.log(`In your cart, you have ` + itemToStringAtIndex(0) + `.`)
   }
-  else if ( Object.keys(cart).length = 2 ) {
-    console.log(`In your cart, you have ${cart[0][0]} at ${cart[0][1]} and ${cart[1][0]} at ${cart[1][1]}.`)
+  else if ( Object.keys(cart).length === 2 ) {
+    console.log(`In your cart, you have ${itemToStringAtIndex(0)} and ${itemToStringAtIndex(1)}.`)
   }
   else if ( Object.keys(cart).length > 2 ) {
-    i=2
+    var i = 0
     var text = `In your cart, you have `
-    while ( i < cart.length-1 ) {
-      text = text + `${cart[i][0]} at ${cart[i][1]}, `
+    while ( i < cart.length - 1 ) {
+      text = text + `${itemToStringAtIndex(i)}, `
       i++
     }
-    console.log(text + `and ${cart[cart.length][0]} at ${cart[cart.length][1]}.`)
+    console.log(text + `and ${itemToStringAtIndex(cart.length - 1)}.`)
   }
 }
 
 
 function total() {
   var total = 0
-  var prices = Object.values(cart).map
-  for ( var i = 0; i < prices.length; i++ ) {
-    total = total + prices[i]
+  for ( var i = 0; i < cart.length; i++ ) {
+    total = total + getPriceAtIndex(i)
   }
   return total
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for ( var i = 0; i < cart.length - 1; i++ ) {
+    if ( item = getItemAtIndex(i) ) {
+      cart = cart.splice(i,1)
+    }
+    else {
+      return 'That item is not in your cart.'
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
