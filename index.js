@@ -1,5 +1,7 @@
 var cart = [];
 
+// Helper functions
+
 function getCart() {
  return cart;
 }
@@ -9,7 +11,9 @@ function setCart(c) {
   return cart;
 }
 
-// Tests good
+// Functions for lab
+
+// Add item to cart with a randomly generated price
 function addToCart(item) {
   var itemPrice = Math.floor(Math.random() * 100);
   cart.push({[item]:itemPrice});
@@ -17,7 +21,7 @@ function addToCart(item) {
   return cart;
 }
 
-// Tests good
+// Loop over cart, printing out contents per formatting guidelines
 function viewCart() {
   if (cart.length == 0) {
     console.log("Your shopping cart is empty.");
@@ -42,7 +46,7 @@ function viewCart() {
       }
   }
 
-// Tests good
+// Iterates through cart, returning total value
 function total() {
   var totalPrice = 0;
   for (let i = 0; i < cart.length; i++) {
