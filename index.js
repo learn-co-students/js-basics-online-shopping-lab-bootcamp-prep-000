@@ -19,6 +19,18 @@ return cart;
 
 function viewCart() {
   // write your code here
+  if(cart.length ===0)
+  {
+    console.log("Your shopping cart is empty.")
+    return
+  }
+  var str = "In your cart, you have "
+  for(var i = 0; i <cart.length; i++)
+  {
+    var itemName = Object.keys(cart[i])[0]
+    var itemPrice = cart[i][itemName]
+    str = str + "${itemName} at $${itemPrice}."
+  }
 }
 
 function total() {
@@ -37,15 +49,18 @@ function removeFromCart(item) {
   // write your code here
   for(var i =0; i<cart.length; i++)
   {
-    var itemName = Object.keys(cart[i])[0]
-    if(itemName===item)
+    for(var key in cart[i])
     {
-    cart= cart.splice(i, 1)
+    if(key.hasOwnProperty(item))
+    {
+      cart= cart.splice(i, 1)
     }
     else {
-      alert("That item is not in your cart:")
+      alert("That item is not in your cart.")
     }
   }
+}
+return cart;
 }
 
 function placeOrder(cardNumber) {
@@ -53,11 +68,10 @@ function placeOrder(cardNumber) {
   if(!cardNumber)
   {
     console.log("Sorry, we don\'t have a credit card on file for you.")
-    return
   }
   else {
-    var totalCost = total();
-  console.log('Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.')
+    var totalCost = total()
+  console.log("Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.")
   while(cart.length >0)
     cart.pop()
   }
