@@ -21,31 +21,37 @@ return cart;
 
 function viewCart() {
   // write your code here
-  if(cart.length ===0)
+  var arrayLen = cart.length
+  if(arrayLen ===0)
   {
     console.log("Your shopping cart is empty.")
   }
   else
   {
     var str = "In your cart, you have "
-    var newArray = [];
-    for(var i = 0; i <cart.length; i++)
-      newArray.push(cart[i])
-
       for(var i = 0; i <cart.length; i++)
       {
         var itemName = Object.keys(cart[i])[0]
         var itemPrice = cart[i][itemName]
-        if(newArray.length===1)
+        if(arrayLen===1)
           {
             str += itemName+" at $"+ itemPrice +"."
           }
-          else
+          else if(cart.length===2)
           {
-            str += itemName+" at $"+ itemPrice +" and "
+           str += itemName+" at $"+ itemPrice +" and "
           }
-          newArray.pop()
+          else if(arrayLen==2 )
+          {
+            str += itemName+" at $"+ itemPrice +", and "
+          }
+          else if(arrayLen>2)
+          {
+            str += itemName+" at $"+ itemPrice +", "
+          }
+          --arrayLen
         }
+        console.log(str)
       }
     }
 
@@ -71,11 +77,12 @@ function removeFromCart(item) {
     {
       cart.splice(i, 1)
     }
-    else
-    {
-      console.log("That item is not in your cart.")
-    }
 }
+if(cart.length=== 0)
+{
+    console.log("That item is not in your cart.")
+}
+
 return cart;
 }
 
