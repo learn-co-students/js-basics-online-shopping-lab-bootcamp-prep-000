@@ -24,17 +24,30 @@ function viewCart() {
   if(cart.length ===0)
   {
     console.log("Your shopping cart is empty.")
-    return
   }
-  var str = "In your cart, you have "
-//  for(var i = 0; i <cart.length; i++)
-if(cart.length===1)
+  else
   {
-    var itemName = Object.keys(cart[0])[0]
-    var itemPrice = cart[0][itemName]
-    str += itemName+" at $"+ itemPrice +"."
-  }
-}
+    var str = "In your cart, you have "
+    var newArray = [];
+    for(var i = 0; i <cart.length; i++)
+      newArray.push(cart[i])
+
+      for(var i = 0; i <cart.length; i++)
+      {
+        var itemName = Object.keys(cart[i])[0]
+        var itemPrice = cart[i][itemName]
+        if(newArray.length===1)
+          {
+            str += itemName+" at $"+ itemPrice +"."
+          }
+          else
+          {
+            str += itemName+" at $"+ itemPrice +" and "
+          }
+          newArray.pop()
+        }
+      }
+    }
 
 function total() {
   // write your code here
