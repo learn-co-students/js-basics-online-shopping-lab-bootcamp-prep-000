@@ -76,14 +76,11 @@ function removeFromCart(item) {
     if(object.hasOwnProperty(item))
     {
       cart.splice(i, 1)
-      return
+      return cart
     }
 }
 //if(cart.length=== 0)
-{
-    console.log("That item is not in your cart.")
-}
-
+console.log("That item is not in your cart.")
 return cart;
 }
 
