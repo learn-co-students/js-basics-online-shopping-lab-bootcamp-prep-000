@@ -23,7 +23,7 @@ function viewCart() { //[{apples: 2}, {socks: 5}]
     for (var i = 0; i < cart.length; i++) {
       var currentItem = cart[i] //{apples: 2}
       var itemName = Object.keys(currentItem)[0] //"apples"
-      var itemPrice = currentItem[itemName] //2
+      var itemPrice = currentItem[itemName] //2 object[value]
 
       newArray.push(`${itemName} at $${itemPrice}`)
     }
@@ -47,7 +47,7 @@ function viewCart() { //[{apples: 2}, {socks: 5}]
 
 function total() {
   var cl = cart.length; // length of the cart
-  var itemAndPrice; // saves to objet from the cart
+  var itemAndPrice; // saves to object from the cart
   var item; // the object key
   var price; // the value of the object key property
   var allPrices = []; // to store the prices in an array
@@ -58,17 +58,33 @@ function total() {
       item = Object.keys(itemAndPrice)[0]; // returns object key in string format
       price = itemAndPrice[item]; // returns value of object key property
       allPrices.push(price);
-  }
+  } // loop through the cart length
+
   for (var x = 0; x < allPrices.length; x++) {
       total += parseInt(allPrices[x]);
-  }
+  } // loop through the length of "all prices"
+
   return total;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i = 0; i < cart.length; i++) {
+    var current = cart[i]
+    var key = Object.keys(current)[0]
+
+    if (item == key) {
+      cart.splice(i, 1)
+      return cart
+    }
+  }
+  console.log('That item is not in your cart.')
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (cardNumber) {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+  } else {
+    console.log(`Sorry, we don\'t have a credit card on file for you.`)
+  }
+  cart = []
 }
