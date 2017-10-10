@@ -71,7 +71,7 @@ function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++) {
     var current = cart[i]
     var key = Object.keys(current)[0]
-
+    // Your'e only getting the key because that's already holding the value.
     if (item == key) {
       cart.splice(i, 1)
       return cart
