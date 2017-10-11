@@ -40,17 +40,16 @@ function viewCart() {
 };
 
 
-// function total() {
-//   var total = 0
-//   for (let i = 0; i <= cart.length; i++) {
-//     //   prices = [...prices, cart[Object.keys(cart)[i]]]
-//     total += Number(cart[Object.keys(cart)[i]])
-//   }
-//   // for (let p = 0; p < prices.length; p++) {
-//   //     total += Number(Object.keys(prices)[p])
-//   // }
-//   return total
-// }
+function total() {
+  var total = 0
+  var prices = []
+  for (let i = 0; i < cart.length; i++) {
+    var key = Object.keys(cart[i])[0]
+    total += (cart[i][key])
+  }
+  return total
+}
+
 //
 // function removeFromCart(item) {
 //   // write your code here
