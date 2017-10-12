@@ -50,9 +50,18 @@ function total() {
   return total
 }
 
-//
-// function removeFromCart(item) {
-//   // write your code here
+
+function removeFromCart(item) {
+  // write your code here
+  if (cart.hasOwnProperty(item) === False) {
+      console.log('That item is not in your cart')
+      return cart
+  } else {
+      var i = cart.indexOf(item)
+      cart.splice(i, 1)
+      return cart
+  }
+  }
 // }
 //
 // function placeOrder(cardNumber) {
