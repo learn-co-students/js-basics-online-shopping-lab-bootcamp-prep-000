@@ -52,16 +52,23 @@ function total() {
 
 
 function removeFromCart(item) {
-  // write your code here
-  if (cart.hasOwnProperty(item) === False) {
-      console.log('That item is not in your cart')
-      return cart
+  var truth = []
+  var remove = []
+  for (let i=0; i < cart.length; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      truth = [...truth, 'in']
+      remove = [...remove, i]
+    } else {
+      truth = [...truth, 'out']
+    }
+  }
+  if (truth.indexOf('in') > -1) {
+    cart.splice(remove[0], 1)
+    return cart
   } else {
-      var i = cart.indexOf(item)
-      cart.splice(i, 1)
-      return cart
+    console.log('That item is not in your cart.')
   }
-  }
+}
 // }
 //
 // function placeOrder(cardNumber) {
