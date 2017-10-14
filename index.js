@@ -72,12 +72,13 @@ function total() {
 
 function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++ ) {
-    var check = Object.keys(cart[i])
+    var check = cart[i]
     if (check.hasOwnProperty(item)){
-      [...cart.slice(0,i-1), ...cart.slice(i)]
-    } else {
-      console.log(`That item is not in your cart.`)
+      var newcart = cart.splice(i,1);
     }
+  }
+  if (typeof newcart === `undefined`) {
+    console.log(`That item is not in your cart.`)
   }
 }
 
@@ -85,8 +86,7 @@ function placeOrder(cardNumber) {
   if (cardNumber == null) {
     console.log(`Sorry, we don't have a credit card on file for you.`)
   } else {
-    var pay = total()
-    console.log(`Your total cost is $${pay}, which will be charged to the card ${cardNumber}.`)
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
     cart.length = 0
   }
 }
