@@ -25,12 +25,16 @@ function viewCart() {
   const itemsInCart = []
   const pricesInCart = []
 
-  for (let i = 0, l = cart.length; i < l; i++) {
-    itemsInCart.push(`${cart[i]}`)
+  //for (let i = 0, l = cart.length; i < l; i++) {
+    //itemsInCart.push(`${cart[i]}`)
   //  pricesInCart.push(`${itemsInCart[i]}`)
+  //}
+  for (var key in cart) {
+    itemsInCart.push(`${key}`)
+    pricesInCart.push(`${cart[key]}`)
   }
 
-  return `In your cart, you have ${itemsInCart.join(', ')}.`
+  return `In your cart, you have ${itemsInCart.join(', ')} at $${pricesInCart.join(', ')}.`
 }
 
 function total() {
