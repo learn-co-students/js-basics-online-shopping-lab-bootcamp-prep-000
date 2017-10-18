@@ -17,28 +17,31 @@ function addToCart(item) {
   return cart
 }
 
+
 function viewCart() {
-  if (!cart.length){
+  if (cart.length === 0){
     console.log("Your shopping cart is empty.")
+  }else{
+    var result = "In your cart, you have "
+    for (var ind in cart) {
+      var item = Object.keys(cart[ind])
+      var value = item.map(e => cart[ind][e])
+      if (cart.hasOwnProperty(ind)) {
+        var sep = (ind == (cart.length-1)) ? "." : ((ind == (cart.length-2)) ? ((cart.length == 2) ? " and " : ", and ") : ", ")
+        result += item + ' at $' + value + sep
+      }
+    }
+    console.log(result)
   }
-
-  const itemsInCart = []
-  const pricesInCart = []
-
-  //for (let i = 0, l = cart.length; i < l; i++) {
-    //itemsInCart.push(`${cart[i]}`)
-  //  pricesInCart.push(`${itemsInCart[i]}`)
-  //}
-  for (var key in cart) {
-    itemsInCart.push(`${key}`)
-    pricesInCart.push(`${cart[key]}`)
-  }
-
-  return `In your cart, you have ${itemsInCart.join(', ')} at $${pricesInCart.join(', ')}.`
 }
 
 function total() {
-  // write your code here
+  var total = 0
+  for (var ind in cart) {
+    var value = Object.keys(cart[ind]).map(e => cart[ind][e])
+    total += parseInt(value)
+  }
+  return total
 }
 
 function removeFromCart(item) {
