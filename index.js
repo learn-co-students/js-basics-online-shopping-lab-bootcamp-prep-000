@@ -21,24 +21,32 @@ function viewCart() {
   if(!cart.length){
     console.log("Your shopping cart is empty.")
   }
-  else if(cart.length === 1){
-    var i = 0
-    var ret = `In your cart, you have ${ Object.keys(cart[i])[0] } at $${ cart[0][Object.keys(cart[i])[0]] }.`
+  else{
+    var itemAndPrice = []
+    for( var i=0; i<cart.length; i++){
+      var item = Object.keys(cart[i])[0]
+      var price = cart[i][item]
+      itemAndPrice.push(`${item} at $${price}`)
+    }
+
+   if(cart.length === 1){
+    var ret = `In your cart, you have ${ itemAndPrice[0] }.`
     console.log(ret)
   }
-  else if(cart.length ===2){
-    console.log( `In your cart, you have ${ Object.keys(cart[0])[0] } at $${ cart[0][Object.keys(cart[0])[0]] } and ${ Object.keys(cart[1])[0] } at $${ cart[1][Object.keys(cart[1])[0]] }.` )
+  else if(cart.length === 2){
+    console.log( `In your cart, you have ${ itemAndPrice[0] } and ${ itemAndPrice[1] }.` )
   }
   else {
-    var ret = `In your cart, you have ${ Object.keys(cart[0])[0] } at $${ cart[0][Object.keys(cart[0])[0]] }`
+    var ret = `In your cart, you have ${ itemAndPrice[0] }`
     var i = 1
     while(i<cart.length-1){
-      ret += `, ${ Object.keys(cart[i])[0] } at $${ cart[i][Object.keys(cart[i])[0]] }`
+      ret += `, ${ itemAndPrice[i] }`
       i++
     }
-    ret += `, and ${ Object.keys(cart[i])[0] } at $${ cart[i][Object.keys(cart[i])[0]] }.`
+    ret += `, and ${ itemAndPrice[i] }.`
     console.log(ret)
   }
+}
 }
 
 function total() {
@@ -72,3 +80,6 @@ function placeOrder(cardNumber) {
     cart = []
   }
 }
+addToCart("apple")
+addToCart("banana")
+viewCart()
