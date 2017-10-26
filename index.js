@@ -48,19 +48,18 @@ function viewCart() {
         str = 'In your cart, you have '+ keys[0] + ' at $' + cart[0][keys[0]] + ' and ' +  keys[1]+ ' at $' +cart[1][keys[1]]+'.';
     } else {
       str = 'In your cart, you have ';
-      for(i in cart){
-
+      for( var i=0; i<cart.length;i++){
         if(i != cart.length-1){
-          console.log(i);
           var keys = Object.keys(cart[i]);
           console.log(Object.keys(cart[i]));
           str += keys[0] + ' at $' + cart[i][keys[0]] + ', ';
           console.log(str);
+        }else{
+          var keys = Object.keys(cart[i]);
+          str += 'and '+keys[0] + ' at $' + cart[i][keys[0]]+ '.';
         }
-        str += 'and '+keys[0] + ' at $' + cart[i][keys[0]]+ '.';
       }
     }
-
     console.log(str);
   // write your code here
 }
