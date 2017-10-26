@@ -12,6 +12,9 @@ viewCart();
 cart = addToCart("chalk");
 viewCart();
 
+total();
+
+removeFromCart("moose");
 
 function getCart() {
  return cart;
@@ -65,10 +68,31 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var sum=0;
+  var cart = getCart();
+  for(var i=0; i<cart.length;i++){
+    var keys = Object.keys(cart[i]);
+    sum = sum + parseInt(cart[i][keys[0]]);
+  }
+  console.log(sum);
+  return sum;
+  // write your code herleare
 }
 
 function removeFromCart(item) {
+  var isInCart = false;
+  for(var i=0; i<cart.length;i++){
+    var keys = Object.keys(cart[i]);
+    if(keys == item){
+      cart.splice(i,1);
+      isInCart = true;
+    }
+  }
+  if(!isInCart){
+    console.log('That item is not in your cart.');
+  }
+  console.log(cart);
+  return cart;
   // write your code here
 }
 
