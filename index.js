@@ -15,6 +15,8 @@ viewCart();
 total();
 
 removeFromCart("moose");
+placeOrder();
+placeOrder(291108134);
 
 function getCart() {
  return cart;
@@ -97,5 +99,13 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
+  if(cardNumber==(null || undefined)){
+    console.log("Sorry, we don't have a credit card on file for you.");
+  }
+
+  var str = 'Your total cost is $'+ total()+', which will be charged to the card '+ cardNumber +'.'
+  console.log(str);
+  cart=[];
+  
   // write your code here
 }
