@@ -20,24 +20,24 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  var contents = []
+  var contents = [];
   if (cart.length === 0){
-    return console.log (`Your shopping cart is empty.`)
+    return console.log (`Your shopping cart is empty.`);
   }else {
     for (let i=0; i < cart.length; i++) {
-      var item = cart[i]
-      var itemName = Object.keys(item)[0]
-      var itemPrice = item[itemName]
-      contents.push(` ${itemName} at $${itemPrice}`)
+      var item = cart[i];
+      var itemName = Object.keys(item)[0];
+      var itemPrice = item[itemName];
+      contents.push(` ${itemName} at $${itemPrice}`);
     }
     if (cart.length === 1){
-      console.log (`In your cart, you have` + contents[0] + `.`)
+      console.log (`In your cart, you have` + contents[0] + `.`);
     } else if (cart.length === 2){
-      console.log (`In your cart, you have` + contents[0] + ` and` + contents[1] + `.`)
+      console.log (`In your cart, you have` + contents[0] + ` and` + contents[1] + `.`);
     } else {
-      var start = contents.slice(0, -1)
-      var ending = contents.slice(-1)
-      console.log (`In your cart, you have` + start.join(',') + `, and` + ending + `.`)
+      var start = contents.slice(0, -1);
+      var ending = contents.slice(-1);
+      console.log (`In your cart, you have` + start.join(',') + `, and` + ending + `.`);
     }
   }
 }
