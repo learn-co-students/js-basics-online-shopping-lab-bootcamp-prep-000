@@ -23,31 +23,40 @@ function addToCart(item) {
 
 function viewCart() {
   var contents = [];
-  var viewItem = [Object.keys(cart)];
+  var viewItem = [];
+  for (let i = 0; i < cart.length; i++) {
+      viewItem.push(Object.keys(cart[i]));
+    }
+  var viewItem = [].concat.apply([], viewItem);
+//the cart is an array of objects, but the indexes of the array are acting as
+//keys--I have to access the key of the array within each index.
 // turn the object keys into an array of just the keys, then identify by i
 // using object.keys
-  var viewPrice = [Object.values(cart)];
+  var viewPrice = [];
+  for (let i = 0; i < cart.length; i++) {
+      viewPrice.push(Object.values(cart[i]));
+  }
+  var viewPrice = [].concat.apply([], viewPrice);
   // turn the object values into an array of just the values, then identify by i
   // using object.values
   if (cart.length === 0) {
-    return "Your shopping cart is empty";
+    return "Your shopping cart is empty.";
   }
-//can probably clean below to else ifs all the way down
+  else if (cart.length === 1) {
+    contents.push(`${viewItem[0]} at $${viewPrice[0]}.`);
+  }
+  else if (cart.length === 2) {
+    contents.push(`${viewItem[0]} at $${viewPrice[0]} and ${viewItem[1]} at $${viewPrice[1]}.`)
+  }
   else {
-    if (cart.length === 1) {
-      contents.push(`${viewItem[0]} at $${viewPrice[0]}.`);
-    }
-    else if (cart.length === 2) {
-      contents.push(`${viewItem[0]} at $${viewPrice[0]} and ${viewItem[0]} at $${viewPrice[0]}.`)
-    }
-    else {
-      for (i=1; i < cart.length; i++) {
-        contents.push(`${viewItem[i]} at $${viewPrice[i]}, and`)
+    for (let i = 0; i < (cart.length - 1); i++) {
+      contents.push(`${viewItem[i]} at $${viewPrice[i]}, and `)
       }
       contents.push(`${viewItem[(cart.length-1)]} at $${viewPrice[(cart.length-1)]}.`);
-      //Loop through early entries
-      //hard add final entry
-    }
+  }
+    return `In your cart, you have ${contents}`;
+}
+
   //def need an IF statement for if cart.length = 1 vs 2, 3+ for oxford comma
   //don't need loops for length=1 or 2.  3, will loop.
   //DO WHILE--push (to end) final sentence with period; while i<cart.length,
@@ -59,9 +68,7 @@ function viewCart() {
 //    for (i=0; i = cart.length; i++) {
 //      contents.push(`${viewItem[i]} at $${viewPrice[i]}`);
 //    }
-    return `In your cart, you have ${contents}.`;
-  }
-}
+
 
 function total() {
   // write your code here
