@@ -1,21 +1,21 @@
 var cart = [];
 
-function getCart() {
+var getCart = () => {
  return cart;
 }
 
-function setCart(c) {
+var setCart = c => {
   cart = c;
   return cart;
 }
 
-function addToCart(item) {
+var addToCart = item => {
   cart.push({[item]: Math.ceil(100 * Math.random())});
   console.log(`${item} has been added to your cart.`);
   return cart;
 }
 
-function viewCart() {
+var viewCart = () => {
   var contents = '';
 
   if (cart[0] === undefined) {
@@ -47,7 +47,7 @@ function viewCart() {
   console.log(contents);
 }
 
-function total() {
+var total = () => {
   var total = 0;
 
   cart.forEach(function buildTotal(item) {
@@ -71,7 +71,7 @@ function removeFromCart(item) {
   return cart;
 }
 
-function placeOrder(cardNumber) {
+var placeOrder = cardNumber => {
   if (cardNumber === undefined) {
     console.log("Sorry, we don't have a credit card on file for you.");
   }
