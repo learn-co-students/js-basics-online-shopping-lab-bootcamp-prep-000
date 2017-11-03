@@ -36,6 +36,8 @@ function viewCart() {
   for (let i = 0; i < cart.length; i++) {
       viewPrice.push(Object.values(cart[i]));
   }
+  //object.values not recognized.  Need to find new way using keys.
+  //review .hasOwnProperty to figure out how this would have been done pre-Object.keys
   var viewPrice = [].concat.apply([], viewPrice);
   // turn the object values into an array of just the values, then identify by i
   // using object.values
