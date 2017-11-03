@@ -41,6 +41,10 @@ function viewCart() {
       contents.push(`${viewItem[0]} at $${viewPrice[0]} and ${viewItem[0]} at $${viewPrice[0]}.`)
     }
     else {
+      for (i=1; i < cart.length; i++) {
+        contents.push(`${viewItem[i]} at $${viewPrice[i]}, and`)
+      }
+      contents.push(`${viewItem[(cart.length-1)]} at $${viewPrice[(cart.length-1)]}.`);
       //Loop through early entries
       //hard add final entry
     }
@@ -48,13 +52,13 @@ function viewCart() {
   //don't need loops for length=1 or 2.  3, will loop.
   //DO WHILE--push (to end) final sentence with period; while i<cart.length,
   //push item and price to end.
-    for (i=0; i < cart.length; i++) {
-      contents.push(`${viewItem[i]} at $${viewPrice[i]}, `)
-    }
+//    for (i=0; i < cart.length; i++) {
+//      contents.push(`${viewItem[i]} at $${viewPrice[i]}, `)
+//    }
 // do I need a different loop function for the one below/above? Or another if?
-    for (i=0; i = cart.length; i++) {
-      contents.push(`${viewItem[i]} at $${viewPrice[i]}`);
-    }
+//    for (i=0; i = cart.length; i++) {
+//      contents.push(`${viewItem[i]} at $${viewPrice[i]}`);
+//    }
     return `In your cart, you have ${contents}.`;
   }
 }
