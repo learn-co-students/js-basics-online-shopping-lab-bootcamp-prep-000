@@ -122,6 +122,7 @@ describe("viewCart()", function() {
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, and quince at $${quinceCost}.`
     );
+    // In your cart, you have apples at $20, apples at $22, lemons at $99
 
     addToCart("rhubarb");
 
