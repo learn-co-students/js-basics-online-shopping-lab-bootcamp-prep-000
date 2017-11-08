@@ -1,16 +1,22 @@
 var cart = [];
 
 function getCart() {
- return cart;
+
 }
 
 function setCart(c) {
   cart = c;
   return cart;
 }
+function randomNumber() {
+  return Math.floor(Math.random() * 100) + 1;
+}
 
 function addToCart(item) {
- // write your code here
+  var newItem = {[item]: randomNumber()};
+  cart.push(newItem);
+  console.log(`${item} has been added to your cart.`);
+  return cart;
 }
 
 function viewCart() {
