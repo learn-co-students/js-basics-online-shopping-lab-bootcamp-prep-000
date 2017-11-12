@@ -16,11 +16,16 @@ console.log(`${item} has been added to your cart.`);
 return cart;
 }
 
-function viewCart() {
+//function viewCart() {
   // write your code here
-  var i =0;
-//var objKey=[];
-//var objVal =[];
+function viewCart() {
+
+//In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
+// List number of entries of object
+
+var i =0;
+var objKey=[];
+var objVal =[];
 var strTemp ='In your cart, you have';
 
 for (key in cart){
@@ -47,7 +52,10 @@ for (key in cart){
 
         console.log(`${strTemp}`);
    }
+
 }
+
+// end function
 
 function total() {
   // write your code here
