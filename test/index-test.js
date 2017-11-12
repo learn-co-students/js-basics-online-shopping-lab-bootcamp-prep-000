@@ -3,7 +3,7 @@
 beforeEach(function() {
   setCart([]);
 
-  expect.spyOn(console, "log");
+  expect.spyOn(console, "log").andCallThrough();
 });
 
 afterEach(function() {
