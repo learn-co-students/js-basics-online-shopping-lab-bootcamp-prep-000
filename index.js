@@ -52,8 +52,8 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
-      //    itemList.push(` and ${itemName} at $${itemPrice}.`);
-          console.log(`In you cart, you have${itemList} and ${itemName} at $${itemPrice}.`);
+          itemList.push(` and ${itemName} at $${itemPrice}.`);
+          console.log(`In you cart, you have ${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(` ${itemName} at $${itemPrice}`);
