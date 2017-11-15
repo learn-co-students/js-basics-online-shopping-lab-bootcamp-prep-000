@@ -66,10 +66,17 @@ function viewCart() {
      }
    }
 
-
 function total() {
-  // write your code here
-}
+    var valuesToAdd = Object.values(cart);
+    for(var i = 0, length = valuesToAdd.length; i < length; i++){
+       valuesToAdd[i] = parseInt(valuesToAdd[i], 10);
+        }
+        var sum = (valuesToAdd.reduce(add, 0));
+        function add(a, b) {
+        return a + b;
+   }
+    console.log(sum);
+ }
 
 function removeFromCart(item) {
   // write your code here
