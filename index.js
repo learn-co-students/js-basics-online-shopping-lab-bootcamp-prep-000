@@ -52,8 +52,8 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
-          itemList.push(` and ${itemName} at $${itemPrice}.`);
-          console.log(`In you cart, you have ${itemList}.`);
+          itemList.push(` and ${itemName} at $${itemPrice}`);
+          return console.log(`In you cart, you have${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(` ${itemName} at $${itemPrice}`);
@@ -84,31 +84,32 @@ function total() {
   // to right and return the sum total of the elements in the array
   var totalCost = (valuesToAdd.reduce(add, 0));
   function add(a, b) {
-
     return a+b;
   }
-  // check that sum is returning the correct value
+  // check that totalCost is returning the correct value
    return totalCost;
  }
 
- function myFunction () {
-  temp = [];
-  for(let i of cart)
-    i && temp.push(i); // copy each non-empty value to the 'temp' array
-    cart = temp;
-    delete temp; // discard the variable
-    console.log(cart);
-}
-
 function removeFromCart(item) {
-    let itemName = item;
-     for (var i = 0; i < cart.length; i++) {
-       if (cart[i].hasOwnProperty(itemName)) {
-        delete cart[i];
-        myFunction();
-       } else {
-          console.log("That item is not in your cart."); // toString or something else
-     }
+  if (!cart.length) {
+    console.log("Your cart is currently empty.")
+   } else {
+   for (var i = 0; i < cart.length; i++) {
+      let itemName = item;
+      if (itemName === (Object.keys(cart[i])[0])) {
+         delete cart[i];
+         var temp = [];
+         for(let i of cart)
+         i && temp.push(i); // copy each non-empty value to the 'temp' array
+         cart = temp;
+         console.log(cart);
+      } else {
+             let len = cart.length-1
+             if (i === len) {
+                return console.log("That item is not in your cart.");
+              }
+        }
+      }
    }
 }
 
