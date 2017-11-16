@@ -45,6 +45,7 @@ function viewCart() {
     var last = Object.keys(cart[cart.length-1])[0];
     // setup an array ItemList to place each key/value pair of cart into.
     const itemList = [];
+    itemList.join(', ');
     // loop through keys in the cart
     for (var i = 0; i < cart.length; i++) {
       let itemName = Object.keys(cart[i])[0];
@@ -52,15 +53,15 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
-          itemList.push(` and ${itemName} at $${itemPrice}`);
-          return console.log(`In you cart, you have${itemList}.`);
+          itemList.push(`${itemName} at $${itemPrice}`);
+          return console.log(`In you cart, you have ${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(` ${itemName} at $${itemPrice}`);
            console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
       } else {
       // false add to item to output array itemList
-            itemList.push(` ${itemName} at $${itemPrice}`);
+            itemList.push(`${itemName} at $${itemPrice}`);
       }
     }
   }
