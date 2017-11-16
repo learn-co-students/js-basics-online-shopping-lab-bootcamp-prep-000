@@ -61,7 +61,7 @@ function viewCart() {
       } else {
       // false add to item to output array itemList
             itemList.push(` ${itemName} at $${itemPrice}`);
-      } debugger
+      }
     }
   }
 }
@@ -70,25 +70,42 @@ function viewCart() {
 
 function total() {
   // creates an array and stores only the VALUE of the cart objects keys in
-    var valuesToAdd = Object.values(cart);
-    // as long i is less than the length of the array valuesToAdd loop through and parse
-    // strings to integers.
-    for(var i = 0, length = valuesToAdd.length; i < length; i++){
-       valuesToAdd[i] = parseInt(valuesToAdd[i], 10);
-        }
-        // after loop and all strings in the array are typed integers sum all elements
-        // of the array add each element to the sum beginning with a sum = 0 from left
-        // to right and return the sum total of the elements in the array
-        var sum = (valuesToAdd.reduce(add, 0));
-        function add(a, b) {
-        return a + b;
-   }
-   // check that sum is returning the correct value
-    console.log(sum);
+  var valuesToAdd = [];
+    for (var i = 0; i < cart.length; i++) {
+    let itemName = Object.keys(cart[i])[0];
+    let itemPrice = cart[i][itemName];
+    valuesToAdd.push(itemPrice);
+  }
+  // as long i is less than the length of the array valuesToAdd loop through and parse
+  // strings to integers.
+  for(var t = 0, len = valuesToAdd.length; t < len; t++) {
+    valuesToAdd[t] = parseInt(valuesToAdd[t], 10);
+  }
+  // after loop and all strings in the array are typed integers sum all elements
+  // of the array add each element to the sum beginning with a sum = 0 from left
+  // to right and return the sum total of the elements in the array
+  var totalCost = (valuesToAdd.reduce(add, 0));
+  function add(a, b) {
+
+    return a+b;
+  }
+  // check that sum is returning the correct value
+   return totalCost;
  }
 
+
+
 function removeFromCart(item) {
-  // write your code here
+   let itemName = item;
+   for (var item in cart) { debugger
+     if (cart[item].hasOwnProperty(item)) {
+      delete cart[item];
+      return cart;
+     }
+   else {
+     console.log("That item is not in your cart."); // toString or something else
+   }
+ }
 }
 
 function placeOrder(cardNumber) {
