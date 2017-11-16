@@ -20,8 +20,8 @@ function addToCart(item) {
   cart.push( { [itemName]: itemPrice });
   console.log(`${itemName} has been added to your cart.`);
   return cart;
-
 }
+
 
 // The viewCart() function does not accept any arguments. It should loop over every item
 // in your cart, printing out the contents as one long, coherent statement in this
@@ -66,8 +66,6 @@ function viewCart() {
   }
 }
 
-
-
 function total() {
   // creates an array and stores only the VALUE of the cart objects keys in
   var valuesToAdd = [];
@@ -93,19 +91,25 @@ function total() {
    return totalCost;
  }
 
-
+ function myFunction () {
+  temp = [];
+  for(let i of cart)
+    i && temp.push(i); // copy each non-empty value to the 'temp' array
+    cart = temp;
+    delete temp; // discard the variable
+    console.log(cart);
+}
 
 function removeFromCart(item) {
-   let itemName = item;
-   for (var item in cart) { debugger
-     if (cart[item].hasOwnProperty(item)) {
-      delete cart[item];
-      return cart;
+    let itemName = item;
+     for (var i = 0; i < cart.length; i++) {
+       if (cart[i].hasOwnProperty(itemName)) {
+        delete cart[i];
+        myFunction();
+       } else {
+          console.log("That item is not in your cart."); // toString or something else
      }
-   else {
-     console.log("That item is not in your cart."); // toString or something else
    }
- }
 }
 
 function placeOrder(cardNumber) {
