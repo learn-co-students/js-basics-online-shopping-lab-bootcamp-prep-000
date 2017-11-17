@@ -105,9 +105,8 @@ function removeFromCart(item) {
          cart = temp;
          console.log(cart);
       } else {
-             let len = cart.length-1
-             if (i === len) {
-                return console.log("That item is not in your cart.");
+           if (!("item" in cart)) {
+              console.log("That item is not in your cart.");
               }
         }
       }
