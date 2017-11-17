@@ -43,11 +43,11 @@ function viewCart() {
     // determines the last itemName/key in the object cart and places into the variable last
     var last = Object.keys(cart[cart.length-1])[0];
     // setup an array ItemList to place each key/value pair of cart into.
-    var itemList = []; debugger
+    var itemList = [];
     // loop through keys in the cart
     for (var i = 0; i < cart.length; i++) {
       let itemName = Object.keys(cart[i])[0];
-      let itemPrice = cart[i][itemName]; debugger
+      let itemPrice = cart[i][itemName];
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart > 2 ) {
       // true add AND before last item, and print out everuthing that's in the cart
@@ -108,7 +108,8 @@ function removeFromCart(item) {
          i && temp.push(i); // copy each non-empty value to the 'temp' array
          cart = temp;
          console.log(cart);
-      } else { let len = cart.length-1
+      } else {
+         let len = cart.length-1
          if (i === len) {
          console.log("That item is not in your cart.");
          }
