@@ -54,7 +54,7 @@ function viewCart() {
       // true add AND before last item, and print out everuthing that's in the cart
           itemList.push(`and ${itemName} at \$${itemPrice}`);
           itemList = itemList.join(', ');
-          console.log(`In you cart, you have ${itemList}.`);
+          console.log(`In your cart, you have ${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(`${itemName} at \$${itemPrice}`);
