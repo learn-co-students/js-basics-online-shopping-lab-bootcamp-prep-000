@@ -44,8 +44,7 @@ function viewCart() {
     // determines the last itemName/key in the object cart and places into the variable last
     var last = Object.keys(cart[cart.length-1])[0];
     // setup an array ItemList to place each key/value pair of cart into.
-    const itemList = [];
-    var lastItem = itemList.join(', ');
+    var itemList = [];
     // loop through keys in the cart
     for (var i = 0; i < cart.length; i++) {
       let itemName = Object.keys(cart[i])[0];
@@ -53,16 +52,17 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
-          itemList.push(`and ${itemName} at \$${itemPrice}.`);
-          console.log(`In you cart, you have ` + itemList.join(', '));
+          itemList.push(`and ${itemName} at $${itemPrice}.`);
+          itemList = itemslist.join(", ");
+          console.log(`In you cart, you have ${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
-           itemList.push(`${itemName} at \$${itemPrice}`);
+           itemList.push(`${itemName} at $${itemPrice}`);
            console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
       } else {
       // false add to item to output array itemList
-            itemList.push(`${itemName} at \$${itemPrice}`);
-      } debugger
+            itemList.push(`${itemName} at $${itemPrice}`);
+      } // debugger
     }
   }
 }
@@ -104,14 +104,13 @@ function removeFromCart(item) {
          i && temp.push(i); // copy each non-empty value to the 'temp' array
          cart = temp;
          console.log(cart);
-      } else {
-           if (!("item" in cart)) {
-              console.log("That item is not in your cart.");
-              }
-        }
-      }
+      } else  let len = cart.length-1
+         if (i === len) {
+         console.log("That item is not in your cart.");
+         } debugger
+     }
+    }
    }
-}
 
 function placeOrder(cardNumber) {
   // write your code here
