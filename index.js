@@ -95,27 +95,38 @@ function total() {
    return totalCost;
  }
 
-function removeFromCart(item) {
-  if (!cart.length) {
-    console.log("Your cart is currently empty.")
-   } else {
-   for (var i = 0; i < cart.length; i++) {
-      let itemName = item;
-      if (itemName === (Object.keys(cart[i])[0])) {
-         delete cart[i];
-         var temp = [];
-         for(let i of cart)
-         i && temp.push(i); // copy each non-empty value to the 'temp' array
-         cart = temp;
-         console.log(cart);
-      } else {
-         let len = cart.length-1
-         if (i === len) {
-         console.log("That item is not in your cart.");
-         }
-     }
-    }
-   }
+
+ function removeFromCart(item) {
+   if (!cart.length) {
+     console.log("Your cart is currently empty.");
+
+     // Need to test if the item is a key of an object in the array cart????
+    } else if (cart.length > 0) {
+                var itemList = [];
+                // loop through keys in the cart
+                for (var t = 0; t < cart.length; t++) {
+                   let itemName = Object.keys(cart[t])[0];
+                   itemList.push(`${itemName}`);}
+                 if (!(itemList.includes(item))) {
+                   // If item is not in cart, print it
+                    console.log("That item is not in your cart.");
+                 } { // if the item is in the cart remove the item from the cart
+                   for (var i = 0; i < cart.length; i++) {
+                        let itemName = item;
+                        if (itemName === (Object.keys(cart[i])[0])) {
+                           delete cart[i];
+                           var temp = [];
+                           for(let i of cart)
+                           // copy each non-empty value to the 'temp' array
+                           i && temp.push(i);
+                           cart = temp;
+                           console.log(cart);
+                           return;
+                         }
+                    }
+
+                   }
+      }
  }
 
 function placeOrder(cardNumber) {
