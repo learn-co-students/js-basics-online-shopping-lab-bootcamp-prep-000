@@ -51,9 +51,12 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart > 2 ) {
       // true add AND before last item, and print out everuthing that's in the cart
+
           itemList.push(`and ${itemName} at \$${itemPrice}`);
           itemList = itemList.join(', ');
           console.log(`In your cart, you have ${itemList}.`);
+
+
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(`${itemName} at \$${itemPrice}`);
@@ -107,26 +110,30 @@ function total() {
                 for (var t = 0; t < cart.length; t++) {
                    let itemName = Object.keys(cart[t])[0];
                    itemList.push(`${itemName}`);}
-                 if (!(itemList.includes(item))) {
-                   // If item is not in cart, print it
+                   if (!(itemList.includes(item))) {
+//                   if ((cart.lastIndexOf(item)) === -1) {
+                   // If item is not in cart (both examples above the one in use
+                   // and the one commented out do the same thing), print it
                     console.log("That item is not in your cart.");
-                 } { // if the item is in the cart remove the item from the cart
-                   for (var i = 0; i < cart.length; i++) {
+                    } else { // if the item is in the cart remove the item from the cart
+                        for (var i = 0; i < cart.length; i++) {
                         let itemName = item;
                         if (itemName === (Object.keys(cart[i])[0])) {
                            delete cart[i];
-                           var temp = [];
-                           for(let i of cart)
-                           // copy each non-empty value to the 'temp' array
-                           i && temp.push(i);
-                           cart = temp;
-                           console.log(cart);
-                           return;
-                         }
-                    }
+                          while (cart[i] === undefined) { debugger
+                            temp = [];
+                            for(let i of cart)
+                              i && temp.push(i); // copy each non-empty value to the 'temp' array
+                              cart = temp;
+                              delete temp; // discard the variable
+                          }
 
-                   }
+                        }   else {
+                            console.log(cart);
+                            } debugger
       }
+  }
+ }
  }
 
 function placeOrder(cardNumber) {
