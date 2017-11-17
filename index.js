@@ -39,16 +39,15 @@ function viewCart() {
   // check to see if there are any items in the cart
   if (checkItemsInCart === 0) {
     console.log("Your shopping cart is empty.");
-
   } else {
     // determines the last itemName/key in the object cart and places into the variable last
     var last = Object.keys(cart[cart.length-1])[0];
     // setup an array ItemList to place each key/value pair of cart into.
-    var itemList = [];
+    var itemList = []; debugger
     // loop through keys in the cart
     for (var i = 0; i < cart.length; i++) {
       let itemName = Object.keys(cart[i])[0];
-      let itemPrice = cart[i][itemName];
+      let itemPrice = cart[i][itemName]; debugger
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
@@ -59,9 +58,14 @@ function viewCart() {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(`${itemName} at \$${itemPrice}`);
            console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
+      } else if ((cart.length === 2) && (itemList.length === 2)) {
+        // check for last item if cart only has 2 items and print specific statement
+           itemList.push(`${itemName} at \$${itemPrice}`);
+           itemList = itemList.join(' and ');
+           console.log(`In your cart, you have ${itemList}.`);
       } else {
       // false add to item to output array itemList
-            itemList.push(`${itemName} at \$${itemPrice}`);
+          itemList.push(`${itemName} at \$${itemPrice}`);
       }
     }
   }
