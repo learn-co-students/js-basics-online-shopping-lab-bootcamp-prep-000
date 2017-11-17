@@ -52,17 +52,17 @@ function viewCart() {
       // determine whether the key is the last item in the object
       if ( itemName === last && checkItemsInCart != 1 ) {
       // true add AND before last item, and print out everuthing that's in the cart
-          itemList.push(`and ${itemName} at $${itemPrice}.`);
-          itemList = itemslist.join(", ");
+          itemList.push(`and ${itemName} at \$${itemPrice}`);
+          itemList = itemList.join(', ');
           console.log(`In you cart, you have ${itemList}.`);
       } else if (checkItemsInCart === 1) {
       // check if there is only 1 item in the cart, print specific statement
-           itemList.push(`${itemName} at $${itemPrice}`);
+           itemList.push(`${itemName} at \$${itemPrice}`);
            console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
       } else {
       // false add to item to output array itemList
-            itemList.push(`${itemName} at $${itemPrice}`);
-      } // debugger
+            itemList.push(`${itemName} at \$${itemPrice}`);
+      }
     }
   }
 }
@@ -104,13 +104,14 @@ function removeFromCart(item) {
          i && temp.push(i); // copy each non-empty value to the 'temp' array
          cart = temp;
          console.log(cart);
-      } else  let len = cart.length-1
+      } else { let len = cart.length-1
          if (i === len) {
          console.log("That item is not in your cart.");
-         } debugger
+         }
      }
     }
    }
+ }
 
 function placeOrder(cardNumber) {
   // write your code here
