@@ -49,7 +49,7 @@ function viewCart() {
       let itemName = Object.keys(cart[i])[0];
       let itemPrice = cart[i][itemName]; debugger
       // determine whether the key is the last item in the object
-      if ( itemName === last && checkItemsInCart != 1 ) {
+      if ( itemName === last && checkItemsInCart > 2 ) {
       // true add AND before last item, and print out everuthing that's in the cart
           itemList.push(`and ${itemName} at \$${itemPrice}`);
           itemList = itemList.join(', ');
@@ -58,7 +58,7 @@ function viewCart() {
       // check if there is only 1 item in the cart, print specific statement
            itemList.push(`${itemName} at \$${itemPrice}`);
            console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
-      } else if ((cart.length === 2) && (itemList.length === 2)) {
+      } else if ((cart.length === 2) && (itemName === last)) {
         // check for last item if cart only has 2 items and print specific statement
            itemList.push(`${itemName} at \$${itemPrice}`);
            itemList = itemList.join(' and ');
