@@ -150,9 +150,9 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   if(cardNumber === undefined) {
     console.log("Sorry, we don't have a credit card on file for you.");
-  } else if (cardNumber === parseInt(cardNumber, 10)) {
+  } else if (cardNumber === parseInt(cardNumber, 10)) { debugger
           var cartTotal = total();
-          console.log(`Your total cost is $${cartTotal}, which will be charged to the card $${cardNumber}.`);
+          console.log(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
           cart = [];
   } else {
           console.log("That is not a valid card number, please check your card number and try again.")
