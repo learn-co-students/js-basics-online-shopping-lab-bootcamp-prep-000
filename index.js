@@ -99,42 +99,53 @@ function total() {
  }
 
 
- function removeFromCart(item) {
-   if (!cart.length) {
-     console.log("Your cart is currently empty.");
-
-     // Need to test if the item is a key of an object in the array cart????
-    } else if (cart.length > 0) {
-                var itemList = [];
-                // loop through keys in the cart
-                for (var t = 0; t < cart.length; t++) {
-                   let itemName = Object.keys(cart[t])[0];
-                   itemList.push(`${itemName}`);}
-                   if (!(itemList.includes(item))) {
-//                   if ((cart.lastIndexOf(item)) === -1) {
-                   // If item is not in cart (both examples above the one in use
-                   // and the one commented out do the same thing), print it
-                    console.log("That item is not in your cart.");
-                    } else { // if the item is in the cart remove the item from the cart
-                        for (var i = 0; i < cart.length; i++) {
-                        let itemName = item;
-                        if (itemName === (Object.keys(cart[i])[0])) {
-                           delete cart[i];
-                          while (cart[i] === undefined) { debugger
-                            temp = [];
-                            for(let i of cart)
-                              i && temp.push(i); // copy each non-empty value to the 'temp' array
-                              cart = temp;
-                              delete temp; // discard the variable
-                          }
-
-                        }   else {
-                            console.log(cart);
-                            } debugger
+function removeFromCart(item) {
+   // create an array to store keys in
+   var itemList = [];
+   //loop through keys in the cart to and store them in the array, itemlist
+   for (var t = 0; t < cart.length; t++) {
+      let itemName = Object.keys(cart[t])[0];
+      itemList.push(`${itemName}`);
+    }
+   //  TEST if the item key exists in any of the objects keys that were stored in itemlist
+   if (!(itemList.includes(item))) {
+// if ((cart.lastIndexOf(item)) === -1) {
+// ******* both examples above, the one commented out above, and the one in use do the same thing ******//
+      // If item is not in cart, print it and return the cart
+      console.log("That item is not in your cart.");
+      return cart;
+      // TEST Is there -=any=- items in the cart?
+   } else if (cart.length > 0) {
+        // if so, TEST to see if the item is in the cart
+        for (var i = 0; i < cart.length; i++) {
+        if (item === (Object.keys(cart[i])[0])) {
+        // yes? remove the item from the cart
+        delete cart[i];
+        }
+     }
+     // setup up a new Array, newArray
+    var newArray = new Array();
+    for (var k = 0; k < cart.length; k++) {
+    // loop through all the indexes in the array CART
+    // copying all of the existimg items to the newArray,
+    // skipping any undefined / empty spaces
+      if (cart[k]) {
+      newArray.push(cart[k]);
       }
-  }
- }
- }
+    }
+    // overwrite the cart array, that still has empty spaces
+    // with the newArray that has been cleaned of undefined / empty spaces
+    // then return the new modifed cart
+    cart = newArray;
+    return cart;
+    } else {
+         // Test does the cart even have anything in it?
+         if (!cart.length) {
+           console.log("Your cart is currently empty.");
+         }
+      }
+    }
+
 
 function placeOrder(cardNumber) {
   // write your code here
