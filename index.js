@@ -10,46 +10,58 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  const price = Math.floor(Math.random() * 100);
+  const price = Math.floor(Math.random() * 100+1);
     cart.push({ [item]: price});
     console.log(`${item} has been added to your cart.`)
     return cart
 }
 
 
+
 function viewCart() {
-    var key1 = Object.keys(cart[0]);
-    var value1 = cart[0][key1];
-    var key2 = Object.keys(cart[1]);
-    var value2 = cart[1][key2];
+  var itemsandprices = [];
+  var intro = 'In your cart, you have';
+  for (var i = 0; i < cart.length; i++){
+    var itemx = Object.keys(cart[i]);
+    var pricex = cart[i][itemx];
+    itemsandprices.push(itemx +' at $'+ pricex)  }
   if (cart.length === 0){console.log('Your shopping cart is empty.')}
-  else if (cart.length === 1) {
-    console.log(`In your cart, you have ${key1} at $${value1}.`)}
-  else if (cart.length === 2) {
-    console.log(`In your cart, you have ${key1} at $${value1} and ${key2} at $${value2}`)}
-  else if (cart.length > 2) {
-    for (var i = 0; i < cart.length-2; i++){          //-2 because we need to leave space for last item
-      var objectx = cart[i]
-      var itemx = Object.keys(cart[i])
-      var pricex = cart[i][itemx]
-      var itemsandprices = []
-      itemsandprices.push(itemx +' at $'+ pricex)
-      var sentence = itemsandprices.join(' ,')
-      var lastkey = Object.keys(cart[cart.length-1])
-      var lastvalue = cart[cart.length-1][lastkey]
-     console.log(`In your Cart, you have ${sentence} and ${lastkey} at $${lastvalue} `)
-     }
-  }
+  else if (cart.length === 1){console.log(`${intro} ${itemsandprices}.`)}
+
+  else if (cart.length === 2){
+    var dositems = itemsandprices.join(' and ')
+    console.log(`${intro} ${dositems}.`)}
+  else if (cart.length > 2){
+    var beginning = itemsandprices.slice(0, -1).join(', ')
+    var end = itemsandprices.slice(-1).join();
+    console.log(`${intro} ${beginning}, and ${end}.`)}
 }
 
 function total() {
-  // write your code here
+  var totalprice = 0
+  for (var i = 0; i < cart.length; i++){
+    var itemi = Object.keys(cart[i]);
+    var pricei = cart[i][itemi];
+    totalprice = totalprice + pricei }
+  return totalprice
 }
 
 function removeFromCart(item) {
-  // write your code here
+  var present = false
+  if (cart.length > 0){
+  for (var i = 0; i < cart.length; i++){
+    if (cart[i].hasOwnProperty(item) === true){
+      cart.splice(i, 1)
+      console.log(cart)
+      present = true}}}
+  if (present === false){console.log('That item is not in your cart.')}
+  return cart
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
-}
+  if (!cardNumber) {
+    return console.log("Sorry, we don't have a credit card on file for you.")
+   }
+  else {console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)}
+   cart = []
+ }
