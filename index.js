@@ -38,13 +38,13 @@ function viewCart() {
 
   if(cart.length === 1){
     statement += `${cart[0]['itemName']} at $${cart[0]['itemPrice']}.`
-    console.log(statement)
+    return console.log(statement)
   }
 
 
   if (cart.length === 2){
     statement += `${cart[0]['itemName']} at $${cart[0]['itemPrice']} and ${cart[1]['itemName']} at $${cart[1]['itemPrice']}.`
-    console.log(statement)
+    return console.log(statement)
 
   }
 
@@ -56,14 +56,14 @@ function viewCart() {
         statement += `and ${cart[i]['itemName']} at $${cart[i]['itemPrice']}.`
       }
     }
-    console.log(statement)
+    return console.log(statement)
   }
 
   if (cart.length === 0){
-    console.log("Your shopping cart is empty.")
+    return console.log("Your shopping cart is empty.")
 
   }
-  
+
 
 }
 
