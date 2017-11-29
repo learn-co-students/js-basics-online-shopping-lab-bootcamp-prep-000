@@ -9,55 +9,41 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
-  var itemPrice = Math.floor((Math.random() * 100) + 1)
- var itemObject = {
-   [item] : itemPrice
- }
- cart.push(itemObject)
- console.log(`${item} has been added to your cart.`)
- return cart
+function addToCart(itemName) {
+  var itemPrice = Math.floor(Math.random()*100 +1)
+  var itemObject = {
+    [itemName] : itemPrice
+  }
+  cart.push(itemObject)
+  console.log(`${itemName} has been added to your cart.`)
+  return cart
 }
 
-
 function viewCart() {
-  var statement = `In your cart, you have `
-  var finalStatement = ''
-  if (cart.length === 0) {
-    finalStatement = 'Your shopping cart is empty.'
-  } else {
-    if (cart.length == 1) {
-      var itemName1 = Object.keys(cart[0])
-      var itemCost1 = Object.values(cart[0])
-      finalStatement = statement + `${itemName1} at $${itemCost1}.`
-    } else {
-      if (cart.length == 2) {
-        var itemName1 = Object.keys(cart[0])
-        var itemCost1 = Object.values(cart[0])
-        var itemName2 = Object.keys(cart[1])
-        var itemCost2 = Object.values(cart[1])
-        finalStatement = statement + `${itemName1} at $${itemCost1} and ${itemName2} at $${itemCost2}.`
-      } else {
-        if (cart.length >= 3) {
-          var itemNameLoop = ''
-          var itemPriceLoop = ''
-          var statement = 'In your cart, you have'
-          for (var i = 0; i < cart.length-1; i++) {
-            itemNameLoop = Object.keys(cart[i])
-            itemPriceLoop = Object.values(cart[i])
-            statement = `${statement} ${itemNameLoop} at $${itemPriceLoop},`
-          }
-          for (var i = cart.length-1; i < cart.length; i++) {
-            statement = statement.slice(0, statement.length)
-            itemNameLoop = Object.keys(cart[i])
-            itemPriceLoop = Object.values(cart[i])
-            finalStatement = `${statement} and ${itemNameLoop} at $${itemPriceLoop}.`
-          }
-        }
-      }
-    }
-  }
-  console.log(finalStatement)
+  var numberOfItems = cart.length
+  var midStatement = ''
+ if (numberOfItems === 0) {
+   console.log(`Your shopping cart is empty.`);
+ } else if (numberOfItems == 1) {
+   var item = Object.keys(cart[0])
+   var price = Object.values(cart[0])
+   console.log(`In your cart, you have ${item} at $${price}.`)
+ } else if (numberOfItems == 2) {
+   var item = Object.keys(cart[0])
+   var price = Object.values(cart[0])
+   var item2 = Object.keys(cart[1])
+   var price2 = Object.values(cart[1])
+   console.log(`In your cart, you have ${item} at $${price} and ${item2} at $${price2}.`)
+ } else if (numberOfItems >= 3) {
+   for (var i = 0; i < cart.length-1; i++) {
+     var item = Object.keys(cart[i])
+     var price = Object.values(cart[i])
+     midStatement = `${midStatement}${item} at $${price}, `
+   }
+   var item = Object.keys(cart[numberOfItems-1])
+   var price = Object.values(cart[numberOfItems-1])
+   console.log(`In your cart, you have ${midStatement}and ${item} at $${price}.`);
+ }
 }
 
 function total() {
@@ -80,71 +66,22 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  if (cardNumber !== undefined) {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
-    cart = []
-  } else {
+  if (cardNumber == undefined) {
     console.log(`Sorry, we don't have a credit card on file for you.`);
+  } else {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+    cart = []
   }
 }
 
-// addToCart('apples')
-// addToCart('oranges')
-// addToCart('bananas')
+//
+//
+//
+//
+// //
+// addToCart('testItem')
+// addToCart('testItem2')
+// addToCart('testItem3')
+// addToCart(`testItem4`)
 //
 // viewCart()
-// function total(){
-//   var sum = 0;
-//   for (var i = 0; i < cart.length; i++) {
-//     for (var key in cart[i]){
-//       sum = sum + parseInt(cart[i][key])
-//     }
-//   }
-//   return sum;
-// }
-//
-// console.log(total())
-//console.log(total());
-
-// addToCart('1STTESTITEM')
-// addToCart('2NDTESTITEM')
-// addToCart('3RDTESTITEM')
-// addToCart('4RDTESTITEM')
-// console.log(cart);
-// console.log(removeFromCart('2NDTESTITE'))
-
-// console.log(viewCart());
-// console.log(total());
-// placeOrder();
-//TEST------TEST------TEST-----TEST-----TEST
-// console.log(cart);
-// console.log(cart[1]);
-//
-//
-// console.log('----------------');
-// console.log(viewCart());
-// console.log('----------------');
-// var itemNameLoop = ''
-// var itemPriceLoop = ''
-// var statement = 'In your cart, you have'
-//
-// for (var i = 0; i < cart.length-1; i++) {
-//   itemNameLoop = Object.keys(cart[i])
-//   itemPriceLoop = Object.values(cart[i])
-//   // console.log(itemNameLoop);
-//   // console.log(itemPriceLoop);
-//   statement = `${statement} ${itemNameLoop} at $${itemPriceLoop},`
-// //In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
-// }
-//
-// for (var i = cart.length-1; i < cart.length; i++) {
-//   statement = statement.slice(0, statement.length - 1)
-//   // itemNameLoop = Object.keys(cart[i])
-//   itemPriceLoop = Object.values(cart[i])
-//   // console.log(itemNameLoop);
-//   // console.log(itemPriceLoop);
-//   statement = `${statement} and ${itemNameLoop} at $${itemPriceLoop}.`
-// //In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
-// }
-//
-// console.log(statement);
