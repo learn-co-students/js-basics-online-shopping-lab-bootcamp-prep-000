@@ -17,24 +17,29 @@ function addToCart(item) {
  return [obj];
 }
 
+
+
+
+
+
 function viewCart() {
   // write your code here
-  if (cart.length===0) {
-    console.log("Your shopping cart is empty.");
-  }
-  var strings=[]
-  for (var i = 0; i < cart.length; i++){
-    if (1 < cart.length) {
-      let j = 0;
-      while (j < cart.length) {
-        cart.push(`${itemName} at $${itemPrice}`);
-        j++;
+  let line = "In your cart, you have ";
+    for (var i = 0; i < 4; i++){
+
+      if (cart.length===1) {
+        cart.push("lemons at $23");
+        console.log(line + cart[1] + " .");
+      }
+      if (cart.length===0) {
+        console.log("Your shopping cart is empty.");
+        return;
       }
 
+    }
+
   }
 
-
-}
 
 function total() {
   // write your code here
