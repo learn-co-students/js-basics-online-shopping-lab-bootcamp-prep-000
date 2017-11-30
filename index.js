@@ -11,6 +11,8 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
+ var itemProp = {['item']: Math.floor(Math.random()*20)};
+
 }
 
 function viewCart() {
