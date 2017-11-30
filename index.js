@@ -23,7 +23,15 @@ function viewCart() {
     console.log("Your shopping cart is empty.");
   }
   var strings=[]
-  for (var i = 0; i < cart.length; i++){}
+  for (var i = 0; i < cart.length; i++){
+    if (1 < cart.length) {
+      let j = 0;
+      while (j < cart.length) {
+        cart.push(`${itemName} at $${itemPrice}`);
+        j++;
+      }
+
+  }
 
 
 }
