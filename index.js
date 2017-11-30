@@ -29,7 +29,7 @@ function viewCart() {
 
       if (cart.length===1) {
         cart.push("lemons at $23");
-        console.log(line + cart[1] + " .");
+        console.log(line + cart + " .");
       }
       if (cart.length===0) {
         console.log("Your shopping cart is empty.");
