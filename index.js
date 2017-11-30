@@ -28,8 +28,8 @@ function viewCart() {
     for (var i = 0; i < 4; i++){
 
       if (cart.length===1) {
-        cart.push("lemons at $23");
-        console.log(line + cart + " .");
+        cart.push("lemons at $" + Math.floor(Math.random()*100) + ".");
+        console.log(line + cart[0] + " .");
       }
       if (cart.length===0) {
         console.log("Your shopping cart is empty.");
