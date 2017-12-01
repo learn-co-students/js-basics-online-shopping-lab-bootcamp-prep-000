@@ -68,29 +68,25 @@ function viewCart() {
   for (var i = 0; i < cart.length; i++) {
     var object = cart[i];
     var itemName = Object.keys(cart[i])[0];
-    var items = [];
-    var prices = [];
-    items.push(itemName);
-    prices.push(object[itemName]);
+    var strings = [];
+    strings.push(cart[i]);
 
 
    }
-
-   if(cart.length == 1) {
-           console.log(`${line} ${itemName} at $${object[itemName]}.`);
-   } else if(cart.length == 2) {
-           console.log(`${line} ${itemName} at $${object[itemName]}, and ${items} at ${prices[i]}.`);
-   } else if(cart.length <= 3) {
-              console.log(`${line} ${itemName} at $${object[itemName]}, and ${items} at ${prices[i]}.`);
-   }
-
-
    if (cart.length == 0) {
      console.log('Your shopping cart is empty.');
    }
+   else if(cart.length == 1) {
+           console.log(`${line} ${itemName} at $${object[itemName]}.`);
+   } else if(cart.length == 2) {
+           console.log(`${line} ${itemName} at $${object[itemName]}, and ${strings} at ${strings}.`);
+   } else if(cart.length <= 3) {
+              console.log(`${line} ${itemName} at $${object[itemName]}, and ${strings} at ${strings}.`);
+   }
+
 }
 
-
+  //cart[i][itemName];
     addToCart('apples');
     addToCart('beer');
     viewCart();
