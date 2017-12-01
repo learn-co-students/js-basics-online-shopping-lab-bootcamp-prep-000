@@ -54,6 +54,12 @@ function removeFromCart(item) {
 
 
 
+
+
+
+
+
+
 function viewCart() {
   // write your code here
   var keys = Object.keys(cart);
@@ -62,10 +68,10 @@ function viewCart() {
   for (var i = 0; i < cart.length; i++) {
     var object = cart[i];
     var itemName = Object.keys(cart[i])[0];
-    var items1 = [];
-    var items2 = [];
-    items1.push(itemName);
-    items2.push(object[itemName]);
+    var items = [];
+    var prices = [];
+    items.push(itemName);
+    prices.push(object[itemName]);
 
 
    }
@@ -73,8 +79,11 @@ function viewCart() {
    if(cart.length == 1) {
            console.log(`${line} ${itemName} at $${object[itemName]}.`);
    } else if(cart.length == 2) {
-           console.log(`${line} ${itemName} at $${object[itemName]}, and ${items1} at ${items2[i]}.`);
-      }
+           console.log(`${line} ${itemName} at $${object[itemName]}, and ${items} at ${prices[i]}.`);
+   } else if(cart.length <= 3) {
+              console.log(`${line} ${itemName} at $${object[itemName]}, and ${items} at ${prices[i]}.`);
+   }
+
 
    if (cart.length == 0) {
      console.log('Your shopping cart is empty.');
@@ -84,5 +93,4 @@ function viewCart() {
 
     addToCart('apples');
     addToCart('beer');
-
     viewCart();
