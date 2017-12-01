@@ -9,6 +9,17 @@ function setCart(c) {
   return cart;
 }
 
+function total() {
+  var sum = 0;
+  for (var i = 0; i < cart.length; i++){
+    var obj = cart[i];
+    var objKey = Object.keys(obj)
+    var value = obj[objKey]
+    sum +=value;
+  }
+  return sum;
+}
+
 function addToCart(item) {
  // write your code here
  var obj = {[item]: Math.floor(Math.random()*100)}
@@ -61,16 +72,7 @@ function viewCart() {
 }
 
 
-function total() {
-  var sum = 0;
-  for (var i = 0; i < cart.length-1; i++){
-    var obj = cart[i];
-    var objKey = Object.keys(obj)
-    var value = obj[objKey]
-    sum +=value;
-  }
-  return sum;
-}
+
 
 
 
