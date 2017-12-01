@@ -85,7 +85,7 @@ function viewCart() {
    }
 
 }
-
+ //Object.keys[item][0]
   //cart[i][itemName];
     addToCart('apples');
     addToCart('beer');
