@@ -49,14 +49,7 @@ function total() {
   return total;
 }
 
-function removeFromCart(item) {
-			if(cart.hasOwnProperty(item) === true){
-				delete cart.item;
-			} else {
-				return "That item is not in your cart.";
-			}
-			return cart;
-		}
+
 
 function placeOrder(cardNumber) {
   // write your code here
@@ -68,3 +61,14 @@ function placeOrder(cardNumber) {
   }
   cart = [];
 }
+
+
+
+function removeFromCart(item) {
+			if(cart.hasOwnProperty(item) === true){
+				delete cart.item;
+			} else {
+				return "That item is not in your cart.";
+			}
+			return cart;
+		}
