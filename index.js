@@ -37,17 +37,21 @@ function removeFromCart(item) {
 function viewCart() {
   // write your code here
   var keys = Object.keys(cart);
+
   for (var i = 0; i < cart.length; i++) {
+    var object = cart[i];
+    var itemName = Object.keys(cart[i])[0];
     if (1 < cart.length) {
-        let j = 0;
 
-        cart.push(`${Object.keys(cart)} at ${keys}`);
-        j++;
+      //console.log(Object.keys(cart[i])[0]);
 
-      console.log(`In your cart, you have .`);
+      //console.log(object[itemName]);
+      console.log(`In your cart, you have ${itemName} at $${object[itemName]}`);
     } else if (cart.length == 1) {
-            console.log(`In your cart, you have ${keys[0]} at $${cart}.`);
-    }
+            console.log(`In your cart, you have ${itemName} at $${object[itemName]}.`);
+       } else if(cart.length == 2) {
+            console.log(`In your cart, you have ${itemName} at $${object[itemName]}.`);
+       }
    }
    if (cart.length == 0) {
      console.log('Your shopping cart is empty.');
