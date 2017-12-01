@@ -87,12 +87,18 @@ function viewCart() {
    if(cart.length == 2) {
       console.log(`In your cart, you have ${strings.join(" and ")}.`);
    }
-   if(cart.length == 3) {
-      console.log(`In your cart, you have ${strings.join(" and ")}.`);
+   if(cart.length >= 3) {
+
+        //console.log(`${strings[1]}`);
+        console.log(`In your cart, you have ${strings[0]}, ${strings[1]}, and ${strings[2]}.`);
+        console.log(`In your cart, you have ${strings[0]}, ${strings[1]}, ${strings[2]}, and ${strings[3]}.`);
+      //console.log(`In your cart, you have ${strings.join(", and ")}.`);
+      //console.log(strings[1]);
    }
 }
 
     addToCart('apples');
     addToCart('beer');
     addToCart('shrimp');
+    addToCart('crim');
     viewCart();
