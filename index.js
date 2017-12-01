@@ -40,8 +40,6 @@ function viewCart() {
   }
 }
 
-
-
 function total() {
   // write your code here
   var total = 0;
@@ -52,9 +50,21 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
-}
+			if(cart.hasOwnProperty(item) === true){
+				delete cart.item;
+			} else {
+				return "That item is not in your cart.";
+			}
+			return cart;
+		}
 
 function placeOrder(cardNumber) {
   // write your code here
+  if(cardNumber === undefined){
+    console.log("Sorry, we don't have a credit card on file for you.");
+  }else if(cardNumber !== undefined){
+    const totalPrice = total();
+    console.log(`Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`);
+  }
+  cart = [];
 }
