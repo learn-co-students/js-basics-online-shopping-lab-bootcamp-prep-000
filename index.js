@@ -21,7 +21,7 @@ function removeFromCart(item) {
    for (var i =0 ; i<cart.length; i++){
        if (cart[i].hasOwnProperty(item)){
        var removedItem = cart.splice(i, 1);
-  return removedItem;
+       return removedItem;
 }
 
 }if (true) {
@@ -37,22 +37,24 @@ function removeFromCart(item) {
 function viewCart() {
   // write your code here
   var keys = Object.keys(cart);
+  var line = "In your cart, you have";
 
   for (var i = 0; i < cart.length; i++) {
     var object = cart[i];
     var itemName = Object.keys(cart[i])[0];
-    if (1 < cart.length) {
+    var items1 = [];
+    var items2 = [];
+    items1.push(itemName);
+    items2.push(object[itemName]);
 
-      //console.log(Object.keys(cart[i])[0]);
-
-      //console.log(object[itemName]);
-      console.log(`In your cart, you have ${itemName} at $${object[itemName]}`);
-    } else if (cart.length == 1) {
-            console.log(`In your cart, you have ${itemName} at $${object[itemName]}.`);
-       } else if(cart.length == 2) {
-            console.log(`In your cart, you have ${itemName} at $${object[itemName]}.`);
-       }
    }
+
+   if(cart.length == 1) {
+           console.log(`${line} ${itemName} at $${object[itemName]}.`);
+   } else if(cart.length == 2) {
+           console.log(`${line} ${itemName} at $${object[itemName]}, and ${itemName}.`);
+      }
+
    if (cart.length == 0) {
      console.log('Your shopping cart is empty.');
    }
