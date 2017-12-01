@@ -62,31 +62,37 @@ function removeFromCart(item) {
 
 function viewCart() {
   // write your code here
+  if (cart.length == 0) {
+    console.log('Your shopping cart is empty.');
+  }
   var keys = Object.keys(cart);
   var line = "In your cart, you have";
-
+  var strings = [];
   for (var i = 0; i < cart.length; i++) {
     var object = cart[i];
     var itemName = Object.keys(cart[i])[0];
-    var strings = [];
-    strings.push(cart[i]);
 
+    //strings.push(cart[i]);
+    //console.log(itemName);
+    strings.push(`${itemName} at $${object[itemName]}`);
+     //Object.keys[item][0]
+     //console.log(cart[i][itemName]);
+   }
+   //console.log(strings.join(", "));
+   //console.log(`In your cart, you have ${strings.join(", ")}`);
+   if(cart.length == 1) {
 
+      console.log(`${line} ${itemName} at $${object[itemName]}.`);
    }
-   if (cart.length == 0) {
-     console.log('Your shopping cart is empty.');
+   if(cart.length == 2) {
+      console.log(`In your cart, you have ${strings.join(" and ")}.`);
    }
-   else if(cart.length == 1) {
-           console.log(`${line} ${itemName} at $${object[itemName]}.`);
-   } else if(cart.length == 2) {
-           console.log(`${line} ${itemName} at $${object[itemName]}, and ${strings} at ${strings}.`);
-   } else if(cart.length <= 3) {
-              console.log(`${line} ${itemName} at $${object[itemName]}, and ${strings} at ${strings}.`);
+   if(cart.length == 3) {
+      console.log(`In your cart, you have ${strings.join(" and ")}.`);
    }
-
 }
- //Object.keys[item][0]
-  //cart[i][itemName];
+
     addToCart('apples');
     addToCart('beer');
+    addToCart('shrimp');
     viewCart();
