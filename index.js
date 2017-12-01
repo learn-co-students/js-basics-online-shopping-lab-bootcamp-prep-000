@@ -62,7 +62,14 @@ function viewCart() {
 
 
 function total() {
-  // write your code here
+  var sum = 0;
+  for (var i = 0; i < cart.length-1; i++){
+    var obj = cart[i];
+    var objKey = Object.keys(obj)
+    var value = obj[objKey]
+    sum +=value;
+  }
+  return sum;
 }
 
 
