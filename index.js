@@ -25,7 +25,7 @@ function addToCart(item) {
 function viewCart() {
   // write your code here
   let line = "In your cart, you have ";
-    for (var i = 0; i < 4; i++){
+    for (var i = 0; i < cart.length; i++){
 
       if (cart.length===1) {
         cart.push("lemons at $" + Math.floor(Math.random()*100) + ".");
@@ -46,7 +46,15 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+   for (var i =0 ; i<cart.length; i++){
+       if (cart[i].hasOwnProperty(item)){
+       var removedItem= cart.splice(i, 1);
+  return removedItem;
+}
+
+}if (false) {
+  console.log('That item is not in your cart.');
+  }
 }
 
 function placeOrder(cardNumber) {
