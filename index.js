@@ -9,6 +9,15 @@ function setCart(c) {
   return cart;
 }
 
+function placeOrder(cardNumber) {
+  if (!cardNumber){
+    console.log("Sorry, we don't have a credit card on file for you.");
+   }
+   var totalPrice = total();
+   console.log(`Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`);
+   cart = [];
+    }
+
 function total() {
   var sum = 0;
   for (var i = 0; i < cart.length; i++){
@@ -58,12 +67,13 @@ function viewCart() {
     items1.push(itemName);
     items2.push(object[itemName]);
 
+
    }
 
    if(cart.length == 1) {
            console.log(`${line} ${itemName} at $${object[itemName]}.`);
    } else if(cart.length == 2) {
-           console.log(`${line} ${itemName} at $${object[itemName]}, and ${itemName}.`);
+           console.log(`${line} ${itemName} at $${object[itemName]}, and ${items1} at ${items2[i]}.`);
       }
 
    if (cart.length == 0) {
@@ -72,18 +82,7 @@ function viewCart() {
 }
 
 
-
-
-
-
-function placeOrder(cardNumber) {
-  if (!cardNumber){
-    console.log("Sorry, we don't have a credit card on file for you.");
-   }
-   var totalPrice = total(); console.log('Your total cost is ${totalPrice}, which will be charged to the card $${cardNumber}.');
-   cart = [];
-    }
-
     addToCart('apples');
     addToCart('beer');
+
     viewCart();
