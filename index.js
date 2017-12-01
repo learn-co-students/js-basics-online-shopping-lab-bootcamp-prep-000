@@ -40,7 +40,7 @@ function viewCart() {
     if (1 < cart.length) {
         let j = 0;
         while (j < cart.length) {
-          cart.push(`${keys[j]} at ${cart[key]}`);
+          cart.push(`${keys[j]} at ${cart[j]}`);
           j++;
         }
       console.log(`In your cart, you have ${line}.`);
