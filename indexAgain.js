@@ -41,3 +41,16 @@ function total() {
     }
     return total
 }
+
+function removeFromCart(i) {
+    var items = []
+    for (let j = 0; j < cart.length; j++) {
+        items.push(Object.keys(cart[i]))
+    }
+    if (items.indexOf(i) === -1) {
+        console.log(`That item is not in your cart.`)
+    } else {
+        items.splice(items.indexOf(i), 1)
+    }
+    return cart
+}
