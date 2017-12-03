@@ -10,7 +10,7 @@ const path = require('path');
 //   });
 
   before(function(done) {
-    const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'indexAgain.js'), {
+    const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'indexAgainAgain.js'), {
       presets: ['es2015']
     });
 
