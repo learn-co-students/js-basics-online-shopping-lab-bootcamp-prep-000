@@ -16,7 +16,6 @@ function addToCart(i) {
 }
 
 function viewCart() {
-    // var n = []
     if (cart.length === 0) {
         console.log(`Your shopping cart is empty.`)
     } else {
@@ -42,15 +41,23 @@ function total() {
     return total
 }
 
-function removeFromCart(i) {
-    var items = []
+function removeFromCart(item) {
     for (let j = 0; j < cart.length; j++) {
-        items.push(Object.keys(cart[i]))
+        if (cart[j].hasOwnProperty(item)) {
+          cart.splice(j, 1)
+          return cart
+        }
     }
-    if (items.indexOf(i) === -1) {
-        console.log(`That item is not in your cart.`)
-    } else {
-        items.splice(items.indexOf(i), 1)
-    }
+    console.log('That item is not in your cart.')
     return cart
+}
+
+function placeOrder(n) {
+    if (n == undefined) {
+        console.log(`Sorry, we don't have a credit card on file for you.`)
+    } else {
+        console.log(`Your total cost is $${total()}, which will be charged to the card ${n}.`)
+        cart = []
+    }
+
 }
