@@ -9,25 +9,26 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
-  var stuffInTheCart = {itemName: itemPrice};
-    math.random(itemPrice);
+function addToCart(itemName) {
+  var itemPrice = Math.floor(Math.random() * (100-1))+ 1;//randomly generate integer from 1 to 100.
+  cart.push({itemName: itemPrice}); // pushing the object to the cart
     console.log (`${itemName} has been added to your cart.`)
-  return(stuffInTheCart);
+  return(cart);
 }
 
 function viewCart() {
-  // write your code here
+  if (cart === 0){
+    return "Your shopping cart is empty."
+  }
+  for (i = 0; i < cart.length; i++){
+  console.log (`In your cart, you have ${itemName} at ${itemPrice}.`);
+ }
 }
 
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
-function placeOrder(cardNumber) {
-  // write your code here
+var TotalValue = itemPrice;
+var sum = 0;
+function total () {
+  for (i = 0; i < cart.length; i++){ //iterate through our itemPrice array
+  sum += TotalValue[i];
+ }
 }
