@@ -29,14 +29,14 @@ function viewCart() {
       console.log(`Your shopping cart is empty.`);
       break;
     case (cart.length === 1):
-      var merchName = Object.keys(cart[0])[0];
+      var merchName = Object.keys(cart[0]);
       var merchPrice = cart[0][merchName];
       console.log(`In your cart, you have ${merchName} at $${merchPrice}.`)
       break;
     case (cart.length === 2):
-      var merch1Name = Object.keys(cart[0])[0];
+      var merch1Name = Object.keys(cart[0]);
       var merch1Price = cart[0][merch1Name];
-      var merch2Name = Object.keys(cart[1])[0];
+      var merch2Name = Object.keys(cart[1]);
       var merch2Price = cart[1][merch2Name];
       console.log(`In your cart, you have ${merch1Name} at $${merch1Price} and ${merch2Name} at $${merch2Price}.`)
       break;
