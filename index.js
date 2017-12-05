@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  cart.push({item: math.ceiling(100*math.random()})
 }
 
 function viewCart() {
