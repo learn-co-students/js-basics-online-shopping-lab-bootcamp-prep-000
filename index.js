@@ -1,5 +1,9 @@
 var cart = [];
 
+function randomNumber(number) {
+  return Math.floor(Math.random()*number)
+}
+
 function getCart() {
  return cart;
 }
@@ -11,6 +15,9 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
+ let newObj = {[item]: randomNumber(100)};
+ cart.push(newObj);
+ console.log(`${item} has been added to your cart.`)
 }
 
 function viewCart() {
