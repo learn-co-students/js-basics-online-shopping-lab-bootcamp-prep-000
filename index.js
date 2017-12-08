@@ -10,8 +10,13 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+var newObjectOne = {}
+
+console.log(`${item} has been added to your cart.`)
+return cart
 }
+addToCart(eggs)
+
 
 function viewCart() {
   // write your code here
