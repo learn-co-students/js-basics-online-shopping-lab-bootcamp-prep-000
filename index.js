@@ -23,8 +23,11 @@ function viewCart() {
     }
     else {
         for(let i = 0; i < cart.length; i++) {
-                for(var key in cart[i]) {
-                myString += ` ${key} at $${cart[i][key]}`;
+
+              let key = Object.keys(cart[i]);
+              let price = cart[i][key];
+              myString += (` ${key} for $${price}`);
+
                 if(cart.length === 2) {
                     if(i === 0) {
                         myString += ' and';
@@ -41,7 +44,7 @@ function viewCart() {
                     }
                     else {}
                 }
-            }
+
         }
         myString += '.';
         console.log(myString);
@@ -49,24 +52,22 @@ function viewCart() {
 }
 
 function total() {
-    var price = 0;
-    for(let i = 0; i < cart.length; i++) {
-        for(var key in cart[i]) {
-            price += cart[i][key];
-        }
-    }
-    return price;
+  totalPrice = 0;
+  for(let i = 0; i < cart.length; i++) {
+    let key = Object.keys(cart[i]);
+    let price = cart[i][key];
+    totalPrice += price;
+  }
+    return totalPrice;
 }
 
 function removeFromCart(item) {
-
     for(let i = 0; i < cart.length; i++) {
-        for(var key in cart[i]) {
-            if(item === key) {
-                cart.splice(i, 1);
-                console.log('removed');
-                return cart;
-            }
+        if(cart[i].hasOwnProperty(item)) {
+          cart.splice(i, 1);
+          console.log('removed');
+          return cart;
+
         }
     }
     console.log('That item is not in your cart.');
