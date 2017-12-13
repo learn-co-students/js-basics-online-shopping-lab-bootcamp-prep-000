@@ -19,54 +19,75 @@ function addToCart(itemName) {
 }
 
 function viewCart() {
-  if (cart.length === 0) {
-    console.log('Your shopping cart is empty.');
-  }
+	  if (cart.length === 0) {
+	    console.log('Your shopping cart is empty.');
+	    return 'Your shopping cart is empty.';
+	  }
 
-  var finalOutput = ['In your cart, you have']
+	  var beginning = 'In your cart, you have ';
 
-  for (let i = 0; i < cart.length; i++) {
-    var itemAndPrice = cart[i]; //cart[i] is what the current index is in the array
-    var fruit = Object.keys(itemAndPrice)[0];
-    var price = itemAndPrice[fruit];
+	  var finalOutput = [];
 
-    finalOutput.push(`${fruit} at $${price}`)
+	  for (let i = 0; i < cart.length; i++) {
+	    var itemAndPrice = cart[i]; //cart[i] is what the current index is in the array
+	    var fruit = Object.keys(itemAndPrice)[0];
+	    var price = itemAndPrice[fruit];
 
-  }
-  if (cart.length === 1) {
-    finalOutput = finalOutput.join(' ') + '.'// destructive joining two things
-  }
+	    finalOutput.push(`${fruit} at $${price}`)
+	  }
 
-  else if (cart.length === 2) {
-    finalOutput = finalOutput.slice(0,2).join(' ') + (' and ') + finalOutput.slice(-1) + '.'
-  } 
+	  var finalOutputString;
 
-  console.log(finalOutput);
+	  if (cart.length === 1) {
+	    finalOutputString = finalOutput.join(' ') + '.'; // destructive joining two things
+	  }
 
+	  else if (cart.length === 2) {
+	    // finalOutputString = finalOutput.slice(0,2).join(' ') + (' and ') + finalOutput.slice(-1) + '.';
+      finalOutputString = finalOutput.join(' and ') + '.';
+	  }
 
+	  else if (cart.length >= 3){
+	   finalOutputString = finalOutput.slice(0, finalOutput.length - 1).join(', ') + (', and ') + finalOutput.slice(-1) + '.';
+	  }
+    console.log(beginning + finalOutputString);
+	  return beginning + finalOutputString;
+	}
 
-  // else if (cart.length === 1 ){
-  //   var firstObject = cart[0];
-  //   var item = Object.keys(cart[0]);
-  //   var price = firstObject[item];
-  //   console.log (`In your cart, you have ${item} at $${price}.`);
-  // }
-  // else if (cart.length === 2) {
-  //   var secondObject = cart[1];
-  //   var firstItem = Object.keys(cart[0]);
-  //   var firstPrice = firstObject[item];
-  //   var secondItem = Object.keys(cart[1]);
-  //   var secondPrice = secondObject[item];
-  //   console.log (`In your cart, you have ${firstItem} at $${firstPrice} and ${secondItem} at ${secondPrice}`);
-  // }
-}
+  function total(){
+	 var totalPrices = 0;//setting a varaible for when the cart is 0
 
-// function total () {
-//   for (i = 0; i < cart.length; i++){ //iterate through our itemPrice array
-//
-//  }
-// }
-//
-// function removeFromCart (removedItem){
-//
-// }O
+	 for (let i = 0; i < cart.length; i++) {
+	 	// access the cart > cart[i]
+	 	var keyName = Object.keys(cart[i]); // this is to access keys
+
+	 	var value = cart[i][keyName]; // to get the value
+	 	console.log(value);
+
+	 	totalPrices += value; // adds to totalPrices and saving the value
+
+	 }
+	 return totalPrices;
+	}
+
+  function removeFromCart(removedItem){
+  		var foundIndex = false; //by default assuming that we didn't find anything
+  		var index; //keeping track of where we found the item so we can remove it later
+
+  		for (let i = 0; i < cart.length; i++) {
+  		var keyName = Object.keys(cart[i]); //find the key name
+
+  		if (keyName[0]===removedItem) {
+  			foundIndex = true;
+  			index = i;
+  		} // If it's in the cart, then remove one thing from the array, and then set where that thing is to index=i
+  		}
+
+  		if(foundIndex) {
+  		  cart.splice(index, 1);
+  		  return cart;
+  		}// if we find it then it rmoves based on the index we saved.
+  		else {
+  			console.log( 'That item is not in your cart.');
+  		}
+  	}
