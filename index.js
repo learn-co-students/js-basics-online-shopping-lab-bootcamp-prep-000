@@ -19,19 +19,19 @@ return cart
 }
 addToCart(eggs)
 
-/*function viewCart() {
+function viewCart() {
   getCart();
   var cartArray = [];
   //console.log(cartArray);
   var keyArray = [];
   if(Object.keys(getCart()).length > 0){
-  for(var c = 0; c < Object.keys(getCart()).length; c++){
-    cartArray.push(Object.keys(getCart())[c]);
+  for(var i = 0; i < Object.keys(getCart()).length; i++){
+    cartArray.push(Object.keys(getCart())[i]);
   }
 }
-  for(var a = 0; a < cartArray.length; a++){
-    keyArray.push(Object.keys(getCart()[a]))
-  }
+  //for(var a = 0; a < cartArray.length; a++){
+    //keyArray.push(Object.keys(getCart()[a]))
+  //}
   if(keyArray.length < 1){
     console.log("Your shopping cart is empty.");
   }
@@ -58,40 +58,25 @@ addToCart(eggs)
   }
 }
 
+/*function viewCart() {
+getCart()
 
-function viewCart() {
-  if (cart.length === 0) {
-    return console.log("Your shopping cart is empty.")
+var cartItems = []
+var price = []
+var msg = 'In your cart, you have'
+
+if (cart.length === 0) {
+  console.log ('Your shopping cart is empty.')
+}
+
+for (var i = 1; i < cart.length; i++) {
+  if (i === 1) {
+    console.log(`${msg} ${cart}.`)
   }
+}
 
-  var string = "In your cart, you have "
-
-  if (cart.length === 1) {
-    string += `${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]}.`
-  } else if (cart.length === 2) {
-    string += `${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]} and ${Object.keys(cart[1])} at $${cart[1][Object.keys(cart[1])]}.`
-  } else {
-    for (var i=0; i<cart.length; i++) {
-      var text;
-      if (i === cart.length - 2){
-          text = ", and "
-      } else if (i === cart.length - 1) {
-          text = ""
-      } else {
-          text = ", "
-      }
-      string += `${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}` + text + `${i === cart.length - 1 ? '.' : ''}`
-    }
-  }
-
-  console.log(string)
 }
 */
-
-function viewCart() {
-
-}
-
 function total() {
   // write your code here
 }
