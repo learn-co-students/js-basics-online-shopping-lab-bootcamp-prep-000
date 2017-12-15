@@ -10,55 +10,40 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-var price = Math.floor(Math.random() * 100)
-var newObject = {}
-newObject[item] = price
-cart.push(newObject)
+var price = Math.floor(Math.random() * 100);
+var newObject = {};
+newObject[item] = price;
+cart.push(newObject);
 console.log(`${item} has been added to your cart.`)
-return cart
+return cart;
 }
-addToCart(eggs)
-
+addToCart(eggs);
 
 function viewCart() {
-  getCart();
+  if (cart.length == 0) {
+    console.log('Your shopping cart is empty.')
+  } else {
 
-const msg = 'In your cart, you have ';
-var keyItem = [];
-var valueItem = [];
-var rtString = "";
+    var products = [];
 
-if (cart.length == 0) {
-  console.log('Your shopping cart is empty.')
-}
-
-for (var i = 0; i < cart.length; i++) {
-
-}
-}
+    for (let i = 0; i < cart.length; i++) {
+      let item = Object.keys(cart[i])[0];
+      let price = cart[i][item];
+      products.push(`${item} at $${price}`);
+    }
 
 
-/*
-function viewCart() {
-  const l = cart.length
-
-  if (!l) {
-    return console.log("Your shopping cart is empty.")
+    if (products.length == 1) {
+      products;
+    } else if (products.length == 2) {
+      products = products.join(' and ');
+    } else {
+      products[products.length - 1] = ', and '.concat(products[products.length - 1]);
+      products = products.splice(0, products.length - 1).join(', ') + products[products.length - 1];
+    }
   }
-
-  const itemsAndPrices = []
-
-  for (let i = 0; i < l; i++) {
-    let itemAndPrice = cart[i]
-    let item = Object.keys(itemAndPrice)[0]
-    let price = itemAndPrice[item]
-
-    itemsAndPrices.push(`${item} at \$${price}`)
-  }
-
-  console.log(`In your cart, you have ${itemsAndPrices.join(', ')}.`)
+  console.log(`In your cart, you have ${products}.`)
 }
-
 
 function total() {
   // write your code here
