@@ -17,15 +17,19 @@ function addToCart(item) {
    return cart;
 }
 function viewCart() {
-  if (cart.length===0) {
-  console.log("Your shopping cart is empty.")
+  var itemsAndPrices = []
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty.")
   } else {
- for(var i=0; i>cart.length; i++){
-  addToCart(`${itemName}`)
-  console.log(`In your cart, you have ${itemName[i]} at ${itemPrice[i]}.`)
-}
- }
+    for (var i = 0; i < cart.length; i++) {
+
+      console.log(`In your cart, you have ${cart[i]}.`)
+      var item = Object.keys(cart[i])
+      var price = Object.values(cart[i])
+    return `In your cart, you have ${item} at ${price}`
+    }
   }
+}
 
 function total() {
  let t = 0
