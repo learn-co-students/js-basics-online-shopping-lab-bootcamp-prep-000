@@ -17,23 +17,31 @@ function addToCart(item) {
  return cart;
 }
 
-
 function viewCart() {
   var shoppingCart = "";
   var itemName;
   var itemCost;
-  if (cart.length > 0) {
-    for (var i = 0; i < (cart.length - 1); i++) {
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty."); 
+  } else if (cart.length <= 2) {
+    for (var i = 0; i < (cart.length - 1) ; i++) {
       itemName = Object.keys(cart[i]);
-      shoppingCart += `${itemName} at $${cart[i][itemName]}, and `;
+      shoppingCart += `${itemName} at $${cart[i][itemName]} and `;
     }
     itemName = Object.keys(cart[i]);
     shoppingCart += `${itemName} at $${cart[i][itemName]}`;
-    return `In your cart, you have ${shoppingCart}`;
-  } else {
-    return "Your shopping cart is empty.";
+    console.log(`In your cart, you have ${shoppingCart}.`);
+} else {
+  for (i = 0; i < (cart.length - 1) ; i++) {
+      itemName = Object.keys(cart[i]);
+      shoppingCart += `${itemName} at $${cart[i][itemName]}, `;
+    }
+    itemName = Object.keys(cart[i]);
+    shoppingCart += `and ${itemName} at $${cart[i][itemName]}`;
+    console.log(`In your cart, you have ${shoppingCart}.`);
   }
 }
+
 
 function total() {
   // write your code here
@@ -48,17 +56,27 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  for (var i = 0; i < cart.length; i++) {
-    if (cart[i].hasOwnProperty([item])){
+  var j = 0;
+  for (var i = 0; i < cart.length; i++, j++) {
+    if (cart[i].hasOwnProperty(item)){
       cart.splice(i, 1);
       return cart;
     } 
+    }
+  if (j === cart.length) {
+    console.log("That item is not in your cart.");
+    return cart;
   }
-  if (!cart[i].hasOwnProperty(item)){
-    return "This item is not in your cart.";
-  }
+  
 }
 
 function placeOrder(cardNumber) {
   // write your code here
-}
+ if (!cardNumber) {
+   console.log("Sorry, we don't have a credit card on file for you.");
+ } else {
+   var totalCost = total();
+   console.log(`Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`);
+ }
+ cart = [];
+ }
