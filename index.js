@@ -91,3 +91,16 @@ function viewCart() {
   			console.log( 'That item is not in your cart.');
   		}
   	}
+
+    function placeOrder(creditCardNumber) {
+   	     if (!creditCardNumber){ //using the ! method to say "not credit card or if there is no
+   		  console.log (`Sorry, we don't have a credit card on file for you.`)
+   		 }
+   	     if (creditCardNumber){
+   	    console.log (`Your total cost is $${total()}, which will be charged to the card ${creditCardNumber}.`)
+   	     }
+   	}
+   function emptyCart(itemName) {
+ 		  var item = [];
+ 		  return emptyCart;
+     }
