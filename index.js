@@ -21,18 +21,13 @@ function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
   } else {
-    for (var i = 0; i < cart.length; i++) {
-      var item = Object.keys(cart[i])[0];
-      var price = Object.values(cart[i])[0];
-      itemAndPrices.push(item + " at $ " + price);
-    }
-    if (cart.length < 0){
-      itemAndPrice.push(item + "at $" + price);
-      console.log(`In your cart, you have ${itemsAndPrices[0]}.`)
-  } else {
-      return cart = `${item} at ${price}`
-    }
+    for (var i=0; i < cart.length; i++){
+      var key = Object.keys(cart[i])[0];
+      var price = cart[i][key]
+      itemAndPrices.push(key+" at $"+price);
+      }
   }
+	console.log(`In your cart, you have ${itemAndPrices[0]}.`)
 }
 function total() {
  let t = 0
