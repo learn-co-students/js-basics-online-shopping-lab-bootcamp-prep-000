@@ -17,17 +17,19 @@ function addToCart(item) {
    return cart;
 }
 function viewCart() {
-  var itemAndPrices = []
+  var itemAndPrices = [];
   if (cart.length === 0) {
-    console.log("Your shopping cart is empty.")
-  } else {
-    for (var i=0; i < cart.length; i++){
-      var key = Object.keys(cart[i])[0];
-      var price = cart[i][key]
-      itemAndPrices.push(key+" at $"+price);
-      }
+    console.log("Your shopping cart is empty.");
+    return cart;
   }
-	console.log(`In your cart, you have ${itemAndPrices[0]}.`)
+
+  for (var i=0; i < cart.length; i++){
+      var key = Object.keys(cart[i])[0];
+      var price = cart[i][key];
+      itemAndPrices.push(key+" at $"+price);
+  }
+  console.log(`In your cart, you have ${itemAndPrices[0]}.`);
+	return cart;
 }
 function total() {
  let t = 0
