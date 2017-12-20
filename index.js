@@ -22,14 +22,21 @@ function viewCart() {
     console.log("Your shopping cart is empty.");
     return cart;
   }
-
-  for (var i=0; i < cart.length; i++){
-      var key = Object.keys(cart[i])[0];
-      var price = cart[i][key];
-      itemAndPrices.push(key+" at $"+price);
+ for (var i=0; i < cart.length; i++){
+ var key = Object.keys(cart[i])[0];
+ var price = cart[i][key];
+    itemAndPrices.push(key+" at $"+price);
   }
-  console.log(`In your cart, you have ${itemAndPrices[0]}.`);
-	return cart;
+     if(cart.length === 1){
+    console.log(`In your cart, you have ${itemAndPrices[0]}.`);
+  } else if (cart.length === 2){
+    console.log(`In your cart, you have ${itemAndPrices.join(' and ')}.`);
+  } else {
+    // 'and quince at $43' itemsAndPrices[3]
+    itemAndPrices[cart.length - 1] = `and ${itemAndPrices[cart.length - 1]}`
+    console.log(`In your cart, you have ${itemAndPrices.join(', ')}.`);
+  return cart
+  }
 }
 function total() {
  let t = 0
@@ -57,7 +64,8 @@ console.log('That item is not in your cart.')
      console.log("Sorry, we don't have a credit card on file for you.")
    } else {
      var totalPrice = total();
-     console.log(`Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`)
-     return cart = []
+     console.log(`Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`);
+     cart = []
+     return cart
    }
  }
