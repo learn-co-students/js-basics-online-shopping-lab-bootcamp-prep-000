@@ -19,25 +19,32 @@ function addToCart(item) {
   return cart;
 }
 
+
 function viewCart() {
+  let itemAndPrice = [];
   // write your code here
+  /*if (cart.length === 0) {
+    console.log(`Your shopping cart is empty.`);
+  }*/
+  //let itemAndPrice = [];
+  for (let index = 0; index < cart.length; index++) {
+    for (const x in cart[index]) { //bananas at $17
+      itemAndPrice.push(`${x} at $${cart[index][x]}`);
+    }
+  }
   if (cart.length === 0) {
     console.log(`Your shopping cart is empty.`);
   }
-  let itemAndPrice = [];
-  for (let index = 0; index < cart.length - 1; index++) {
-    for (const x in cart[index]) {  //bananas at $17
-      itemAndPrice.push(`${x} at $${cart[index].x}`);
-    }
-  }
-  if(itemAndPrice.length ==1){
+  if (cart.length === 1) {
     console.log(`In your cart, you have ${itemAndPrice[0]}.`);
-  } else if (itemAndPrice.length == 2){
-    console.log(`In your cart, you have ${itemAndPrice[0]} and ${itemNamendPrice[1]}.`)
-  } else {
+  }
+  if (cart.length === 2) {
+    console.log(`In your cart, you have ${itemAndPrice[0]} and ${itemAndPrice[1]}.`)
+  }
+  if (cart.length >= 3) {
     let stringer = "";
-    for (let newIndex = 0; newIndex < itemAndPrice.length-1; newIndex++){
-      stringer =  stringer + itemAndPrice[newIndex] + ", "
+    for (let newIndex = 0; newIndex < itemAndPrice.length - 2; newIndex++) {
+      stringer = stringer + itemAndPrice[newIndex] + ", "
     }
     console.log(`In your cart, you have ${stringer}and ${itemAndPrice[itemAndPrice.length-1]}.`);
   }
@@ -45,10 +52,31 @@ function viewCart() {
 
 function total() {
   // write your code here
+  let total = 0
+  for (let index = 0; index < cart.length; index++) {
+    for (const y in cart[index]) {
+      total += cart[index][y];
+    }
+  }
+  let totalPrice = parseInt(total);
+  return totalPrice;
 }
 
 function removeFromCart(item) {
   // write your code here
+  for (let index = 0; index< cart.length; index++ ){
+    for(const x in cart[index]){
+      if (x == item){
+        cart.splice(index, 1);
+      }
+
+    }
+    for(const y in cart[index] != item){
+      console.log(`That item is not in your cart.`);
+    }
+    //return cart;
+  }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
