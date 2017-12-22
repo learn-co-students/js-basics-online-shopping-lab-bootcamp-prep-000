@@ -23,10 +23,6 @@ function addToCart(item) {
 function viewCart() {
   let itemAndPrice = [];
   // write your code here
-  /*if (cart.length === 0) {
-    console.log(`Your shopping cart is empty.`);
-  }*/
-  //let itemAndPrice = [];
   for (let index = 0; index < cart.length; index++) {
     for (const x in cart[index]) { //bananas at $17
       itemAndPrice.push(`${x} at $${cart[index][x]}`);
@@ -41,12 +37,18 @@ function viewCart() {
   if (cart.length === 2) {
     console.log(`In your cart, you have ${itemAndPrice[0]} and ${itemAndPrice[1]}.`)
   }
-  if (cart.length >= 3) {
-    let stringer = "";
+  /*if (cart.length >= 3) {
+    let stringer = '';
     for (let newIndex = 0; newIndex < itemAndPrice.length - 2; newIndex++) {
-      stringer = stringer + itemAndPrice[newIndex] + ", "
+      stringer = stringer + itemAndPrice[newIndex] + ', '
     }
     console.log(`In your cart, you have ${stringer}and ${itemAndPrice[itemAndPrice.length-1]}.`);
+  }*/
+  else if (cart.length > 2) {
+    let lastItem =  itemAndPrice.pop();
+    itemAndPrice.pop();
+    let concatItemPrice = itemAndPrice.join(", ");
+    console.log(`In your cart, you have ${concatItemPrice}, and ${lastItem}.`);
   }
 }
 
@@ -64,16 +66,17 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  let itemInCart = [];
   for (let index = 0; index < cart.length; index++) {
     for (const x in cart[index]) {
+      itemInCart.push(x);
       if (x == item) {
         cart.splice(index, 1);
       }
-      if (cart[index][item] == undefined) {
-        console.log(`That item is not in your cart.`);
-      }
     }
-
+    if (itemInCart.includes(item) != true) {
+      console.log("That item is not in your cart.");
+    }
     //return cart;
   }
   return cart;
