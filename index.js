@@ -23,32 +23,6 @@ function addToCart(item) {
 
 function viewCart() {
    var listOfContents = `In your cart, you have ` + Object.keys(cart[0]) + ` at $` + Object.values(cart[0]);
-   
-  var cart = [];
-
-function getCart() {
- return cart;
-}
-
-function setCart(c) {
-  cart = c;
-  return cart;
-}
-
-function addToCart(item) {
- var itemPair = new Object({});
- var itemName = item;
- var itemPrice = (Math.floor((Math.random() * 100) + 1));
- 
- itemPair[item] = itemPrice;
- 
- cart.push(itemPair);
- console.log(`${item} has been added to your cart.`);
- return cart;
-}
-
-function viewCart() {
-   var listOfContents = `In your cart, you have ` + Object.keys(cart[0]) + ` at $` + Object.values(cart[0]);
   if (cart) {
     console.log("Your shopping cart is empty.");
   }
@@ -68,6 +42,7 @@ function viewCart() {
       console.log(listOfContents);
     }
   } 
+ 
  
   
 function total() {
