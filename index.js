@@ -37,6 +37,11 @@ function viewCart() {
   if (cart.length === 2) {
     console.log(`In your cart, you have ${itemAndPrice[0]} and ${itemAndPrice[1]}.`)
   }
+  if (cart.length > 2) {
+    let lastItem =  itemAndPrice.pop();
+    let concatItemPrice = itemAndPrice.join(", ");
+    console.log(`In your cart, you have ${concatItemPrice}, and ${lastItem}.`);
+  }
   /*if (cart.length >= 3) {
     let stringer = '';
     for (let newIndex = 0; newIndex < itemAndPrice.length - 2; newIndex++) {
@@ -44,12 +49,7 @@ function viewCart() {
     }
     console.log(`In your cart, you have ${stringer}and ${itemAndPrice[itemAndPrice.length-1]}.`);
   }*/
-  else if (cart.length > 2) {
-    let lastItem =  itemAndPrice.pop();
-    itemAndPrice.pop();
-    let concatItemPrice = itemAndPrice.join(", ");
-    console.log(`In your cart, you have ${concatItemPrice}, and ${lastItem}.`);
-  }
+
 }
 
 function total() {
@@ -74,10 +74,11 @@ function removeFromCart(item) {
         cart.splice(index, 1);
       }
     }
-    if (itemInCart.includes(item) != true) {
-      console.log("That item is not in your cart.");
-    }
     //return cart;
+  }
+  let inCartOrNot = itemInCart.indexOf(item);
+  if (inCartOrNot < 1) {
+    console.log(`That item is not in your cart.`);
   }
   return cart;
 }
