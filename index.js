@@ -24,7 +24,7 @@ function addToCart(item) {
   const keyPair = {[item]:itemPrice}
 
   cart.push(keyPair)
-  console.log(item + " has been added to your cart.")
+  console.log(`${item} has been added to your cart.`)
 
   return cart
 }
@@ -37,21 +37,10 @@ function viewCart() {
         newCart.push(` ${item} at $${cart[i][item]}`)
       }
     }
-   console.log("In your cart, you have" + newCart +".")
+   console.log(`In your cart, you have${newCart}.`)
   }
  console.log("Your shopping cart is empty.")
 }
-
-/*function viewCart(){
-  var cartItems = Object.keys(cart)
-  var itemPrice = Math.floor(Math.random() * 100)
-  if (cart.length === 0) {
-    console.log("Your shopping cart is empty.")
-  }
-  else {
-  console.log(`In your cart, you have ${cartItems} at ${cart[itemPrice]}!`)
-}
-}*/
 
 function removeFromCart(item) {
   cart[item] ? delete cart[item] : console.log("That item is not in your cart.")
