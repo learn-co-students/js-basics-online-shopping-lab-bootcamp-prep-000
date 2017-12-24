@@ -42,13 +42,15 @@ function viewCart() {
     let concatItemPrice = itemAndPrice.join(", ");
     console.log(`In your cart, you have ${concatItemPrice}, and ${lastItem}.`);
   }
-  /*if (cart.length >= 3) {
+  /* commented out
+  if (cart.length >= 3) {
     let stringer = '';
     for (let newIndex = 0; newIndex < itemAndPrice.length - 2; newIndex++) {
       stringer = stringer + itemAndPrice[newIndex] + ', '
     }
     console.log(`In your cart, you have ${stringer}and ${itemAndPrice[itemAndPrice.length-1]}.`);
-  }*/
+  }
+  */
 
 }
 
@@ -74,10 +76,9 @@ function removeFromCart(item) {
         cart.splice(index, 1);
       }
     }
-    //return cart;
   }
   let inCartOrNot = itemInCart.indexOf(item);
-  if (inCartOrNot < 1) {
+  if (inCartOrNot < 0) {
     console.log(`That item is not in your cart.`);
   }
   return cart;
