@@ -8,7 +8,7 @@ function total() {
   let total = 0
 
   for (let i = 0; i < cart.length; i++) {
-    for (let price in cart[i]) {
+    for (const price in cart[i]) {
       total += cart[i][price]
     }
   }
@@ -21,11 +21,10 @@ function getCart() {
 
 function addToCart(item) {
   const itemPrice = Math.floor(Math.random() * 100)
-  const keyPair = {[item]:itemPrice}
+  const keyValuePair = { [item] : itemPrice }
+  cart.push(keyValuePair)
 
-  cart.push(keyPair)
   console.log(`${item} has been added to your cart.`)
-
   return cart
 }
 
