@@ -1,64 +1,47 @@
-var cart = []
+let cart = []
 
 function setCart(newCart) {
   cart = newCart;
 }
 
 function total() {
-  let t = 0
+  let total = 0
 
-  for (var i = 0, l = cart.length; i < l; i++) {
-    for (var item in cart[i]) {
-      t += cart[i][item]
+  for (let i = 0; i < cart.length; i++) {
+    for (let price in cart[i]) {
+      total += cart[i][price]
     }
   }
-
-  return t
+  return total
 }
 
-function getCart(){
+function getCart() {
   return cart
 }
 
-function addToCart(item){
-  var itemPrice = Math.floor(Math.random() * 100)
-  var keyPair = {[item]:itemPrice}
+function addToCart(item) {
+  const itemPrice = Math.floor(Math.random() * 100)
+  const keyPair = {[item]:itemPrice}
 
- cart.push(keyPair)
- console.log(item + " has been added to your cart.")
+  cart.push(keyPair)
+  console.log(item + " has been added to your cart.")
 
- return cart
+  return cart
 }
-
 
 function viewCart() {
-  if (cart.length != 0) { //if cartlength exists
-  var nCart = []        // create new cart
-   for (var i = 0, len = cart.length; i < len; i++) {  // for i, iterating via cartlength
-   for (var item in cart[i]) {                        //for item in cart at current iteration of index i
-      nCart.push(` ${item} at $${cart[i][item]}`)     //push  "$item at $cart[i][item]" into nCart
+  if (cart.length) {
+    const newCart = [];
+    for (let i = 0; i < cart.length; i++) {
+      for (const item in cart[i]) {
+        newCart.push(` ${item} at $${cart[i][item]}`)
+      }
     }
+   console.log("In your cart, you have" + newCart +".")
   }
-
- console.log("In your cart, you have" + nCart +".")
-}
-  console.log("Your shopping cart is empty.")
+ console.log("Your shopping cart is empty.")
 }
 
-
-/*function viewCart() {
-   if (cart.length != 0) {
-   var nCart = []
-   for (var i = 0, len = cart.length; i < len; i++) {
-   for (var item in cart[i]) {
-   nCart.push(`${item} at $${[cart][i][item]}`)
-}
-   console.log("In your cart, you have " + nCart);
- }
- else{
-   console.log("Your shopping cart is empty.");
- }}
-}*/
 /*function viewCart(){
   var cartItems = Object.keys(cart)
   var itemPrice = Math.floor(Math.random() * 100)
@@ -70,28 +53,17 @@ function viewCart() {
 }
 }*/
 
-
-function removeFromCart(item){
-  var check = false
-  for (var i in cart) {
-    if (cart[i] !== undefined) {  //if (cart[i].hasOwnProperty(item)) { ...yuck.
-      delete cart[item] // cart.splice([i], 1) ... no thanks
-    }}
-    if (check === false) {
-      console.log("That item is not in your cart.")
-    }
-    cart = []
-    return cart
-    }
+function removeFromCart(item) {
+  cart[item] ? delete cart[item] : console.log("That item is not in your cart.")
+  return cart = []
+}
 
 function placeOrder(cardNumber) {
-  if (cardNumber == undefined ) {
+  if (!cardNumber) {
     console.log("We don't have a credit card on file for you to place your order.")
-
   }
-    else {
+  else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
-    }
-        cart = []
-        return cart
+  }
+  return cart = []
 }
