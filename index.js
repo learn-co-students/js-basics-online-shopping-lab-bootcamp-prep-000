@@ -17,27 +17,27 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  let cartDis = ['In your cart']
+  let cartItem = ['In your cart']
   if(cart.length === 0){
     console.log('Your shopping cart is empty.');
     
   }
   else if(cart.length === 1){
-    cartDis.push(`you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}`)
-    console.log(`${cartDis.join(', ')}.`);
+    cartItem.push(`you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}`)
+    console.log(`${cartItem.join(', ')}.`);
     
   }
   else{
     for(let i = 0; i < cart.length; i++){
-      cartDis.push(`${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
+      cartItem.push(`${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
       
     }
     if(cart.length > 2){
-      console.log(`${cartDis[0]}, you have ${cartDis.slice(1,cartDis.length - 1).join(', ')}, and ${cartDis.slice(-1)}.`);
+      console.log(`${cartItem[0]}, you have ${cartItem.slice(1,cartItem.length - 1).join(', ')}, and ${cartItem.slice(-1)}.`);
       
     }
     else {
-      console.log(`${cartDis[0]}, you have ${cartDis.slice(1).join(' and ')}.`);
+      console.log(`${cartItem[0]}, you have ${cartItem.slice(1).join(' and ')}.`);
       
     }
     
