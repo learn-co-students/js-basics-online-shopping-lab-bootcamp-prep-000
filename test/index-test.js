@@ -88,7 +88,6 @@ describe("viewCart()", function() {
     const lemonsCost = getCart()[0]["lemons"];
 
     viewCart();
-
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have lemons at $${lemonsCost}.`
     );
@@ -118,7 +117,6 @@ describe("viewCart()", function() {
     const quinceCost = getCart()[2]["quince"];
 
     viewCart();
-
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, and quince at $${quinceCost}.`
     );
@@ -198,9 +196,7 @@ describe("placeOrder()", function() {
 
     const cartTotal = total();
     const cardNumber = Math.floor(Math.random() * 100000000);
-
     placeOrder(cardNumber);
-
     expect(console.log).toHaveBeenCalledWith(
       `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`
     );
