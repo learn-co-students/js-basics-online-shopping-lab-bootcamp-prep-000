@@ -25,9 +25,9 @@ function viewCart() {
   var string = "In your cart, you have ";
 
   if (cart.length === 1) {
-    string += `${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]}.`
+    return (`${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]}.`)
   } else if (cart.length === 2) {
-    string += `${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]} and ${Object.keys(cart[1])} at $${cart[1][Object.keys(cart[1])]}.`
+    return (`${Object.keys(cart[0])} at $${cart[0][Object.keys(cart[0])]} and ${Object.keys(cart[1])} at $${cart[1][Object.keys(cart[1])]}.`)
   } else {
     for (var i=0; i<cart.length; i++) {
       var text;
@@ -38,7 +38,7 @@ function viewCart() {
       } else {
           text = ", ";
       }
-      string += `${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}` + text + `${i === cart.length - 1 ? '.' : ''}`;
+      return ( `${Object.keys(cart[i])} at $${cart[i][Object.keys(cart[i])]}` + text + `${i === cart.length - 1 ? '.' : ''}`);
     }
   }
 
