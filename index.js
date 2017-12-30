@@ -33,7 +33,7 @@ function viewCart() {
       sentence.push(`and ${Object.keys(cart[i])} at $${Object.values(cart[i])}.`)}
     else {
       sentence.push(`${Object.keys(cart[i])} at $${Object.values(cart[i])}.`)
-    console.log (`${text} ${sentence.join(', ')}`)}
+    console.log (`${text} ${sentence.join(', ')}.`)}
   }
   
 }
