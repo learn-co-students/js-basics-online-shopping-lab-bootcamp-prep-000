@@ -17,25 +17,6 @@ function addToCart(item) {
  console.log(`${item} has been added to your cart.`)
 return cart
 }
-var cart = [];
-
-function getCart() {
- return cart;
-}
-
-function setCart(c) {
-  cart = c;
-  return cart;
-}
-
-function addToCart(item) {
- // write your code here
- var itemPrice = Math.floor(Math.random() * 100)
- var newItem = {[item]: itemPrice}
- cart.push(newItem)
- console.log(`${item} has been added to your cart.`)
-return cart
-}
 
 function viewCart() {
   // write your code here
@@ -56,24 +37,33 @@ function viewCart() {
   }
   
   else if (cart.length > 2) { 
+    var sentence = []
     for (let i = 0; i < cart.length; i++) {
-      var sentence = []
   
-  
-      if (i === cart.length) {
+      if (i === cart.length - 1) {
         sentence.push(`and ${Object.keys(cart[i])} at $${Object.values(cart[i])}`)}
   
       else {
         sentence.push(`${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
-      console.log (`${text} ${sentence.join(', ')}.`)}
-  
+        
       }
+     
     }
+    console.log (`${text} ${sentence.join(', ')}.`)
+  }
 }
 
 function total() {
-  // write your code here
- 
+//  write your code here
+var Total =[]
+for (let i = 0; i < cart.length; i++)
+  {
+    Total.push(parseInt(Object.values(cart[i])))
+  }
+  function getSum(total, num) {
+    return total + num;
+  }
+  return Total.reduce(getSum)
 }
 
 function removeFromCart(item) {
