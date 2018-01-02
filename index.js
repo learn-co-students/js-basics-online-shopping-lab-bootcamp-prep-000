@@ -26,6 +26,7 @@ function viewCart() {
       let itemName = item[0];
       let itemPrice = cart[i][itemName];
       cartContents += `${itemName} at $${itemPrice}`;
+      
       if (cart.length == 1 || i + 1 == cart.length) {
         cartContents += '.';
       }
@@ -44,13 +45,37 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  let total = 0;
+  for (let i = 0; i <= cart.length - 1; i++) {
+    let item = Object.keys(cart[i]);
+    let itemPrice = cart[i][item];
+    total = total + itemPrice;  
+  }
+  return total;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (let i = 0; i <= cart.length - 1; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      if (i === 0) {
+        cart.shift();
+      } else if (i == cart.length - 1) {
+        cart.pop();
+      } else {
+        cart = [...cart.slice(0, i), ...cart.slice(i + 1)];
+      }
+      return cart;
+    }
+  }
+  console.log("That item is not in your cart.");
+  return; 
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {
+    console.log( "Sorry, we don\'t have a credit card on file for you." );
+  } else {
+    console.log( `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.` );
+    cart = [];
+  }
 }
