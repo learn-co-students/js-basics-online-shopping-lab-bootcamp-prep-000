@@ -133,6 +133,7 @@ describe("viewCart()", function() {
       `In your cart, you have orange at $${orangeCost}, pear at $${pearCost}, quince at $${quinceCost}, and rhubarb at $${rhubarbCost}.`
     );
   });
+
 });
 
 describe("total()", function() {
