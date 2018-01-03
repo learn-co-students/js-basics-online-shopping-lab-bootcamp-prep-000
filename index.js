@@ -46,7 +46,7 @@ var finalStatement = '';
     default:
     var x = currentCart.length-2;
     var y = currentCart.length-1;
-    debugger
+
     currentCart[y] = `and ${currentCart[y]}`;
     finalStatement = currentCart.join(', ');
   }
@@ -66,12 +66,19 @@ function total() {
 }
 
 function removeFromCart(item) {
-if cart.hasOwnProperty(item) = false {
-  return "That item is not in your cart."
+var i;
+for (i = 0; i < cart.length; i++){
+
+  debugger
+if (cart[i].hasOwnProperty(item) == true) {
+  cart.splice(i, 1);
+  return cart;
+
 }
 else {
-  var index = cart.indexOf(item);
-  array.splice(index, 1);
+  console.log("That item is not in your cart.");
+  return cart;
+}
 }
 }
 
