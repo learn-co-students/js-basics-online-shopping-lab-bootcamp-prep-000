@@ -40,7 +40,7 @@ for (let i = 0; i < cart.length; i++){
   } else if (cart.length >= 4){
   	console.log(`In your cart, you have ${itemAndPrices.slice(0,-1)}, and ${itemAndPrices[itemAndPrices.length-1]}.`);
   }
-   
+
 }
 console.log(viewCart());
 function total() {
@@ -58,7 +58,7 @@ function removeFromCart(removeitem) {
   for (var i = 0; i < cart.length; i++) {
     if (cart[i].hasOwnProperty(removeitem)) {
       cart = cart.slice(0, i).concat(cart.slice(i + 1))
-    } 
+    }
   }
     console.log("That item is not in your cart.")
 
@@ -73,5 +73,5 @@ function placeOrder(cardNumber) {
       console.log (`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
       cart = []
   }
-   
+
 }
