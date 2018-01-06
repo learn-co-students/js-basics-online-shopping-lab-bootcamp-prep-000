@@ -18,10 +18,10 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  if (cart.length == 0){
+  if (cart.length === 0){
     return console.log("Your shopping cart is empty.");
   } else {
-    var li = "In your cart, you have ";
+    var li = "In your cart, you have";
     for(var i = 0; i < cart.length; i++){
       var currItem = cart[i];
       var itemName = Object.getOwnPropertyNames(currItem);
@@ -29,7 +29,7 @@ function viewCart() {
       if (cart.length >= 3){
         //3 plus items
           if(i == cart.length - 1){ 
-            li = `${li}and ${itemName} at $${itemPrice}.`;
+            li = `${li} and ${itemName} at $${itemPrice}.`;
           } else {
             li = `${li} ${itemName} at $${itemPrice},`
           }
@@ -38,9 +38,10 @@ function viewCart() {
         var nitemName = Object.getOwnPropertyNames(nextItem);
         var nitemPrice = nextItem[nitemName];
         li = `${li} ${itemName} at $${itemPrice} and ${nitemName} at $${nitemPrice}.`;
+        break;
         //2 items in cart
       } else if(cart.length == 1){ 
-        li = `${li}${itemName} at $${itemPrice}.`;
+        li = `${li} ${itemName} at $${itemPrice}.`;
         //1 item in cart
       }
     }
@@ -49,13 +50,36 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var sum = 0;
+  for(var i = 0; i < cart.length; i++){
+    var currItem = cart[i];
+    var itemName = Object.getOwnPropertyNames(currItem);
+    var itemPrice = currItem[itemName];
+    sum += itemPrice;
+  }
+  return sum;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for(var i = 0; i <= cart.length; i++){
+    var currItem = cart[i];
+    const checkItemsCart = JSON.stringify(cart); 
+    if(checkItemsCart.includes(item) == false){
+      return console.log("That item is not in your cart.");
+    } else if (currItem.hasOwnProperty(item)){
+      cart.splice(i,1);
+      break;
+    }
+  }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (cardNumber === undefined){
+    console.log("Sorry, we don't have a credit card on file for you.");
+  } else {
+    var cartTotal = total();
+    cart = [];
+    return console.log(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+  }
 }
