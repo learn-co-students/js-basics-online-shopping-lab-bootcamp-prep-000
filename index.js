@@ -21,32 +21,30 @@ function viewCart() {
   if (cart.length == 0){
     return console.log("Your shopping cart is empty.");
   } else {
+    var li = "In your cart, you have ";
     for(var i = 0; i < cart.length; i++){
-      var li = "In your cart, you have ";
       var currItem = cart[i];
       var itemName = Object.getOwnPropertyNames(currItem);
-      var itemPrice = currItem.itemName;
+      var itemPrice = currItem[itemName];
       if (cart.length >= 3){
         //3 plus items
-          if(i + 1 == cart.length){ 
+          if(i == cart.length - 1){ 
             li = `${li}and ${itemName} at $${itemPrice}.`;
-            return console.log(li);
           } else {
-            li = `${li} ${itemName} at $${itemPrice}, `
+            li = `${li} ${itemName} at $${itemPrice},`
           }
       } else if (cart.length == 2){
-        var nextItem = cart[i + 1];
+        var nextItem = cart[1];
         var nitemName = Object.getOwnPropertyNames(nextItem);
-        var nitemPrice = nextItem.nitemName;
+        var nitemPrice = nextItem[nitemName];
         li = `${li} ${itemName} at $${itemPrice} and ${nitemName} at $${nitemPrice}.`;
-        return console.log(li);
         //2 items in cart
       } else if(cart.length == 1){ 
         li = `${li}${itemName} at $${itemPrice}.`;
-        return console.log(li);
         //1 item in cart
       }
     }
+    return console.log(li);
   }
 }
 
