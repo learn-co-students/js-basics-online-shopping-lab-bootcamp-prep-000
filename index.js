@@ -11,15 +11,53 @@ function setCart(c) {
 
 function addToCart(item) {
   var price = Math.floor((Math.random() * 100) + 1);
- cart.push(item, price);
+  var newItem = {[item]: price};
+  cart.push(newItem);
+  console.log(`${item} has been added to your cart.`);
+  return cart;
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length === 0){
+    console.log(`Your shopping cart is empty.`);
+  } else if (cart.length === 1){
+    var oneItem = Object.keys(getCart()[0])[0];
+    var onePrice = getCart()[0][oneItem];
+    console.log(`In your cart, you have ${oneItem} at \$${onePrice}.`);
+  } else if (cart.length === 2){
+    var twoItem1 = Object.keys(getCart()[0])[0];
+    var twoPrice1 = getCart()[0][twoItem1];
+    var twoItem2 = Object.keys(getCart()[1])[0];
+    var twoPrice2 = getCart()[1][twoItem2];
+    console.log(`In your cart, you have ${twoItem1} at \$${twoPrice1} and ${twoItem2} at \$${twoPrice2}.`);
+  } else {
+    var multiItem = Object.keys(getCart()[0])[0];
+    var multiPrice = getCart()[0][multiItem];
+    var cartMsg = `In your cart, you have ${multiItem} at \$${multiPrice}`;
+    var i = 1;
+    while (i < (cart.length - 1)){
+      multiItem = Object.keys(getCart()[i])[0];
+      multiPrice = getCart()[i][multiItem];
+      cartMsg = cartMsg + `\, ${multiItem} at \$${multiPrice}`
+      i++;
+    }
+      multiItem = Object.keys(getCart()[i])[0];
+      multiPrice = getCart()[i][multiItem];
+      cartMsg = cartMsg + `\, and ${multiItem} at \$${multiPrice}.`
+      console.log(cartMsg);
+  }
 }
 
 function total() {
-  // write your code here
+  var i = 0;
+  var total = 0;
+  var currentItem = Object.keys(getCart()[i])[0];
+  while (i < cart.length){
+    currentItem = Object.keys(getCart()[i])[0];
+    total = total + getCart()[i][currentItem];
+    i++;
+  }
+  return total;
 }
 
 function removeFromCart(item) {
