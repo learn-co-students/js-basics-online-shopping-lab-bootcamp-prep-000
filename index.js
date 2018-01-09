@@ -55,8 +55,7 @@ function total() {
   while (i < cart.length){
     currentItem = Object.keys(getCart()[i])[0];
     total = total + getCart()[i][currentItem];
-    i++;
-  }
+    i++; //need to work on this still
   return total;
 }
 
