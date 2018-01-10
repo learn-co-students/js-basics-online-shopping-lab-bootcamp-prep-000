@@ -37,11 +37,24 @@ function viewCart() {
   if (cart.length === 2) {
     console.log(`In your cart, you have ${cartList[0]} and ${cartList[1]}.`)
   }
-// if (cart.length > 2) 
+  var cartMinus = cartList.slice(0, -1).join(', ')
+  var n = cart.length-1
+  if (cart.length > 2) {
+    console.log(`In your cart, you have ${cartMinus}, and ${cartList[n]}.`)
+  }
 }
 
 function total() {
-  // write your code here
+  var cartPrices = []
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  for (let i = 0; i<cart.length; i++){
+    let cartEverything = cart[i]
+    let cartItems = Object.keys(cartEverything)
+    let cartPrice = cartEverything[cartItems]
+    cartPrices.push(cartPrice)
+  }
+  var sum = cartPrices.reduce((a, b) => a + b, 0);
+  return sum
 }
 
 function removeFromCart(item) {
