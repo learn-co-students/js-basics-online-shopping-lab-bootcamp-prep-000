@@ -36,12 +36,13 @@ function viewCart() {
 }
 
 function total(cart) {
-  var sum = '';
-  for(var price in item) {
-      sum += parseFloat(cart[item]);
-  }
-  return sum;
+  return cart.price;
 }
+function sum(prev,next){
+  return prev + next;
+}
+car.map(price).reduce(sum);
+
 
 function removeFromCart(item) {
  for(var i = 0, l = cart.length; i < l; i++);
