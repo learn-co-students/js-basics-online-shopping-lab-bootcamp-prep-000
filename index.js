@@ -36,12 +36,9 @@ function viewCart() {
 }
 
 function total(cart) {
-  return cart.price;
+var total=0;
+for(var price in cart) { total += cart[i]; }
 }
-function sum(prev,next){
-  return prev + next;
-}
-cart.filter(price).reduce(sum);
 
 
 function removeFromCart(item) {
