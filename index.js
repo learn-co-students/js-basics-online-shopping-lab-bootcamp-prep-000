@@ -36,7 +36,7 @@ function viewCart() {
 }
 
 function total(cart, sum) {
-console.log(sum(Object.keys(cart)));
+console.log(Object.values(cart));
 }
 
 
