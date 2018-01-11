@@ -18,7 +18,7 @@ function addToCart(item) {
 
 function viewCart() {
   if (cart.length === 0) { 
-  console.log('Your shopping cart is empty');
+  console.log('Your shopping cart is empty.');
 } else {
   var cartItems = "In your cart, you have";
   for(var i = 0, l = cart.length; i < l; i++);{
@@ -31,7 +31,7 @@ function viewCart() {
                 }
               }
             }
-        console.log(cartItems);
+        return(cartItems);
       }
 }
 
@@ -40,9 +40,24 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+ for(var i = 0, l = cart.length; i < l; i++);
+ { for(var list in cart[i]) {
+   if (item === list) {
+     cart.splice(i,1);
+     return cart
+   }
+ }
+}
+console.log('That item is not in your cart.');
+return cart;
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+ if (cardNumber === undefined) {
+   console.log("We don\'t have a credit card on file for you to place your order.");
+ } else {
+   console.log("Your total cost is $${total()}, which will be charged to the card ${cardNumber}.");
+   card = [];
+   return cart;
+ }
 }
