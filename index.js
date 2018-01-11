@@ -44,7 +44,7 @@ function removeFromCart(item) {
  { for(var list in cart[i]) {
    if (item === list) {
      cart.splice(i,1);
-     return cart
+     return cart;
    }
  }
 }
@@ -57,7 +57,7 @@ function placeOrder(cardNumber) {
    console.log("We don\'t have a credit card on file for you to place your order.");
  } else {
    console.log("Your total cost is $${total()}, which will be charged to the card ${cardNumber}.");
-   card = [];
+   var card = [];
    return cart;
  }
 }
