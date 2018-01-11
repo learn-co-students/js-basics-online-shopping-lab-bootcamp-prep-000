@@ -36,8 +36,13 @@ function viewCart() {
 }
 
 function total(cart) {
-var cart2 = (Object.values(cart));
-  console.log(sum(cart2)); 
+  var prices = [];
+    for( var price in cart ) {
+        if (cart.hasOwnProperty(item) ) {
+            vals.push(obj[item]);
+        }
+    }
+    return prices;
 }
 
 
