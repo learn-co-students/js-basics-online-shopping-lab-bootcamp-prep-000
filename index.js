@@ -37,9 +37,9 @@ function viewCart() {
 
 function total(cart) {
   var sum = 0;
-  for(var item in cart) {
-    if(cart.hasOwnProperty(item) ) {
-      sum += parseFloat(cart[item]);
+  for(var price in cart) {
+    if(cart.hasOwnProperty(price) ) {
+      sum += parseFloat(cart[price]);
     }
   }
   return sum;
@@ -60,7 +60,7 @@ return cart;
 
 function placeOrder(cardNumber) {
  if (cardNumber === undefined) {
-   console.log("We don\'t have a credit card on file for you to place your order.");
+   console.log('Sorry, we don\'t have a credit card on file for you to place your order.');
  } else {
    console.log("Your total cost is ${total()}, which will be charged to the card ${cardNumber}.");
    var card = [];
