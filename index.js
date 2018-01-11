@@ -41,7 +41,7 @@ function total(cart) {
 function sum(prev,next){
   return prev + next;
 }
-car.map(price).reduce(sum);
+cart.map(price).reduce(sum);
 
 
 function removeFromCart(item) {
