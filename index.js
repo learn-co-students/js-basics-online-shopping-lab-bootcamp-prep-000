@@ -35,14 +35,8 @@ function viewCart() {
       }
 }
 
-function total(cart) {
-  var prices = [];
-    for( var item in cart ) {
-        if (cart.hasOwnProperty(item) ) {
-            prices.push(obj[item]);
-        }
-    }
-    return prices;
+function total() {
+  let t = 0;
 }
 
 
