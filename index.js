@@ -35,8 +35,9 @@ function viewCart() {
       }
 }
 
-function total(cart, sum) {
-console.log(Object.values(cart));
+function total(cart) {
+var cart2 = (Object.values(cart));
+  console.log(sum(cart2)); 
 }
 
 
