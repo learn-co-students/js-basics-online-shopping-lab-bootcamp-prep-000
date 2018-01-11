@@ -37,9 +37,9 @@ function viewCart() {
 
 function total(cart) {
   var prices = [];
-    for( var price in cart ) {
+    for( var item in cart ) {
         if (cart.hasOwnProperty(item) ) {
-            vals.push(obj[item]);
+            prices.push(obj[item]);
         }
     }
     return prices;
