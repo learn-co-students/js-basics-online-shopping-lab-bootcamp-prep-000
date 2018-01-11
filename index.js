@@ -36,8 +36,7 @@ function viewCart() {
 }
 
 function total(cart) {
-var total=0;
-for(var price in cart) { total += cart[i]; }
+console.log(sum(Object.keys(cart)));
 }
 
 
