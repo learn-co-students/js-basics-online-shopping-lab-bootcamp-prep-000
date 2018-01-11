@@ -36,6 +36,7 @@ function viewCart() {
 }
 
 function total(cart) {
+  var sum = '';
   for(var price in cart) {
     if(cart.hasOwnProperty(price) ) {
       sum += parseFloat(cart[price]);
