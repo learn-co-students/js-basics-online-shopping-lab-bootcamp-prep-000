@@ -36,9 +36,12 @@ function viewCart() {
 }
 
 function total() {
-  
+  var total_cost = 0;
+  total_cost += cart.price;
+  console.log(total_cost);
 }
-
+cart.forEach(total);
+console.log(total_cost);
 
 function removeFromCart(item) {
  for(var i = 0, l = cart.length; i < l; i++);
