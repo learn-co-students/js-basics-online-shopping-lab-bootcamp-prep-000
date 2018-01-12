@@ -35,9 +35,14 @@ function viewCart() {
       }
 }
 
-function total() {
-  let t = 0;
+var total_cost = 0;
+function total(amount) {
+  total_cost += amount.price;
 }
+cart.forEach(total);
+
+console.log(total_cost);
+
 
 
 function removeFromCart(item) {
