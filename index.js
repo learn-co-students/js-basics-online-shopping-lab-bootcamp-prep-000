@@ -33,7 +33,7 @@ function viewCart() {
         if (i === (cart.length - 1)) {
           // i is 0 (last item), so put period
           cartString = cartString + ".";
-        } // end of if i === 0
+        } // end of if i === len-1
         
         if (i === (cart.length - 2)) {
           if (cart.length > 2) {
@@ -43,12 +43,12 @@ function viewCart() {
           // just need " and "
           cartString = cartString + " and ";
           }
-        } // end of if i === 1
+        } // end of if i === len-2
 
         if (i < (cart.length - 2)) {
           // more to come, so we need a comma
           cartString = cartString + ", ";
-        } // end of if i >= 2
+        } // end of if i < len-2
       } // end for loop
       console.log(cartString);
     } // end of else (cart not empty)
