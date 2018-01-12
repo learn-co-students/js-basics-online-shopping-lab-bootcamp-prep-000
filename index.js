@@ -22,19 +22,15 @@ function viewCart() {
   if (cart.length === 0) { 
   console.log('Your shopping cart is empty.');
 } else {
-  var cartItems = "In your cart, you have";
-  for(var i = 0, l = cart.length; i < l; i++);{
-    for(var item in cart[i]){
-      cartItems+=`${item} at $${cart[i][item]}`;
-        if(i!==cart.length-1){
-           cartItems+=", ";
-               } else {
-               cartItems+=".";
-                }
-              }
-            }
-        console.log(cartItems);
+var items = [];
+for (var i = 0; i < 2; i++) {
+for (var item in cart[i]) {
+items.push(item + " at $" + cart[i][item]);
       }
+    }
+console.log("In your cart, you have " + items.join(" and ") + ".");
+    
+  }
 }
 
 function total() {
