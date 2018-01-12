@@ -18,28 +18,31 @@ console.log(item + " has been added to your cart.");
 return cart;
 }
 
-function viewCart() {
+ function viewCart() {
   if (cart.length === 0) { 
   console.log('Your shopping cart is empty.');
 } else {
 var items = [];
 for (var i = 0; i < cart.length; i++) {
-for (var item in cart[i]) {
+for (var item in cart[i]){
 items.push(item + " at $" + cart[i][item]);
       }
     }
 console.log("In your cart, you have " + items.join(" and ") + ".");
-  } 
-}
+  	} 
+  }
 
 
 function total() {
-  var total_cost = 0;
-  total_cost += cart.price;
-  console.log(total_cost);
+  var items = [];
+for (var i = 0; i < cart.length; i++) {
+  for (var item in cart[i]){
+    items.push(cart[i][item]);
+    console.log(sum(items));
+     }
+   }
 }
-cart.forEach(total);
-console.log(total_cost);
+
 
 function removeFromCart(item) {
  for(var i = 0, l = cart.length; i < l; i++);
