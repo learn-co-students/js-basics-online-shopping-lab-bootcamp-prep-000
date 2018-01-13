@@ -18,7 +18,8 @@ console.log(item + " has been added to your cart.");
 return cart;
 }
 
- function viewCart() {
+
+  function viewCart() {
   if (cart.length === 0) { 
   console.log('Your shopping cart is empty.');
 } else {
@@ -32,15 +33,15 @@ console.log("In your cart, you have " + items.join(" and ") + ".");
   	} 
   }
 
-
 function total() {
-  var items = [];
-for (var i = 0; i < cart.length; i++) {
-  for (var item in cart[i]){
-    items.push(cart[i][item]);
-    console.log(sum(items));
-     }
-   }
+  var amount = 0; 
+
+  for (var i = 0, l = cart.length; i < l; i++) {
+    for (var item in cart[i]) {
+     amount += cart[i][item];
+    }
+  }
+  console.log(amount);
 }
 
 
