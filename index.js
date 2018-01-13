@@ -20,7 +20,9 @@ function addToCart(item) {
  console.log(`${itemName} has been added to your cart.`)
 
  return cart
+
 }
+
 
 function viewCart() {
   // write your code here
@@ -68,6 +70,7 @@ function removeFromCart(item) {
   } else {
     console.log ("That item is not in your cart.")
   }
+
 }
 
 
