@@ -55,12 +55,24 @@ function total() {
   while (i < cart.length){
     currentItem = Object.keys(getCart()[i])[0];
     total = total + getCart()[i][currentItem];
-    i++; //need to work on this still
+    i++;
+  }
   return total;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  // Need to find out the index matching the item //
+  var i = -1;
+  var foundItem = false;
+  while ((i < cart.length) && (foundItem === false)){
+    i++;
+    if (cart[i].hasOwnProperty(item)){
+      cart.splice(i,1);
+      foundItem = true;
+    } else if (foundItem===false) {
+      console.log("That item is not in your cart.");
+    }
+  }
 }
 
 function placeOrder(cardNumber) {

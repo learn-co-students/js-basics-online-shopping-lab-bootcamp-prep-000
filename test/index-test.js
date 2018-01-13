@@ -162,7 +162,7 @@ describe("removeFromCart()", function() {
     addToCart("vanilla");
     addToCart("watermelon");
     addToCart("yams");
-
+    
     removeFromCart("watermelon");
 
     const firstItem = Object.keys(getCart()[0])[0];
