@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(itemName) {
-var itemPrice =  Math.floor(Math.random() * 100);
+var itemPrice =  Math.floor(Math.random() * 100) + 1;
 cart.push({ [itemName]: itemPrice });
 console.log(`${itemName} has been added to your cart.`)
 return cart;
@@ -51,7 +51,15 @@ for(let name in cart[i]) {
 }
 
 function removeFromCart(item) {
-  // write your code here
+ for(let i = 0; i < cart.length; i++) {
+  let nameAndPrice = cart[i]
+  if(nameAndPrice.hasOwnProperty(item)) {
+    
+  } else {
+    console.log("That item is not in your cart.")
+    return cart;
+  }
+  }
 }
 
 function placeOrder(cardNumber) {
