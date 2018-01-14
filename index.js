@@ -31,10 +31,10 @@ function viewCart() {
 
 function total() {
   // write your code here
-
+  var v=Object.values(cart);
   var total=0;
   for(let i=cart.length;i>0;i--){
-    total+=parseInt(Object.values(cart)[cart.length-i]);
+    total+=parseInt(v[cart.length-i]);
   }
   return total
 }
