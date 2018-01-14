@@ -19,11 +19,16 @@ return cart;
 }
 
 function viewCart() {
+  if(cart.length === 0) {
+    console.log("Your shopping cart is empty.")
+  }
+  var items = []
   for(let i = 0; i < cart.length; i++) {
-    var name = Object.keys(cart);
-    var price = Object.values(cart);
-    var item = console.log(`${name[i]} at ${price[i]}`)
-    console.log("In your cart, you have " + item +".")
+    let nameAndPrice = cart[i]
+    var name = Object.keys(nameAndPrice);
+    var price = nameAndPrice[name];
+    items.push(`${name} at \$${price}`)
+    console.log(`In your cart, you have ${items[i]}.`)
   }
 
 }
