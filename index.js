@@ -62,19 +62,26 @@ function total() {
 
 function removeFromCart(item) {
   // Need to find out the index matching the item //
-  var i = -1;
+  var i = 0;
   var foundItem = false;
   while ((i < cart.length) && (foundItem === false)){
-    i++;
     if (cart[i].hasOwnProperty(item)){
       cart.splice(i,1);
       foundItem = true;
-    } else if (foundItem===false) {
-      console.log("That item is not in your cart.");
+    } else {
+      i++;
     }
+  }
+  if (foundItem===false){
+    console.log("That item is not in your cart.");
   }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (cardNumber > 0){
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+    cart = [];
+  } else {
+    console.log("Sorry, we don't have a credit card on file for you.");
+  }
 }
