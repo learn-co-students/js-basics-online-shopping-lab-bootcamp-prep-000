@@ -41,10 +41,10 @@ switch(items.length) {
 
 function total() {
   for(let i = 0; i < cart.length; i++) {
-    let nameAndPrice = cart[i]
-    var name = Object.keys(nameAndPrice);
+for(let name in cart[i]) {
     var sum = 0
-    sum += parseInt(nameAndPrice[name]);
+    sum += parseInt(cart[i][name]);
+}
   }
   return sum;
 }
