@@ -11,10 +11,15 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
+<<<<<<< HEAD
 var test= new Object();
 test[item]=Math.floor(Math.random()*100);
 cart.push(test);
 console.log(`${item} has been added to your cart.`);
+=======
+Object.assign(cart,{item: Math.floor(Math.random()*100)});
+console.log(`${cart。item} has been added to your cart.`);
+
 return cart
 }
 
@@ -31,8 +36,10 @@ function viewCart() {
 
 function total() {
   // write your code here
-  var v=Object.values(cart);
-  var total=parseInt(v[0]);
+
+
+    var v=Object.values(cart[0]);
+    var total=parseInt(v);
 
   return total
 }
