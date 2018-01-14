@@ -55,8 +55,7 @@ function removeFromCart(item) {
  for(let i = 0; i < cart.length; i++) {
   let nameAndPrice = cart[i]
   if(nameAndPrice.hasOwnProperty(item)) {
-    var index = cart.findIndex(nameAndPrice.hasOwnProperty(item))
-    cart.splice(index,1);
+    var product = true;
   } else {
     console.log("That item is not in your cart.")
     return cart;
