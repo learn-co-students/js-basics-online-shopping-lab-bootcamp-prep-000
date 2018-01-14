@@ -19,7 +19,13 @@ return cart;
 }
 
 function viewCart() {
-  // write your code here
+  for(let i = 0; cart.length < 0; i++) {
+    var name = Object.keys(cart);
+    var price = Object.values(cart);
+    var item = console.log(`${name[i]} at ${price[i]}`)
+    console.log("In your cart, you have " + item +".")
+  }
+
 }
 
 function total() {
