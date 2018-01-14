@@ -28,9 +28,17 @@ function viewCart() {
     var name = Object.keys(nameAndPrice);
     var price = nameAndPrice[name];
     items.push(`${name} at \$${price}`)
-    console.log(`In your cart, you have ${items[i]}.`)
   }
-
+switch(items.length) {
+  case 1:
+    break;
+  case 2:
+    items = items.join(" and ");
+    break;
+  default:
+    items = items.join(", ");
+}
+    console.log(`In your cart, you have ${items}.`)
 }
 
 function total() {
