@@ -19,15 +19,14 @@ return cart;
 }
 
 function viewCart() {
-  const l = cart.length;
-  if (!l) {
-    return console.log('Your shopping cart is empty.');
+ if (cart.length === 0) {
+ console.log('Your shopping cart is empty.')
   }
-  let itemPrices = [];
-  for (let i = 0; i < l; i++) {
-    let itemPrice = cart[i];
-    let item = Object.keys(itemPrice)[0];
-    let price = itemPrice[item];
+	  var itemPrices = [];
+  for (var i = 0; i < cart.length; i++) {
+    var itemPrice = cart[i];
+    var item = Object.keys(itemPrice)[0];
+    var price = itemPrice[item];
     itemPrices.push(`${item} at \$${price}`);
   }
 
@@ -38,7 +37,7 @@ function viewCart() {
       itemPrices = itemPrices.join(' and ');
       break;
     default:
-      itemPrices[l-1] = 'and '.concat(itemPrices[l-1]);
+      itemPrices[cart.length-1] = 'and '.concat(itemPrices[cart.length-1]);
       itemPrices = itemPrices.join(', ');
   }
 
