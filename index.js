@@ -32,10 +32,8 @@ function viewCart() {
 function total() {
   // write your code here
   var v=Object.values(cart);
-  var total=0;
-  for(let i=cart.length;i>0;i--){
-    total+=parseInt(v[cart.length-i]);
-  }
+  var total=parseInt(v[0]);
+
   return total
 }
 
