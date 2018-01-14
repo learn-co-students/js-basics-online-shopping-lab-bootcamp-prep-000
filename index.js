@@ -48,7 +48,7 @@ function total() {
     var sum = 0
     sum += parseInt(nameAndPrice[name]);
   }
-  console.log(`${sum}`);
+  return sum;
 }
 
 function removeFromCart(item) {
