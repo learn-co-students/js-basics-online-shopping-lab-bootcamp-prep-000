@@ -6,8 +6,6 @@ function randomPrice() {
 
 
 function getCart(item) {
-  cart.push({[item]: randomPrice()});
-  console.log(`${item} has been added to the cart.`);
   return cart;
 }
 
@@ -17,7 +15,9 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  cart.push({[item]: randomPrice()});
+  console.log(`${item} has been added to the cart.`);
+  return cart;
 }
 
 function viewCart() {
