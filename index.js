@@ -5,7 +5,7 @@ function randomPrice() {
 }
 
 
-function getCart(item) {
+function getCart() {
   return cart;
 }
 
@@ -17,7 +17,7 @@ function setCart(c) {
 function addToCart(item) {
   cart.push({[item]: randomPrice()});
   console.log(`${item} has been added to the cart.`);
-  return cart;
+  getCart();
 }
 
 function viewCart() {
@@ -46,11 +46,25 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var total = 0
+  
+  for (let item of cart) {
+    total += parseInt((Object.values(item)[0]));
+  }
+  return total;
 }
 
-function removeFromCart(item) {
-  // write your code here
+function removeFromCart(name) {
+  var index = 0;
+  for (let item of cart) {
+    
+    if name === (Object.keys(item)[0]) {
+      cart.splice(index, 1);
+    } else {
+      console.log("That item is not in your cart.")
+    }
+  }
+  return getCart();
 }
 
 function placeOrder(cardNumber) {
