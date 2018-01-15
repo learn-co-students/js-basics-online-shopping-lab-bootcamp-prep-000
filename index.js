@@ -6,7 +6,7 @@ function randomPrice() {
 
 
 function getCart(item) {
-  cart.push({[item]: [randomPrice()]});
+  cart.push({[item]: randomPrice()});
   console.log(`${item} has been added to the cart.`);
   return cart;
 }
@@ -31,6 +31,8 @@ function viewCart() {
   }
   
   switch (products.length) {
+  case 0:
+    return "Your shopping cart is empty."
   case 1:
     return message += `${products[0]} at $${prices[0]}.`;
   case 2:
@@ -39,7 +41,7 @@ function viewCart() {
     for(let i = 0; i < products.length - 1; i++) {
       message += `${products[i]} at $${prices[i]}, `
     }
-    return message += `and ${products[products.length]} at $${prices[products.length]}.`
+    return message += `and ${products[products.length -1]} at $${prices[products.length -1]}.`
   }
 }
 
