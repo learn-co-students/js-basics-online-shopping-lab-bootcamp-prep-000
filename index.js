@@ -17,7 +17,7 @@ function setCart(c) {
 function addToCart(item) {
   cart.push({[item]: randomPrice()});
   console.log(`${item} has been added to your cart.`);
-  getCart();
+  return getCart();
 }
 
 function viewCart() {
@@ -77,4 +77,24 @@ function placeOrder(cardNumber) {
    } else {
     console.log("Sorry, we don't have a credit card on file for you.");
   }
+}
+
+function objectValues(obj) {
+  var res = [];
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      res.push(obj[i]);
+    }
+  }
+  return res;
+}
+
+function objectKeys(obj) {
+  var res = [];
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      res.push(obj[i]);
+    }
+  }
+  return res;
 }
