@@ -52,17 +52,20 @@ for(let name in cart[i]) {
 }
 
 function removeFromCart(item) {
+  var product = false;
  for(let i = 0; i < cart.length; i++) {
+  let len = cart.length
   let nameAndPrice = cart[i]
   if(nameAndPrice.hasOwnProperty(item)) {
-    cart.splice(i,cart.length)
-    return cart
+    product = true;
+    cart = cart.slice(0, i).concat(cart.slice(i + 1))
+    len--
   } else {
     console.log("That item is not in your cart.")
-    return cart;
+    
   }
   }
-
+return cart;
 }
 
 function placeOrder(cardNumber) {
