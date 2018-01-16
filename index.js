@@ -56,6 +56,7 @@ function removeFromCart(item) {
   let nameAndPrice = cart[i]
   if(nameAndPrice.hasOwnProperty(item)) {
     var product = true;
+    cart.splice(0,i).concat()
   } else {
     console.log("That item is not in your cart.")
     return cart;
@@ -64,5 +65,7 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if() {
+    
+  }
 }
