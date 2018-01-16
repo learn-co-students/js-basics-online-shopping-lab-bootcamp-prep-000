@@ -60,10 +60,10 @@ function removeFromCart(item) {
     product = true;
     cart = cart.slice(0, i).concat(cart.slice(i + 1))
     len--
-  } else {
-    console.log("That item is not in your cart.")
-    
+  } 
   }
+  if (product === false) {
+    console.log("That item is not in your cart.");
   }
 return cart;
 }
