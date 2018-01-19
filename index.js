@@ -36,7 +36,7 @@ function viewCart() {
         out.push(` and ${items[i]} at $${prices[i]}`);
       }
     }  
-    return `In your cart, you have${out}.`;
+    console.log(`In your cart, you have${out}.`);
   }
 }
 
@@ -50,9 +50,24 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+  var length = cart.length
+  for(var i=0; i<cart.length; i++){
+    if(item === Object.keys(cart[i])){
+    cart.splice(i, 1)
+    return cart
+    }
+  }
+  if(length === cart.length){
+    return cart
+  }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if(cardNumber === ""){
+    return "Sorry, we don't have a credit card on file for you."
+  }
+  else{
+    return `Your total cost is $${total()}, which will  be charded to the card ${cardNumber}.`
+    var cart = []
+  }
 }
