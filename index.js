@@ -29,7 +29,7 @@ function viewCart() {
     }
     var out = [];
     for(var i=0; i<cart.length; i++){
-    if(i<cart.length-1 || cart.length===1){
+      if(i<cart.length-1 || cart.length===1){
         out.push(` ${items[i]} at $${prices[i]}`);
       }
       else{
@@ -52,22 +52,23 @@ function total() {
 function removeFromCart(item) {
   var length = cart.length
   for(var i=0; i<cart.length; i++){
-    if(item === Object.keys(cart[i])){
+    if(cart[i].hasOwnProperty(item)) {
     cart.splice(i, 1)
-    return cart
+    console.log(`${cart}`)
     }
   }
   if(length === cart.length){
-    return cart
+    console.log("That item is not in your cart.")
+    console.log(`${cart}`)
   }
 }
 
 function placeOrder(cardNumber) {
   if(cardNumber === ""){
-    return "Sorry, we don't have a credit card on file for you."
+    console.log("Sorry, we don't have a credit card on file for you.");
   }
   else{
-    return `Your total cost is $${total()}, which will  be charded to the card ${cardNumber}.`
-    var cart = []
+    console.log(`Your total cost is $${total()}, which will  be charded to the card ${cardNumber}.`);
+    var cart = [];
   }
 }
