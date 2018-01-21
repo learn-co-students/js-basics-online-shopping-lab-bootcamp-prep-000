@@ -39,10 +39,6 @@ function viewCart() {
   console.log(threePlusItems)
 }
 
-addToCart("apples");
-addToCart("oranges");
-addToCart("bananas");
-
 viewCart()
 
 function total() {
