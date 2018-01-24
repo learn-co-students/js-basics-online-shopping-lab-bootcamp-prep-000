@@ -25,7 +25,6 @@ function viewCart() {
   } else if (cart.length === 2) {
     console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])} and ${Object.keys(cart[1])} at $${Object.values(cart[1])}.`)
   } else {
-    var i
     var text = "In your cart, you have "
     for (var i = 0; i < cart.length - 1; i++) {
       text += `${Object.keys(cart[i])} at $${Object.values(cart[i])}, `
@@ -57,5 +56,12 @@ function removeFromCart(item) {
 
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var computer = {shopper:[cardNumber]}
+  for (var i = 0; i < computer.length; i++) {
+    if (computer[i].hasOwnProperty(cardNumber)) {
+      console.log(`Your total cost is $${sum}, which will be charged to the card ${cardNumber}.`)
+  } else {
+      console.log("Sorry, we don't have a credit card on file for you.")
+  }
+ }
 }
