@@ -85,7 +85,7 @@ describe("viewCart()", function() {
   it("correctly prints a one-item cart", function() {
     addToCart("lemons");
 
-    const lemonsCost = getCart()[0]["lemons"];
+ const lemonsCost = getCart()[0]["lemons"];
 
     viewCart();
 

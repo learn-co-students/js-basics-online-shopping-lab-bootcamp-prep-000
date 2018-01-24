@@ -18,21 +18,24 @@ function addToCart(itemName) {
 }
 
 function viewCart() {
-  if (cart.length===0){
-    console.log("Your shopping cart is empty.");
-  } else{
-  let items=Object.keys(cart);
-  let prices=Object.values(cart);
-for (var i=0; i<items.length; i++);{
-  if (i===0){
-  console.log(`In your cart, you have ${items[i]} at $${prices[i]}.`);
-}else if (i===1){
-  console.log(`In your cart,you have ${items[i-1]} at $${prices[i-1]} and ${items[i]} at $${prices[i]}.`
-);    
-  }else {
-    console.log(`In your cart, you have ${item[i-2]} at $${prices[i-2]}, ${items[i-1]} at $${prices[i-1]}, and ${items[i]} at $${prices[i]}.`);
-  }
+  let newArray=[];
+  if (cart.length>0){
+for (var i=0; i<cart.length; i++){
+  let item=Object.keys(cart[i])[0];
+  let price=cart[i][item];
+  newArray.push(`${item} at $${price}`);
 }
+if (newArray.length===1){
+console.log(`In your cart, you have ${newArray.join(", ")}.`);
+} else if (newArray.length===2){
+console.log(`In your cart, you have ${newArray.join(" and ")}.`);
+} else if (newArray.length>2){
+ newArray[newArray.length-1]="and ".concat(newArray[newArray.length-1]);
+ console.log(`In your cart, you have ${newArray.join(", ")}.`);
+}
+     
+  } else {
+  console.log("Your shopping cart is empty.");
 }
 }
 
