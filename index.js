@@ -44,20 +44,16 @@ function total() {
 }
 
 function removeFromCart(item) {
-  let itemInCart = false
 
   for (var i = 0; i < cart.length; i++) {
     if(cart[i].hasOwnProperty(item)) {
-      itemInCart = true
-      cart = cart.splice(i,1)
+      cart.splice(i,1)
+    } else {
+      console.log("That item is not in your cart.")
     }
   }
-
-  if (itemInCart = false) {
-    console.log("That item is not in your cart.")
-  }
   return cart
-}
+ }
 
 
 function placeOrder(cardNumber) {
