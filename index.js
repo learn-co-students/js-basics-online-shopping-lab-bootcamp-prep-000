@@ -39,16 +39,12 @@ console.log(`In your cart, you have ${newArray.join(" and ")}.`);
 }
 
 function total() {
-let prices=[];
 let sum=0;
 
 for (let i=0; i<cart.length; i++){
   sum+=(Object.values(cart[i])[0]);
-}
-//prices.reduce(function(a, value) {a + value;
-//  return accumulator
-//})
 return sum;
+}
 }
 
 function removeFromCart(item) {
