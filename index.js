@@ -25,17 +25,19 @@ function addToCart(item) {
 function viewCart() {
   // write your code here
   if(cart.length === 1) {
-    return `In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}.`
-  } else if(cart.length > 0){
-    var view = `In your cart, you have `;
-    for(var i = 0; i < cart.length - 1; i++) {
-      view = view + `${Object.keys(cart[i])} at $${Object.values(cart[i])}, `;
-    }
+    console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}.`)
+  } else if(cart.length === 0){
+    return console.log(`Your shopping cart is empty.`);
+  } else if(cart.length === 2) {
+    console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])} and ${Object.keys(cart[1])} at $${Object.values(cart[1])}.`)
   } else {
-    return `Your shopping cart is empty.`;
+    var view = `In your cart, you have `
+    for(var i = 0; i < cart.length - 1; i++) {
+    view += `${Object.keys(cart[i])} at $${Object.values(cart[i])}, `;
+    }
+    view += `and ${Object.keys(cart[cart.length-1])} at $${Object.values(cart[cart.length-1])}.`;
+    console.log(view);
   }
-  view = view + `and ${Object.keys(cart[i])} at $${Object.values(cart[i])}. `;
-  return view;
 }
 
 //Write a function that iterates through the cart array and returns the current total value
@@ -68,9 +70,11 @@ function removeFromCart(item) {
 //print the total cost, and then empty the cart array
 function placeOrder(cardNumber) {
   // write your code here
-  if(cardNumber === undefined) {
-    return `Sorry we don't have a credit card on file for you.`
+  if(cardNumber == undefined) {
+    console.log("Sorry, we don't have a credit card on file for you.");
   } else {
-    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+    cart = [];
+    return cart;
   }
 }
