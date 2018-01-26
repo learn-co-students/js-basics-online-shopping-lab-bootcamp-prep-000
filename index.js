@@ -1,4 +1,4 @@
-var cart = [];
+var cart = new Object({});
 
 function getCart() {
  return cart;
@@ -10,11 +10,25 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ Object.assign({},cart,{item:Math.floor(Math.random()*100)+1});
+ console.log('${item} has been added to your cart.');
+ return cart;
 }
 
 function viewCart() {
-  // write your code here
+  var string = "In your cart, you have";
+  if(cart.length>0)
+  {
+  for(var x =0; x < cart.length; x++)
+  {
+    string= string + cart[x]+" at $"+ cart[x].value+(x==cart.length-1?".":"")+(x==cart.length-1?", and ":"")+(x<cart.length-2?", ");
+  }
+  }
+  else
+  {
+    string= "Your shopping cart is empty";
+  }
+  console.log(string);
 }
 
 function total() {
