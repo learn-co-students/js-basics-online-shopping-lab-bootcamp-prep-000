@@ -52,7 +52,13 @@ else if ( cart.length === 1) {
 
 
 function total() {
-  // write your code here
+  var cartLoop = []
+  for (var i = 0; i > cart.length; i++) {
+    var itemName = Object.keys(cart[i])
+    var itemPrice = cart[i][itemName]
+    cart.push(cartLoop)
+  }
+  return itemPrice
 }
 
 function removeFromCart(item) {
