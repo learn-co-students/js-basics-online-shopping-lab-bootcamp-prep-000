@@ -50,7 +50,7 @@ else if ( cart.length === 1) {
 }
 }
 
-
+//
 function total() {
   var cartLoop = []
   for (var i = 0; i > cart.length; i++) {
