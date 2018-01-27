@@ -26,10 +26,22 @@ else if ( cart.length === 1) {
   console.log (`In your cart, you have ${itemName} at $${itemPrice}.`)
   }
   else if (cart.length === 2) {
-    var itemName = Object.keys(cart[1])
-    var itemPrice = cart[1][itemName]
-    console.log (`In your cart, you have ${itemName[0]} at ${itemPrice[0]} and ${itemName[1]} at $${itemPrice[1]}.`)
+    var itemName = Object.keys(cart[0])
+    var itemPrice = cart[0][itemName]
+    var itemN = Object.keys(cart[1])
+    var itemP = cart[1][itemN]
+    console.log (`In your cart, you have ${itemName} at $${itemPrice} and ${itemN} at $${itemP}.`)
   }
+  else if (cart.length >= 3) {
+    var itemName = Object.keys(cart[0])
+    var itemPrice = cart[0][itemName]
+    var itemN = Object.keys(cart[1])
+    var itemP = cart[1][itemN]
+    var cartitem = Object.keys(cart[2])
+    var cartprice = cart[2][cartitem]
+    console.log(`In your cart, you have ${itemName} at $${itemPrice}, ${itemN} at $${itemP}, and ${cartitem} at $${cartprice}}.`)
+  }
+
 }
 
 function total() {
