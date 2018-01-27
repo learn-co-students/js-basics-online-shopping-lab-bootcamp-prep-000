@@ -18,6 +18,7 @@ function addToCart(item) {
 }
 
 // cart = [{pear: 30}]
+
 function viewCart(){
 if (cart.length === 0) {console.log("Your shopping cart is empty.") }
 else if ( cart.length === 1) {
@@ -33,16 +34,22 @@ else if ( cart.length === 1) {
     console.log (`In your cart, you have ${itemName} at $${itemPrice} and ${itemN} at $${itemP}.`)
   }
   else if (cart.length >= 3) {
-    var itemName = Object.keys(cart[0])
-    var itemPrice = cart[0][itemName]
-    var itemN = Object.keys(cart[1])
-    var itemP = cart[1][itemN]
-    var cartitem = Object.keys(cart[2])
-    var cartprice = cart[2][cartitem]
-    console.log(`In your cart, you have ${itemName} at $${itemPrice}, ${itemN} at $${itemP}, and ${cartitem} at $${cartprice}}.`)
-  }
-
+    var cartLoop = []
+    for (var i = 0; i < cart.length; i++) {
+      var itemName = Object.keys(cart[i])
+      var itemPrice = cart[i][itemName]
+      if (cart.length - 1 === i){
+        var itemList = `and ${itemName} at $${itemPrice}`
+      }
+      else {
+      var itemList = `${itemName} at $${itemPrice}`
+    }
+    cartLoop.push(itemList)
+    }
+    console.log(`In your cart, you have ${cartLoop.join(", ")}.`)
 }
+}
+
 
 function total() {
   // write your code here
