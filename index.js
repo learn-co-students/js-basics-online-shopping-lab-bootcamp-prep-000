@@ -52,19 +52,24 @@ else if ( cart.length === 1) {
 
 //
 function total() {
-  var cartLoop = []
-  for (var i = 0; i > cart.length; i++) {
+  var sum = 0
+  for (var i = 0; i < cart.length; i++){
     var itemName = Object.keys(cart[i])
     var itemPrice = cart[i][itemName]
-    cart.push(cartLoop)
+    sum = sum + parseInt(`${itemPrice}`)
   }
-  return itemPrice
+return sum
 }
+
 
 function removeFromCart(item) {
   // write your code here
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {console.log(`Sorry, we don't have a credit card on file for you.`)}
+  else {
+    console.log(`Your total cost is $` + total() + `, which will be charged to the card ${cardNumber}.`)
+    cart = [] 
+  }
 }
