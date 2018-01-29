@@ -63,6 +63,7 @@ return sum
 
 
 function removeFromCart(item) {
+ var itemFound = False
   for (var i = 0; i < cart.length; i++) {
     var itemName = Object.keys(cart[i])
     var currentItemObj = cart[i]
