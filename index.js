@@ -63,20 +63,18 @@ return sum
 
 
 function removeFromCart(item) {
- var itemFound = False
+
   for (var i = 0; i < cart.length; i++) {
     var itemName = Object.keys(cart[i])
     var currentItemObj = cart[i]
     if (currentItemObj.hasOwnProperty(item)) {
       cart = cart.slice(0,i).concat(cart.slice(i+1))
-    return cart 
+  
+          return cart
     }
-
-      else {
-        console.log(`That item is not in your cart.`)
-    }
-    return cart
   }
+  console.log(`That item is not in your cart.`)
+  return cart
 }
 
 function placeOrder(cardNumber) {
