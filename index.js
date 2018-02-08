@@ -84,6 +84,18 @@ function total() {
   return totalItem;
 }
 
+
+function removeFromCart(item) {
+  // write your code here
+  for (let i = 0, l = cart.length; i < l; i++){
+    if (cart[i].hasOwnProperty(item)){
+      console.log('delete');
+      cart.remove(i);
+      return cart;
+    }
+  }
+}
+
 //  TEST code
 cart = [];
 addToCart("Bran Muffins");
@@ -91,12 +103,9 @@ addToCart("Seeds");
 addToCart("Apples");
 addToCart("Pears");
 viewCart();
-total();
+removeFromCart('Seeds');
+viewCart();
 
-
-function removeFromCart(item) {
-  // write your code here
-}
 
 function placeOrder(cardNumber) {
   // write your code here
