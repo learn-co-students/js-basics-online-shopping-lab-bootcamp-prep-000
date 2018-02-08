@@ -34,7 +34,7 @@ function viewCart() {
     indivItem = Object.keys(indivObj);
     itemName = indivItem[0];
     itemPrice = indivObj[itemName];
-    console.log(`In your cart, you have ${itemName} at $${itemPrice}.`)
+    console.log(`In your cart, you have ${itemName} at $${itemPrice}.`);
     return cart;
   } 
   if (cart.length === 2) { 
@@ -46,7 +46,7 @@ function viewCart() {
       itemPrice = indivObj[itemName];
       itemList[i] = `${itemName} at $${itemPrice}`;
     }
-    console.log(`In your cart, you have ${itemList.join(' and ')}.`)
+    console.log(`In your cart, you have ${itemList.join(' and ')}.`);
     return cart;
   }
   if (cart.length > 2) {
@@ -67,11 +67,11 @@ function viewCart() {
 
 function total() {
   // write your code here
-  var totalItem = 0
-  var indivObj = {}  // captures each object
-  var indivItem = [] //array of keys within each object
-  var itemName = ''  //specific object key - i.e., item name
-  var itemPrice = 0  //object value - i.e., item price
+  var totalItem = 0;
+  var indivObj = {};  // captures each object
+  var indivItem = []; //array of keys within each object
+  var itemName = '';  //specific object key - i.e., item name
+  var itemPrice = 0;  //object value - i.e., item price
   
   for (let i = 0, l = cart.length; i < l; i++){
     indivObj = cart[i];
@@ -94,7 +94,7 @@ function removeFromCart(item) {
       return cart;
     }
   }
-  console.log("That item is not in your cart.")
+  console.log("That item is not in your cart.");
   return cart;
 }
 
@@ -102,14 +102,13 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
   if (!cardNumber) {
-   console.log("Sorry, we don't have a credit card on file for you.")
+   console.log("Sorry, we don't have a credit card on file for you.");
    return;
   } else {
     var t = total();
-    console.log(t)
     cart = [];
-    console.log('Your total cost is ${t}, which will be charged to the card ${cardNumber}');
-    return;
+    console.log(`Your total cost is $${t}, which will be charged to the card ${cardNumber}.`);
+    return cart;
   }
 }
 
