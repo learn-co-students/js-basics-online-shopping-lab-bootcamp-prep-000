@@ -89,6 +89,8 @@ describe("viewCart()", function() {
 
     viewCart();
 
+    console.log('lois', viewCart())
+
     expect(console.log).toHaveBeenCalledWith(
       `In your cart, you have lemons at $${lemonsCost}.`
     );
