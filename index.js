@@ -19,21 +19,33 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  var cartStr = 'In your cart, you have';
+  
   if (cart.length === 0) {
     console.log(`Your shopping cart is empty.`);
-  }
-  
-  var cartStr = 'In your cart, you have ';
-  
-  for (var i = 0; i < cart.length; i++) {
+  } else { 
+    for (var i = 0; i < cart.length; i++) {
     for (var key in cart[i]) {
-      var item = [key];
-      var price = cart[i][key]
-      if (cart.length === 1) {
-        console.log(cartStr += `${item} at $${price}.`)
+      var item = key;
+      var price = cart[i][key];
+      
+      cartStr += ` ${item} at $${price}`;
+      
+      if ((i !== cart.length - 1 && cart.length > 2) || (i === cart.length - (3 + i) && cart.length > 2)) {
+        cartStr += ',';
+      }
+      
+      if (i === cart.length - 1) {
+        cartStr += '.'
+      }
+      
+      if (cart.length > 1 && i === cart.length - 2 ) {
+        cartStr += ' and' 
       }
     }
   }
+  console.log(cartStr);
+ }
 }
 
 function total() {
