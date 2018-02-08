@@ -30,7 +30,7 @@ function viewCart() {
     return cart;
   }
   if (cart.length === 1) {
-    indivObj = cart.shift();
+    indivObj = cart[0];
     indivItem = Object.keys(indivObj);
     itemName = indivItem[0];
     itemPrice = indivObj[itemName];
@@ -40,7 +40,7 @@ function viewCart() {
   if (cart.length === 2) { 
     // 2 items
     for (let i = 0, l = cart.length; i < l; i++) {
-      indivObj = cart.shift();
+      indivObj = cart[i];
       indivItem = Object.keys(indivObj);
       itemName = indivItem[0];
       itemPrice = indivObj[itemName];
@@ -52,41 +52,47 @@ function viewCart() {
   if (cart.length > 2) {
     // 3 or more items
     for (let i = 0, l = cart.length; i < l; i++) {
-      indivObj = cart.shift();
+      indivObj = cart[i];
       indivItem = Object.keys(indivObj);
       itemName = indivItem[0];
       itemPrice = indivObj[itemName];
       itemList[i] = `${itemName} at $${itemPrice}`;
     }
-    var lastItem = itemList.pop()
-    console.log(lastItem)
-    console.log(`In your cart, you have ${itemList.join(', ')}, and ${lastItem}.`)
+    var lastItem = itemList.pop();
+    console.log(`In your cart, you have ${itemList.join(', ')}, and ${lastItem}.`);
     return cart;
   }
 }
 
-//  TEST code
-//cart = []
-addToCart("Bran Muffins")
-addToCart("Seeds")
-addToCart("Apples")
-addToCart("Pears")
-//viewCart()
-console.log(cart)
-var tempCart = cart;
-console.log(tempCart);
-var b = tempCart.shift();
-console.log(cart);
-console.log(tempCart);
-console.log(b);
-
 
 function total() {
   // write your code here
+  var totalItem = 0
+  var indivObj = {}  // captures each object
+  var indivItem = [] //array of keys within each object
+  var itemName = ''  //specific object key - i.e., item name
+  var itemPrice = 0  //object value - i.e., item price
+  
   for (let i = 0, l = cart.length; i < l; i++){
-    
+    indivObj = cart[i];
+    indivItem = Object.keys(indivObj);
+    itemName = indivItem[0];
+    itemPrice = indivObj[itemName];
+    totalItem += itemPrice;
+    console.log(totalItem + '  ' + itemPrice)
   }
+  return totalItem;
 }
+
+//  TEST code
+cart = [];
+addToCart("Bran Muffins");
+addToCart("Seeds");
+addToCart("Apples");
+addToCart("Pears");
+viewCart();
+total();
+
 
 function removeFromCart(item) {
   // write your code here
