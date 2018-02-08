@@ -24,13 +24,15 @@ function viewCart() {
   }
   
   var cartStr = 'In your cart, you have ';
-  var firstItem = Object.keys(cart[0]);
-  var firstItemPrice = Object.values(cart[0]);
   
   for (var i = 0; i < cart.length; i++) {
+    for (var key in cart[i]) {
+      var item = [key];
+      var price = cart[i][key]
       if (cart.length === 1) {
-        console.log(cartStr += `${firstItem} at $${firstItemPrice}.`)
+        console.log(cartStr += `${item} at $${price}.`)
       }
+    }
   }
 }
 
