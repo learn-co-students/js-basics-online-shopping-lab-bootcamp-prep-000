@@ -79,7 +79,7 @@ function total() {
     itemName = indivItem[0];
     itemPrice = indivObj[itemName];
     totalItem += itemPrice;
-    console.log(totalItem + '  ' + itemPrice)
+  //  console.log(totalItem + '  ' + itemPrice)
   }
   return totalItem;
 }
@@ -89,10 +89,27 @@ function removeFromCart(item) {
   // write your code here
   for (let i = 0, l = cart.length; i < l; i++){
     if (cart[i].hasOwnProperty(item)){
-      console.log('delete');
-      cart.remove(i);
+      //console.log('delete');
+      cart = cart.slice(0, i).concat(cart.slice(i + 1));
       return cart;
     }
+  }
+  console.log("That item is not in your cart.")
+  return cart;
+}
+
+
+function placeOrder(cardNumber) {
+  // write your code here
+  if (!cardNumber) {
+   console.log("Sorry, we don't have a credit card on file for you.")
+   return;
+  } else {
+    var t = total();
+    console.log(t)
+    cart = [];
+    console.log('Your total cost is ${t}, which will be charged to the card ${cardNumber}');
+    return;
   }
 }
 
@@ -103,10 +120,5 @@ addToCart("Seeds");
 addToCart("Apples");
 addToCart("Pears");
 viewCart();
-removeFromCart('Seeds');
+placeOrder(15345);
 viewCart();
-
-
-function placeOrder(cardNumber) {
-  // write your code here
-}
