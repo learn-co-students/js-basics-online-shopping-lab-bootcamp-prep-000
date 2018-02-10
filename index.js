@@ -49,26 +49,34 @@ function viewCart() {
 
 
 function total() {
-  let sum = [];
-  for (let i =0; i<cart.length; i++) {
-    sum.push(Object.values(cart[i]));
+  let sumArray= [];
+  let intArray = [];
+  let number;
+  let sum;
+  for (let i = 0; i<cart.length; i++) {
+    sumArray.push(Object.values(cart[i]));
+    intArray.push(parseInt(sumArray[i]));
   }
-  return sum;
+    return intArray.reduce((a, b) => a + b, 0);
 }
 
 function removeFromCart(itemName) {
-  if (cart.hasOwnProperty(itemName)) {
+  for (let i = 0; i<cart.length; i++) {
+    if (cart[i].hasOwnProperty(itemName)) {
     cart.slice(cart.indexOf(itemName));
     return cart;
-  } else {
+    } else {
     return `That item is not in your cart.`;
-  }
+    }
+  } 
 }
 
 function placeOrder(cardNumber) {
   if (!cardNumber){
     return `Sorry, we don't have a credit card on file for you.`;
   } else {
-    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+    cart.length = 0;
+    return  cart;
   }
 }
