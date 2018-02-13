@@ -1,6 +1,5 @@
-var cart = []
-// for testing --> var cart = [{tomato: 45}, {letuce: 30}, {jam: 10}];
-const itemPrice = Math.floor(Math.random()*100);
+
+var cart = [];
 
 function getCart() {
  return cart;
@@ -11,67 +10,84 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(itemName) {
-  const itemPrice = Math.floor(Math.random()*100);
-  cart.push( {[itemName]: itemPrice} )
-  console.log(`${itemName} has been added to your cart.`);
+function addToCart(item) {
+  const price = Math.floor(Math.random() * 100) + 1;
+
+  cart.push({ [item]: price });
+
+  console.log(`${item} has been added to your cart.`);
+
   return cart;
 }
 
 function viewCart() {
-  if (!cart.length) {
-    console.log(`Your shopping cart is empty.`)
-  } else if (cart.length === 1) {
-    for (let i = 0; i < cart.length; i++) {
-      const cartItem = cart[i];
-      const cartItems = Object.keys(cartItem);
-      const cartPrices = Object.values(cartItem);
-      console.log(`In your cart, you have ${cartItems[0]} at $${cartPrices[0]}.`)
-    }
-  } else if (cart.length === 2) {
-    for (let i = 0; i < cart.length; i++) {
-      const cartItem = cart[i];
-      const cartItems = Object.keys(cartItem);
-      const cartPrices = Object.values(cartItem);
-      console.log(`In your cart, you have ${cartItems[0]} at $${cartPrices[0]} and ${cartItems[1]} at $${cartPrices[1]}.`)
-    }
-  } else {
-    const cartItem = cart[i];
-    const cartItems = Object.keys(cartItem);
-    const cartPrices = Object.values(cartItem);
-    console.log(`In your cart, you have ${cartItems[0]} at $${cartPrices[0]} and ${cartItems[1]} at $${cartPrices[1]}.`)
-  }
-}
+  const l = cart.length;
 
+  if (!l) {
+    return console.log("Your shopping cart is empty.");
+  }
+
+  let itemsAndPrices = [];
+
+  for (let i = 0; i < l; i++) {
+    let itemAndPrice = cart[i];
+    let item = Object.keys(itemAndPrice)[0];
+    let price = itemAndPrice[item];
+
+    itemsAndPrices.push(`${item} at \$${price}`);
+  }
+
+  switch(itemsAndPrices.length) {
+    case 1:
+      break;
+    case 2:
+      itemsAndPrices = itemsAndPrices.join(" and ");
+      break;
+    default:
+      itemsAndPrices[l-1] = "and ".concat(itemsAndPrices[l-1]);
+      itemsAndPrices = itemsAndPrices.join(", ");
+  }
+
+  console.log(`In your cart, you have ${itemsAndPrices}.`);
+}
 
 function total() {
-  // need to get all the prices
-  let cartPrices = []
-  for (let i = 0; i < cart.length; i++) {
-    const cartItem = cart[i];
-    for (let j = 0; j < cartItem.length; j++) {
-    let cartPrice = Object.values(cartItem[j])
-    cartPrices.push(cartPrice);
+  let t = 0;
+
+  for (let i = 0, l = cart.length; i < l; i++) {
+    for (let item in cart[i]) {
+      t += cart[i][item];
     }
   }
-  console.log(cartPrices);
-  // then need to add all of them up
-  // const sumOfPrices = cartPrices.reduce(function(a, b) {
-  //   return a + b;
-  // }, 0);
+
+  return t;
 }
 
-// function removeFromCart(item) {
-//   if (item !== ) {
-//
-//   }
-//
-// }
+function removeFromCart(item) {
+  let itemInCart = false;
 
-// function placeOrder(cardNumber) {
-//   if (!cardNumber) {
-//     console.log(`Sorry, we don't have a credit card on file for you.`)
-//   }
-//   return cart = [];
-//   console.log(`Your total cost is ${totalPrice}, which will be charged to the card ${cardNumber}. `)
-// }
+  for (let i = 0, l = cart.length; i < l; i++) {
+    if (cart[i].hasOwnProperty(item)) {
+      itemInCart = true;
+      cart = cart.slice(0, i).concat(cart.slice(i + 1));
+      l--;
+    }
+  }
+
+  if (!itemInCart) {
+    console.log("That item is not in your cart.");
+  }
+
+  return cart;
+}
+
+function placeOrder(cardNumber) {
+  if (!cardNumber) {
+    console.log("Sorry, we don't have a credit card on file for you.");
+    return false;
+  }
+
+  console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+
+  cart = [];
+}
