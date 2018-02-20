@@ -38,11 +38,16 @@ function total() {
   return sum
 }
 
+function removeFromCart(item) {
+  
+}
+
 function placeOrder(num) {
   if (isNaN(num)) {
     console.log("Sorry, we don't have a credit card on file for you.")
   } else {
-   console.log(`Your total cost is ${total()}, which will be charged to the card ${num}.`);
+   var text = `Your total cost is ${total()}, which will be charged to the card ${num}.`
    cart = []
+   return text
   }
 }
