@@ -12,27 +12,22 @@ function setCart(c) {
 function addToCart(item) {
   var itemPrice = Math.floor(Math.random() * 100);
   
-  var newItem = {[item] : itemPrice};
-  cart.push(newItem);
+  var newItem = { [item] : itemPrice };
+  cart[item].push(itemPrice);
+  //Object.assign(cart, { [item] : itemPrice })
   
   console.log(`${item} has been added to your cart.`);
   console.log(cart);
   return cart;
 }
 
-function viewCart(cart) {
+function viewCart() {
   var output = [];
   var keys = Object.keys(cart);
   
   for (let i = 0; i < keys.length; i++) {
     if (keys.length === 1) {
-      output.push( `${ keys[i] } at $${ cart[keys] [i] }`);
-    
-    } else if (i < keys.length) {
-      output.push( `${ keys[i] } at $${ cart[keys] [i] }`);
-      
-    } else if (i === keys.length - 1) {
-      output.push( `and ${ keys[i] } at $${ cart[keys] [i] }`);
+      output.push( `${ cart[i] } at $${ cart[keys[i]] }`);
     }
     
     // "i at i, i+ at i+, and i++ at i++.
