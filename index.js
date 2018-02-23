@@ -27,7 +27,6 @@ function viewCart() {
   	
    if (cart.length === 1) {
       output = ` ${keys} at $${cart[i][keys]}`;
-	  console.log(`error 1`)
   } else { 
       if (i === cart.length - 1) {
         output.push(` and ${keys} at $${cart[i][keys]}`);
@@ -40,7 +39,7 @@ function viewCart() {
 	if (cart.length !== 0) {
       return `In your cart, you have${output}.`;
     } else {
-      return `Your shopping cart is empty.`
+      return `Your shopping cart is empty.`;
     }
 }
 
