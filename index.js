@@ -65,6 +65,7 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   if (!cardNumber || !Number.isInteger(cardNumber)) {
+    //Checking to see if the argument is an integer is not required, but the function felt incomplete without it. Otherwise I could pay with anything and revive the barter system.
     console.log(`Sorry, we don't have a credit card on file for you.`);
   } else if (Number.isInteger(cardNumber)) {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
