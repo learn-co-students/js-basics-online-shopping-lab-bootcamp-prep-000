@@ -104,30 +104,3 @@ function placeOrder(cardNumber) {
   }
   
 }
-
-//addToCart("mango");
-//addToCart("nuts");
-//addToCart("orange");
-
-//viewCart()
-//console.log(cart[0].hasOwnProperty("mango"))
-
-
-
-//removeFromCart("mango")
-//viewCart()
-
-//addToCart('cheese')
-//addToCart('milk')
-//console.log(cart)
-//var theKey = Object.keys(cart[0])
-//console.log(theKey)
-//console.log(cart[0][theKey])
-//var theV = cart[0].theKey
-//console.log(theV)
-
-//var tester = 'In your cart, you have'
-//tester = `${tester} ${Object.keys(cart[0])} at $${cart[0].Object.keys(cart[0])}.`
-//console.log(tester)
-      // 
-      
