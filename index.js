@@ -13,30 +13,35 @@ function addToCart(item) {
   var itemPrice = Math.floor(Math.random() * 100);
   
   var newItem = { [item] : itemPrice };
-  cart[item].push(itemPrice);
-  //Object.assign(cart, { [item] : itemPrice })
+  cart.push(newItem);
   
   console.log(`${item} has been added to your cart.`);
-  console.log(cart);
   return cart;
 }
 
 function viewCart() {
-  var output = []
+  var output = [];
   
   for (let i = 0; i < cart.length; i++) {
   	var keys = Object.keys(cart[i]);
-	  console.log(`cart = ${keys}`);
-	  console.log(`value = ${cart[i][keys]}`);
+  	
+   if (cart.length === 1) {
+      output = ` ${keys} at $${cart[i][keys]}`;
+	  console.log(`error 1`)
+  } else { 
+      if (i === cart.length - 1) {
+        output.push(` and ${keys} at $${cart[i][keys]}`);
+      } else {
+		  output.push(` ${keys} at $${cart[i][keys]}`);
+      }
+    }
   }
     
-    
-    // "i at i, i+ at i+, and i++ at i++.
-    
-    console.log(cart);
-    if (length !== 0) {
-      return `In your cart, you have ${output}.`;
-  } return `Your shopping cart is empty.`;
+	if (cart.length !== 0) {
+      return `In your cart, you have${output}.`;
+    } else {
+      return `Your shopping cart is empty.`
+    }
 }
 
 function total() {
