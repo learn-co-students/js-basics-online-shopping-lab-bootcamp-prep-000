@@ -11,7 +11,7 @@ function setCart(c) {
 
 function addToCart(item) {
   cart.push({[item]: parseInt(Math.random()*100)})
-  console.log(item + ' has been added to your cart.')
+  console.log(`${item} has been added to your cart.`)
   return cart
 }
 
@@ -21,20 +21,20 @@ function viewCart() {
     }
     else {
         if (cart.length === 1) {
-            console.log('In your cart, you have ' + Object.keys(cart[0]) + ' at $' + Object.values(cart[0]) + '.')
+            console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}.`)
         }
         else if (cart.length === 2) {
-            console.log('In your cart, you have ' + Object.keys(cart[0]) + ' at $' + Object.values(cart[0]) + ' and ' + Object.keys(cart[1]) + ' at $' + Object.values(cart[1]) + '.')
+            console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])} and ${Object.keys(cart[1])} at $${Object.values(cart[1])}.`)
         }
         else {
             var cartArray = []
             var i = 0
             while (i < cart.length) {
 				if (i === cart.length - 1) {
-					cartArray.push(' and ' + Object.keys(cart[i]) + ' at $' + Object.values(cart[i]) + '.')
+					cartArray.push(` and ${Object.keys(cart[i])} at $${Object.values(cart[i])}.`)
                 }
 				else {
-					cartArray.push(' ' + Object.keys(cart[i]) + ' at $' + Object.values(cart[i]))
+					cartArray.push(` ${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
                 }
                 i++
             }
@@ -68,7 +68,7 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
 	if (cardNumber) {
-		console.log('Your total cost is $' + total() + ', which will be charged to the card ' + cardNumber + '.')
+		console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
 		cart.splice(0)
 		console.log(cart)
 		}
