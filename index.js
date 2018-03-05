@@ -69,11 +69,10 @@ function total() {
     item = cart[i]
     sum += parseInt (Object.values(item))
   }
-
   //console.log(sum)
   return sum
-
 }
+
 
 function removeFromCart(item) {
 
@@ -88,7 +87,6 @@ function removeFromCart(item) {
   }
   console.log("That item is not in your cart.")
   return cart
-
 }
 
 function placeOrder(cardNumber) {
@@ -99,8 +97,6 @@ function placeOrder(cardNumber) {
     for(let i =0; i < cart.length; i++){
       cart.shift()
     }
-
-
   }
 
 }
