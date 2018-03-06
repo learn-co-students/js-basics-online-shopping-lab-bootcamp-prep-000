@@ -10,21 +10,24 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  Object([{'bananas': 17}, {'pancake batter': 5}, {'eggs': 49}])
 }
 
-function viewCart() {
-  // write your code here
+function viewCart(addToCart) {
+  addToCart = 'In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49'
+  return addToCart
 }
 
 function total() {
-  // write your code here
+  return addToCart;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  item.remove(1)
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  cardNumber = 83296759
+  if placeOrder.hasOwnProperty = false return 'Sorry, we dont have a credit card on file for you' {
+  } else if placeOrder = true (return 'Your total cost is $71, which will be charged to the card' + cardNumber)
 }
