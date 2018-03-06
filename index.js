@@ -11,13 +11,21 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
- var newItem = {[item] "5"}
+ var newItem = {[item]: Math.floor((Math.random() * 100) + 1)}
+ console.log(`${item} has been added to your cart.`)
  cart.push(newItem)
- //return newItem
+ return cart
 }
 
 function viewCart() {
   // write your code here
+  for (var i=0;i<=cart.length;i++){
+    var inCart = "In your cart, you have";
+    inCart+cart[i]
+    console.log(inCart)
+  }
+  
+  return inCart;
 }
 
 function total() {
@@ -31,3 +39,5 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+addToCart("apples");
+viewCart();
