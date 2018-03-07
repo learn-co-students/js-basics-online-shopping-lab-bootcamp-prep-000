@@ -41,24 +41,48 @@ function viewCart() {
     console.log(`In your cart, you have${inCart}.`)
   }
   
-  
-  
-  
-  
 }
 
 function total() {
   // write your code here
+  var total =0
+  for (var i=0;i<cart.length;i++){
+    total =total+ (cart[i] [Object.keys(cart[i])])
+    
+    //console.log(total)
+  }
+  return total
 }
 
 function removeFromCart(item) {
   // write your code here
+  
+  for (var thing in cart){
+    if (cart[thing].hasOwnProperty(item)){
+      cart.splice(thing,1)
+      return cart
+    }
+    
+  }
+  console.log("That item is not in your cart.")
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  if (cardNumber) {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    cart = []
+  } else {console.log('Sorry, we don\'t have a credit card on file for you.')}
+  
 }
+
+
+
 addToCart("bananas");
 addToCart("pancake batter");
 addToCart("eggs");
+addToCart("junk");
 viewCart();
+total();
+removeFromCart('eggs');
+placeOrder(1)
