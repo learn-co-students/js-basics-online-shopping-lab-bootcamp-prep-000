@@ -56,7 +56,7 @@ function total() {
 function removeFromCart(item) {
   var array = cart
   for (let i=1; i < cart.length; i++) { //loop through cart array, I don't understand why this starts with 1 and not 0
-          if (cart[i].hasOwnProperty(`${item}`) == true ); {  //if cart has object property then log item isn't in cart
+          if (cart[i].hasOwnProperty(`${item}`)); {  //if cart has object property then log item isn't in cart
             cart.splice(i, 1); //delete index item
           }
   }
@@ -67,7 +67,7 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  if (isNaN(cardNumber) === true) {
+  if (isNaN(cardNumber)) {
     console.log('Sorry, we don\'t have a credit card on file for you.');
   } else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
