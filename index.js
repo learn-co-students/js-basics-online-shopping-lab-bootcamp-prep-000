@@ -55,7 +55,7 @@ function total() {
 
 function removeFromCart(item) {
   var array = cart
-  for (let i=1; i < cart.length; i++) { //loop through cart array
+  for (let i=1; i < cart.length; i++) { //loop through cart array, I don't understand why this starts with 1 and not 0
           if (cart[i].hasOwnProperty(`${item}`) == true ); {  //if cart has object property then log item isn't in cart
             cart.splice(i, 1); //delete index item
           }
