@@ -88,10 +88,3 @@ function placeOrder(cardNumber) {
   cart.length = 0;
   return `Your total cost is $${orderTotal}, which will be charged to the card ${numberString}.`
 }
-
-console.log(addToCart('banana'));
-var price = cart[0].itemPrice;
-console.log(typeof price);
-total();
-placeOrder(1234);
-console.log(cart);
