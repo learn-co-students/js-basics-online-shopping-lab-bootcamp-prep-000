@@ -25,14 +25,14 @@ function viewCart() {
   if (cart.length === 0) {
        return "Your shopping cart is empty.";
   } else if (cart.length === 1) {
-       return `In your cart, you have ${cart[0]['itemName']} at $${cart[0]['itemPrice']}.`
+       return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
   } else if (cart.length === 2) {
        var cartReturn = "In your cart, you have ";
        for (var i = 0; i < cart.length; i ++) {
          if (i === 0) {
-            cartReturn += `${cart[i]['itemName']} at $${cart[i]['itemPrice']} and`
+            cartReturn += `${cart[i].itemName} at $${cart[i].itemPrice} and`
          } else if (i === 1) {
-            cartReturn += ` ${cart[i]['itemName']} at $${cart[i]['itemPrice']}.`
+            cartReturn += ` ${cart[i].itemName} at $${cart[i].itemPrice}.`
          }
        }
        return cartReturn;
@@ -40,11 +40,11 @@ function viewCart() {
       var cartReturn = "In your cart, you have ";
       for (var i = 0; i < cart.length; i++) {
         if (i <= cart.length - 3 ) {
-            cartReturn += `${cart[i]['itemName']} at $${cart[i]['itemPrice']}, `;
+            cartReturn += `${cart[i].itemName} at $${cart[i].itemPrice}, `;
         } else if (i === cart.length - 2) {
-            cartReturn += `${cart[i]['itemName']} at $${cart[i]['itemPrice']}`;
+            cartReturn += `${cart[i].itemName} at $${cart[i].itemPrice}`;
         } else if (i === cart.length - 1) {
-            cartReturn += ` and ${cart[i]['itemName']} at $${cart[i]['itemPrice']}.`
+            cartReturn += ` and ${cart[i].itemName} at $${cart[i].itemPrice}.`
         }
       }
       return cartReturn;
