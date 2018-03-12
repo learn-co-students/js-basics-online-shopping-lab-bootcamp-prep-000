@@ -9,8 +9,8 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
+function addToCart(item, price) {
+ return cart += {`itemName: ${item}`, `itemPrice: ${price}`}
 }
 
 function viewCart() {
