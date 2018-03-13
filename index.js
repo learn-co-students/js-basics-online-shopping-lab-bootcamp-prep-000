@@ -1,5 +1,4 @@
 var cart = [];
-// {itemName: "bread", itemPrice: 3}, {itemName: "eggs", itemPrice: 5}
 
 function getCart() {
  return cart;
