@@ -57,18 +57,22 @@ function removeFromCart(item) {
     if (getCart()[i].itemName === item) {
     var removed = cart.splice(i , 1)
     return getCart()
+  }else if(getCart()[i].itemName !== item) {
+    console.log("im a ashnneb")
   }
   }
-  return "That item is not in your cart."
 }
 
 function placeOrder(cardNumber) {
   // write your code here
-  var temptotal = total()
-  if (cardNumber === undefined) {
-    return "Sorry, we don't have a credit card on file for you."
-  }else{
-    cart = []
-    return `Your total cost is $${temptotal}, which will be charged to the card ${cardNumber}.`
-  }
 }
+
+addToCart("vanilla");
+addToCart("watermelon");
+addToCart("yams");
+
+
+
+
+
+console.log(`this isi your ${total()}`);
