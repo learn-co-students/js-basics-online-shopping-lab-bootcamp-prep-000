@@ -10,6 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
+
  var price = Math.floor(Math.random() * 100) + 1;
 
  var cartItem = {
@@ -20,6 +21,8 @@ function addToCart(item) {
  cart.push(cartItem);
  return `${item} has been added to your cart.`
 }
+
+
 
 function viewCart() {
   if (cart.length === 0) {
@@ -74,7 +77,6 @@ function removeFromCart(item) {
   } else {
     return cart;
   }
-
 }
 
 function placeOrder(cardNumber) {
