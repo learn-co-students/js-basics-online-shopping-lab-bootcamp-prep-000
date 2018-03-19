@@ -19,42 +19,42 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  debugger
   // write your code here
+  // if(getCart().length === 0) {
+  //   console.log('Your shopping cart is empty.');
+  // } else if(getCart().length === 1) {
+  //     console.log(`In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}.`);
+  // } else if(getCart().length === 2) {
+  //     console.log(`In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}, and ${Object.keys(getCart()[1])[0]} at $${getCart()[1][Object.keys(getCart()[1])[0]]}.`);
+  // } else {
+  //     let message = `In your cart, you have `;
+  //     for(let i=0; i < getCart().length; i++) {
+  //       if(i != (getCart().length - 1)) {
+  //       message.concat(`${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]},`);
+  //       } else {
+  //         message.concat(` and ${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]}.`);
+  //       }
+  
+  //     }
+  //     console.log(message);
+  // }
+  
   if(getCart().length === 0) {
-    let message = 'Your shopping cart is empty.';
     console.log('Your shopping cart is empty.');
-  } 
-  else if(getCart().length === 1) {
-      console.log(`In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}.`);
-  } else if(getCart().length === 2) {
-      return `In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}, and ${Object.keys(getCart()[1])[0]} at $${getCart()[1][Object.keys(getCart()[1])[0]]}.`;
+  } else if(getCart().length === 1) {
+    console.log(`In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}.`);
   } else {
-      let message = `In your cart, you have `;
-        for(let i=0; i < getCart().length; i++) {
+    let message = `In your cart, you have `;
+    for(let i = 0; i < getCart().length; i++) {
           if(i != (getCart().length - 1)) {
           message += `${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]},`;
         } else {
           message += ` and ${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]}.`;
         }
       }
-      return message;
-}
-  
-  // if(getCart().length === 0) {
-  //   console.log('Your shopping cart is empty.');
-  // } else if(getCart().length === 1) {
-  //   console.log(`In your cart, you have ${Object.keys(getCart()[0])[0]} at $${getCart()[0][Object.keys(getCart()[0])[0]]}.`);
-  // } else {
-  //   let message = `In your cart, you have `;
-  //   for(let i = 0; i < getCart().length; i++) {
-  //         if(i != (getCart().length - 1)) {
-  //         message += `${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]},`;
-  //       } else {
-  //         message += ` and ${Object.keys(getCart()[i])[0]} at $${getCart()[i][Object.keys(getCart()[i])[0]]}.`;
-  //       }
-  //     }
-  //     console.log(message);
-  // }
+      console.log(message);
+  }
 }
 
 function total() {
