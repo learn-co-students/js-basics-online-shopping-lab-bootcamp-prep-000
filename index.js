@@ -41,7 +41,7 @@ function viewCart() {
         temp += `, ${cart[i].itemName} at $${cart[i].itemPrice},`
       }
        if (i === cart.length - 1){
-         temp += `, and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+         temp += ` and ${cart[i].itemName} at $${cart[i].itemPrice}.`
          return temp
        }
     }
@@ -51,12 +51,33 @@ function viewCart() {
 
 function total() {
   // write your code here
+  var temp = 0
+  for(var i = 0; i< cart.length; i++){
+    temp = temp + cart[i].itemPrice
+  }return temp
 }
 
 function removeFromCart(item) {
   // write your code here
+  var temp = false
+  for(var i = 0; i < cart.length; i++){
+    if (cart[i].itemName === item){
+      temp = true
+      cart.splice(i,1)
+      return cart
+    }}
+    if (!temp){
+      return "That item is not in your cart."
+    }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var temp = total().
+  if (isNaN(cardNumber)){
+    return "Sorry, we don't have a credit card on file for you."
+  }
+  if (!isNaN(cardNumber)){
+     cart = []
+     return `Your total cost is ${temp}, which will be charged to the card ${cardNumber}`
+  }
 }
