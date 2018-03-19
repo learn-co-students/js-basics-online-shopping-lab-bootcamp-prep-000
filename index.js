@@ -21,8 +21,33 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  
+  var temp = `In your cart, you have `
+
+  if (cart.length === 0){
+    return "Your shopping cart is empty."
+  }
+  if (cart.length == 1){
+    temp = temp + `${cart[0].itemName} at $${cart[0].itemPrice}.`
+    return temp
+  }
+  if (cart.length === 2){
+         temp += `${cart[0].itemName} at $${cart[0].itemPrice} and ${cart[1].itemName} at $${cart[1].itemPrice}.`
+         return temp
+       }
+  if (cart.length > 2){
+    temp += `${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}`
+    for (var i = 0; i <= cart.length -1; i++){
+      if(i >= 2 &&  i != cart.length -1){
+        temp += `, ${cart[i].itemName} at $${cart[i].itemPrice},`
+      }
+       if (i === cart.length - 1){
+         temp += `, and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+         return temp
+       }
+    }
+  }
 }
+
 
 function total() {
   // write your code here
