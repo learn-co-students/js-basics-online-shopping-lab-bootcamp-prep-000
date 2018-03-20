@@ -10,7 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var randPrice = parseInt(100*Math.random());
+ var itemPrice = {itemName: item, itemPrice: randPrice};
+ cart.push(itemPrice);
+ return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
@@ -28,3 +31,8 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+
+
+//This code test runs the program
+addToCart('bananas');
+addToCart('apples');
