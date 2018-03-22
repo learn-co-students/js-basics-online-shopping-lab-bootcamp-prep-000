@@ -10,10 +10,9 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var item_price = Math.floor(Math.random() * (100 - 1))
+  var price= Math.floor(Math.random() * (100 - 1))
   
-  var item_object = {itemName : item, itemPrice : item_price}
-  cart.push(item_object);
+  cart.push(new Object({itemName: item , itemPrice: price}));
   console.log(`${item} has been added to your cart.`);
   
   return cart;
@@ -26,14 +25,14 @@ function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.");
   } else if (cart.length === 1) {
-    console.log(` ${sentence} ${Object.keys(cart[0])[0]} at $${Object.values(cart[0])[0]}.`);
+    console.log(` ${sentence} ${Object.values(cart[0])[0]} at $${Object.values(cart[0])[1]}.`);
   } else if (cart.length === 2) {
-    console.log(` ${sentence} ${Object.keys(cart[0])[0]} at $${Object.values(cart[0])[0]}, and ${Object.keys(cart[1])[0]} at $${Object.values(cart[1])[0]}.`);
+    console.log(` ${sentence} ${Object.values(cart[0])[0]} at $${Object.values(cart[0])[1]}, and ${Object.values(cart[1])[0]} at $${Object.values(cart[1])[1]}.`);
   } else {
     for (let i = 0; i < cart.length - 1; i++) {
-      sentence += ` ${Object.keys(cart[i])[0]} at $${Object.values(cart[i])[0]},`
+      sentence += ` ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]},`
     }
-    sentence += ` and ${Object.keys(cart[cart.length - 1])[0]} at $${Object.values(cart[cart.length - 1])[0]}.`
+    sentence += ` and ${Object.values(cart[cart.length - 1])[0]} at $${Object.values(cart[cart.length - 1])[1]}.`
     
     console.log(sentence);
   }
