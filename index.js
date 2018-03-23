@@ -26,12 +26,12 @@ function viewCart() {
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.");
   } else if (cart.length === 1) {
-    console.log(` ${sentence} ${Object.keys(cart[0])[0]} at $${Object.values(cart[0])[0]}.`);
+    console.log(` ${sentence} ${Object.values(cart[0])[0]} at $${Object.values(cart[0])[1]}.`);
   } else if (cart.length === 2) {
-    console.log(` ${sentence} ${Object.keys(cart[0])[0]} at $${Object.values(cart[0])[0]}, and ${Object.keys(cart[1])[0]} at $${Object.values(cart[1])[0]}.`);
+    console.log(` ${sentence} ${Object.values(cart[0])[0]} at $${Object.values(cart[0])[1]}, and ${Object.values(cart[1])[0]} at $${Object.values(cart[1])[1]}.`);
   } else {
     for (let i = 0; i < cart.length - 1; i++) {
-      sentence += ` ${Object.keys(cart[i])[0]} at $${Object.values(cart[i])[0]},`
+      sentence += ` ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]},`
     }
     sentence += ` and ${Object.keys(cart[cart.length - 1])[0]} at $${Object.values(cart[cart.length - 1])[0]}.`
     
@@ -40,13 +40,12 @@ function viewCart() {
 }
 
 function total() {
-  let total = 0
-  for (let i = 0; i < cart.length; i++) {
-    for (let price in cart[i]) {
-      total += cart[i][price]
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+        total += Object.values(cart[i])[1]
+        
     }
-  }
-  return total
+    return total
 }
 
 function removeFromCart(item) {
@@ -65,7 +64,7 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  if (cardNumber === null) {
+  if (cardNumber === undefined) {
     console.log("Sorry, we don't have a credit card on file for you")
   } else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
