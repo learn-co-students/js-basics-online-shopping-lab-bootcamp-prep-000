@@ -18,22 +18,27 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  let cartItems = [];
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
   } else if (cart.length === 1) {
     return `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`;
   } else if (cart.length === 2) {
     return  `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice} and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`;
-  } else if (cart.length === 3) {
-    return `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice} and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`;
+  } else {
+    for (var i = 0; i < car.length - 1; i++) {
+      cartItems.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+    }
+    return `In your cart, you have ${getCart()[i].itemName} at $${getCart()[i].itemPrice} and ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`;
   }
 }
 
 function total() {
   let totalCost = 0;
-  for (totalCost = 0; totalCost < cart.length; totalCost++) { 
-    
+  for (var i = 0; i < cart.length; i++) { 
+    totalCost = totalCost + cart[i].itemPrice;
     }
+    return totalCost;
 }
 
 function removeFromCart(item) {
