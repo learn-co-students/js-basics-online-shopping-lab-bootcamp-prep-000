@@ -26,10 +26,10 @@ function viewCart() {
   } else if (cart.length === 2) {
     return  `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice} and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`;
   } else {
-    for (var i = 0; i < car.length - 1; i++) {
-      cartItems.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+    for (var i = 0; i < cart.length; i++) {
+      cartItems.push(` ${cart[i].itemName}.`);
     }
-    return `In your cart, you have ${getCart()[i].itemName} at $${getCart()[i].itemPrice} and ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`;
+    return `In your cart, you have${cartItems}, ${cartItems} and ${cartItems}.`;
   }
 }
 
