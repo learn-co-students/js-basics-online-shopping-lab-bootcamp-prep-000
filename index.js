@@ -21,10 +21,14 @@ function viewCart() {
   } else {
     var cartDesc = '';
     for(var i=0; i<cart.length; i++) {
-      if(i===cart.length) {
-        cartDesc = cartDesc + `and ${cart[i][itemName]} at $${cart[i][itemPrice]}`;
+      var cartItemName = cart[i].itemName;
+      var cartItemPrice = cart[i].itemPrice;
+      if(cart.length===1) {
+        cartDesc = cartDesc + `${cartItemName} at $${cartItemPrice}`;
+      } else if(i===cart.length-1) {
+        cartDesc = cartDesc + `and ${cartItemName} at $${cartItemPrice}`;
       } else {
-        cartDesc = cartDesc + `${cart[i][itemName]} at $${cart[i][itemPrice]},`;
+        cartDesc = cartDesc + `${cartItemName} at $${cartItemPrice}, `;
       }
     }
     return `In your cart, you have ${cartDesc}.`;
@@ -32,7 +36,12 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var totalValueCart = 0;
+  for(var i=0; i<cart.length; i++) {
+    var cartItemPrice = cart[i].itemPrice;
+    totalValueCart = totalValueCart + cartItemPrice;
+  }
+  return totalValueCart;
 }
 
 function removeFromCart(item) {
@@ -40,5 +49,11 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if(cardNumber===undefined) {
+    return "Sorry, we don't have a credit card on file for you."
+  } else {
+    var totalValueCart = total();
+    cart = [];
+    return `Your total cost is $${totalValueCart}, which will be charged to the card ${cardNumber}.`;
+  }
 }
