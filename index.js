@@ -31,8 +31,8 @@ function viewCart() {
 
 function total() {
   let totalCost = 0;
-  for (i = 0; i < cart.length; i++) { 
-    console.log (cart[i]);
+  for (totalCost = 0; totalCost < cart.length; totalCost++) { 
+    
     }
 }
 
