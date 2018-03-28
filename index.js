@@ -1,3 +1,4 @@
+
 var cart = [];
 
 function getCart() {
@@ -27,20 +28,36 @@ function viewCart(){
  }else if(cart.length === 2){
    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
  }else if(cart.length === 3){
-   return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, ${cart[2].itemName} at $${cart[2].itemPrice}.`;
+   return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`;
  }
  
 }
 
 function total() {
-  // write your code here
+ var total = 0 ;
+  
+ for(var i = 0; i < cart.length; i++){
+  total += cart[i].itemPrice ;
+  
+ }return total;
 }
+
 
 function removeFromCart(item) {
-  // write your code here
+  for(var i = 0; i > cart.length; i++) {
+    if(cart[i]['itemName'] === item) {
+      return cart.splice(i, 1)
+    }
+  }
+  
+  return 'That item is not in your cart.'
 }
+
 
 function placeOrder(cardNumber) {
-  // write your code here
+  for(var i = 0; i < cart.length; i++) {
+    if(cart.length === 0){
+      return 'That item is not in your cart.'
+    }
+  }
 }
-
