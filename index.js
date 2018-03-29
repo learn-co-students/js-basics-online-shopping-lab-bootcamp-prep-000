@@ -18,27 +18,23 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  let cartItems = []; // []
+  let cartItems = [];
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
-  } else if (cart.length === 1) {
-    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
-  } else if (cart.length === 2) {
-    return  `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice} and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   } else {
-    for (var i = 0; i < cart.length; i++) {
+  for (var i = 0; i < cart.length; i++) {
       cartItems.push(`${cart[i].itemName} at $${cart[i].itemPrice} `);
-    }
-    return `In your cart, you have ` + cartItems.join(', ') + `and` + `.`; 
+  } if (cart.length === 1) {
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
   }
-}
 
-function total() {
-  let totalCost = 0;
-  for (var i = 0; i < cart.length; i++) { 
+
+//function total() {
+ // let totalCost = 0;
+ // for (var i = 0; i < cart.length; i++) { 
     totalCost = totalCost + cart[i].itemPrice;
     }
-    return totalCost;
+    //return totalCost;
 }
 
 function removeFromCart(item) {
