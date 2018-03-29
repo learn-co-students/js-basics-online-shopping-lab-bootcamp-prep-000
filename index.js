@@ -27,9 +27,9 @@ function viewCart() {
     return  `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice} and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   } else {
     for (var i = 0; i < cart.length; i++) {
-      cartItems.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
+      cartItems.push(`${cart[i].itemName} at $${cart[i].itemPrice} `);
     }
-    return `In your cart, you have ` + cartItems.join(', ') + `.`;
+    return `In your cart, you have ` + cartItems.join(', ') + `and` + `.`; 
   }
 }
 
