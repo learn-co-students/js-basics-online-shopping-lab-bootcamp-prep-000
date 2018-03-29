@@ -9,18 +9,23 @@ function setCart(c) {
   return cart;
 }
 
-function itemConstructor(name) {
-  return {
-    itemName: name,
-    itemPrice: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1)) + Math.ceil(1)),
-  }
-}
+//function itemConstructor(name) {
+//  return {
+//    itemName: name,
+//    itemPrice: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1)) + Math.ceil(1)),
+//  }
+//}
 
 function addToCart(nameOfItem) {
   // var newItem = itemConstructor(nameOfItem); Alternate solution, using variable
   // console.log(newItem);                      Alternate solution, using variable
   //cart.push(itemConstructor(nameOfItem));
-  cart.push({itemName: nameOfItem, itemPrice: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1)) + Math.ceil(1))});
+  cart.push(
+    {
+      itemName: nameOfItem,
+      itemPrice: Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1)) + Math.ceil(1))
+    }
+            );
   //  return `${newItem.itemName} has been added to your cart.` Alternate solution, using variable
   return `${nameOfItem} has been added to your cart.`
 }
@@ -29,9 +34,6 @@ function viewCart() {
   if (!cart.length) {
     return "Your shopping cart is empty."
   }
-
-  //var statement1 = "In your cart, you have"
-  //var statement2 = "."
 
   if (cart.length === 1) {
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
