@@ -56,33 +56,19 @@ function total() {
     }, 0);
 }
 
-function containsObject(item) {
+function removeFromCart(item) {
   var listOfItemNames = [];
   for (var i = 0; i < cart.length; i++) {
     listOfItemNames.push(cart[i].itemName)
     }
-    console.log(listOfItemNames);
-    console.log(listOfItemNames.indexOf(item));
-    //console.log(listOfItemNames.includes(item));
-    if (listOfItemNames.includes(item)) {
+      if (listOfItemNames.includes(item)) {
+      cart.splice(listOfItemNames.indexOf(item), 1);
       listOfItemNames.splice(listOfItemNames.indexOf(item), 1);
       console.log(listOfItemNames);
-      console.log(cart);
-      cart.splice(cart.indexOf(item) - 1, 1);
-      console.log(cart);
-      return "it's in the list."
+      return cart
     } else {
-      return "it's NOT in the list."
+      return "That item is not in your cart."
     }
-  }
-
-function removeFromCart(item) {
-  //var removeIndex = cart.map(function(item) { return item.id; }).indexOf(item);
-  //console.log(removeIndex);
-  index = cart.indexOf(item);
-  console.log(index)
-  //cart.splice(index, 1);
-  //return cart;
 }
 
 function placeOrder(cardNumber) {
