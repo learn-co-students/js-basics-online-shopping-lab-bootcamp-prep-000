@@ -63,7 +63,7 @@ function containsObject(item) {
     }
     console.log(listOfItemNames);
     console.log(listOfItemNames.indexOf(item));
-    console.log(listOfItemNames.includes(item));
+    //console.log(listOfItemNames.includes(item));
     if (listOfItemNames.includes(item)) {
       listOfItemNames.splice(listOfItemNames.indexOf(item), 1);
       console.log(listOfItemNames);
@@ -74,9 +74,6 @@ function containsObject(item) {
     } else {
       return "it's NOT in the list."
     }
-    //console.log((listOfItemNames.indexOf(item)));
-    //listOfItemNames.splice(listOfItemNames.indexOf(item),1);
-    //console.log(listOfItemNames);
   }
 
 function removeFromCart(item) {
