@@ -50,22 +50,42 @@ function viewCart() {
   }
 }
 
-function test() {
-  var bagOfPrices = 0;
-
-  for (var i = 0; i < cart.length; i++) {
-    bagOfPrices += `${cart[i].itemPrice}`;
-  }
-}
-
 function total() {
   return cart.reduce( function(accumulator, item) {
         return accumulator + item.itemPrice;
     }, 0);
 }
 
+function containsObject(item) {
+  var listOfItemNames = [];
+  for (var i = 0; i < cart.length; i++) {
+    listOfItemNames.push(cart[i].itemName)
+    }
+    console.log(listOfItemNames);
+    console.log(listOfItemNames.indexOf(item));
+    console.log(listOfItemNames.includes(item));
+    if (listOfItemNames.includes(item)) {
+      listOfItemNames.splice(listOfItemNames.indexOf(item), 1);
+      console.log(listOfItemNames);
+      console.log(cart);
+      cart.splice(cart.indexOf(item) - 1, 1);
+      console.log(cart);
+      return "it's in the list."
+    } else {
+      return "it's NOT in the list."
+    }
+    //console.log((listOfItemNames.indexOf(item)));
+    //listOfItemNames.splice(listOfItemNames.indexOf(item),1);
+    //console.log(listOfItemNames);
+  }
+
 function removeFromCart(item) {
-  // write your code here
+  //var removeIndex = cart.map(function(item) { return item.id; }).indexOf(item);
+  //console.log(removeIndex);
+  index = cart.indexOf(item);
+  console.log(index)
+  //cart.splice(index, 1);
+  //return cart;
 }
 
 function placeOrder(cardNumber) {
