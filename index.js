@@ -24,7 +24,7 @@ addToCart('book')
 addToCart('radio')
 
 function viewCart() {
-cartItems = [];
+var cartItems = [];
 var string = "In your cart, you have ";
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
@@ -36,7 +36,7 @@ var string = "In your cart, you have ";
     for (var i = 2; i < cart.length; i++) {
       cartItems.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
   }
-    return string + cartItems.join(", ") + `and ${cart[cart.length - 1].itemName} at $${cart[cart.length - 1].itemPrice}.`;
+    return string + cartItems.join(", ") + ` and ${cart[cart.length - 1].itemName} at $${cart[cart.length - 1].itemPrice}.`;
   } 
 }
 
