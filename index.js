@@ -33,10 +33,17 @@ var string = "In your cart, you have ";
   } else if (cart.length === 2) {
     return string + `${cart[0].itemName} at $${cart[0].itemPrice} and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   } else {
-    for (var i = 2; i < cart.length; i++) {
+    for (var i = 0; i < cart.length; i++) {
       cartItems.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
   }
-    return string + cartItems.join(", ") + ` and ${cart[cart.length - 1].itemName} at $${cart[cart.length - 1].itemPrice}.`;
+    var partialArray = cartItems.slice(0, cartItems.length - 1);
+    console.log(partialArray)
+    var partialReturn = string + partialArray.join(", ");
+    console.log(partialReturn)
+    var lastItem = " and " + cartItems[cartItems.length - 1] + ".";
+    console.log(lastItem)
+    return partialReturn + lastItem;
+    
   } 
 }
 
