@@ -53,16 +53,20 @@ return totalCost;
 function removeFromCart(item) {
   var searchResult;
   for (var i=0; i<cart.length; i++) {
-  if (cart[i].item === item) {
-    searchResult = cart.indexOf(cart[i].item);
-  cart.splice(searchResult, 1);
-  return cart;
-  } else {
-    return "That item is not in your cart.";
+    if (cart[i].itemName === item) {
+      searchResult = cart[i];
+    }
   }
+  if (searchResult) {
+   cart.splice(searchResult, 1);
+  } else {
+    itemDoesNotExist();
   }
 }
- 
+
+function itemDoesNotExist() {
+   return "That item is not in your cart.";
+}
     
 function placeOrder(cardNumber) {
   // write your code here
