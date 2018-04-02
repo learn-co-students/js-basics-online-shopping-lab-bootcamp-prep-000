@@ -51,16 +51,19 @@ return totalCost;
 }
 
 function removeFromCart(item) {
+  var searchResult;
   for (var i=0; i<cart.length; i++) {
-  if (cart[i].length >= 0) {
-    cart.splice(cart.indexOf(item), 1);
-  } else {
-  return "That item is not in your cart.";
-  }
-  }
+  if (cart[i].item === item) {
+    searchResult = cart.indexOf(cart[i].item);
+  cart.splice(searchResult, 1);
   return cart;
+  } else {
+    return "That item is not in your cart.";
+  }
+  }
 }
-
+ 
+    
 function placeOrder(cardNumber) {
   // write your code here
 }
