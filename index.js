@@ -17,11 +17,6 @@ function addToCart(item) {
  
 }
 
-addToCart('shoes')
-addToCart('table')
-addToCart('walker')
-addToCart('book')
-addToCart('radio')
 
 function viewCart() {
 var cartItems = [];
@@ -56,7 +51,14 @@ return totalCost;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i=0; i<cart.length; i++) {
+  if (cart[i].length >= 0) {
+    cart.splice(cart.indexOf(item), 1);
+  } else {
+  return "That item is not in your cart.";
+  }
+  }
+  return cart;
 }
 
 function placeOrder(cardNumber) {
