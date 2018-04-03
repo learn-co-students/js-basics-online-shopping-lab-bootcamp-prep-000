@@ -27,9 +27,13 @@ function viewCart() {
    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   } else {
     var lastItem = `and ${cart[cart.length-1].itemName} at $${cart[cart.length-1].itemPrice}`;
-    for (var i = 0; i < cart.lenth-2; i++){
-      newItems.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`);
-    }
+//    for (var i = 0; i < cart.lenth-2; i++){
+//      newItems.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`);
+//    }
+		cart.forEach((item, index) => {
+			newItems.push(` ${item.itemName} at $${item.itemPrice}`)
+		})
+		newItems.pop()
     return `In your cart, you have${newItems}, ${lastItem}.`;
   }
 }
@@ -45,9 +49,14 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  var inCart = false
+  var inCart = false;
+  for(var i = 0; i<cart.length; i++){
+    if(item === cart[i].itemName){
+      inCart = true;
+      cart.splice(i,1);
+    }
+  }
   if (inCart) {
-    var removed = cart.splice()
     return cart;
   } else {
     return "That item is not in your cart.";
