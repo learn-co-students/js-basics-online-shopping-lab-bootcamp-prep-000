@@ -58,10 +58,11 @@ function removeFromCart(item) {
     }
   }
   if (searchResult) {
-   cart.splice(searchResult, 1);
+    var indexOfSearchResult = cart.indexOf(searchResult)
+    cart.splice(indexOfSearchResult, 1);
   } else {
-    itemDoesNotExist();
-  }
+    return "That item is not in your cart.";
+  } 
 }
 
 function itemDoesNotExist() {
