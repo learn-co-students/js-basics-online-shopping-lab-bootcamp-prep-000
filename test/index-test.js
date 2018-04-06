@@ -106,7 +106,6 @@ describe("total()", function() {
     const tarragonCost = getCart()[1].itemPrice;
 
     let totalCost = sorghumCost + tarragonCost;
-
     expect(total()).toBe(totalCost);
 
     addToCart("urchin");
