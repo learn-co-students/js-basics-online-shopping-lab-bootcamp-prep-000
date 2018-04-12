@@ -1,3 +1,5 @@
+///Solution link: https://github.com/learn-co-students/js-basics-online-shopping-lab-bootcamp-prep-000/blob/solution/index.js
+
 var cart = [];
 
 function getCart() {
