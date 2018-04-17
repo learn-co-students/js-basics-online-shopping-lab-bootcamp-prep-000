@@ -9,7 +9,7 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item, itemName) {
+function addToCart(item, itemName, itemPrice) {
  var price = Math.floor(Math.random() * 100);
  var newItem = {'itemName': `${item}`, 'itemPrice': `${price}`};
  var key = 'itemName';
@@ -21,7 +21,8 @@ function addToCart(item, itemName) {
 }
 
 function viewCart() {
-  // write your code here
+  
+  return (`In your cart, you have ${item} at ${price}, `);
 }
 
 function total() {
