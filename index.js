@@ -32,17 +32,22 @@ function total() {
   let i = 0;
   var addPrice = [];
   while (i < cart.length){
-    cart.pop();
+    i++;
   }
+  return (cart);
 }
 
 function removeFromCart(item) {
   let i = 0;
   while (i < cart.length){
-    
+    cart.pop();
   }
+  return ("That item is not in your cart.")
 }
 
 function placeOrder(cardNumber) {
   // write your code here
 }
+
+
+
