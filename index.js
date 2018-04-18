@@ -32,7 +32,7 @@ function total() {
   let i = 0;
   var addPrice = [];
   while (i < cart.length){
-    
+    cart.pop();
   }
 }
 
