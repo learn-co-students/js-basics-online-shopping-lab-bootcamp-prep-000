@@ -20,17 +20,27 @@ function addToCart(item, itemName, itemPrice) {
  return (`${item} has been added to your cart.`);
 }
 
-function viewCart() {
-  
-  return (`In your cart, you have ${item} at ${price}, `);
+function viewCart(cart) {
+  let i = 0;
+  while (i < cart.length){
+    return (`In your cart, you have ${cart[i]} at ${price[i]}, ${cart[i+1]} at ${price[i+1]}, ${cart[i+2]} at ${price[i+2]}`);
+  }
+  return ("Your shopping cart is empty.");
 }
 
 function total() {
-  // write your code here
+  let i = 0;
+  var addPrice = [];
+  while (i < cart.length){
+    
+  }
 }
 
 function removeFromCart(item) {
-  // write your code here
+  let i = 0;
+  while (i < cart.length){
+    
+  }
 }
 
 function placeOrder(cardNumber) {
