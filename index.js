@@ -13,13 +13,23 @@ function setCart(c) {
 
 function addToCart(item) {
 
-  var itemPrice = (Math.floor(Math.random() * Math.floor(100)));
+  var itemPrice = Math.floor(Math.random() * 100) + 1;
   itemObject = {}
   itemObject[item] = itemPrice;
 
  cart.push(itemObject);
  console.log(`${item} has been added to your cart.`);
  return cart;
+ 
+// var newObj = {
+   
+//   itemName: item,
+//   itemPrice: (Math.floor(Math.random() * 100) + 1)
+// };
+ 
+// return `${newObj.itemName} has been added to your cart.`;
+ 
+ 
 }
 
 function viewCart() {
