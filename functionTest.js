@@ -1,35 +1,4 @@
 var cart = [];
-
-function getCart() {
- return cart;
-}
-
-function setCart(c) {
-  cart = c;
-  return cart;
-}
-/*
-function addToCart(item) {
- // write your code here
-}
-
-function viewCart() {
-  // write your code here
-}
-
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
-function placeOrder(cardNumber) {
-  // write your code here
-}
-*/
-
 function getPrice()  {
   return Math.floor(Math.random() * 100) + 1;
 }
@@ -37,8 +6,7 @@ function getPrice()  {
 function addToCart(item) {
  var objectItem = { itemName: item , itemPrice : getPrice()};
  console.log(`${item} has been added to your cart.`)
- cart.push(objectItem);
- return `${item} has been added to your cart.`;
+ return cart.push(objectItem);
 }
 
 
@@ -67,7 +35,7 @@ function findItem(item)  {
 
 function total()  {
   var priceTotal = 0;
-  for(var index = 0; index < cart.length; index++)  {
+  for(index = 0; index < cart.length; index++)  {
     priceTotal += cart[index]['itemPrice'];
   }
   return priceTotal;
@@ -85,8 +53,12 @@ function viewCart()  {
     while(index < cart.length)  {
     cartList = cartList + `${cart[index]['itemName']} at \$${cart[index]['itemPrice']}`;
     if(index < cart.length -1)  {
+      if(cart.length -1 === 1){
+        cartList = cartList + ' ';
+      }
+      else  {
       cartList = cartList + ', '}
-    
+    }
     if(index === cart.length -2) {
       cartList = cartList + 'and ';
     }
@@ -117,9 +89,44 @@ function placeOrder(cardNumber)  {
   }
   else  {
     console.log(`Your total cost is \$${total()}, which will be charged to the card ${cardNumber}.`);
-    var cost = total();
     cart.length = 0; //clears cart array;
-    return `Your total cost is \$${cost}, which will be charged to the card ${cardNumber}.`;
+    return `Your total cost is \$${total()}, which will be charged to the card ${cardNumber}.`;
   }
   
 }
+
+addToCart("Peanut Butter");
+viewCart();
+addToCart("Socks");
+viewCart();
+addToCart("Iced Tea");
+console.log(cart.length);
+for(index = 0; index < cart.length; index++)  {
+  console.log(cart[index]);}
+  
+console.log(`You currently have ${cart.length} items, at a total of \$${total()}.`);
+
+addToCart("Peaches");
+addToCart("Lemons");
+addToCart("Glock k-47");
+
+console.log(cart.length);
+for(index = 0; index < cart.length; index++)  {
+  console.log(cart[index]);}
+  
+console.log(`You currently have ${cart.length} items, at a total of \$${total()}.`);
+
+  var finds = findItem("toys"); 
+  console.log(finds);
+  var finds1 = findItem("Iced Tea");
+  console.log(finds1);
+  viewCart();
+  removeFromCart('cat food');
+  removeFromCart('Glock k-47');
+  viewCart();
+  placeOrder();
+  viewCart();
+  placeOrder('123456789');
+  viewCart();
+  
+  
