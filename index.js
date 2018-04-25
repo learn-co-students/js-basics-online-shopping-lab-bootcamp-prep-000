@@ -1,5 +1,6 @@
 var cart = [];
 
+
 function getCart() {
  return cart;
 }
@@ -10,7 +11,11 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  cart.push(item = {
+    itemName: item,
+    itemPrice: randomNumber,
+  });
+  console.log(item + " has been added.");
 }
 
 function viewCart() {
@@ -26,5 +31,5 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  cart.delete
 }
