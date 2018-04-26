@@ -60,6 +60,7 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
   if (!cardNumber) {
+<<<<<<< HEAD
     return `Sorry, we don't have a credit card on file for you.`
   }
 
@@ -68,4 +69,8 @@ function placeOrder(cardNumber) {
     cart.pop()
   }
   placeOrder()
+=======
+    return `We don't have a credit card on file for you to place your order.`
+  }
+>>>>>>> cf58de0babcee6a74dd061383801481b9b79eeb0
 }
