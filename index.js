@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var itemObj = new Object({ itemName: item, itemPrice: 1+Math.floor(Math.random() * Math.floor(max))});
+  var itemObj = new Object({ itemName: item, itemPrice: 1+Math.floor(Math.random() * Math.floor(100))});
   cart.push(itemObj);
   return `${item} has been added to your cart.`;
 }
@@ -18,11 +18,15 @@ function addToCart(item) {
 function viewCart() {
   var message = "In your cart, you have ";
   for ( var i = 0; i < cart.length; i++ ) {
-    message = `${message} ${cart[i].itemName} at $${cart[i].itemPrice}`;
-    if ( i != cart.length-1 ) {
-      message = `${message}, and`;
-    } else {
-      message = `.`;
+    if ( i !== 0 ) {
+      message = `${message}, `;
+    }
+    if ( i !== 0 && i === cart.length-1 ) {
+      message = `${message}and `;
+    }
+    message = `${message}${cart[i].itemName} at $${cart[i].itemPrice}`;
+    if (i == cart.length-1) {
+      message = `${message}.`
     }
   }
   
@@ -44,19 +48,19 @@ function total() {
 function removeFromCart(item) {
   for ( var i = 0; i < cart.length; i++ ) {
     if ( cart[i].itemName === item ) {
-      cart = [...cart.slice(0, i), ...cart.slice(i+1)];
+      cart.splice(i, 1);
       return cart;
-    } else {
-      return "That item is not in your cart.";
-    }
+    } 
   }
+  return "That item is not in your cart.";
 }
 
 function placeOrder(cardNumber) {
-  if ( cardNumber === null ) {
+  if ( cardNumber === undefined ) {
     return "Sorry, we don't have a credit card on file for you.";
   } else {
+    var costTotal = total();
     cart = [];
-    return `Your total cost is ${total()}, which will be charged to the card ${cardNumber}.`;
+    return `Your total cost is $${costTotal}, which will be charged to the card ${cardNumber}.`;
   }
 }
