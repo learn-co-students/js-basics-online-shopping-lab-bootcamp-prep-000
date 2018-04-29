@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  var addItem = [ { itemName:"bananas", itemPrice: 17}, { itemName:"pancake batter", itemPrice: 5 }, { itemName:"eggs", itemPrice: 49} ];
 }
 
 function viewCart() {
