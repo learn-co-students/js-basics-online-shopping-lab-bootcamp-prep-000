@@ -38,12 +38,12 @@ function viewCart() {
     {
       if(i === cart.length - 1)
       {
-        returnString = returnString + `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+        returnString = returnString + `and ${cart[i].itemName} at $${cart[i].itemPrice}.`;
         return returnString;
       }
       else
       {
-        returnString = returnString + `${cart[i].itemName} at $${cart[i].itemPrice}, `
+        returnString = returnString + `${cart[i].itemName} at $${cart[i].itemPrice}, `;
       }
     }
   }  
@@ -51,10 +51,25 @@ function viewCart() {
 
 function total() {
   // write your code here
+  var total = 0;
+  for(let i = 0; i < cart.length; i++)
+  {
+   total = total + cart[i].itemPrice; 
+  }
+  return total;
 }
 
 function removeFromCart(item) {
   // write your code here
+  for(let i = 0; i < cart.length; i++)
+  {
+    if(item === cart[i].itemName)
+    {
+      cart.splice((i - 1), 1);
+      return cart;
+    }
+    
+  }
 }
 
 function placeOrder(cardNumber) {
