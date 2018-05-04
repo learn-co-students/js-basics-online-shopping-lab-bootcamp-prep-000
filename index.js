@@ -23,14 +23,30 @@ function viewCart() {
   {
     return "Your shopping cart is empty.";
   }
-  if(cart.length === 1)
+  else if(cart.length === 1)
   {
-    return `In our cart, you have ${cart[0].itemName} at ${cart[0].itemPrice}.`
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
   }
-  for(let i = 0; i < cart.length; i++)
+  else if(cart.length === 2)
   {
-    
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   }
+  else
+  {
+    var returnString = `In your cart, you have `;
+    for(let i = 0; i < cart.length; i++)
+    {
+      if(i === cart.length - 1)
+      {
+        returnString = returnString + `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+        return returnString;
+      }
+      else
+      {
+        returnString = returnString + `${cart[i].itemName} at $${cart[i].itemPrice}, `
+      }
+    }
+  }  
 }
 
 function total() {
