@@ -11,18 +11,26 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
- function randomNumber()
- {
-   var number = Math.floor(Math.random() * Math.floor(100) + 1);
-   return number;
- }
- var addition = {itemName: `${item}`, itemPrice: `${randomNumber}`};
- cart.push(addition);
- return `${item} has been added to your cart.`;
+var number = Math.floor(Math.random() * 100) + 1;
+var newObject = {itemName: `${item}`, itemPrice: number};
+cart.push(newObject);
+return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
   // write your code here
+  if(cart.length === 0)
+  {
+    return "Your shopping cart is empty.";
+  }
+  if(cart.length === 1)
+  {
+    return `In our cart, you have ${cart[0].itemName} at ${cart[0].itemPrice}.`
+  }
+  for(let i = 0; i < cart.length; i++)
+  {
+    
+  }
 }
 
 function total() {
