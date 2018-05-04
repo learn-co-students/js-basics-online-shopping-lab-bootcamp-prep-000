@@ -30,18 +30,20 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  let message = "In your cart, you have ";
+  let message = "In your cart, you have";
   let cartLength = cart.length;
   if (cartLength === 0) {
     return "Your shopping cart is empty."
   } else if (cartLength === 1) {
     getCart().map(list => (
-      message = message + `${list.itemName} at $${list.itemPrice}.`
+      message = `${message} ${list.itemName} at $${list.itemPrice}.`
     ));
   } else if (cartLength === 2) {
-    getCart().map(list => (
-      message = message + `${list.itemName} at $${list.itemPrice}, and ${list.itemName} at $${list.itemPrice}.`
-    ));
+    getCart().map(list => {
+      const itemOne = list.splice(0)
+      return message = `${message} ${itemOne.itemName} at $${itemOne.itemPrice},
+      and ${list.itemName} at $${list.itemPrice}.`
+    });
   }
   return message;
 }
