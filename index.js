@@ -35,15 +35,15 @@ function viewCart() {
   if (cartLength === 0) {
     return "Your shopping cart is empty."
   } else if (cartLength === 1) {
-    getCart().map(list => (
+    cart.map(list => (
       message = `${message} ${list.itemName} at $${list.itemPrice}.`
     ));
   } else if (cartLength === 2) {
-    getCart().map(list => {
-      const itemOne = list.splice(0)
-      return message = `${message} ${itemOne.itemName} at $${itemOne.itemPrice},
-      and ${list.itemName} at $${list.itemPrice}.`
-    });
+    let cartArr = cart.map(list => list);
+    let i = 0;
+    let cartItem = cartArr.splice(i, 1);
+    return message = `${message} ${cartItem.itemName} at $${cartItem.itemPrice},
+    and ${cartItem.itemName} at $${cartItem.itemPrice}.`
   }
   return message;
 }
