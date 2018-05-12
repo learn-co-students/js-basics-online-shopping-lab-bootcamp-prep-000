@@ -9,6 +9,8 @@ function setCart(c) {
   return cart;
 }
 
+// A note for all of these functions: it's better to call getCart() instead of calling cart directly.
+
 function addToCart(item) {/*Note: The instructions say to look into Math.floor(), but Math.ceil() is more appropriate for this. */
   
   cart.push({ itemName: `${item}`, itemPrice: Math.ceil(Math.random()*100) }); 
