@@ -24,12 +24,11 @@ function addToCart(item) {
 function viewCart() {
  
  var i = cart.length;
-  for (i === cart.length; i < cart.length; i ++);
-     if ( i === 0 ) {
-     return console.log("Your shopping cart is empty.") ; 
-   } else if (i === 1) {
-     return console.log(`In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}`);
-   }
+
+if(i === 0) {
+return "Your shopping cart is empty.";
+}
+ 
 }
 
 function total() {
