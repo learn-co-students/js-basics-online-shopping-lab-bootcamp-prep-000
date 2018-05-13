@@ -32,7 +32,7 @@ if (myCart.length === 0){
   return "Your shopping cart is empty.";
 } else {
   return `In your cart, you have${cartString}.`;
-}
+  }
 }
 
 function total() {
@@ -52,11 +52,10 @@ function removeFromCart(item) {
       return cart;
     }
   }
-  if (itemIsInCart === false) {
+    if (itemIsInCart === false) {
     return "That item is not in your cart.";
   }
 }
-
 
 function placeOrder(creditCard) {
    if (creditCard === undefined) {
@@ -67,3 +66,4 @@ function placeOrder(creditCard) {
     return totalOrder;
   }
 }
+
