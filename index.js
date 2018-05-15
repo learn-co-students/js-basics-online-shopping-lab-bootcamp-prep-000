@@ -10,17 +10,17 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- let price = Math.floor(Math.random() * 100);
- var newItem = {itemName: `${item}`, itemPrice: `${price}`};
+ let price = Math.floor(Math.random() * 100) + 1;
+ var newItem = {itemName: item, itemPrice: price};
  cart.push(newItem);
  
  return (`${item} has been added to your cart.`);
 }
 
-function viewCart(cart) {
+function viewCart() {
   let i = 0;
   while (i < cart.length){
-    return (`In your cart, you have ${cart[i]} at ${price[i]}, ${cart[i+1]} at ${price[i+1]}, ${cart[i+2]} at ${price[i+2]}`);
+    return ("In your cart, you have " + cart[0] + " at " + price);
   }
   return ("Your shopping cart is empty.");
 }
