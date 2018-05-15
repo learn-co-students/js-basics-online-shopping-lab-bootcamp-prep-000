@@ -19,10 +19,17 @@ function addToCart(item) {
 
 function viewCart() {
   let i = 0;
-  while (i < cart.length){
+  if (cart.length == 1){
     return ("In your cart, you have " + cart[0] + " at " + price);
   }
+  else if (cart.length > 1) {
+    for (i = 1; i < cart.length; i++){
+      
+    }
+  }
+  else{
   return ("Your shopping cart is empty.");
+  }
 }
 
 function total() {
