@@ -20,11 +20,11 @@ function addToCart(item) {
 function viewCart() {
   let i = 0;
   if (cart.length == 1){
-    return ("In your cart, you have " + cart[0] + " at " + price);
+    return ("In your cart, you have " + cart[0] + " at " + "$" + price + ".");
   }
   else if (cart.length > 1) {
     for (i = 1; i < cart.length; i++){
-      
+     return ("In your cart, you have " + cart[0] + " at " + "$" + price + "," ); 
     }
   }
   else{
@@ -46,9 +46,9 @@ function removeFromCart(item) {
   while (i < cart.length){
     cart.pop();
   }
-  return ("That item is not in your cart.")
+  return ("That item is not in your cart.");
 }
 
 function placeOrder(cardNumber) {
-  
+  cart = [];
 }
