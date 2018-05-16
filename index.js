@@ -13,9 +13,10 @@ function addToCart(item) {
  let price = Math.floor(Math.random() * 100) + 1;
  var newItem = {itemName: item, itemPrice: price};
  cart.push(newItem);
- 
+ console.log(cart);
  return (`${item} has been added to your cart.`);
 }
+
 
 function viewCart() {
   let i = 0;
@@ -51,4 +52,5 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   cart = [];
+  return (`Your total cost is ${price}, which will be charged to the card ${carNumber}.`);
 }
