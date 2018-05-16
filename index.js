@@ -50,3 +50,16 @@ function removeFromCart(item) {
     }
   }
 }
+
+function placeOrder(creditCardNum) {
+  
+  if(creditCardNum) {
+    cart = [];
+    let sumTotal = total();
+    sumTotal;
+    return `Your total cost is ${sumTotal}, which will be charged to the card ${creditCardNum}.`;
+  }
+  else {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+}
