@@ -1,39 +1,20 @@
-var cart = [];
-
-
-function getCart() {
- return cart;
-}
-
-function setCart(c) {
-  cart = c;
-  return cart;
-}
+let cart = [];
 
 function addToCart(item) {
-  cart.push({
+  let newItem = {
     itemName: item,
-    itemPrice: Math.floor(Math.random() * 100),
-  });
-  return item + " has been added to your cart.";
+    itemPrice: Math.floor(Math.random(100) + 1),
+  };
+  
+  cart.push(newItem);
+  return `${itemName} has been added to your cart`;
 }
 
 function viewCart() {
-  if (cart.length === 0) {
-    return "Your shopping cart is empty.";
-  } else if (cart.length === 1) {
-    return "In your cart, you have " + Object.key(cart[0]).itemName + " at " + Object.key(cart[0]).itemPrice) + ".";
+  let totalReturnStart = 'In your cart, you have';
+  let totalReturnEnd = ''
+  
+  for(let i = 0; i < array.length; i++) {
+    totalReturn +=  ;
   }
-}
-
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
-function placeOrder(cardNumber) {
-  cart.delete
 }
