@@ -17,11 +17,16 @@ function viewCart() {
   } else if (cart.length === 2) {
     return `In your cart you have ${cart[0].itemName} at ${cart[0].itemPrice},  and ${cart[1].itemName} at ${cart[1].itemName}.`;
   } else if (cart.length <= 3) {
-    let totalReturn = '';
-      for(let i = 0; i < array.length; i++) {
-        if(i < (array.length -1)) {
-          
-        }
-  }
+    let totalReturn = 'In your cart, you have';
+    
+    for(let i = 0; i < array.length; i++) {
+      if(i < (array.length - 1)) {
+        totalReturn += ` ${cart[i].itemName} at ${cart[i].itemPrice},`;
+      }
+      else if (i === array.length - 1) {
+        totalReturn += ` and ${cart[i].itemName} at ${cart[i].itemPrice}.`;
+      }
+    }
+    return totalReturn;
   }
 }
