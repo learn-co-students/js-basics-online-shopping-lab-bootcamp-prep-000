@@ -7,7 +7,7 @@ function addToCart(item) {
   };
   
   cart.push(newItem);
-  return `${itemName} has been added to your cart`;
+  return `${newItem.itemName} has been added to your cart`;
 }
 
 function viewCart() {
@@ -16,14 +16,14 @@ function viewCart() {
     return `In your cart, you have ${cart[0].itemName} at ${cart[0].itemPrice}`;
   } else if (cart.length === 2) {
     return `In your cart you have ${cart[0].itemName} at ${cart[0].itemPrice},  and ${cart[1].itemName} at ${cart[1].itemName}.`;
-  } else if (cart.length <= 3) {
+  } else if (cart.length >= 3) {
     let totalReturn = 'In your cart, you have';
     
-    for(let i = 0; i < array.length; i++) {
-      if(i < (array.length - 1)) {
+    for(let i = 0; i < cart.length; i++) {
+      if(i < (cart.length - 1)) {
         totalReturn += ` ${cart[i].itemName} at ${cart[i].itemPrice},`;
       }
-      else if (i === array.length - 1) {
+      else if (i === cart.length - 1) {
         totalReturn += ` and ${cart[i].itemName} at ${cart[i].itemPrice}.`;
       }
     }
