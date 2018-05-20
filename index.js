@@ -15,6 +15,7 @@ function addToCart(item) {
     itemName: item,
     itemPrice: price
   };
+  
   cart.push(cartObject);
   return(`${item} has been added to your cart.`);
 }
@@ -50,7 +51,7 @@ function viewCart() {
 function total() {
   var array = [];
   var myTotal = 0;
-
+  
   for (let i = 0; i < cart.length; i++)
   {array.push(cart[i].itemPrice);
   myTotal += array[i];}
@@ -58,7 +59,14 @@ function total() {
 }
  
 function removeFromCart(item) {
-  // write your code here
+  for (let i = 0; i < cart.length; i++) {
+  
+  if (item == cart[i].itemName); {
+  cart.splice(i, 1);
+  return cart;}
+  }
+  
+  return `That item is not in your cart.`;
 }
 
 function placeOrder(cardNumber) {
