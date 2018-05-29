@@ -72,6 +72,8 @@ function removeFromCart(item) {
   return "That item is not in your cart."
 } 
 
+/* don't need an else if after the if. that means it will iterate through, return "That item is not in your cart" and stop after */
+
 function placeOrder(cardNumber) {
   if (cardNumber === undefined) {
     return "Sorry, we don't have a credit card on file for you."
