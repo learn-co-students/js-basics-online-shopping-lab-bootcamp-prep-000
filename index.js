@@ -62,7 +62,7 @@ function removeFromCart(item) {
   var index=-1;
   for(let i=0;i<cart.length;i++){
     var obj=cart[i];
-    if(obj.itemName==item.itemName)
+    if(obj.itemName==item)
     {
       index=i;
       break;
@@ -82,5 +82,11 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   // write your code here
+  if(cardNumber==null){
+    //console.log("Sorry, we don't have a credit card on file for you.");
+    return `Sorry, we don't have a credit card on file for you.`
+  }
+  var tot=total();
+  cart.length=0;
+  return `Your total cost is $${tot}, which will be charged to the card ${cardNumber}.`
 }
-removeFromCart();
