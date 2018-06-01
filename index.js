@@ -1,5 +1,5 @@
 var cart = [];
-
+let totalAmt = 0;
 function getCart() {
  return cart;
 }
@@ -34,15 +34,13 @@ function viewCart() {
 }
 
 function total() {
-  let totalAmt = 0;
+  //let totalAmt = 0;
   for(var i = 0; i < cart.length; i++){
       ('itemPrice' in cart[i])
       totalAmt += cart[i]['itemPrice']
   }
   return totalAmt;
 }
-
-
 
 function removeFromCart(item) {
   if(['itemName'] in cart=== item);
