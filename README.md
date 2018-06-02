@@ -7,7 +7,7 @@
 + Brush up on conditionals and control flow to make some Oxford comma magic happen.
 
 ## Instructions
-We've started you off with a `cart` variable that points at an empty array. There are five functions that you'll have to code in order to create a working shopping cart:                 
+We've started you off with a `cart` variable that points at an empty array. There are five functions that you'll have to code in order to create a working shopping cart:
 1. The `addToCart()` function accepts one argument, the name of an item.
     + Use that passed-in string to create a new object representing the item. The object should consist of two key-value pairs : `{ itemName: name of the item, itemPrice: price of the item, }`. As more items are added, the `cart` should start to look something like this: `[ {  itemName:"bananas", itemPrice: 17 }, { itemName:"pancake batter",itemPrice: 5 }, { itemName:"eggs", itemPrice: 49 }]`.
     + The price of each item should be a randomly-generated integer between 1 and 100.
