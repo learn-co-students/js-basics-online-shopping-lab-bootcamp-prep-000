@@ -22,25 +22,62 @@ function addToCart(item) {
 
 function viewCart() {
 
-  if (cart.length === 1 ) { 
-  return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
+  // write your code here
+  if (cart.length === 0) {
+ return 'Your shopping cart is empty.'
+  } 
+  else {
+ let cartier = [];
+ // cartier is an empty array that we store our new values
+ 
+  for (let i = 0; i < cart.length; i++)
+  // for loop becuase we dont know how many times or items will be added
+  {
+    cartier.push(cart[i].itemName + ' at $' + cart[i].itemPrice)
+    // we are going to push *add* to new array ${cartier} key itemName and  key itemPrice from ${cart} which is the array made above. the [i] tells us we are increasing through the index.
   }
- if (cart.length === 0) {
-   return `Your shopping cart is empty.`
- }
+  if (cart.length === 1 ) {
+ // if the cart length is eqaul to 1 
+  return `In your cart, you have ${cartier}.`
+  }
+  else {
+    
+    let lastItem = cartier.pop();
+    // var lastItem will take the last element in the the cartier array and remove it
+    return `In your cart, you have ${cartier.join(', ')}, and ${lastItem}.`
+  }
+  }
+ 
 }
-
-
 
 
 function total() {
-  // write your code here
+  var cost = 0;
+  for (var i = 0; i < cart.length; i++) {
+  cost = cost + cart[i].itemPrice;
+  }
+  return cost;
 }
+
+
+
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i = 0; i < cart.length; i++) {
+    if (item === cart[i].itemName) {
+      cart.splice(i, 1)
+      return cart
+    }
+  }
+  return "That item is not in your cart."
 }
-
+  
+  
 function placeOrder(cardNumber) {
-  // write your code here
+  if(cardNumber === undefined){
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  var priceTag = total();
+  cart.length = 0;
+  return `Your total cost is $${priceTag}, which will be charged to the card ${cardNumber}.`;
 }
