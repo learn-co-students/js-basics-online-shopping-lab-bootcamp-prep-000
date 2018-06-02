@@ -1,5 +1,5 @@
 var cart = [];
-let totalAmt = 0;
+
 function getCart() {
  return cart;
 }
@@ -34,7 +34,7 @@ function viewCart() {
 }
 
 function total() {
-  //let totalAmt = 0;
+  let totalAmt = 0;
   for(var i = 0; i < cart.length; i++){
       ('itemPrice' in cart[i])
       totalAmt += cart[i]['itemPrice']
@@ -43,11 +43,17 @@ function total() {
 }
 
 function removeFromCart(item) {
-  if(['itemName'] in cart=== item);
-  delete cart['itemName'][item];
+  for (var i = 0; i < cart.length; i++){
+    if (cart[i]['itemName'] in cart=== item);{
+      delete cart[i]['itemName'];
+      return cart;
+    }
+    return `That item is not in your cart.`
+  }
 }
 
 function placeOrder(cardNumber) {
+  let newtotal = total();
   if (cardNumber === undefined) return `Sorry, we don't have a credit card on file for you.`
-  else return `Your total cost is $${totalAmt}, which will be charged to the card ${cardNumber}.`
+  else return `Your total cost is $${newtotal}, which will be charged to the card ${cardNumber}.`
 }
