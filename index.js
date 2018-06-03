@@ -34,7 +34,7 @@ function viewCart() {
   // for loop becuase we dont know how many times or items will be added
   {
     cartier.push(cart[i].itemName + ' at $' + cart[i].itemPrice)
-    // we are going to push *add* to new array ${cartier} key itemName and  key itemPrice from ${cart} which is the array made above. the [i] tells us we are increasing through the index.
+    // we are going to push *add* to new array ${cartier} key itemName and  key itemPrice from ${cart}. the [i] tells us we are increasing through the index.
   }
   if (cart.length === 1 ) {
  // if the cart length is eqaul to 1 
