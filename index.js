@@ -35,17 +35,17 @@ function viewCart() {
     cartier.push(cart[i].itemName + ' at $' + cart[i].itemPrice)
     // we are going to push *add* to new array ${cartier} key itemName and  key itemPrice from ${cart}. the [i] tells us we are increasing through the index.
   }
-  if (cart.length === 1 ) {
+  if (cartfilled.length === 1 ) {
  // if the cart length is eqaul to 1 
   return `In your cart, you have ${cartier}.`
   }
   else {
     
-    let lastItem = cartier.pop();
+    let lastItem = cartfilled.pop();
     // var lastItem will  *.pop* remove the last element in the the cartier array and return the element taken.
-    return `In your cart, you have ${cartier.join(', ')}, and ${lastItem}.`
+    return `In your cart, you have ${cartfilled .join(', ')}, and ${lastItem}.`
     
-  // 
+  // .join puts all elements in the array into a string and adds ',' between each element and lastItem returns the lastitem in the array and adds a 'and' before it
   }
   }
  
@@ -69,7 +69,8 @@ function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++) {
     if (item === cart[i].itemName) {
       cart.splice(i, 1)
-      return cart
+   //  cart.splice would remove the i and ends at 1 (what ever item it may be) and return that array
+   return cart
     }
   }
   return "That item is not in your cart."
