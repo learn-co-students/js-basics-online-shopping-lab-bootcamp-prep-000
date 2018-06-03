@@ -43,8 +43,10 @@ function viewCart() {
   else {
     
     let lastItem = cartier.pop();
-    // var lastItem will take the last element in the the cartier array and remove it
+    // var lastItem will  *.pop* remove the last element in the the cartier array and return the element taken.
     return `In your cart, you have ${cartier.join(', ')}, and ${lastItem}.`
+    
+  // 
   }
   }
  
@@ -56,6 +58,8 @@ function total() {
   for (var i = 0; i < cart.length; i++) {
   cost = cost + cart[i].itemPrice;
   }
+  
+  
   return cost;
 }
 
