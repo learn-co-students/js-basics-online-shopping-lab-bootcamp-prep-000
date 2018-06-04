@@ -54,17 +54,17 @@ function removeFromCart(item) {
       isItemThereFlag = true ;
     }
   }
-  if(isItemThereFlag === false){
+  if(isItemThereFlag === false){ // if the item isn't on the cart, you return this
     return 'That item is not in your cart.';
   }else
-  return cart;
+  return cart; // if isItemThereFlag === true, you return the cart after it has updated
 }
 
 function placeOrder(cardNumber) {
-  var newTotal = total();
-  if(cardNumber === undefined){
+  var newTotal = total(); // had to get newTotal to equal the returned value that you get after calling the total function
+  if(cardNumber === undefined){ // this checks if no cardNumber has been inputted
     return "Sorry, we don't have a credit card on file for you.";
-  }else{
+  }else{ // splice(0) deletes everything starting at index 0 (inclusive)
     cart.splice(0)
     return `Your total cost is $${newTotal}, which will be charged to the card ${cardNumber}.`
   }
