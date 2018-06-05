@@ -10,9 +10,12 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var itemPrice = Math.floor(Math.random() *(100 - 1) + 1);
+  for (var i = 0; i < item.length; i++) {
+  cart.push(`'itemName: ${item[i]}, itemPrice: ${itemPrice[i]}'`)
+ }
+   return `'${item} has been added to your cart.'`
 }
-
 function viewCart() {
   // write your code here
 }
@@ -28,3 +31,4 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+
