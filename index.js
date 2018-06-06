@@ -116,22 +116,21 @@ and returns the current total value of the items in the cart.
 
 function total() 
 {
+  // create var to store total
+  var total = 0
+  
   // check if there are items in the cart:
   if(cart.length > 0)
   {
-    // create var to store total
-    var total = 0
+    
     // check the cart prices
     for(let i = 0; i < cart.length; i++)
     {
       // tally it up!
       total += cart[i].itemPrice
     }
-    
-    // return the total
-    return total
   }
-  
+  // return what has been summed up
   return total
 }
 
@@ -166,9 +165,20 @@ function removeFromCart(item)
     }
 }
 
-function placeOrder(cardNumber) {
-  // write your code here
+function placeOrder(cardNumber) 
+{
+  // store the cart total
+  var orderTotal = total()
   
-  // final step, empty the cart
-  cart = []
+  // empty the cart
+  cart.length = 0
+  
+  if(cardNumber === undefined)
+  {
+    return "Sorry, we don\'t have a credit card on file for you."
+  }
+  else
+  {
+    return `Your total cost is $${orderTotal}, which will be charged to the card ${cardNumber}.`
+  }
 }
