@@ -15,11 +15,13 @@ function getRandomInt()
 
 
 
-function getCart() {
+function getCart() 
+{
  return cart;
 }
 
-function setCart(c) {
+function setCart(c) 
+{
   cart = c;
   return cart;
 }
@@ -35,7 +37,8 @@ As more items are added, the cart should start to look something like this:
 The price of each item should be a randomly-generated integer between 1 and 100.
 */
 
-function addToCart(item) {
+function addToCart(item) 
+{
   // creat a new obj from the string and give it a price
   var newObj = { itemName: item, itemPrice: getRandomInt() }
   
@@ -59,12 +62,13 @@ can assume the following shapes according to how many items the cart contains:
 3+ items — In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
 */
 
-function viewCart() {
+function viewCart() 
+{
   // check if cart contains items
   if(cart.length > 0)
   {
     // the cart contains items
-    // variable for placing the 'and'
+    // variable for placing the 'and/,'
     var andPlacement = cart.length
     
     // start retString off
@@ -79,19 +83,24 @@ function viewCart() {
       // add the item's itemName and itemPrice
       retString += `${cart[i].itemName} at $${cart[i].itemPrice}`
       
-      // check for comma or 'and'
-      if(andPlacement > 1)
+      switch(andPlacement) 
       {
-        // add a comma
-        retString += ","
-      }
-      else
-      {
-        // or else its the last one and needs 'and'
-        retString += " and "
+        case 1:
+          // add and because only 2 items left
+          retString += ", and "
+          break;
+        case 0:
+          // add . because last item
+          retString += "."
+          break;
+        default:
+          // just keep adding commas
+          retString += ", "
       }
     }
     
+    // return the shopping list
+    return retString
   }
   else
   {
@@ -105,7 +114,8 @@ The total() function accepts no arguments, iterates through the cart array,
 and returns the current total value of the items in the cart.
 */
 
-function total() {
+function total() 
+{
   // check if there are items in the cart:
   if(cart.length > 0)
   {
