@@ -35,7 +35,6 @@ function viewCart() {
     for (let i = 0; i < cart.length; i++){
       if (i === cart.length-1){
         returnStatement += `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
-        
       } 
       
       else {
@@ -43,8 +42,7 @@ function viewCart() {
       }
     }
     return returnStatement;
-  }
-  
+  }  
 }
 
 function total() {
@@ -65,7 +63,7 @@ function removeFromCart(item) {
     for (let i = 0; i < cart.length; i++){
       // if any value matches 'item'...
       if (cart[i].itemName === item){
-        // counter is set to '1', whilst current is set to the value of i
+        // counter is set to '1', while current is set to the value of i
         counter = 1;
         current = i;
       }
@@ -80,6 +78,7 @@ function removeFromCart(item) {
       return `That item is not in your cart.`
     }
 }
+
 function placeOrder(cardNumber) {
   var tot = total()
   cart.length = 0;
@@ -88,9 +87,6 @@ function placeOrder(cardNumber) {
   }
   
   else {
-    
     return `Your total cost is $${tot}, which will be charged to the card ${cardNumber}.`
-
-
   }
 }
