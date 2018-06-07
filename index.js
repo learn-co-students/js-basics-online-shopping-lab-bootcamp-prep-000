@@ -1,5 +1,20 @@
 var cart = [];
 
+Array.prototype.clean = function(deleteValue) {
+for (var i = 0; i < this.length; i++) {
+if (this[i] == deleteValue) {
+  this.splice(i, 1);
+  i--;
+}
+}
+return this;
+};
+
+
+function clearCart(){
+  cart.length = 0
+}
+
 function getCart() {
  return cart;
 }
@@ -64,20 +79,82 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  var tester = false
-  for (var i = 0; cart.length >= i; i++){
-    if (cart[i].itemName === item){
-      cart.splice(i, 1);
-      tester = true
-    } else if (cart.length == i && tester == false){
-      var nocart = 'That item is not in your cart.'
-      return nocart
-    }
+
+  var nocart = 'That item is not in your cart.'
+  var cartmatch = cart, cart1
+  // for (var i = cart.length - 1; i >= 0; i--){
+  //     if(cart[i].itemName == item){
+  //       cart.splice(cart.indexOf(item),1)
+  //       return cart
+  //     }
+  //   }
+    //
+    for (var i = cart.length - 1; i >= 0; i--){
+        if(cart[i].itemName == item){
+          cart.splice(i,1)
+          return cart
+        }
+      }
+
+  // var elements = cart
+  // var remove = item
+  // var index = elements.indexOf(remove);
+  //
+  // while (index !== -1) {
+  //     elements.splice(cart, 1);
+  //     index = elements.indexOf(remove);
+  // }
+
+  // console.log(elements);
+
+
+
+      // var elements = [1, 5, 5, 3, 5, 2, 4];
+      // var remove = 5;
+      // var index = elements.indexOf(remove);
+      //
+      // while (index !== -1) {
+      //     elements.splice(index, 1);
+      //     index = elements.indexOf(remove);
+      // }
+      //
+      // console.log(elements);
+    // if (typeof cart[i].itemName != undefined){
+    //   if(cart[i].itemName == item){
+    //     cart = cart.slice(i,1)
+    //   }
+    // }else {
+    //
+    // }
+
+
+// No changes in the cart
+  if (cartmatch === cart){
+    return nocart
   }
 
 }
 
 
+
+
 function placeOrder(cardNumber) {
   // write your code here
+  // cardNumber = int(cardNumber)
+
+  var noNumber = 'Sorry, we don\'t have a credit card on file for you.'
+  var cost = 0
+  // var card = cardNumber.length
+   if (cardNumber === undefined){
+    return noNumber
+  } else {
+    var i = 0, cost = 0
+    while(cart.length > i){
+      cost += cart[i].itemPrice
+      i++
+    }
+    var processed = 'Your total cost is $'+cost+', which will be charged to the card '+cardNumber+'.'
+    clearCart()
+    return processed
+  }
 }
