@@ -13,7 +13,11 @@ function setCart(c) {
 function addToCart(item) {
  // write your code here
  var cartItem = {
+<<<<<<< HEAD
    itemName: item,
+=======
+   itemName: [item],
+>>>>>>> 6fca23aef88f2c1a98d096652bbf75a9e76a870a
    itemPrice: Math.floor(Math.random()*100)
  };
  cart.push(cartItem);
