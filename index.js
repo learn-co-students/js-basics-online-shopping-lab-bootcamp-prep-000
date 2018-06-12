@@ -10,11 +10,31 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+if (!cart.length){
+  return "The cart is empty."
+}
+const nameAndPrice =[]
+
+for (let i = 0, name = cart.length; i < 1; i++){
+  nameAndPrice.push(`${i + 1}. ${cart[i]}`)
+}
+return 'The cart is currently: ${nameAndPrice.join(',')}'
+};
+
+[{itemName: "bananas", itemPrice: 17},
+{itemName: "pancake", itemPrice: 5},
+{itemName: "eggs", itemPrice: 49}]
+
+if(addToCart){ itemName < 1, i++ 1;
+return "Your cart is empty.";
+}else{
+var addToCart =  ["bananas", "pancake", "eggs"];
+  return addToCart
+}
 }
 
 function viewCart() {
-  // write your code here
+console.log(itemName.string);
 }
 
 function total() {
