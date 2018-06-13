@@ -24,16 +24,16 @@ function viewCart() {
   if(cart.length>0){
     for(var i = 0; i<cart.length; i++) {
       if(i===0 && cart.length===1){
-        arr.push(`In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`)
+        st = `In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`
       }
       else if(i===0 && cart.length>1){
-        arr.push(`In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice},`)
+        st = `In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice}, `
       }
       else if(i===cart.length - 1){
-        arr.push(`${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`)
+        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`
       }
       else{
-        arr.push(`${itemName} at ${itemPrice},`)
+        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice},`
       }
     }
     return st;
