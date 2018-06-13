@@ -25,16 +25,16 @@ console.log(backUp)
   if(cart.length>0){
     for(var i = 0; i<cart.length; i++) {
       if(i===0 && cart.length===1){
-        st = `In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`
+        st = `In your cart, you have ${backUp[i].itemName} at $${backUp[i].itemPrice}.`
       }
       else if(i===0 && cart.length>1){
-        st = `In your cart, you have ${backUp.shift().itemName} at ${backUp.shift().itemPrice}, `
+        st = `In your cart, you have ${backUp[i].itemName} at $${backUp[i].itemPrice}, `
       }
       else if(i===cart.length - 1){
-        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`
+        st = `${st}and ${backUp[i].itemName} at $${backUp[i].itemPrice}.`
       }
       else{
-        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice}, `
+        st = `${st}${backUp[i].itemName} at $${backUp[i].itemPrice}, `
       }
     }
     return st;
@@ -45,12 +45,11 @@ console.log(backUp)
 }
 
 function total() {
-  // write your code here
-  var backUp = cart;
-  var add=0;
-  for(var i=0; i>cart.length; i++){
-      add = add + backUp.shift().parseInt(itemPrice);
-  }
+  // write your code here  
+  var add = 0;
+  for(var i = 0; i>cart.length; i++){
+      add = add + cart[i].itemPrice;
+    }
   return add;
 }
 
@@ -62,3 +61,4 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+
