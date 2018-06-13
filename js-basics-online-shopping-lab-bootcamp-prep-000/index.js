@@ -33,7 +33,7 @@ function viewCart() {
         st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice}.`
       }
       else{
-        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice},`
+        st = `${st}${backUp.shift().itemName} at ${backUp.shift().itemPrice}, `
       }
     }
     return st;
@@ -45,10 +45,17 @@ function viewCart() {
 
 function total() {
   // write your code here
+  var backUp = cart;
+  var add=0;
+  for(var i=0; i>cart.length; i++){
+      add = add + backUp.shift().parseInt(itemPrice);
+  }
+  return add;
 }
 
 function removeFromCart(item) {
   // write your code here
+
 }
 
 function placeOrder(cardNumber) {
