@@ -47,7 +47,7 @@ console.log(backUp)
 function total() {
   // write your code here  
   var add = 0;
-  for(var i = 0; i>cart.length; i++){
+  for(var i = 0; i<cart.length; i++){
       add = add + cart[i].itemPrice;
     }
   return add;
