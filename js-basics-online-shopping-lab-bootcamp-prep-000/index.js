@@ -19,7 +19,7 @@ function addToCart(itemName) {
 
 function viewCart() {
   // write your code here
-  var arr = [];
+  var st;
   var backUp = cart;
   if(cart.length>0){
     for(var i = 0; i<cart.length; i++) {
@@ -36,6 +36,7 @@ function viewCart() {
         arr.push(`${itemName} at ${itemPrice},`)
       }
     }
+    return st;
   }
   else {
     return "Your shopping cart is empty."
