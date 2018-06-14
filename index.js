@@ -1,4 +1,5 @@
 var cart = [];
+var h
 
 function getCart() {
  return cart;
@@ -38,7 +39,7 @@ else {
 
 function total() {
   var g = cart.length
-  var h = cart[0].itemPrice
+  h = cart[0].itemPrice
   var i
   for (i=1;i<g;i++) {
     h += cart[i].itemPrice
@@ -52,7 +53,7 @@ function removeFromCart(item) {
   var l = j
   while (k<j && l === j) {
     if (cart[k].itemName === item) {
-      delete cart[k]
+      cart.splice(k, 1)
       l--
     return cart
     }
@@ -61,9 +62,14 @@ function removeFromCart(item) {
     if (k === j) {
       return "That item is not in your cart."
     }
-  }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (cardNumber > 0) {
+    var m = total()
+    cart = []
+    return `Your total cost is $${m}, which will be charged to the card ${cardNumber}.`
+  } else {
+    return "Sorry, we don't have a credit card on file for you."
+  }
 }
