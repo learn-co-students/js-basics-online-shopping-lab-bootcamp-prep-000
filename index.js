@@ -37,11 +37,17 @@ else {
 }
 
 function total() {
-  // write your code here
+  var g = cart.length
+  var h = cart[0].itemPrice
+  var i
+  for (i=1;i<g;i++) {
+    h += cart[i].itemPrice
+  }
+  return h
 }
 
 function removeFromCart(item) {
-  // write your code here
+  
 }
 
 function placeOrder(cardNumber) {
