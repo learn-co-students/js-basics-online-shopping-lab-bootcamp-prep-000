@@ -21,9 +21,18 @@ var d = cart.length
 if (d === 0) {
   return "Your shopping cart is empty."
 }
+else if (d === 1) {
+  return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
+}
+
 else {
   var e = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}`
-  
+  var f
+  for (f=1; f<d-1; f++) {
+    e += `, ${cart[f].itemName} at $${cart[f].itemPrice}`
+  }
+  e += `, and ${cart[d-1].itemName} at $${cart[d-1].itemPrice}.`
+  return e
 }
 }
 
