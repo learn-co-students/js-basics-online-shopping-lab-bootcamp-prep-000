@@ -47,7 +47,21 @@ function total() {
 }
 
 function removeFromCart(item) {
-  
+  var j = cart.length
+  var k = 0
+  var l = j
+  while (k<j && l === j) {
+    if (cart[k].itemName === item) {
+      delete cart[k]
+      l--
+    return cart
+    }
+    else {k++}
+    }
+    if (k === j) {
+      return "That item is not in your cart."
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
