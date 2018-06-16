@@ -21,16 +21,29 @@ return `${item} has been added to your cart.`;
 
 function viewCart() {
   const howMany = cart.length;
+  const fullCart = []
   if (howMany === 0){
     return (`Your shopping cart is empty.`);
   } else if (howMany === 1){
-    return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`);
-  } else if (howMany === 2) {
-    return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`);
-  } else if (howMany === 3) {
-    return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`)}
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
+  }
+  else {
+      for (let i = 0; i < cart.length; i++) {
+        fullCart.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`);
+      }
+      let beginning = fullCart.slice(0, -1);
+      let ending = fullCart.slice(-1);
+
+      return `In your cart, you have${beginning}, and${ending}.`
+  }
 }
-// I hate how I've accomplished this, becuase it's really strong-arming the problem.  I want to come back and properly fix it - probably using a for loop with something like (var i = 1; i < howMany -1; i++) {}
+  // } else if (howMany === 1){
+  //   return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`);
+  // } else if (howMany === 2) {
+  //   return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`);
+  // } else if (howMany === 3) {
+  //   return (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`)}
+  // I hate how I've accomplished this, becuase it's really strong-arming the problem.  I want to come back and properly fix it - probably using a for loop with something like (var i = 1; i < howMany -1; i++) {}
 
 function total() {
   var costs = 0;
