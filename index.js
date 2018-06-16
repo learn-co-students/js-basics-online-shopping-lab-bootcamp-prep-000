@@ -22,9 +22,9 @@ return `${item} has been added to your cart.`;
 function viewCart() {
   const howMany = cart.length;
   const fullCart = []
-  if (howMany === 0){
+  if (cart.length === 0){
     return (`Your shopping cart is empty.`);
-  } else if (howMany === 1){
+  } else if (cart.length === 1){
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
   }
   else {
