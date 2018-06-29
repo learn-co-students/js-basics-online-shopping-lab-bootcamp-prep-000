@@ -42,8 +42,8 @@ function total() {
     price.push (`${cart[i].itemPrice}`);
   }
     let sum = price.reduce(function(total, amount) {
-      return (total + amount);)
-    })
+      return (total + amount)
+    });
     return sum
 }
 
