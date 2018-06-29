@@ -26,11 +26,9 @@ newObject[item]={price}
 function viewCart() {
 if( cart.length === 0){
   
-  return 'Your shopping cart is empty.';
+  return 'Your shopping cart is empty.';}
 }
-
-
-else  if (cart.length === 1){
+else if (cart.length === 1){
 
   var printOneItem = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
   
@@ -38,17 +36,21 @@ else  if (cart.length === 1){
 return printOneItem;}
 
 
-	 else if (cart.length === 2)
+	 else if(cart.length === 2)
 	 
-	 {var printTwoItem = `In your cart, you have
-	 ${cart[0].itemName},  at $${cart[0].itemPrice}, and  ${cart[1].itemName} at $${cart[1].itemPrice}.`
+	 {var printTwoItem = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`
 	   
-	 return printTwoItem;}    
-	  
-	 
+	 return printTwoItem;   
+	   
 
+else if(cart.length === 3)
   
+  {var printThreeItem = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[3].itemName} at $${cart[3].itemPrice}.`
+	   
+  return printThreeItem;}
 
+ 
+}
 
 function total() {
   
