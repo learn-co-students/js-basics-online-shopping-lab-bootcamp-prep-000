@@ -42,7 +42,8 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  const totaler = (accumulator, currentValue) => accumulator + currentValue['itemPrice']
+  return cart.reduce(totaler, 0)
 }
 
 function removeFromCart(item) {
