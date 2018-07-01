@@ -20,7 +20,7 @@ function viewCart() {
   if (cart.length === 0){
     return "Your shopping cart is empty.";
   } 
-  for (let i = 0; i <= cart.length; i++){
+  for (let i = 0; i < cart.length; i++){
     if (cart.length === 1){ return view += `${cart[i].itemName} at $${cart[i].itemPrice}.`;
     }
     if (i < cart.length - 1){
@@ -33,16 +33,30 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  let i = 0, r = 0;
+  while(i < cart.length){
+    r += cart[i].itemPrice;
+    i++;
+  }
+  return r;
 }
 
+
+
 function removeFromCart(item) {
-  // write your code here
+  var r = false;
+  for (let i = 0; i < cart.length; i++){
+    if (cart[i].hasOwnProperty(item)) {
+      r = true;
+      cart.splice(i, 1);
+      return cart;
+    }
+  }
+  if (!r) {
+    return "That item is not in your cart.";
+  }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
 }
-addToCart("dog");
-viewCart();
-console.log(cart);
