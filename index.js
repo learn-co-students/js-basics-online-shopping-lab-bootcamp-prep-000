@@ -56,12 +56,14 @@ function removeFromCart(item) {
    }
  } if(unwanted === false) {
  return "That item is not in your cart.";
-  } else 
-  return cart
+}
 }
 
 
-
 function placeOrder(cardNumber) {
-  // write your code here
+  if(cardNumber) {
+    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+    return cart = []
+  } else
+  return "Sorry, we don\'t have a credit card on file for you."
 }
