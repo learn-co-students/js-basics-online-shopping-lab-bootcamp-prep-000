@@ -61,13 +61,15 @@ function placeOrder(cardNumber) {
   } else {
     var totalValue = 0;
     var i = 0;
-    while (i <= cart.length) {
+    while (i < cart.length) {
+       debugger;
         totalValue = totalValue + cart[i].itemPrice;
        i++;
   }
-  return "Your total cost is $" + totalValue + ", which will be charged to the card " + cardNumber + ".";
+  cart = [];
   
+  return "Your total cost is $" + totalValue + ", which will be charged to the card " + cardNumber + ".";
 }
-  var cart = [];
+
 }
 
