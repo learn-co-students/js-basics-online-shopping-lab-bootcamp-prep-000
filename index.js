@@ -39,7 +39,7 @@ function viewCart() {
 function total() {
   var price = [];
   for(var i = 0; i < cart.length; i++) {
-    price.push (`${cart[i].itemPrice}`);
+    price.push (cart[i].itemPrice);
   }
     let sum = price.reduce(function(total, amount) {
       return (total + amount)
@@ -48,8 +48,19 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+  var unwanted = false;
+  for(var i = 0; i < cart.length; i++) {
+    if (cart[i].itemName === item){
+      cart.splice(i, 1);
+      unwanted = true;
+   }
+ } if(unwanted === false) {
+ return "That item is not in your cart.";
+  } else 
+  return cart
 }
+
+
 
 function placeOrder(cardNumber) {
   // write your code here
