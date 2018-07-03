@@ -1,3 +1,4 @@
+
 var cart = [];
 
 function getCart() {
@@ -20,14 +21,21 @@ function addToCart(item) {
 
 function viewCart() {
   let i = 0;
+  let price = Math.floor(Math.random() * 100) + 1;
   if (cart.length == 1){
-    return ("In your cart, you have " + cart[0] + " at " + "$" + price + ".");
+    return ("In your cart, you have " + cart[0].itemName + " at " + "$" + cart[0].itemPrice + ".");
   }
+  
   else if (cart.length > 1) {
-    for (i = 1; i < cart.length; i++){
-     return ("In your cart, you have " + cart[0] + " at " + "$" + price + "," ); 
-    }
+    let cartString = 'In your cart, you have ';
+     for (i = 0; i < cart.length - 1; i++){
+       cart[i].itemName;
+       cartString += cart[i].itemName + " at " + "$" + cart[i].itemPrice + ", ";
+     }
+      cartString += "and " + cart[cart.length - 1].itemName + " at " + "$" + cart[cart.length - 1].itemPrice + ".";
+     return (cartString); 
   }
+  
   else{
   return ("Your shopping cart is empty.");
   }
@@ -35,22 +43,35 @@ function viewCart() {
 
 function total() {
   let i = 0;
-  var addPrice = [];
-  while (i < cart.length){
-    i++;
+  let addPrice = 0;
+  for (i =0; i < cart.length; i++){
+    addPrice += cart[i].itemPrice;
   }
-  return (cart);
+  return (addPrice);
 }
 
 function removeFromCart(item) {
-  let i = 0;
-  while (i < cart.length){
-    cart.pop();
+  console.log(item);
+  for (let i = 0; i < cart.length; i++){  
+    if (cart[i].itemName === item) {
+      cart.prototype.splice(i, 1);
+    }
+    else {
+    return ("That item is not in your cart.");
+    }
   }
-  return ("That item is not in your cart.");
+  return cart;
 }
 
 function placeOrder(cardNumber) {
-  cart = [];
-  return (`Your total cost is ${price}, which will be charged to the card ${carNumber}.`);
+  if (cardNumber === undefined){
+    return ("Sorry, we don't have a credit card on file for you.");
+  }
+  else {
+    let addPrice = total();
+    cart = [];
+    return (`Your total cost is $${addPrice}, which will be charged to the card ${cardNumber}.`);
+  }
+
 }
+
