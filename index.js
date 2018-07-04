@@ -13,8 +13,10 @@ function addToCart(item) {
   var items = {itemName: item};
   //random number between 1 and 100
   var price = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  //assigning key, value for items object
+  //assigning another key, value for items object
   items['itemPrice'] = price;
+  //items will now have two keys w their respective values.
+  //adding the items object into the cart array.
   cart.push(items);
   //message indicating item has been added.
   return (`${item} has been added to your cart.`);
