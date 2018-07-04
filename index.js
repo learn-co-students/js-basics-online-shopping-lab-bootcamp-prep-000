@@ -33,7 +33,6 @@ function viewCart() {
       list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
     }
     return (`${intro}` + list.join(', ') + ".");
-    //return (`${intro} list.join(', ').);
   }
 }
 
