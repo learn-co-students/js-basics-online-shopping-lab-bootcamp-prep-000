@@ -37,15 +37,14 @@ function viewCart() {
     }
     return (`${intro}` + list.join(', and ') + ".");
   }
-  //else {
-    
-  //}
+  else {
+    for (var i = 0; i < cart.length; i++) {
+      list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
+      
+    }
+    return (`${intro}` + list[0]['itemName'] + " at $" list[0]['itemPrice'] + ", " + list[1]['itemName'] + " at $" list[1]['itemPrice'] + )
+  }
 }
-    //else {
-      //return (`${intro}` + list.join(', and ') + ".");
-    //}
-
-
 function total() {
   // write your code here
 }
