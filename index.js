@@ -24,15 +24,17 @@ function addToCart(item) {
 
 function viewCart() {
   if (cart.length === 0) {
-    return "Your cart is empty.";
+    return "Your shopping cart is empty.";
   }
+  //if (cart.length === 2) {
   else {
     var intro = "In your cart, you have ";
     var list = [];
     for (var i = 0; i < cart.length; i++) {
       list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
     }
-    return (`${intro}` + list.join(', ') + ".");
+    //else
+    return (`${intro}` + list.join(', and ') + ".");
   }
 }
 
