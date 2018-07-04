@@ -15,7 +15,6 @@ describe("addToCart()", function() {
     addToCart("apples");
 
     expect(getCart().length).toEqual(1);
-
     addToCart("bananas");
 
     expect(getCart().length).toEqual(2);
