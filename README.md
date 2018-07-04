@@ -1,4 +1,4 @@
-# Online Shopping
+delete cart.itemName[item]# Online Shopping
 
 ## Objectives
 + Model a shopping cart full of items as an array of objects in JavaScript.
