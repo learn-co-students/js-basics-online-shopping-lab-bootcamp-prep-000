@@ -11,12 +11,13 @@ function setCart(c) {
 
 function addToCart(item) {
   var items = {itemName: item};
-  //random number betwee 1 and 100
+  //random number between 1 and 100
   var price = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  //assigning key, value for item object
+  //assigning key, value for items object
   items['itemPrice'] = price;
   cart.push(items);
-  //return cart;
+  //message indicating item has been added.
+  return (`${item} has been added to your cart.`);
 }
 
 function viewCart() {
