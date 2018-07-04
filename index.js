@@ -32,7 +32,8 @@ function viewCart() {
     for (var i = 0; i < cart.length; i++) {
       list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
     }
-    return (`${intro}` + list.join() + ".");
+    return (`${intro}` + list.join(', ') + ".");
+    //return (`${intro} list.join(', ').);
   }
 }
 
