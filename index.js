@@ -23,7 +23,17 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length === 0) {
+    return "Your cart is empty.";
+  }
+  else {
+    var intro = "In your cart, you have ";
+    var list = [];
+    for (var i = 0; i < cart.length; i++) {
+      list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
+    }
+    return (`${intro}` + list.join() + ".");
+  }
 }
 
 function total() {
