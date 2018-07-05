@@ -36,11 +36,15 @@ function viewCart() {
   }
   for (var i = 0; i < cart.length; i++) {
     list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
+    //newList is a subset of list-use this so that carts //with more than 2 items get worded with item, item, //and,
     newList = list.slice(0, -1);
   }
+  //cart with 2 items get worded item, and item.
     if (cart.length === 2) {
       return (`${intro}` + list.join(', and ') + ".");
     }
+    //cart w three or more get worded item, item, and
+    //intro plus newList (which is missing last item in list//) plus ', and ' plus the last item in the original //'list'
     else {
       return (`${intro}` + newList.join(', ') + ', and ' + list.slice(-1) + ".");
     }
