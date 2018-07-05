@@ -44,30 +44,6 @@ function viewCart() {
     else {
       return (`${intro}` + newList.join(', ') + ', and ' + list.slice(-1) + ".");
     }
-    
-  /*while (i < cart.length) {
-    list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
-    if (cart.length === 2) {
-      return (`${intro}` + list.join(', and ') + ".");
-    }
-    else {
-      return (`${intro}` + list.join(', ') + ' and ' + list.slice(-1) + ".");
-    }
-    i++;
-  }*/
-  
-  /*if (cart.length === 2) {
-    for (var i = 0; i < cart.length; i++) {
-      list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
-    }
-    return (`${intro}` + list.join(', and ') + ".");
-  }*/
-  //not sure how to make this one with the first one with a //comma but others with comma, and.
-  /*else {
-    for (var i = 0; i < cart.length; i++) {
-      list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
-  }
-  return (`${intro}` + list.join(', and ') + ".");*/
 }
 
 function total() {
