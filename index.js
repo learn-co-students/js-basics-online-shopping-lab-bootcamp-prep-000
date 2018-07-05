@@ -39,7 +39,7 @@ function viewCart() {
       return (`${intro}` + list.join(', and ') + ".");
     }
     else {
-      return (`${intro}` + list.join(', ') + ' ,and ' + list.slice(-1));
+      return (`${intro}` + list.join(', ') + ', and ' + list.slice(-1) + ".");
     }
     
   /*while (i < cart.length) {
