@@ -25,6 +25,7 @@ function addToCart(item) {
 function viewCart() {
   var intro = "In your cart, you have ";
   var list = [];
+  var newList = [];
   var oxCom = list.pop();
   //var i = 0;
   if (cart.length === 0) {
@@ -34,12 +35,14 @@ function viewCart() {
     return (`${intro}` + cart[0]['itemName'] + " at $" + cart[0]['itemPrice'] + ".");
   }
   for (var i = 0; i < cart.length; i++) {
-    list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);}
+    list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
+    newList = list.slice(0, -1);
+  }
     if (cart.length === 2) {
       return (`${intro}` + list.join(', and ') + ".");
     }
     else {
-      return (`${intro}` + list.join(', ') + ', and ' + list.slice(-1) + ".");
+      return (`${intro}` + newList.join(', ') + ', and ' + list.slice(-1) + ".");
     }
     
   /*while (i < cart.length) {
