@@ -25,26 +25,48 @@ function addToCart(item) {
 function viewCart() {
   var intro = "In your cart, you have ";
   var list = [];
+  var oxCom = list.pop();
+  //var i = 0;
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
   }
   if (cart.length === 1) {
     return (`${intro}` + cart[0]['itemName'] + " at $" + cart[0]['itemPrice'] + ".");
   }
-  if (cart.length === 2) {
+  for (var i = 0; i < cart.length; i++) {
+    list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);}
+    if (cart.length === 2) {
+      return (`${intro}` + list.join(', and ') + ".");
+    }
+    else {
+      return (`${intro}` + list.join(', ') + ' ,and ' + list.slice(-1));
+    }
+    
+  /*while (i < cart.length) {
+    list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
+    if (cart.length === 2) {
+      return (`${intro}` + list.join(', and ') + ".");
+    }
+    else {
+      return (`${intro}` + list.join(', ') + ' and ' + list.slice(-1) + ".");
+    }
+    i++;
+  }*/
+  
+  /*if (cart.length === 2) {
     for (var i = 0; i < cart.length; i++) {
       list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
     }
     return (`${intro}` + list.join(', and ') + ".");
-  }
-  else {
+  }*/
+  //not sure how to make this one with the first one with a //comma but others with comma, and.
+  /*else {
     for (var i = 0; i < cart.length; i++) {
       list.push(cart[i]['itemName'] + " at $" + cart[i]['itemPrice']);
-      
-    }
-    return (`${intro}` + list[0]['itemName'] + " at $" list[0]['itemPrice'] + ", " + list[1]['itemName'] + " at $" list[1]['itemPrice'] + )
   }
+  return (`${intro}` + list.join(', and ') + ".");*/
 }
+
 function total() {
   // write your code here
 }
