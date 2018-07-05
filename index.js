@@ -59,16 +59,34 @@ function total() {
 }
 
 function removeFromCart(item) {
+  // declare variable itemToRemove to hold the result of calling searchCartForItemToRemove(item)
+  
+  // return the result of a ternary expression:    this  ? dothis : dothis
+
+  // return     itemToRemove  ? removeItemFromCart : notifyUserNoItemToRemove
   for(var i = 0; i < cart.length; i++) {
     if ( item === cart[i]['itemName']) {
-      cart.splice(cart[i], 1);
+      cart.splice(i, 1);
       return cart;
     }
-    else {
-      return 'That item is not in your cart.';
-    }
   }
+  return 'That item is not in your cart.';
 }
+
+/*function searchCartForItemToRemove(item) {
+  var result;
+  if ( item === cart[i].itemName) {
+      result = cart[i];
+    }
+    return result;
+}
+function removeItemFromCart(item) {
+  
+}
+function notifyUserNoItemToRemove() {
+  return 'Item not in cart'
+}
+function */
 
 function placeOrder(cardNumber) {
   // write your code here
