@@ -19,24 +19,17 @@ function viewCart() {
   var cartItem1 = [];
   var cartItem2 = [];
   let i = 0;
-  while (i < cart.length) {
+  while (i < (cart.length-1)) {
     cartItem1.push(` ` + cart[i].itemName + ` at $` + cart[i].itemPrice);
     i++;
   }
-    if (cart.length === 0) {
-      return "Your shopping cart is empty."
+  if (cart.length === 0) {
+    return "Your shopping cart is empty."
   } else if (cart.length === 1) {
-    return (`In your cart, you have` + cartItem1 + `.`);
+    return (`In your cart, you have` + cart[0].itemName +  ` at $` + cart[0].itemPrice + `.`);
   } else {
-    var lastItem = cart[cart.length-1]
-    let i = 0;
-    while (i < cart.length-1) {
-      cartItem2.push(` ` + cart[i].itemName + ` at $` + cart[i].itemPrice + `, and ` + lastItem].itemName + ` at $` + [lastItem].itemPrice);
-      i++;
-    }
-      return (`In your cart, you have` + cartItem2 + `.`)
+    return (`In your cart, you have ` + cartItem1 + `, and ` cart[cart.length].itemName + ` at $` + cart[cart.length].itemPrice + `.`);
   }
-}
 
 function total() {
   // write your code here
