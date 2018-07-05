@@ -26,8 +26,6 @@ function viewCart() {
   var intro = "In your cart, you have ";
   var list = [];
   var newList = [];
-  var oxCom = list.pop();
-  //var i = 0;
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
   }
@@ -69,5 +67,13 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (cardNumber === undefined) {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  else {
+    /*needed to define this text as a variable before "return" bc once you do a return I wouldn't be able to empty the cart.  but i didn't want the cart emptied until after i got the total from the total function (while the cart still had items in it).*/
+    var reply = `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
+    cart.splice(0);
+    return reply;
+  }
 }
