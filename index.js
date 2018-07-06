@@ -34,13 +34,16 @@ function viewCart() {
   }
 }
 
-
 function total() {
-  // write your code here
+  for (let i=0; i<cart.length; i++) {
+    var totalCost = totalCost + cart[i].itemPrice
+}
+  return totalCost
 }
 
+//cart.push({['itemName']: item, ['itemPrice']: random_price})
 function removeFromCart(item) {
-  // write your code here
+
 }
 
 function placeOrder(cardNumber) {
