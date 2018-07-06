@@ -30,10 +30,9 @@ function viewCart() {
   } else if (cart.length === 2) {
     return (`In your cart, you have ` + cart[0].itemName + ` at $` + cart[0].itemPrice + `, and ` + cart[1].itemName + ` at $` + cart[1].itemPrice + `.`);
   } else {
-    return (`In your cart, you have ` + cart[0].itemName +  ` at $` + cart[0].itemPrice + cartItem1 + `, and ` + (lastItem.itemName) + ` at $` + (lastItem.itemPrice) + `.`);
+    return (`In your cart, you have ` + cart[0].itemName +  ` at $` + cart[0].itemPrice + `, ` + cartItem1 + `, and ` + (lastItem.itemName) + ` at $` + (lastItem.itemPrice) + `.`);
   }
 }
-//[orange at $12,cheese at $13,chocolate at $4]
 
 
 function total() {
