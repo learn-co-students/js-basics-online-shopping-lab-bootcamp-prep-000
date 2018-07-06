@@ -18,9 +18,9 @@ function addToCart(item) {
 function viewCart() {
   var cartItem1 = [];
   var lastItem = cart[cart.length-1]
-  let i = 0;
+  let i = 1;
   while (i < (cart.length-1)) {
-    cartItem1.push(cart[i].itemName + ` at $` + cart[i].itemPrice +` `);
+    cartItem1.push(cart[i].itemName + ` at $` + cart[i].itemPrice);
     i++;
     }
   if (cart.length === 0) {
@@ -30,9 +30,10 @@ function viewCart() {
   } else if (cart.length === 2) {
     return (`In your cart, you have ` + cart[0].itemName + ` at $` + cart[0].itemPrice + `, and ` + cart[1].itemName + ` at $` + cart[1].itemPrice + `.`);
   } else {
-    return (`In your cart, you have ` + cartItem1 + `, and ` + (lastItem.itemName) + ` at $` + (lastItem.itemPrice) + `.`);
+    return (`In your cart, you have ` + cart[0].itemName +  ` at $` + cart[0].itemPrice + cartItem1 + `, and ` + (lastItem.itemName) + ` at $` + (lastItem.itemPrice) + `.`);
   }
 }
+//[orange at $12,cheese at $13,chocolate at $4]
 
 
 function total() {
