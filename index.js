@@ -46,13 +46,12 @@ function removeFromCart(item) {
   if (cart.length === 0) {
     return "That item is not in your cart."
   }
-  for (let i=0; (i<cart.length-1); i++) {
+  for (let i=0; (i<cart.length); i++) {
     if (item === (cart[i].itemName)) {
-      delete (cart[i].itemName)
+      cart.splice(i,1)
   } else {
     return "That item is not in your cart."
     }
   return cart
 }
-
 }
