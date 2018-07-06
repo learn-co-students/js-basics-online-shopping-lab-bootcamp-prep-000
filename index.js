@@ -43,9 +43,21 @@ function total() {
 }
 
 function removeFromCart(item) {
-
+  for (let i=0; (i<cart.length); i++) {
+    if ((cart[i].itemName) === item) {
+    delete cart[i].itemName
+    }
+    } else {
+    return `That item is not in your cart.`
+  }
+  return cart
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var total = total()
+  do {
+
+  } while (cart.length > 0)
+
+  return `Your total cost is $` + total + `, which will be charged to the card ` ${cardNumber} + `.`
 }
