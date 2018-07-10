@@ -18,11 +18,9 @@ function addToCart(item) {
 function viewCart() {
   // write your code here
   for (var i = 0; i < cart.length; i++)
-  keys=[Object.keys(cart)]
-  price=[Object.values(cart)]
    i++;
    if (cart.length === 0) {return "Your shopping cart is empty."}
-   else {return `In your cart, you have ${keys[i]} at ${price[i]}.`} 
+   else {return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}.`} 
   }
   
 
