@@ -47,14 +47,14 @@ function total() {
 
 
 function removeFromCart(item) {
-  // write your code here
-  for (var i=0; i < cart.length; ++i)
-  if (cart[i].itemName === item) {
-   console.print(cart[i])
-  }
+  var removeArray=[]
+   // write your code here
+  for (var i=0; i < cart.length; ++i) {
+  removeArray.push(Object.values(cart[i])[0])}
+  if (removeArray.indexOf(item) === -1) {
+    return "That item is not in your cart."}
   else {
-    return "That item is not in your cart."
-  }
+    cart.splice(i, 1)}
 }
 
 function placeOrder(cardNumber) {
