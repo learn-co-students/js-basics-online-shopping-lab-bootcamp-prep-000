@@ -33,14 +33,17 @@ function viewCart() {
      return "Your shopping cart is empty."}
   }
   
-/*
+
 function total() {
   // write your code here
-  let i=0
+  let i=0;
   while (i < cart.length) {
-  var price=price + Object.values(cart[i])[1]}
+  sum += Object.values(cart[i])[1];
+    ++i;
+    return sum;
+  }
 }
-*/
+
 
 function removeFromCart(item) {
   // write your code here
