@@ -28,11 +28,11 @@ function viewCart() {
   why does the if statment ===0 not work when placed within for loop?*/
   
   if (cart.length === 1) {
-     return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}.`} 
+     return `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}.`} 
    else if (cart.length===2){
-       return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, and ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}.`}
+       return `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}, and ${cart[i + 1].itemName} at $${cart[i = 1].itemPrice}.`}
    else {
-      return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}, and ${Object.values(cart[i + 2])[0]} at $${Object.values(cart[i + 2])[1]}.`}
+      return `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}, ${cart[i +1].itemName} at $${cart[i + 1].itemPrice}, and ${cart[i + 2].itemName} at $${cart[i + 2].itemPrice}.`}
   }
   
 
@@ -49,8 +49,8 @@ function total() {
 function removeFromCart(item) {
   // write your code here
   for (var i=0; i < cart.length; ++i)
-  if (Object.values(cart[i])[0]=== item) {
-    //remove code here
+  if (cart[i].itemName === item) {
+   console.print(cart[i])
   }
   else {
     return "That item is not in your cart."
