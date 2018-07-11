@@ -54,14 +54,18 @@ function removeFromCart(item) {
   if (removeArray.indexOf(item) === -1) {
     return "That item is not in your cart."}
   else {
-    cart.splice(i, 1)}
+    cart.splice(i, 1);
+    return cart
+  }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
-  if (cardNumber === false){
-    console.log ("Sorry, we don't have a credit card on file for you.")}
-  else {
+  if (cardNumber){
+    var confirm= `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
     cart=[];
-    return `Your total cost is $${total()} , which will be charged to the card ${cardNumber}.`}
+    return confirm
+  }
+   else {
+     return "Sorry, we don't have a credit card on file for you."}
 }
