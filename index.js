@@ -40,7 +40,7 @@ function total() {
   // write your code here
   var sum=0;
   for (var i=0; i < cart.length; ++i ) {
-  sum += Object.values(cart[i])[1];
+  sum += cart[i].itemPrice;
   }
   return sum;
 }
