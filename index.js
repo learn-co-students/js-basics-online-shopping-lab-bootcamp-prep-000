@@ -23,25 +23,24 @@ function viewCart() {
   var product=string[0]
   var price=string[1] */
   
-   if (cart.length === 1) {
+   if (cart.length===0) {
+     return "Your shopping cart is empty."}
+   else if (cart.length === 1) {
      return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}.`} 
    else if (cart.length===2){
        return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, and ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}.`}
-   else if (cart.length >= 3) {
-      return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}, and ${Object.values(cart[i + 2])[0]} at $${Object.values(cart[i + 2])[1]}.`}
    else {
-     return "Your shopping cart is empty."}
+      return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}, and ${Object.values(cart[i + 2])[0]} at $${Object.values(cart[i + 2])[1]}.`}
   }
   
 
 function total() {
   // write your code here
-  let i=0;
-  while (i < cart.length) {
+  var sum=0;
+  for (var i=0; i < cart.length; ++i ) {
   sum += Object.values(cart[i])[1];
-    ++i;
-    return sum;
   }
+  return sum;
 }
 
 
