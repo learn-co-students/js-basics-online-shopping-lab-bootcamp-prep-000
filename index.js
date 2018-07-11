@@ -18,15 +18,17 @@ function addToCart(item) {
 function viewCart() {
   // write your code here
   for (var i = 0; i < cart.length; i++)
+  /*
   var string=Object.values(cart[i])
   var product=string[0]
-  var price=string[1]
+  var price=string[1] */
+  
    if (cart.length === 1) {
-     return `In your cart, you have ${product} at $${price}.`} 
+     return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}.`} 
    else if (cart.length===2){
-       return `In your cart, you have ${product} at $${price}, and ${product} at $${price}.`}
+       return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, and ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}.`}
    else if (cart.length >= 3) {
-      return `In your cart, you have ${product} at $${price}, ${product} at $${price}, and ${product} at $${price}.`}
+      return `In your cart, you have ${Object.values(cart[i])[0]} at $${Object.values(cart[i])[1]}, ${Object.values(cart[i + 1])[0]} at $${Object.values(cart[i + 1])[1]}, and ${Object.values(cart[i + 2])[0]} at $${Object.values(cart[i + 2])[1]}.`}
    else {
      return "Your shopping cart is empty."}
   }
