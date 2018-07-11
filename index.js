@@ -48,8 +48,20 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  for (var i=0; i < cart.length; ++i)
+  if (Object.values(cart[i])[0]=== item) {
+    //remove code here
+  }
+  else {
+    return "That item is not in your cart."
+  }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  if (cardNumber=== null){
+    console.log ("Sorry, we don't have a credit card on file for you.")}
+  else {
+    cart=[];
+    return `Your total cost is ${total()} , which will be charged to the card ${cardNumber}.`}
 }
