@@ -25,13 +25,13 @@ function viewCart() {
           return 'Your shopping cart is empty.'
 
       } else if (cart.length === 1) {
-          cart.filter(function (item) {
+          cart.forEach(function (item) {
               message.push(item.itemName + ' at $' + item.itemPrice + '.')
               })
           return introText + message
 
       } else if (cart.length >= 2) {
-          cart.filter(function (item) {
+          cart.forEach(function (item) {
               message.push(item.itemName + ' at $' + item.itemPrice + ', ')
               })
           const removed = message.splice(message.length -1).toString().slice(0, -2)
