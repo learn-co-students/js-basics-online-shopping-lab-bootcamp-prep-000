@@ -26,11 +26,9 @@ function viewCart() {
   var itemsWithPrices = ""
 
   for (let i = 0; i < cart.length; i++) {
-    itemsWithPrices += `${cart[i].itemName} at $${cart[i].itemPrice}`
-  }
-
-    
-      return `In your cart, you have ${itemsWithPrices}.`
+    if (cart.length === 1){
+      
+    }return `In your cart, you have ${cart[i].itemName} at ${cart[i].itemPrice}`
       if (cart.length === 2 ) {
         return `In your cart, you have ${itemsWithPrices}`.join(', and')
       }
