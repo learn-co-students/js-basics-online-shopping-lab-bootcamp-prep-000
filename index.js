@@ -10,8 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-   var newItem = {itemName:[item], itemPrice: Math.floor(Math.random(1,101)*100)}
-   cart.push(newItem);
+   var newItem = {itemName:item, itemPrice: Math.floor(Math.random(1,101)*100)}
+  cart.push(newItem);
+  console.log(cart)
+
   return (`${item} has been added to your cart.`);
  
   
@@ -56,9 +58,11 @@ function removeFromCart(item) {
     if(cart[i].itemName === item) {
        cart.splice(i,1)
        return cart;
-    }
     
-  } return 'That item is not in your cart.'
+    } 
+  }
+      return 'That item is not in your cart.'
+    
 }
 
 function placeOrder(creditcardnumber) {
