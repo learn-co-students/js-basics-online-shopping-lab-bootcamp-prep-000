@@ -35,19 +35,15 @@ function viewCart() {
   
   }  
       return `In your cart, you have ${itemsWithPrices}and ${cart[cart.length -1].itemName} at $${cart[cart.length -1].itemPrice}.`
-
-
-  
-    
 }
 
-
 function total() {
-  var  total = 0 ;
+  var  totalcost = 0;
  
   for (var i = 0; i < cart.length; i++) {
-   total += cart[i].itemPrice
-  } return total
+   totalcost += cart[i].itemPrice;
+   
+  } return totalcost
 }
 
 
@@ -66,9 +62,10 @@ function removeFromCart(item) {
 }
 
 function placeOrder(creditcardnumber) {
+  var cartotal = total();
   if (creditcardnumber) {
     cart = [];
-    return `Your total cost is $${total()}, which will be charged to the card ${creditcardnumber}.`
+    return `Your total cost is $${cartotal}, which will be charged to the card ${creditcardnumber}.`
   }
   else {
     return "Sorry, we don't have a credit card on file for you."
