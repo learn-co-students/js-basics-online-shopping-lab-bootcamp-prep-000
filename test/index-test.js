@@ -139,6 +139,7 @@ describe("removeFromCart()", function() {
   });
 
   it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+    
     // Repeat item name from previous test to prevent hard-coding.
     expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
   });
