@@ -1,7 +1,7 @@
 var cart = [];
 
 function getCart() {
- return cart;
+  return cart;
 }
 
 function setCart(c) {
@@ -9,61 +9,70 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
-  var price = Math.ceil(Math.random()*100);
-  cart.push({itemName:item, itemPrice: price});
-  return `${item} has been added to your cart.`;
+function addToCart(item){
+  var newItem = generateCartItem(item);
+  getCart().push(newItem);
+  return `${newItem.itemName} has been added to your cart.`;
 }
 
 function viewCart() {
-  var print = "In your cart, you have ";
-  if (getCart().length===0) {
-    return "Your shopping cart is empty.";
-  } 
-  else {
-   for (let i = 0; i < getCart().length; i++) {
-     print = print + getCart()[i].itemName + " at $" + getCart()[i].itemPrice;
-     if (i === getCart().length-1){
-       print = print + ".";
-     } 
-     if (i < getCart().length-1) {
-       print = print +", ";
-       if (i === getCart().length-2){
-         print = print + "and ";
-        }
-      }
+  if (!cart.length){
+    return 'Your shopping cart is empty.';
+  }
+  var description = "In your cart, you have ";
+  for (let i = 0; i < cart.length; i++){
+    description = `${description}${cart[i].itemName} at $${cart[i].itemPrice}`;
+    if (i >= 0 && i < cart.length-2) {
+      description = `${description}, `;
+    }
+    if (i === cart.length-2) {
+      description = `${description}, and `;
     }
   }
-  return print;
+  return `${description}.`;
 }
 
-function total() {
+function total(){
   var total = 0;
-  for (let i = 0; i < getCart().length; i++){
-    total = total +getCart()[i].itemPrice;
+  for (let i =0; i < getCart().length; i++){
+    total += getCart()[i].itemPrice;
   }
- return total;
+  return total;
 }
-
 function removeFromCart(item) {
-  var removeIndex;
-  for (let i = 0; i < getCart().length; i++) {
-    if(item === getCart()[i].itemName) {
-      removeIndex = i;
-      getCart().splice(removeIndex,1);
-      break;
+  var itemIndex = -1;
+  
+  for (let i = 0; i< cart.length; i++){
+    if(cart[i].itemName === item){
+      itemIndex = i;
     }
-  }    
-  return 'That item is not in your cart.';
+  }
+  
+  if (itemIndex === -1){
+    return "That item is not in your cart.";
+  }
+  
+  return getCart().splice(itemIndex, 1);
 }
 
-function placeOrder(cardNumber) {
-  if(cardNumber >0) {
-    var value = total();
+function placeOrder(card){
+  if(card === undefined){
+    return "Sorry, we don't have a credit card on file for you.";
+  } else {
+    var sum = total();
     setCart([]);
-    return `Your total cost is $${value}, which will be charged to the card ${cardNumber}.`;
+    return `Your total cost is $${sum}, which will be charged to the card ${card}.`;
   }
-  else {
-    return 'Sorry, we don\'t have a credit card on file for you.';
-  }
+}
+//helper function
+function generateCartItem(item){
+  var newItem = {
+    itemName: item,
+    itemPrice: getRandomInt(1, 100),
+  };
+  return newItem;
+}
+
+function getRandomInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
