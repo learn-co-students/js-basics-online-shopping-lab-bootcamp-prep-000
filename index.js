@@ -12,7 +12,7 @@ function setCart(c) {
 function addToCart(item) {
     var newItem = {};
     newItem['itemName'] = item;
-    newItem['itemPrice'] = Math.floor(Math.random() * 100);
+    newItem['itemPrice'] = Math.floor(Math.random() * 101);
   
     cart.push(newItem);
     
@@ -23,24 +23,25 @@ function viewCart() {
   var itemList = [];
   if (cart.length === 1) {
     for (let i = 0; i < cart.length; i++){
-  itemList = [...itemList,` ${cart[i].itemName} at $${cart[i].itemPrice}`];
+  itemList = [...itemList,`${cart[i].itemName} at $${cart[i].itemPrice}`];
     } return `In your cart, you have ${itemList[itemList.length-1]}.`;
 
     
   } else if (cart.length === 2) {
     for (let i = 0; i < cart.length; i++){
-  itemList = [...itemList,` ${cart[i].itemName} at $${cart[i].itemPrice}`];
+  itemList = [...itemList,`${cart[i].itemName} at $${cart[i].itemPrice}`];
     } return `In your cart, you have ${itemList.slice(0,itemList.length-1)}, and ${itemList[itemList.length-1]}.`;
 
     
   } else if (cart.length > 2) {
     for (let i = 0; i < cart.length; i++){
-  itemList = [...itemList,` ${cart[i].itemName} at $${cart[i].itemPrice}`];
-    } return `In your cart, you have ${itemList.slice(0)}, ${itemList.slice(1,itemList.length-1)}, and ${itemList[itemList.length-1]}.`;
+  itemList = [...itemList,`${cart[i].itemName} at $${cart[i].itemPrice}`];
+    } return `In your cart, you have ${itemList[0]}, ${itemList[1]}, and ${itemList[itemList.length-1]}.`;
 
     
   } else {
   return "Your shopping cart is empty.";
+}
 }
 
 function total() {
@@ -52,4 +53,7 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+}
+
+function placeOrder() {
 }
