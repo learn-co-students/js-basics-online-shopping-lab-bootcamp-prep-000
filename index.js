@@ -53,7 +53,7 @@ function total() {
 
 function removeFromCart(item) {
   if (cart.indexOf(item) === true) { 
-    cart = cart.splice(cart.indexOf(item),0,'removed');
+    cart = cart.splice(cart.indexOf(item),1);
     return cart;
   } else { 
     return "That item is not in your cart.";
@@ -61,10 +61,11 @@ function removeFromCart(item) {
 }
 
 function placeOrder(creditCard) {
-  if (creditCard === null) {
+  if (creditCard === undefined) {
     return "Sorry, we don't have a credit card on file for you.";
   } else {
+    var totalCost = total();
     cart.splice(0,cart.length);
-    return `Your total cost is ${total}, which will be charged to the card ${caredCard}`;
+    return `Your total cost is $${totalCost}, which will be charged to the card ${creditCard}.`;
   }
 }
