@@ -52,8 +52,8 @@ function total() {
 }
 
 function removeFromCart(item) {
-  if (cart.indexOf(item) === true) { 
-    cart = cart.splice(cart.indexOf(item),1);
+  if (cart.indexOf(item) >= 0) { 
+    cart.splice(cart.indexOf(item),1);
     return cart;
   } else { 
     return "That item is not in your cart.";
