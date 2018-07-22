@@ -50,11 +50,26 @@ else if (cart.length === 3){
 }
 
 function total() {
-  // write your code here
+  var tp = 0
+  for(var i=0; i<cart.length; i++){
+   tp += cart[i].itemPrice;
+    return tp;
+  }
 }
 
 function removeFromCart(item) {
-  // write your code here
+  var i = 0;
+  for (i=0; i<cart.length; i++){
+   if(cart[i].itemName == item){
+     //
+     cart.splice(i, 1);
+     return cart;
+   }
+   else{
+     console.log('not aa')
+   }
+  }
+ 
 }
 
 function placeOrder(cardNumber) {
