@@ -66,7 +66,7 @@ function removeFromCart(item) {
      return cart;
    }
    else{
-     console.log('not aa')
+     return `That item is not in your cart.`;
    }
   }
  
