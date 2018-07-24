@@ -1,3 +1,56 @@
+var cart = [];
+
+function getCart() {
+ return cart;
+}
+
+function setCart(c) {
+  cart = c;
+  return cart;
+}
+
+function addToCart(itemName) {
+  var price = Math.ceil(100 * Math.random());
+  cart.push({[itemName]: price});
+  return `${itemName} has been added to your cart.`;
+}
+
+function viewCart() {
+  if (cart.length === 0) {
+    return "Your shopping cart is empty.";
+  } else {
+    cartAsStringArray =[];
+    for (var i = 0; i < cart.length; i++) {
+      cartAsStringArray[i] = `${Object.keys(cart[i])[0]} at $${Object.values(cart[i])[0]}`;
+    }
+    if (cartAsStringArray.length === 1) {
+      return `In your cart, you have ${cartAsStringArray[0]}.`;
+    } elseif (cartAsStringArray.length === 2) {
+      return `In your cart, you have ${cartAsStringArray[0]}, and ${cartAsStringArray[1]}.`;
+    } else {
+      cartWithoutLastItem = cartAsStringArray.slice(0,cartAsStringArray.length-1);
+      cartWithoutLastItemAsString = cartWithoutLastItem.join(", ");
+      return `In your cart, you have ${cartWithoutLastItemAsString}, and ${cartAsStringArray[cartAsStringArray.length-1]}`;
+    }
+  }
+}
+
+function total() {
+  var sum;
+  for (var i = 0; i < cart.length; i++) {
+    sum = 0;
+    sum += Object.values(cart[i])[0];
+  }
+  return sum;
+}
+
+function removeFromCart(item) {
+  // write your code here
+}
+
+function placeOrder(cardNumber) {
+  // write your code here
+}
 # Online Shopping
 
 ## Objectives
