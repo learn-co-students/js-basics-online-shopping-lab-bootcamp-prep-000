@@ -52,7 +52,7 @@ function removeFromCart(itemName) {
   	let obj = cart[i];
   	let item = obj.itemName;
     if (itemName === item) {
-      cart.splice(1, 1);
+      cart.splice(i, 1);
       return cart;
     } 
   }
