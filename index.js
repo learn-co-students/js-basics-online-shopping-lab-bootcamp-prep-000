@@ -10,21 +10,67 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+
+  var randomNum = getRandomNum()
+  var ItemToAdd={
+   itemName: item,
+   itemPrice: randomNum
+   
+ }
+ 
+ cart.push(ItemToAdd)
+ return `${ItemToAdd.itemName} has been added to your cart.` 
 }
 
 function viewCart() {
-  // write your code here
+  if(cart.length<1){
+    return "Your shopping cart is empty."
+  }else if(cart.length==1){
+    var tempCart =[]
+    for(let i =0;i<cart.length;i++ ){
+      tempCart.push(cart[i].itemName+" at $"+cart[i].itemPrice+".")
+  }
+    return `In your cart, you have ${tempCart[0]}`
+  }else{
+    var tempCart2 =[]
+    for(let i =0;i<cart.length;i++ ){
+    tempCart2.push(i==cart.length-1?"and "+cart[i].itemName+" at $"+cart[i].itemPrice+".":cart[i].itemName+" at $"+cart[i].itemPrice)
+  }
+
+   return "In your cart, you have "+tempCart2.join(", ")
+  }
+ 
 }
 
 function total() {
-  // write your code here
+  var total =0
+  for(let i =0;i<cart.length;i++){
+   total += cart[i].itemPrice; 
+  }
+ return total
+ 
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for(let i =0;i<cart.length;i++){
+    if(cart[i].itemName===item){
+      cart.splice(i,1)
+      return cart
+    }
+  }
+  return "That item is not in your cart."
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var cardChecker = new RegExp("[0-9]+")
+  if(cardChecker.test(cardNumber)){
+    var myTotal = total()
+    cart=[]
+    return `Your total cost is $${myTotal}, which will be charged to the card ${cardNumber}.`
+  }else{
+    return "Sorry, we don't have a credit card on file for you."
+  }
+}
+ function getRandomNum(){
+  return Math.floor((Math.random()*(100))+1)
 }
