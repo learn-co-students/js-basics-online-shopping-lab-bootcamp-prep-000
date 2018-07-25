@@ -1,4 +1,4 @@
-var cart = [];
+var cart = {cereal: 'Frosted Flakes', poultry: 'Raw Chicken', coldcuts: 'Turkey Breast', fruit:'Strawberries'};
 
 function getCart() {
  return cart;
@@ -9,8 +9,12 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
+ var itemPrice = Math.floor(Math.random()*100+1)
+
+function addToCart(itemName) {
+  var a = {'itemName': ['itemName']:itemName],'price: ': [itemPrice] }
+  cart.push(a);
+  return cart;
 }
 
 function viewCart() {
