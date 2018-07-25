@@ -18,20 +18,19 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  getCart();
   setCart();
   var arr = [];
   for (let i = 0; i < cart.length; i++) {
     arr.push(`${(cart[i].itemName)} at ${(cart[i].itemPrice)}`);
     return arr;
     }
-    if (arr.length = 0) {
+    if (arr.length === 0) {
       return 'Your shopping cart is empty.';
-    }  else if (arr.length = 1) {
+    }  else if (arr.length === 1) {
         return `In your cart, you have ${(arr[0])}.`;
-    }   else if (arr.length = 2) {
+    }   else if (arr.length === 2) {
           return `In your cart, you have ${(arr[0])}, and ${(arr[1])}.`;
-    }     else if (arr.length > 3) {
+    }     else if (arr.length >= 3) {
             return `In your cart, your have ${arr.slice(0, cart.length - 1)}, and ${arr.slice(-1)}.`
     }
   }
