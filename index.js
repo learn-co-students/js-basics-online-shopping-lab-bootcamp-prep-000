@@ -41,15 +41,14 @@ else {
 var lastItem = cart[cart.length-1].itemName
 var lastPrice = cart[cart.length-1].itemPrice
 var x;
-var firstSent = ("In your cart, you have "+ cart[0].itemName + " at $" + cart[0].itemPrice + ", " + cart[1].itemName + " at $" + cart[1].itemPrice + ", ")
-
-var lastSent = (+ " and " +lastItem +" at $" +lastPrice +"."  )
-
-//NEXT TRY TO FIGURE OUT WHY CART[X].ITEMNAME DOES NOT WORK
-for (x=2; x< cart.length -1;x++){
-  var midSent = cart[x].itemName + " at $" + cart[x].itemPrice + " ,"
-  return midSent
+var firstSent = "In your cart, you have "
+var midSent = ''
+for (x=0; x< cart.length -1;x++){
+  var at = " at $"
+  var comma = ", "
+  midSent += cart[x].itemName +  at + cart[x].itemPrice + comma
 }
+var lastSent = ("and " +lastItem +" at $" +lastPrice +"."  )
 return (firstSent + midSent + lastSent)
 }
 }
