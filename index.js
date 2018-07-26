@@ -63,10 +63,26 @@ function total() {
  return total
 }
 
+  
 function removeFromCart(item) {
- delete cart[item]
- return cart
+
+ // var x;
+//    for (x=0; x<cart.length; x++){
+//      if (cart[x].itemName == item){
+  //      return cart.splice(x,1)
+//      }
+//    return "That item is not in your cart."
+//  }
+
+   var ind = cart.indexOf(item).itemName
+   if (parseInt(ind)<0){
+     return "That item is not in your cart."
+   }
+   else return cart.splice(ind,1)
+ 
 }
+
+
 
 function placeOrder(cardNumber) {
   // write your code here
