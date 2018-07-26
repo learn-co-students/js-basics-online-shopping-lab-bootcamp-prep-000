@@ -55,11 +55,17 @@ return (firstSent + midSent + lastSent)
 
 
 function total() {
-  // write your code here
+  var total = 0
+  var x;
+ for (x=0; x<cart.length; x++){
+   total += cart[x].itemPrice 
+ }
+ return total
 }
 
 function removeFromCart(item) {
-  // write your code here
+ delete cart[item]
+ return cart
 }
 
 function placeOrder(cardNumber) {
