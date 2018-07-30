@@ -1,4 +1,4 @@
-# Online Shopping
+ar# Online Shopping
 
 ## Objectives
 + Model a shopping cart full of items as an array of objects in JavaScript.
@@ -15,7 +15,7 @@ We've started you off with a `cart` variable that points at an empty array. Ther
     + Upon the successful addition of a new item to the cart, the function should return `<itemName> has been added to your cart.` .
 2. The `viewCart()` function does not accept any arguments. It should loop over every item in your cart, returning the contents as one long, coherent statement in this format: `In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.`
     + If the cart is empty, the function should instead return `Your shopping cart is empty.`
-    + ***Note***: Pay close attention to the syntax above. The returned statement should be a single sentence that begins with `In your cart, you have `, terminates in a period, and can assume the following shapes according to how many items the cart contains:
+    + ***Note***: Pay close attentionar to the syntax above. The returned statement should be a single sentence that begins with `In your cart, you have `, terminates in a period, and can assume the following shapes according to how many items the cart contains:
       * 1 item — `In your cart, you have bananas at $17.`
       * 2 items — `In your cart, you have bananas at $17, and pancake batter at $5.`
       * 3+ items — `In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.`
