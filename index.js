@@ -9,12 +9,25 @@ function setCart(c) {
   return cart;
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
 function addToCart(item) {
- // write your code here
+ var itemPrice = getRandomInt(100)
+ cart.push({item: itemPrice})
+ return `${} has been added to your cart.`
 }
 
 function viewCart() {
   // write your code here
+  for(var i = 0; i < cart.length; i++) {
+    if (cart.length === 0) {
+    return "Your shopping cart is empty."
+  } else {
+    return `In your cart, you have ${cart}`
+  }
+  }
 }
 
 function total() {
@@ -23,8 +36,10 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  // item index number 
+  cart.splice(0, item)
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  card.splice(0, cart.length - 0)
 }
