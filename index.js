@@ -29,11 +29,11 @@ function viewCart() {
   if(cart.length >= 2){
   
     for(var i = 0; i < cart.length -1; i++){
-      resultantSentence = resultantSentence + cart[i]['itemName'] + ` at $` + cart[i]['itemPrice'];
+      resultantSentence = resultantSentence + `${cart[i]['itemName']} at $${cart[i]['itemPrice']}, `;
       }
-    resultantSentence = resultantSentence + `and ` + cart[cart.length]['itemName'] + ` at $` + cart[cart.length]['itemPrice'] + `.`;
+    resultantSentence = resultantSentence + `and ` + cart[cart.length-1]['itemName'] + ` at $` + cart[cart.length-1]['itemPrice'] + `.`;
     
-    return resultantSentence + ".";
+    return resultantSentence;
   
     
   } else if(cart.length===1){
@@ -45,7 +45,6 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
   var runningTotal = 0;
   
   for(let i = 0; i < cart.length; i++) {
@@ -55,21 +54,16 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
-  var found = false;
   var i = 0;
-  while(found === false && i < cart.length){
+  while(i < cart.length){
     if(cart[i].itemName === item){
-        cart.splice(i-1,i+1);
-        found = true;
+        cart.splice(i,1);
         return cart;
     } else {
         i++;
     }
   }
-  if(found === false){
       return 'That item is not in your cart.';
-  }
   
 }
 
