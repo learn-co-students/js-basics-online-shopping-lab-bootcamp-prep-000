@@ -40,8 +40,13 @@ let newArray = [];
 viewCart();
 
 function total() {
-  // write your code here
+let sum = 0;
+  for(let i = 0; i < cart.length; i++) {
+    sum += cart[i].itemPrice;
+  }
+  return sum;
 }
+total();
 
 function removeFromCart(item) {
   // write your code here
