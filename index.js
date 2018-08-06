@@ -40,7 +40,7 @@ let newArray = [];
 viewCart();
 
 function total() {
-let sum = 0;
+  let sum = 0;
   for(let i = 0; i < cart.length; i++) {
     sum += cart[i].itemPrice;
   }
@@ -48,10 +48,28 @@ let sum = 0;
 }
 total();
 
+
 function removeFromCart(item) {
-  // write your code here
+  let inCart = 0;
+  for(let i = 0; i < cart.length; i++) {
+    inCart =  cart[i].itemName;
+    if(inCart === item) {
+      cart.splice(i, 1);
+      return cart;
+    }
+  }
+  return 'That item is not in your cart.';
 }
+removeFromCart(item);
+
 
 function placeOrder(cardNumber) {
-  // write your code here
+  let totalCost = total();
+  if(!cardNumber) {
+    return "Sorry, we don't have a credit card on file for you.";
+  }else {
+    cart = [];
+    return `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`;
+  }
 }
+placeOrder(cardNumber);
