@@ -19,13 +19,6 @@ function addToCart(item) {
  return (`${item} has been added to your cart.`);
 }
 
-addToCart('Beans');
-addToCart('Eggs');
-addToCart('Rice');
-addToCart('Meat');
-addToCart('Potatoes');
-
-
 function viewCart() {
   // write your code here
   
@@ -62,22 +55,18 @@ for (var i = 0; i < cart.length; i++){
     console.log(cartString)
     return cartString
   }
-  
-
 }
-viewCart();
 
 function total() {
   // write your code here
   var priceTotal = 0
   for (var i = 0; i < cart.length; i++){
-    priceTotal+=cart[i].itemPrice
+    priceTotal = priceTotal + cart[i].itemPrice
   }
   console.log("Your price total is $" + priceTotal + ".")
   return priceTotal
 }
 
-total();
 var myTotal = total()
 
 function removeFromCart(item) {
@@ -100,21 +89,10 @@ function removeFromCart(item) {
   return "That item is not in your cart."
 }
 
-removeFromCart();
-removeFromCart('Potatoes');
-
-
-/* 
-4. The `removeFromCart()` function accepts one argument, the name of the item that should be removed.
-    + If the item *is* present in the cart, the function should remove the object from the cart and then return the updated cart.
-    + ***HINT***: Check each object's itemName value key to see if it matches the parameter, then remove it if it matches. You might find [Array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to be useful.
-    + If the cart does not contain a matching item, the function should return `That item is not in your cart.`
-*/
-
 function placeOrder(cardNumber) {
   
   if (cardNumber){
-    
+    var myTotal = total()
     console.log ("Your total cost is $" + myTotal + ", which will be charged to the card " +  cardNumber + ".")
     
     cart = [];
@@ -125,6 +103,3 @@ function placeOrder(cardNumber) {
     return ("Sorry, we don't have a credit card on file for you.")
   }
 }
-console.log(myTotal)
-placeOrder()
-placeOrder(83296759)
