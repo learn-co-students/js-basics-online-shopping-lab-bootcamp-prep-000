@@ -36,20 +36,32 @@ function viewCart () {
   // write your code here
     if (!cart.length) {
     return `Your shopping cart is empty.`
-  } else {
-    listOfCart();
+  } else if (cart.length>=3) {
+    var commaItems = "";
+    var fullSentence = "In your cart, you have ";
+    for (let i=0;i<cart.length-1;i++) {
+      commaItems += `${cart[i].itemName} at $${cart[i].itemPrice}, `
+      fullSentence += commaItems;
+      fullSentence += `and ${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
+    }
   }
-  
+  return fullSentence;
 }
 
 function listOfCart() {
-  var sentence = "In your cart, you have ";
-  if (cart.length >= 1) {
-    for (let i=0, l=cart.length; i < l; i++) {
-    sentence += `${cart[i]['itemName'} at ${cart[i]['itemPrice']}`
-    }
+  var cartDescription = 'In your cart, you have '
+  if ( getCart().length >= 1 ) {
+    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
   }
-  return sentence;
+  if ( getCart().length >= 2 ) {
+    var middleCartItemsDescription = ''
+    for (var i=1; i<getCart().length -1; i++) {
+      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+    }
+    cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+  }
+
+  return `${cartDescription}.`
 }
 
 function total() {
@@ -65,6 +77,4 @@ function placeOrder(cardNumber) {
 }
 
 
-
-testArray =[{["name"]: "test1", ["price"]: "test2"}];
-console.log(testArray[0]['name']);
+console.log(listOfCart());
