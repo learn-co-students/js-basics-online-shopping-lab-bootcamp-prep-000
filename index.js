@@ -19,12 +19,18 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  var contents = "In your cart, you have "
+  if (cart.length === 0){
+    return "Your shopping cart is empty."
+  }
+  else {
+  var contents = ["In your cart, you have "]
   for (var i = 0; i < cart.length; i++) {
       for (var item in cart[i]) {
-        items.push(item + " at $" + cart[i][item])
+        contents.push(item + " at $" + cart[i][item])
       }
-}
+  }
+  }
+  return contents
 }
 
 function total() {
