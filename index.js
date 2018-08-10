@@ -62,7 +62,7 @@ function removeFromCart(item) {
   if(!present){
     return "That item is not in your cart."
   }else{
-    cart = [...cart.splice(0,position), ...cart.splice(position+1)]
+    cart = [...cart.splice(0,position), ...cart.splice(position)]
   }
 }
 
@@ -78,3 +78,4 @@ function placeOrder(cardNumber) {
     return `Your total cost is $${sum}, which will be charged to the card ${cardNumber}.`
   }
 }
+
