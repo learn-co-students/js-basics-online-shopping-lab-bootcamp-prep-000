@@ -10,18 +10,20 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- var newItem = {};  \\ this object contains the item name and price. 
- var itemList = []; \\ this is the arry to hold all the items-price object. 
+ var newItem = {};  // this object contains the item name and price.
+ var itemList = []; // this is the arry to contails all the items-price objects.
  newItem.itemName = item;
  newItem.itemPrice = Math.floor(Math.random()*100)
  itemList.pop(newItem);
  return newItem.itemName;
- };
-
 }
 
 function viewCart() {
-  // write your code here
+  if (itemList.length === 0) {
+    return 'Your shopping cart is empty.'
+  } else {
+      // need to figure out the output format.
+  }
 }
 
 function total() {
