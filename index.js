@@ -10,7 +10,14 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var newItem = {};  \\ this object contains the item name and price. 
+ var itemList = []; \\ this is the arry to hold all the items-price object. 
+ newItem.itemName = item;
+ newItem.itemPrice = Math.floor(Math.random()*100)
+ itemList.pop(newItem);
+ return newItem.itemName;
+ };
+
 }
 
 function viewCart() {
