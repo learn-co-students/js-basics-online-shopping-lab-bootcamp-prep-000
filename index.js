@@ -25,17 +25,26 @@ function viewCart()
   }
   else
   {
-    var items=[];
+      var j=0;
+    var itemsnames=[];
+    var itemsprices=[];
+    var itemboth=[];
      for (var i = 0; i < cart.length; i++)
-     {  for (var item in cart[i])
-        {
-          items[i]=cart[i];
-        }
+     {
+          if(cart.length-1===i && i!=0)
+          {
+              itemboth.push("and "+cart[i].itemName + " at $" + cart[i].itemPrice )
+          }
+          else
+          {
+            itemboth.push(cart[i].itemName + " at $" + cart[i].itemPrice)
+          }
+
      }
-     return"In your cart, you have " +cart[i]+' at $'+cart[i];
+     return"In your cart, you have " +itemboth.join(", ")+".";
+
    }
 
-  //
 }
 
 function total()
@@ -45,7 +54,7 @@ function total()
   {
     //var itemi=Object.keys(cart[i]);
     //var pricei=cart[i][itemi];
-    totalprice=totalprice+cart[i].price;
+    totalprice=totalprice+cart[i].itemPrice;
   }
   return totalprice;
   // write your code here
@@ -53,25 +62,36 @@ function total()
 
 function removeFromCart(item)
 {
+  var itemInCart = false;
   if(cart.length>0)
   {
     for(var i=0;i<cart.length;i++)
     {
-      var itemi=Object.key(cart[i]);
+      var itemi=cart[i].itemName;
       if(itemi===item)
       {
-        cart.splice(i,1);
+        itemInCart = true;
+        cart.splice(i, 1);
+        return cart;
       }
-      else
+      if (!itemInCart)
       {
-        return 'That item is not in your cart.';
+        return("That item is not in your cart.");
       }
+
     }
   }
-  return cart;
+
 }
 
 function placeOrder(cardNumber)
 {
-  cart=[];
+  if (!cardNumber)
+  {
+    return ("Sorry, we don't have a credit card on file for you.");
+  } else
+  {
+    return ("Your total cost is $" + total() + ", which will be charged to the card " + cardNumber + "." );
+    return cart = [];
+  }
 }
