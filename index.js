@@ -22,7 +22,7 @@ function viewCart() {
     if (cart.length === 0) {
      return 'Your shopping cart is empty.';
     } else if (cart.length === 1) {
-     return 'In your cart, you have ' + cart.itemName + ' at ' + cart.itemPrice + '.';
+     return `In your cart, you have ${Object.keys(itemName)} at $${Object.values(itemPrice)}.`;
     } else if (cart.length === 2) {
      return `In your cart, you have ${cart.itemName} at ${cart.itemPrice}, and ${cart.itemName} at ${cart.itemPrice}.`;
     } else {
@@ -32,8 +32,13 @@ function viewCart() {
 
 function total() {
   let totalPrice = 0;
+  let itemInCartPrice = [];
   for (let i = 0; i < cart.length; i++) {
-    totalPrice += cart[itemPrice];
+    var itemPrice = cart[i][Object.keys(cart[i])];
+    itemInCartPrice.push(itemPrice);
+  }
+  for (let j = 0; j < itemInCartPrice.length; j++) {
+    totalPrice = itemInCartPrice[j] += totalPrice;
   }
   return totalPrice;
 }
@@ -42,11 +47,10 @@ function removeFromCart(item) {
   if (item !== cart[item]) {
     return 'That item is not in your cart.';
   } else {
-    cart.splice(cart[item]);
+    cart.splice(item[cart], 1);
   }
   return cart;
 }
-
 
 function placeOrder(cardNumber) {
   if (cardNumber === undefined) {
@@ -54,5 +58,5 @@ function placeOrder(cardNumber) {
   } else {
     cart.splice(0, cart.length);
   }
-  return `Your total cost is ${total}, which will be charged to the card ${cardNumber}.`;
+  return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
 }
