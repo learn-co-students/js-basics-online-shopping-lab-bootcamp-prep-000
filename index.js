@@ -22,7 +22,7 @@ function viewCart() {
     if (cart.length === 0) {
      return 'Your shopping cart is empty.';
     } else if (cart.length === 1) {
-     return `In your cart, you have ${Object.keys(itemName)} at $${Object.values(itemPrice)}.`;
+     return `In your cart, you have ${Object.keys(itemName[i])} at $${Object.keys(itemPrice[i])}.`;
     } else if (cart.length === 2) {
      return `In your cart, you have ${cart.itemName} at ${cart.itemPrice}, and ${cart.itemName} at ${cart.itemPrice}.`;
     } else {
