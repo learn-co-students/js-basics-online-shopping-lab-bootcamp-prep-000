@@ -35,9 +35,10 @@ function viewCart() {
 }
 
 function total() {
-  let grandTotal = 
+  let total = itemPrice + 0;
   for (var i = 0; i < cart.length; i++) {
-    
+    let grandTotal = cart[i].itemsName + cart[i].itemPrice;
+   return grandTotal; 
   }
 }
 
