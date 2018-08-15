@@ -16,23 +16,29 @@ return `${item} has been added to your cart.`;
 } 
 
 function viewCart() {
+  let string = 'In your cart, you have ';
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
+  } else if (cart.length === 1) {
+    string += `${cart[0]['itemName']} at $${cart[0]['itemPrice']}.`;
+    return string;
   } else {
-    let string = 'In your cart, you have, ';
     for (var i = 0; i < cart.length; i++) {
       if (i === cart.length - 1) {
       string += `and ${cart[i]['itemName']} at $${cart[i]['itemPrice']}.`;
       } else {
       string += `${cart[i]['itemName']} at $${cart[i]['itemPrice']}, `;
     }
-   return string;
   }
-}
+  return string;
+ }
 }
 
 function total() {
-  // write your code here
+  let grandTotal = 
+  for (var i = 0; i < cart.length; i++) {
+    
+  }
 }
 
 function removeFromCart(item) {
