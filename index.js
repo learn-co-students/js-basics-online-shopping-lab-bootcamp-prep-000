@@ -46,17 +46,19 @@ function removeFromCart(item) {
   if (!cart.includes(item)) {
     return "That item is not in your cart.";
   } else {
-    for (var i = 0; i < cart.length; i++) {
-    item.splice(0, 1);
-  }
-  return cart;
+    var index = cart.indexOf(item);
+    if (index > -1) {
+    cart.splice(index, 1);
+    }
+   }
+   return cart;
  }
-}
 
-var index = array.indexOf(5);
-if (index > -1) {
-  array.splice(index, 1);
-}
+
+// var index = array.indexOf(5);
+// if (index > -1) {
+//   array.splice(index, 1);
+// }
 
 
 
