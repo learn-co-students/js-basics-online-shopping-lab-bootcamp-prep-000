@@ -10,8 +10,8 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var price = Math.floor(Math.random() * 101) +1;
-  var obj = {};
+  let price = Math.floor(Math.random() * 101) +1;
+  let obj = {};
   obj.itemName = item;
   obj.itemPrice = price;
   cart.push(obj);
@@ -23,15 +23,28 @@ function viewCart() {
   return "Your shopping cart is empty.";
   
   else{
-  var newArray = cart.slice(0);
-  for (var i=0; i<newArray.length; i++){
-      newArray[i] 
+  let newArray = cart.slice(0);
+  for (let i=0; i<newArray.length; i++){
+      let name = newArray[i].itemName;
+      let price = newArray[i].itemPrice;
+      newArray[i] = `${name} at $${price}`;
+    }
+    if (newArray.length===1)
+  return `In your cart, you have ${newArray}.`;
+    else {
+      newArray[newArray.length-1] = `and ${newArray[newArray.length-1]}`;
+  return `In your cart, you have ${newArray.join(', ')}.`;
     }
   }
 }
 
 function total() {
-  // write your code here
+  let counter = 0;
+  for (let i=0; i<cart.length; i++){
+    let price = cart[i].itemPrice;
+    counter = counter + price;
+  }
+  return counter;
 }
 
 function removeFromCart(item) {
