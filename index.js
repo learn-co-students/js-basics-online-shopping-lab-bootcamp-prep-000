@@ -27,34 +27,40 @@ if (cart.length === 0){
   return `In your cart, you have ${cart[0] .itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`
   }else{
     var array = [];
-    for (var x = 0; x < cart.length; x++){
-    array.push(` ${cart[x].itemName} at $${cart[x].itemPrice}`);
+   return `In your cart, you have ${cart[0] .itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`
     }
     return `In your cart, you have` + array.join(',') + `.`;
-  } 
-}
+  }
 
 function total() {
 var sum = 0 
 for(var y = 0; y < cart.length; y++){
-  sum += cart[y].itemPrice 
+			sum += cart[y].itemPrice
     }
   return sum
 }
 
 function removeFromCart(item) {
+  var i = 0;
 for (var x = 0; x<cart.length; x++){
   if (item === cart[x].itemName){
-    delete test.item
+cart.splice(x,1)
+i++;
   }
 }
+if (i === 0){
+    return 'That item is not in your cart.'
+  }
 }
 
+
 function placeOrder(cardNumber) {
-  if (cardNumber === ""){
-    return "Sorry, we don't have a credit card on file for you"
+  if (cardNumber === undefined){
+    return "Sorry, we don't have a credit card on file for you."
   }else{
+    var t = total()
     cart = []
-    return "Your total cost is ${sum}, which will be charged to the card ${cardNumber}"
+    return `Your total cost is $${t}, which will be charged to the card ${cardNumber}.`
   }
   }
+console.log(addToCart('apple'))
