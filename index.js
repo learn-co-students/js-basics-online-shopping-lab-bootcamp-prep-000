@@ -19,10 +19,26 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  var cartContents = [];
-  for (var i = 0; i < cart.length; i++) {
-    
+  var cartDescription = 'In your cart, you have '
+  if (getCart().length === 0) {
+  return "Your shopping cart is empty."
   }
+  else {
+  if (getCart().length >= 1) {
+    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+  }
+  if (getCart().length >= 2) {
+    var middleItemsDescription = ''
+    for (var i = 1; i < getCart().length - 1; i++) {
+      middleItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+    }
+    cartDescription += `${middleItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+  }
+    return `${cartDescription}.`
+  }
+
+
+  debugger
 }
 
 function total() {
