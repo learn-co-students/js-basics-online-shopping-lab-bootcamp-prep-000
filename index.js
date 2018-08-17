@@ -48,10 +48,10 @@ function removeFromCart(item) {
   } else {
     var index = cart.indexOf(item);
     if (index > -1) {
-    cart.splice(index, 1);
+    var newItem = cart.splice(index, 1);
     }
    }
-   return cart;
+   return newItem;
  }
 
 
