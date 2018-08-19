@@ -19,8 +19,20 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
-}
+  if (cart.length === 0) {
+    return `Your shopping cart is empty.`
+  } else {
+  var inYourCart = `In your cart, you have`
+    for (i = 0 ; cart.length > i ; i++) {
+      if (i != cart.length - 1) {
+        inYourCart += " " + cart[i].itemName + " " + "at" + " " + "$" + cart[i].itemPrice + ",";
+    } else {
+      inYourCart += " " + "and" + " " + cart[i].itemName+ " " + "at" + " " + "$" + cart[i].itemPrice + "."
+    }
+    }
+  }
+  return inYourCart  
+  }
 
 function total() {
   // write your code here
