@@ -23,11 +23,14 @@ function viewCart() {
     return `Your shopping cart is empty.`
   } else {
   var inYourCart = `In your cart, you have`
-    for (i = 0 ; cart.length > i ; i++) {
-      if (i != cart.length - 1) {
-        inYourCart += " " + cart[i].itemName + " " + "at" + " " + "$" + cart[i].itemPrice + ",";
-    } else {
-      inYourCart += " " + "and" + " " + cart[i].itemName+ " " + "at" + " " + "$" + cart[i].itemPrice + "."
+    for (var i = 0 ; cart.length > i ; i++) {
+      if (cart.length === 1) {
+        inYourCart += " " + cart[i].itemName+ " " + "at" + " " + "$" + cart[i].itemPrice + "." 
+      }
+      else if (i != cart.length - 1) {
+        inYourCart += " " + cart[i].itemName + " " + "at" + " " + "$" + cart[i].itemPrice + ","
+     } else {
+      inYourCart += " " + "and" + " " + cart[i].itemName + " " + "at" + " " + "$" + cart[i].itemPrice + "."
     }
     }
   }
@@ -35,7 +38,11 @@ function viewCart() {
   }
 
 function total() {
-  // write your code here
+  var total = 0
+  for (i = 0; cart.length > i; i++) {
+     total += parseInt(cart[i].itemPrice)
+  }
+  return total 
 }
 
 function removeFromCart(item) {
