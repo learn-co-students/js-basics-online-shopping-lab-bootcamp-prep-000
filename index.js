@@ -42,13 +42,31 @@ function total() {
   for (var i = 0; cart.length > i; i++) {
      total += parseInt(cart[i].itemPrice)
   }
-  return total 
+  return total
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i = 0; cart.length > i; i++) {
+      if (cart[i].itemName === item) {
+      var cartChanged = cart.splice(i, 1)
+      }
+      }
+      if (cartChanged) {
+        return cartChanged
+      } else { 
+        return `That item is not in your cart.`
+      }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+   var total = 0
+  for (var i = 0; cart.length > i; i++) {
+     total += parseInt(cart[i].itemPrice)
+  }
+  if (cardNumber === undefined) {
+    return `Sorry, we don't have a credit card on file for you.`
+  } else {
+    cart = []
+    return `Your total cost is $${total}, which will be charged to the card ${cardNumber}.` 
+  }
 }
