@@ -19,7 +19,7 @@ function addToCart(item) {
 function viewCart() {
   for (let i=0; i<cart.length; i++) {
     if (cart.length === 0) {
-      return `Your shopping cart is empty.`;
+      return "Your shopping cart is empty.";
     } else if (cart.length === 1) {
       return `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}.`;
     } else if (cart.length === 2) {
@@ -44,13 +44,22 @@ function total() {
 
 function removeFromCart(item) {
   for (let i=0; i < cart.length; i++) {
-    if (!item) {
-      return `That item is not in your cart.`;
-    } else {
+    if (item === cart[i].itemName) {
       cart.splice(cart[i], 1);
-    } 
+    } else {
+      return "That item is not in your cart."; 
+    }
   }
-  return cart;
+}
+
+function placeOrder(creditCard) {
+  if (creditCard) {
+    return `Your total cost is $${total()}, which will be charged to the card ${creditCard}.`; 
+  } for (let i=cart.length; cart.length >= 0; i--) {
+    cart.pop();
+  } else {
+    return 'Sorry, we don\'t have a credit card on file for you.';
+  }
 }
 
 function placeOrder(creditCard) {
@@ -59,5 +68,5 @@ function placeOrder(creditCard) {
   } else {
     return `Your total cost is $${total()}, which will be charged to the card ${creditCard}.`;
   }
-  cart = [];
+  let cart = [];
 }
