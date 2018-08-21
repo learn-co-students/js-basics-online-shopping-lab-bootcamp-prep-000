@@ -59,5 +59,5 @@ function placeOrder(creditCard) {
   } else {
     return `Your total cost is $${total()}, which will be charged to the card ${creditCard}.`;
   }
-  cart.length = 0;
+  cart = [];
 }
