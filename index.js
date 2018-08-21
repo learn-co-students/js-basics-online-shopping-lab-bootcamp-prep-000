@@ -42,8 +42,9 @@ function viewCart() {
       }else{
         middleSentances +=`${getCart()[i].itemName} at $${getCart()[i].itemPrice}, `
       }
+    }
+    return `${sentance} ${middleSentances}`
   }
-    return `${sentance} ${middleSentances}`}
 }
 
 function total() {
