@@ -47,7 +47,7 @@ function viewCart() {
   }
 }
 
-function total() {
+function total(){
   let total = 0
   for (let i = 0; i < getCart().length; i++) {
     total = total + getCart()[i].itemPrice
@@ -56,10 +56,18 @@ function total() {
 }
 
 function removeFromCart(item) {
-  delete getCart()[item].itemName
+  if (getCart().indexOf(item) === -1){
+    return "That item is not in your cart."
+  }
+  else {
+    let index = getCart().indexOf(item)
+    getCart().splice(index, 1)
+    return cart
+  }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
 }
+
 
