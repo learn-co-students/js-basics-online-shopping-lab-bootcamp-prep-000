@@ -33,19 +33,17 @@ function viewCart() {
     return `${sentance} ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`
   }
   
-  var middleSentances =''
+  var middleSentances = ''
     
   if (getCart().length >= 2){
-    for (let i = 1; i < getCart().length - 1; i++){
+    for (let i = 0; i < getCart().length; i++){
       if (i === getCart().length - 1){
-        middleSentances += `${middleSentances}, and ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`
+        middleSentances = `${middleSentances}and ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`
+      }else{
+        middleSentances +=`${getCart()[i].itemName} at $${getCart()[i].itemPrice}, `
       }
-      else {
-        middleSentances +=`${middleSentances}, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
-      }
-    }
   }
-  return `${sentance} ${middleSentances}`
+    return `${sentance} ${middleSentances}`}
 }
 
 function total() {
