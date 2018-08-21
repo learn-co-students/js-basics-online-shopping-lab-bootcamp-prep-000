@@ -36,7 +36,7 @@ function viewCart() {
   var middleSentances =''
     
   if (getCart().length >= 2){
-    for (let i = 0; i < getCart().length; i++){
+    for (let i = 1; i < getCart().length - 1; i++){
       if (i === getCart().length - 1){
         middleSentances += `${middleSentances}, and ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`
       }
