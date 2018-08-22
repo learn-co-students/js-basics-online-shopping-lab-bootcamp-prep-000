@@ -44,12 +44,14 @@ function viewCart() {
 
 function total() {
   var ShoppingCartTotal = []
+  var TotalPrice = 0
+  var P = 0
   for (var i = 0; i < cart.length; i++) {
     ShoppingCartTotal.push(cart[i].itemPrice);
-    ShoppingCartTotal[P];
-    P =+ 1
+    TotalPrice += ShoppingCartTotal[P]
+    P += 1
   }
-  return `${TotalPrice}`
+  return parseInt(`${TotalPrice}`)
 }
 
 function removeFromCart(item) {
