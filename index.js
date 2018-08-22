@@ -58,9 +58,9 @@ total(cart);
 
 
 function removeFromCart(item) {
-  for (var i = 0; i < cart.length; i++) {
-    if (cart[i] == (item)) {
-      cart.splice(i, 1)
+  for (var i = 0; i < getCart().length; i++) {
+    if (getCart()[i].itemName == item) {
+      getCart().splice(i, 1)
       return cart
     } 
   }
@@ -70,12 +70,13 @@ function removeFromCart(item) {
 
   
 function placeOrder(cardNumber) {
+  let itsme = total()
   if(cardNumber)  {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
       for (var i = getCart().length; i > 0; i--){ 
         cart.pop();
         i--;
       }
+       return `Your total cost is $${itsme}, which will be charged to the card ${cardNumber}.`;
   }
   else 
   {
