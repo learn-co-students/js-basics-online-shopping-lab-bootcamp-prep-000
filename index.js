@@ -38,13 +38,18 @@ function viewCart() {
     for (var i = 0; i < cart.length - 1; i++) {
       itemlist.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`)
     }
-    
    return `In your cart, you have${itemlist}, and ${lastitem[0].itemName} at $${lastitem[0].itemPrice}.`
   }
 }
 
 function total() {
-  // write your code here
+  var ShoppingCartTotal = []
+  for (var i = 0; i < cart.length; i++) {
+    ShoppingCartTotal.push(cart[i].itemPrice);
+    ShoppingCartTotal[P];
+    P =+ 1
+  }
+  return `${TotalPrice}`
 }
 
 function removeFromCart(item) {
