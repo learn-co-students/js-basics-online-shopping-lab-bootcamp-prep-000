@@ -53,13 +53,13 @@ function removeFromCart(item) {
   }
 }
 
-function placeOrder(creditCard) {
-  if (creditCard) {
-    return `Your total cost is $${total()}, which will be charged to the card ${creditCard}.`; 
+function placeOrder(cardNumber) {
+  if (cardNumber) {
+    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`; 
   } else {
     return 'Sorry, we don\'t have a credit card on file for you.';
-  } for (let i=cart.length; i >= 0; i--) {
-    cart.pop();
+  } for (let i=0; i < cart.length; i++) {
+    cart.shift();
   }
   return cart;
 }
