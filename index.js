@@ -10,7 +10,6 @@ function setCart(c) {
 }
 
 
-
 function addToCart(item) {
  var price = Math.floor(Math.random() * 100);
  var List = [];
@@ -45,17 +44,15 @@ function viewCart() {
 function total() {
   var ShoppingCartTotal = []
   var TotalPrice = 0
-  var P = 0
   for (var i = 0; i < cart.length; i++) {
     ShoppingCartTotal.push(cart[i].itemPrice);
-    TotalPrice += ShoppingCartTotal[P]
-    P += 1
+    TotalPrice += ShoppingCartTotal[i]
   }
   return parseInt(`${TotalPrice}`)
 }
 
 function removeFromCart(item) {
-  // write your code here
+  
 }
 
 function placeOrder(cardNumber) {
