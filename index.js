@@ -56,7 +56,7 @@ function removeFromCart(name) {
 for (var i = 0; i < cart.length; i++) {
    
  if (cart[i].itemName === name) {
-    cart.splice(i, 1);
+   cart.splice(i, 1);
    return cart
   }
  }
@@ -67,7 +67,8 @@ function placeOrder(cardNumber) {
   if (cardNumber === undefined) {
     return `Sorry, we don't have a credit card on file for you.`
 } else {
+  var cashOut = total()
   cart.splice(0, cart.length);
-  return `Your total cost is $${total()}, which will be charded to the card ${cardNumber}.`
+  return `Your total cost is $${cashOut}, which will be charged to the card ${cardNumber}.`
   }
 }
