@@ -1,7 +1,7 @@
 var cart = [];
 
 function getCart() {
- return cart;
+return cart;
 }
 
 function setCart(c) {
@@ -21,7 +21,7 @@ function viewCart() {
      return "Your shopping cart is empty."
      
    }
- if(cart.length === 1) {
+if(cart.length === 1) {
       for (var i = 0;i<cart.length;i++){
      return  `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}.`
       }
@@ -35,22 +35,37 @@ function viewCart() {
     var array2 = [];
     if (cart.length>2){
       for (i =0; i<(cart.length - 1);i++){
-        array2.push(`${cart[i].itemName} at $${cart[i].itemPrice}, `)
+        array2.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`)
       }
-      var x = cart.length
-      return `In your cart, you have ${array2}and ${cart[x].itemName} at ${cart[x].itemPrice}.`
+      var x = (cart.length - 1)
+      return `In your cart, you have${array2}, and ${cart[x].itemName} at $${cart[x].itemPrice}.`
       
     }
 }
 
+
 function total() {
-  // write your code here
+  var p = 0
+  for(var i = 0;i<cart.length;i++){
+   p += parseInt(cart[i].itemPrice);
+  }
+  return p 
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var i = 0;i<cart.length;i++){
+    if (cart[i].intName === item){
+      
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+ if(cardNumber){
+   return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+   cart = [];
+ }
+ else{ return "Sorry, we don't have a credit card on file for you."
+   
+ }
 }
