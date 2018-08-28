@@ -50,29 +50,22 @@ function total() {
 
 function removeFromCart(itemName) {
   // write your code here
-    for (var i = 0; i < getCart().length; i++) {
-
-      if (getCart()[i].itemName === itemName) {
-
-          // cart.splice(i, 1)
-          // return cart
-
-          // var itemIndex = i
-          // var newCart = []
-          // for (var i = 0; i < itemIndex; i++) {
-          //   newCart.push(cart[i])
-          // }
-          //
-          // for (var i = itemIndex+1; i <= cart.length; i++) {
-          //   newCart.push(cart[i])
-          // }
-          //
-          // return newCart
-      } else {
-        return `That item is not in your cart.`
-      }
+  var itemInCart = inCart(itemName)
+  if (itemInCart) {
+    getCart().splice(cart.indexOf(itemInCart),1)
+  } else {
+      return 'That item is not in your cart.'
+  }
 }
 
+function inCart(itemName) {
+  var result
+  for (var i = 0; i < getCart().length; i++) {
+    if (getCart()[i].itemName === itemName) {
+      result = getCart()[i]
+    }
+  }
+  return result
 }
 
 function placeOrder(cardNumber) {
