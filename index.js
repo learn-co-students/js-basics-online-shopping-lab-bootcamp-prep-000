@@ -54,8 +54,8 @@ function removeFromCart(itemName) {
 
       if (getCart()[i].itemName === itemName) {
 
-          cart.splice(i, 1)
-          return cart
+          // cart.splice(i, 1)
+          // return cart
 
           // var itemIndex = i
           // var newCart = []
@@ -68,9 +68,9 @@ function removeFromCart(itemName) {
           // }
           //
           // return newCart
+      } else {
+        return `That item is not in your cart.`
       }
-
-    return `That item is not in your cart.`
 }
 
 }
