@@ -55,9 +55,9 @@ function removeFromCart(item) {
       if (getCart()[i].itemName === item) {
 
           let removedItem = getCart().splice(i,1)
-          return getCart()
+          // return getCart()
 
-    }
+      }
 
     return `That item is not in your cart.`
 }
