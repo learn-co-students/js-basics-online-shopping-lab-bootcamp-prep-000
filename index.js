@@ -56,13 +56,14 @@ function removeFromCart(item) {
   for (var i = 0;i<cart.length;i++){
     if (cart[i].itemName === item){
     var newCart = cart.splice(i,1)
-      console.log(cart)
+      return cart;
     }
-    else{
-       console.log( "That item is not in your cart.")
+   
     }
+    return "That item is not in your cart."
   }
-}
+
+
 
 function placeOrder(cardNumber) {
  if(cardNumber){
@@ -74,4 +75,5 @@ function placeOrder(cardNumber) {
  else{ return "Sorry, we don't have a credit card on file for you."
    
  }
+
 }
