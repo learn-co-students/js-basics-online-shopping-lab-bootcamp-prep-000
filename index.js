@@ -10,7 +10,8 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var NewObj = {`itemName: ${item} , itemPrice: ${Math.floor(100)}`}
+ cart.push(NewObj)
 }
 
 function viewCart() {
