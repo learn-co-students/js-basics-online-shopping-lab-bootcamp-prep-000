@@ -48,15 +48,26 @@ function total() {
 }
 
 
-function removeFromCart(item) {
+function removeFromCart(itemName) {
   // write your code here
     for (var i = 0; i < getCart().length; i++) {
 
-      if (getCart()[i].itemName === item) {
+      if (getCart()[i].itemName === itemName) {
 
-          let removedItem = getCart().splice(i,1)
-          // return getCart()
+          cart.splice(i, 1)
+          return cart
 
+          // var itemIndex = i
+          // var newCart = []
+          // for (var i = 0; i < itemIndex; i++) {
+          //   newCart.push(cart[i])
+          // }
+          //
+          // for (var i = itemIndex+1; i <= cart.length; i++) {
+          //   newCart.push(cart[i])
+          // }
+          //
+          // return newCart
       }
 
     return `That item is not in your cart.`
