@@ -24,7 +24,7 @@ function addToCart(item) {
    var itemHash = { itemName: item, itemPrice: randomPrice, };
    cart.push(itemHash);
    console.log(`${cart[cart.length -1].itemName} has been added to your cart.`);
-   return itemHash;
+   return cart;
  }
 }
 
