@@ -1,3 +1,7 @@
+// SKIPPING THIS LAB BECAUSE OF ERRORS. THE TESTS AND INSTRUCTIONS DO NOT MATCH (TESTS ASK FOR ONE THING, INSTRUCTIONS SAY TO DO ANOTHER). 
+
+// MY VERSION WORKS FINE IN THE CONSOLE FOR WHAT IT'S SUPPOSED TO DO. 
+
 var cart = [];
 
 
@@ -10,7 +14,6 @@ function setCart(c) {
   return cart;
 }
 
-// this will add undefined if the function is called without an argument. fix.
 function addToCart(item) {
  if (typeof item === 'undefined' || item === null) {
    viewCart();
@@ -21,11 +24,9 @@ function addToCart(item) {
    var itemHash = { itemName: item, itemPrice: randomPrice, };
    cart.push(itemHash);
    console.log(`${cart[cart.length -1].itemName} has been added to your cart.`);
-   viewCart();
-   return cart;
+   return itemHash;
  }
 }
-
 
 
 function viewCart() {
@@ -91,11 +92,11 @@ function removeFromCart(item) {
   }
 }
 
-// the if is running even when the cardnumber is undefined
+
 function placeOrder(cardNumber) {
   // write your code here
   if (typeof cardNumber === 'undefined' || cardNumber === null) {
-    console.log("Sorry, we don't have a credit card on file for you.");
+    return "Sorry, we don't have a credit card on file for you.";
   }
   else {
     console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
