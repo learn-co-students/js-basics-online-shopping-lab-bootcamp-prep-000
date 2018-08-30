@@ -34,18 +34,16 @@ function viewCart() {
   return `In your cart, you have${cartContents}`
 }}
 
+
 function total() {
   var sum = 0
   for (var i = 0; i < cart.length; i++) { 
-  sum += cart[i].itemPrice
+  var current = cart[i] //altA: delete
+  sum += current.itemPrice 
+        //altA: sum += cart[i].itemPrice
   }
   return sum
-  return cart[i]
 }
-
- var cartContents
-cart.reduce(itemPrice)
-
 
 function removeFromCart(item) {
   let cart = getCart()
@@ -64,8 +62,9 @@ function placeOrder(cardNumber) {
   return "Sorry, we don't have a credit card on file for you."
   }
   else {
+    var receipt = total()
     cart = []
-  return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+  return `Your total cost is $${receipt}, which will be charged to the card ${cardNumber}.`
   }
 }
 
