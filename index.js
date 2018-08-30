@@ -20,53 +20,88 @@ function addToCart(item) {
 
 function viewCart() {
   var cartContents = [];
-    for (var i = 0; i < cart.length; i++) 
-    if (i === cart.length-1) {
-    cartContents.push(`and ${fullItem.itemName[i]} at $${fullItem.itemPrice[i]}.`)
+  if (cart.length === 0) {
+    return "Your shopping cart is empty."
+  } else {
+    for (var i = 0; i < cart.length; i++) { 
+    if (cart.length === 1) {
+      cartContents.push(` ${cart[i].itemName} at $${cart[i].itemPrice}.`)
+    } else if (i === cart.length-1) {
+    cartContents.push(` and ${cart[i].itemName} at $${cart[i].itemPrice}.`)
+    } else {
+    cartContents.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`)
+    }}
+  return `In your cart, you have${cartContents}`
+}}
+
+function total() {
+  var sum = 0
+  for (var i = 0; i < cart.length; i++) { 
+  sum += cart[i].itemPrice
+  }
+  return sum
+  return cart[i]
+}
+
+ var cartContents
+cart.reduce(itemPrice)
+
+
+function removeFromCart(item) {
+  let cart = getCart()
+  for (let i=0; i < cart.length; i++){
+    if (cart[i].itemName === item) {
+      cart.splice(i, 1)
+    return cart
     }
-    else {
-    cartContents.push(`${fullItem.itemName[i]} at $${fullItem.itemPrice[i]}, `)
-    }
-    
-    cartContents.push(`and ${fullItem.itemName[i]} at $${fullItem.itemPrice[i]}.`)
-return `In your cart, you have ${cartContents}`
+  }
+  return "That item is not in your cart."
+}
+
+
+function placeOrder(cardNumber) {
+  if (!cardNumber) {
+  return "Sorry, we don't have a credit card on file for you."
+  }
+  else {
+    cart = []
+  return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+  }
 }
 
 /*
-function viewCart() {
-  var cartContents = [];
-    for (var i = 0; i < cart.length -1; i++) 
-    cartContents.push(`${fullItem.itemName[i]} at $${fullItem.itemPrice[i]}, `)
-    }
-    i = cart.length - 1
-    cartContents.push(`and ${fullItem.itemName[i]} at $${fullItem.itemPrice[i]}.`)
-return `In your cart, you have ${cartContents}`
-}
-
-function viewCart() {
-  i = i+1;
-  do { console.log
-
-var i = 0;
- 
-function incrementVariable() {
-  i = i + 1;
-}
- 
-do {
-  console.log("doo-bee-doo-bee-doo");
-  incrementVariable();
-} while (i < 5);
-
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {
+  return "Sorry, we don't have a credit card on file for you."
+  }
+  else {
+    cart = []
+  return `Your total cost is ${sum}, which will be charged to the card ${cardNumber}.`
+  }
 }
 */
+
+/*
+
+function removeFromCart(item) {
+  if (!cart.itemName) {
+    return "That item is not in your cart."
+  }
+  else {
+  cart.splice(cart.itemName)
+  }
+return cart
+}
+
+*/
+/*
+function removeFromCart(item) {
+  if (cart.includes(cart.itemName)) {
+  cart.splice(cart.itemName)
+  return cart
+  }
+  else {return "That item is not in your cart."
+  }
+}
+*/
+
