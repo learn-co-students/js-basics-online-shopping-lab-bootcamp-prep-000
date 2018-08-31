@@ -21,27 +21,19 @@ function addToCart(item) {
   return `${item} has been added to your cart.`
 }
 
-function addToCart(item) {
-  let newObject = {itemName: item, itemPrice: getRandomInt(1, 101)}
-  cart.push(newObject)
-  return `${item} has been added to your cart.`
-}
-
 function viewCart() {
   let text = 'In your cart, you have '
+  let lastObject = cart.slice(-1)
+  let lastPartOfSent = `, and ${Object.keys(lastObject)[0]} at ${Object.values(lastObject)}.`
   if (cart.length < 1) {
-     text = 'Your shopping cart is empty.'
+  return 'Your shopping cart is empty.'  
+  } else if (cart.length === 1) {
+    return `${text} + ${Object.keys(cart)[0]} + at ${Object.values(cart)[0]}.`
   } else {
-  for (let i = 0; i < cart.length; i++) {
-    if (i == cart.length - 1) {
-     text += `and ${cart[i].itemName} at $${cart[i].itemPrice}`
-     } else {
-        text += `${cart[i].itemName} at $${cart[i].itemPrice}`
-        }
-    }
+    for (let i = 0; i > cart.length; i++) {}
+    return `${text}` 
   }
-     return text
-  }
+}
 
 
 function total() {
