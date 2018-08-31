@@ -28,7 +28,7 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  let text = ''
+  let text = 'In your cart, you have '
   if (cart.length < 1) {
      text = 'Your shopping cart is empty.'
   } else {
@@ -36,7 +36,7 @@ function viewCart() {
     if (i == cart.length - 1) {
      text += `and ${cart[i].itemName} at $${cart[i].itemPrice}`
      } else {
-        text += `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}`
+        text += `${cart[i].itemName} at $${cart[i].itemPrice}`
         }
     }
   }
