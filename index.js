@@ -22,28 +22,67 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  let text = 'In your cart, you have '
+  let text = 'In your cart, you have'
   let lastObject = cart.slice(-1)
-  let lastPartOfSent = `, and ${Object.keys(lastObject)[0]} at ${Object.values(lastObject)}.`
   if (cart.length < 1) {
   return 'Your shopping cart is empty.'  
   } else if (cart.length === 1) {
-    return `${text} + ${Object.keys(cart)[0]} + at ${Object.values(cart)[0]}.`
+    return `${text} ${cart[0].itemName} at $${cart[0].itemPrice}.`
   } else {
-    for (let i = 0; i > cart.length; i++) {}
-    return `${text}` 
+    let lastPartOfSent = ` and ${cart[cart.length - 1].itemName} at $${cart[cart.length - 1].itemPrice}.`
+    for (let i = 0; i < (cart.length - 1); i++) {
+    text = `${text} ${cart[i].itemName} at $${cart[i].itemPrice},`
+    }
+    let finalSentence = text + lastPartOfSent
+    return finalSentence
   }
 }
 
-
 function total() {
-  // write your code here
+  let totalPrice = 0
+  console.log(cart)
+  for (let i = 0; i < cart.length; i++){
+    totalPrice = totalPrice + cart[i].itemPrice
+  }
+   
+  return totalPrice
 }
 
+// function removeFromCart(item) {
+//   let index = getCart().indexOf(item)
+//   if (index && (cart[index].itemName === item)) {
+//     cart.splice(index, 1)
+//   } else {
+//     return 'The item is not in your cart.'
+//     }
+// }
 function removeFromCart(item) {
-  // write your code here
+  let searchResult
+  
+  for (let i=0; i<cart.length; i++) {
+    if (cart[i].itemName === item) {
+      searchResult = cart[i]
+    }
+  }
+  
+  let index = cart.indexOf(searchResult)
+  
+  if (index) {
+    cart.splice(index, 1)
+  } else {
+    //return 'That item is not in your cart.'
+  }
+    return 'That item is not in your cart.'
+  
+  
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {
+    return 'Sorry, we don\'t have a credit card on file for you.'
+  } else {
+    let totalPrice = total()
+    cart = []
+    return `Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`
+  }
 }
