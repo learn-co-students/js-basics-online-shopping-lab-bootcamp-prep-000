@@ -10,7 +10,8 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  itemPrice = []
+  itemPrice[item] = Math.floor.Math.random()*100;
 }
 
 function viewCart() {
