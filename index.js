@@ -14,7 +14,7 @@ function addToCart(item) {
  var itemNameAndPrice = {itemName: [item], itemPrice: Math.floor((Math.random()*100)+1)}
  cart.push(itemNameAndPrice);
  return `${item} has been added to your cart.`
- debugger
+
 }
 
 function viewCart() {
@@ -37,16 +37,27 @@ function viewCart() {
     return `${cartDescription}.`
   }
 
-
-  debugger
 }
 
 function total() {
   // write your code here
+  var sum = 0
+  for (var i = 0; i < getCart().length; i++) {
+    sum = sum + getCart()[i].itemPrice
+  }
+  return sum
 }
 
 function removeFromCart(item) {
   // write your code here
+  for (var i = 0; i < getCart().length; i++) {
+    if (item === getCart()[i].itemName) {
+      getCart().splice([i],1);
+      debugger;
+      return cart
+    }
+  }
+
 }
 
 function placeOrder(cardNumber) {
