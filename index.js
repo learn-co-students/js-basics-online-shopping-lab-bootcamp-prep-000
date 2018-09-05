@@ -43,16 +43,20 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  if (item == "") {
-    return "That item is not in your cart.";
-  }
   for (let i = 0; i < cart.length; i++) {
-    item -= cart[i].itemName;
+    if (cart[i].itemName == item) {
+      cart.splice([i], 1);
+      return cart;
+    } else {
+      return "That item is not in your cart.";
+    }
   }
-  return item;
+  return cart;
 }
 
 function placeOrder(cardNumber) {
   // write your code here
-
+  if (cardNumber == "") {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
 }
