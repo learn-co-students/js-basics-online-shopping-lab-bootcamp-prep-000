@@ -28,7 +28,9 @@ function viewCart() {
   for (var i=0; i < cart.length; i++) {
       blah.push(`${cart[i]["itemName"]} at $${cart[i]["itemPrice"]}`)
     }
-    return `In your cart, you have ${blah.join(", and ")}.`
+    var front = blah.slice(0, blah.length -1)
+var end = blah.slice(blah.length-1, (blah.length))
+    return `In your cart, you have ${front.join(', and ')} and ${end}.`;
 }
 
 function total() {
