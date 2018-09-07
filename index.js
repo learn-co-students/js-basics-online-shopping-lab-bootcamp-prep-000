@@ -23,24 +23,30 @@ function addToCart(item) {
  return newItem.itemName;
 }
 
+
 function viewCart() {
   if (itemList.length === 0) {
     return 'Your shopping cart is empty.'
   } else {
-<<<<<<< HEAD
-      // need to figure out the output format.
-=======
 
->>>>>>> bb963aafada5bb097e2849afbdedfee0f1bf6c17
+    for (i=0; i < itemList.length - 1; i++) {
+      allInYourCart = "In your cart, you have "
+      allInYourCart = allInYourCart + `${itemList[i].itemName}  at ${itemList[i].itemPrice},`;
+
+    }
+      allInYourCart = allInYourCart + `and ${itemList[itemList.(length-1).itemName] at ${itemList[itemList.(length-1)].itemPrice} `
   }
+  return allInYourCart
 }
 
 function total() {
   // write your code here
+  return itemList.length
 }
 
 function removeFromCart(item) {
   // write your code here
+
 }
 
 function placeOrder(cardNumber) {
