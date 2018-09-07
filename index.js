@@ -19,7 +19,7 @@ function addToCart(item) {
 >>>>>>> bb963aafada5bb097e2849afbdedfee0f1bf6c17
  newItem.itemName = item;
  newItem.itemPrice = Math.floor(Math.random()*100)
- itemList.pop(newItem);
+ itemList.push(newItem); // it was pop(newItem)
  return newItem.itemName;
 }
 
