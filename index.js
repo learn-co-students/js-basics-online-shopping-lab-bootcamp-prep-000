@@ -10,7 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var price = generatePrice();
+ var itemObject = new Object({item, price})
+ cart.push(itemObject)
+ return `${item} has been added to your cart.`
 }
 
 function viewCart() {
@@ -27,4 +30,10 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   // write your code here
+}
+
+
+function generatePrice(){
+  var randomNumber = Math.floor(Math.random() * 100);
+  return randomNumber;
 }
