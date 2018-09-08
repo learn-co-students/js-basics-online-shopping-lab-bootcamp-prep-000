@@ -67,10 +67,11 @@ function removeFromCart(item) {
 //////////////////////////////////////////
 
 function placeOrder(cardNumber) {
-  if (cardNumber === null) {
+  if (cardNumber === 0 or cardNumber === null) {
     return "Sorry, we don't have a credit card on file for you."
   }
-  cart.slice(0, cart.length);
-  return `Your tatal cost is $${total()}, which will be charged to the card ${cardNumber}.`
+
+  cart.splice(0, cart.length); //cart = []; do not use slice, which is nodesctructive.
+  return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
 
 }
