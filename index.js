@@ -27,18 +27,18 @@ function addToCart(item) {
 
 /////////////////////////////////////////////////////////// convert array itmes/object into a string with the required format.
 function viewCart() {
-  allItemsInString = "In your cart, you have ";
+  allItemsPriceInString = "In your cart, you have ";
 
   if (cart.length === 0) {
     return "Your shopping cart is empty."
   } else {
 
     for (var i=0; i < cart.length-1; i++) {
-      allItemsInString.concat(`${itemList[i].itemName}  at $${cart[i].itemPrice},`);
+      allItemsPriceInString.concat(`${itemList[i].itemName}  at $${cart[i].itemPrice},`);
     }
 
   }
-  return allItemsInString.concat(` and ${cart[itemList.length-1].itemName}  at $${cart[itemList-1].itemPrice}.`) ;
+  return allItemsPriceInString.concat(` and ${cart[itemList.length-1].itemName}  at $${cart[itemList-1].itemPrice}.`) ;
 
   //allInYourCart.concat( `and ${itemList[itemList.length-1].itemName] at '$'${itemList[itemList.length-1)].itemPrice}) `
 
