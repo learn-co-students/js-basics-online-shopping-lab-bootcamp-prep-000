@@ -38,15 +38,27 @@ function total() {
   var sum = 0 
   while (index < cart.length) {
     sum += cart[index].itemPrice
-    index += 1
-  }
+    index += 1 }
   return sum
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for  (let index = 0; index < cart.length; index++) {
+    if (cart[index].itemName === item) {
+     cart.splice(index, 1)
+     return cart 
+    }
+  }
+  return "That item is not in your cart."
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if (!cardNumber) {
+   return "Sorry, we don't have a credit card on file for you."
+  }
+   else {
+     var t = total();
+     cart.splice(0, cart.length);
+     return `Your total cost is $${t}, which will be charged to the card ${cardNumber}.`; 
+   }
 }
