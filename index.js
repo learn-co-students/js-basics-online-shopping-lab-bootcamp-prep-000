@@ -25,22 +25,27 @@ function addToCart(item) {
  return `${newItem.itemName} has been added to your cart.`
 }
 
+
 /////////////////////////////////////////////////////////// convert array itmes/object into a string with the required format.
+
 function viewCart() {
-  allItemsPriceInString = "In your cart, you have ";
 
   if (cart.length === 0) {
     return "Your shopping cart is empty."
+
+  } else if (cart.length === 1) {
+    return "In your cart, you have " + `${cart[0].itemName} at $${cart[0].itemPrice}.`;
+
+  } else if (cart.length === 2){
+    return "In your cart, you have " + `${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
+
   } else {
-
+    var allItemsPriceToView = "In your cart, you have";
     for (var i=0; i < cart.length-1; i++) {
-      allItemsPriceInString.concat(`${itemList[i].itemName}  at $${cart[i].itemPrice},`);
+      allItemsPriceToView += ` ${cart[i].itemName} at $${cart[i].itemPrice},`;
     }
-
   }
-  return allItemsPriceInString.concat(` and ${cart[itemList.length-1].itemName}  at $${cart[itemList-1].itemPrice}.`) ;
-
-  //allInYourCart.concat( `and ${itemList[itemList.length-1].itemName] at '$'${itemList[itemList.length-1)].itemPrice}) `
+  return allItemsPriceToView.concat(` and ${cart[cart.length-1].itemName} at $${cart[cart.length-1].itemPrice}.`) ;
 
 }
 
@@ -69,9 +74,14 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   if (cardNumber === 0 || cardNumber === null) {
     return "Sorry, we don't have a credit card on file for you."
-  }
+  } else if (total() === 0) {
+     return "Sorry, we don't have a credit card on file for you."
 
-  cart.splice(0, cart.length); //cart = []; do not use slice, which is nodesctructive.
-  return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+  } else {
+    var totalvalue;
+    totalvalue = total();
+    cart.splice(0, cart.length); //cart = []; do not use slice, which is nodesctructive.
+    return `Your total cost is $${totalvalue}, which will be charged to the card ${cardNumber}.`
+  }
 
 }
