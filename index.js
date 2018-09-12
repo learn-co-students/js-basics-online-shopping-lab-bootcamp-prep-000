@@ -34,7 +34,11 @@ function viewCart() {
   return `In your cart, you have${cartContents}`
 }}
 
+<<<<<<< HEAD
 
+=======
+/*
+>>>>>>> eb1b042029471d591a0717755de886372234c9f0
 function total() {
   var sum = 0
   for (var i = 0; i < cart.length; i++) { 
@@ -44,7 +48,30 @@ function total() {
   }
   return sum
 }
+*/
 
+<<<<<<< HEAD
+=======
+function total() {
+  cart.itemPrice.reduce() 
+  return cart.itemPrice
+}
+
+function total() {
+  cart.reduce(itemPrice)
+  return itemPrice
+}
+
+function total() {
+  cart.reduce(itemPrice)
+  console.log(itemPrice)
+}
+/*
+ var cartContents
+cart.reduce(itemPrice)
+*/
+
+>>>>>>> eb1b042029471d591a0717755de886372234c9f0
 function removeFromCart(item) {
   let cart = getCart()
   for (let i=0; i < cart.length; i++){
