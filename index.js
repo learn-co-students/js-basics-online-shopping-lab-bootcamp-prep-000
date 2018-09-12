@@ -63,7 +63,7 @@ function placeOrder(cardNumber) {
     return "Sorry, we don't have a credit card on file for you."
   }
   else { 
-    var sum = total()
+    var sum = total() //Note: do not name the variable "total"; variables and function names must be different
     cart = []
     return `Your total cost is $${sum}, which will be charged to the card ${cardNumber}.`
   }
