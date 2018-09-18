@@ -1,25 +1,25 @@
 var cart = [];
-
+ 
 function getCart() {
  return cart;
 }
-
+ 
 function setCart(c) {
   cart = c;
   return cart;
 }
-
+ 
 function addToCart(item) {
  // write your code here
  cart.push({itemName:item, itemPrice:Math.floor(Math.random() * 100)})
  return `${item} has been added to your cart.`
 }
-
+ 
 // below is test data that was used after addToCart() passed tests
 addToCart("vanilla");
 addToCart("watermelon");
 addToCart("yams");
-
+ 
 function viewCart() {
   /* learned difference between using const, let and var here:
      https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75
@@ -54,7 +54,7 @@ function viewCart() {
     return intro
 }
 }
-
+ 
 function total() {
   // write your code here
   var sum = []
@@ -71,25 +71,28 @@ function total() {
   //console.log(final)
   return final
 }
-
+ 
 //total()
 //var sum = []
-
+ 
 function removeFromCart(item) {
   // write your code here
   for(let count = 0; count < cart.length; count++) {
-    console.log(Object.values(cart[count])[0])
-    if (Object.values(cart[count])[0] == item) {
+    
+    //console.log(Object.values(cart[count])[0])
+    // I previously did this so incredibly difficult using the above line :(
+    
+    if (cart[count].itemName == item) {
       cart = [...cart.slice(0,count), ...cart.slice(count + 1)]
       return cart
     }
   }
   return "That item is not in your cart."
 }
-
-//removeFromCart("watermelon")
-//removeFromCart("yams")
-
+ 
+removeFromCart("watermelon")
+removeFromCart("yams")
+ 
 function placeOrder(cardNumber) {
   // write your code here
   if(cardNumber === parseInt(cardNumber, 10)) {
