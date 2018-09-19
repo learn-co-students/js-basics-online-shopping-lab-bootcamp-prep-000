@@ -1,4 +1,32 @@
-var cart = [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var cart = [];
 
 function getCart() {
  return cart;
@@ -82,3 +110,4 @@ function placeOrder(cardNumber) {
   }
   cart = []
 }
+*/
