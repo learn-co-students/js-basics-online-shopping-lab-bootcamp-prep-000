@@ -9,8 +9,18 @@ function setCart(c) {
   return cart;
 }
 
+function getPrice(min, max) {
+  min = Math.ceil(1);
+  max = Math.floor(100);
+  return Math.floor(Math.random() * (max - min)) + min; 
+}
+
 function addToCart(item) {
- // write your code here
+  var itemsInCart = [];
+  var itemName = item;
+  var price = getPrice();
+  itemsInCart.push()
+  return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
