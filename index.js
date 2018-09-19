@@ -1,32 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*var cart = [];
+var cart = [];
 
 function getCart() {
  return cart;
@@ -37,7 +9,33 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function addToCart(item) {
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
