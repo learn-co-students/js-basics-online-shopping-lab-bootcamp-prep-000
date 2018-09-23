@@ -9,22 +9,22 @@ function setCart(c) {
   return cart;
 }
 
-function getPrice(min, max) {
-  min = Math.ceil(1);
-  max = Math.floor(100);
-  return Math.floor(Math.random() * (max - min)) + min; 
-}
-
 function addToCart(item) {
-  var itemsInCart = [];
-  var itemName = item;
-  var price = getPrice();
-  itemsInCart.push()
+  let newItem = {
+  itemName: item,
+  price: 10
+  }
+  cart.push(newItem)
   return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length === 0) {
+    return  `Your shopping cart is empty.`
+  }
+  for (var i = cart.length; i > 0; i--){
+    return (`In your cart, you have ${cart.itemName[i]} at ${cart.price[i]}, `)
+  }
 }
 
 function total() {
