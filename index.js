@@ -1,7 +1,12 @@
 var cart = [];
+var priceTest = Math.floor(Math.random() * 5);
 var object = {
   itemName: name,
   itemPrice: price
+}
+
+function random() {
+  return Math.floor(Math.random() * 5);
 }
 function getCart() {
  return cart;
@@ -15,7 +20,7 @@ function setCart(c) {
 function addToCart(item) {
   var newItem = {
     itemName: item,
-    itemPrice: test,
+    itemPrice: random(),
   }
   cart.push(newItem)
   return `${newItem.itemName} has been added to your cart.`
@@ -49,13 +54,12 @@ function total() {
 
 function removeFromCart(item) {
   for (var i = 0; i<cart.length; i++) {
-    if (cart[i].name === item) {
-      cart.splice(cart[i],1);
-    } else if (cart[i].name !== item) {
-      return 'That item is not in your cart.'
+    if (item === cart[i].itemName) {
+      cart.splice(i,1);
+      return cart;
     }
   }
-  return cart;
+  return 'That item is not in your cart.'
 }
 
 function placeOrder(cardNumber) {
@@ -63,6 +67,6 @@ function placeOrder(cardNumber) {
     return `Sorry, we don't have a credit card on file for you.`
   } else {
     cart = [];
-    return `Your total cost is $${test}, which will be charged to the card ${cardNumber}.`
+    return `Your total cost is $${random()}, which will be charged to the card ${cardNumber}.`
   }
 }
