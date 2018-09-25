@@ -10,9 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var newItem = {}
-  var itemPrice = parseInt(Math.floor(Math.random() * 100) + 0);
-  newItem[item] = itemPrice;
+  var newItem = { [item]: parseInt(Math.floor(Math.random() * 100) + 0) };
   cart.push(newItem);
   console.log(`${item} has been added to your cart.`)
   return cart
@@ -20,26 +18,28 @@ function addToCart(item) {
 
 function viewCart() {
   if (cart.length === 1) {
-    console.log(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`)
+    console.log(`In your cart, you have ${Object.keys( cart[0] )} at $${cart[0].Object.keys( cart[0] )}.`)
   } else if (cart.length === 2) {
-    console.log(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`)
+    console.log(`In your cart, you have ${cart[0]} at $${cart[0]}, and ${cart[1]} at $${cart[1]}.`)
   } else if (cart.length > 2) {
-    console.log(`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}`)
-  }
+    console.log(`In your cart, you have ${cart[0]} at $${cart[0]}`)
+  } else {
   console.log('Your shopping cart is empty.')
+  }
 }
 
 function total() {
   for (let i = 0; i < cart.length; i++);
-    
+
 }
 
 function removeFromCart(name) {
+  let i = 0
   for (let i = 0; i < cart.length; i++);
-    if (cart.splice() === name) {
+    if (Object.keys(cart[i]) === name) {
+      delete cart[i];
       return cart
-    }
-    console.log("That item is not in your cart.")
+    } console.log("That item is not in your cart.")
 }
 
 function placeOrder(number) {
