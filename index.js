@@ -16,7 +16,7 @@ function addToCart(item) {
    itemPrice: Math.floor(Math.random() * 100)
  });
  
- cart.unshift(newItem);
+ cart.push(newItem);
  
  return `${item} has been added to your cart.`;
 }
@@ -53,14 +53,23 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
-  for (i = 0; i < cart.length; i++) {
-    if (cart[i].itemName === item) {
-      
+  let cart = getCart();
+  for (let i = 0; i < cart.length; i++){
+    if (cart[i].itemName === item ){
+      cart.splice(i, 1);
+      return cart;
     }
   }
+  return "That item is not in your cart.";
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  if (cardNumber === undefined) {
+    return "Sorry, we don\'t have a credit card on file for you.";
+  } else {
+    var finalCost = total();
+    cart.splice(0, cart.length);
+    return `Your total cost is $${finalCost}, which will be charged to the card ${cardNumber}.`;
+  }
 }
