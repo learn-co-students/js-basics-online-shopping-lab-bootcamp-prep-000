@@ -28,9 +28,20 @@ function viewCart() {
   }
 }
 
-function total() {
-  for (let i = 0; i < cart.length; i++);
+/*function total() {
+  let i = 0;
+  var total = 0;
+  for (let i = 0; i < cart.length; i++); {
+    total += Object.values(cart[i])
+  } return total
+}*/
 
+function total() {
+  let i = 0;
+  var total = 0;
+  for (let price of Object.values(cart[i])) {
+    total += price
+  } return total
 }
 
 function removeFromCart(name) {
