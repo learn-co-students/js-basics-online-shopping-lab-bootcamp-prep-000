@@ -38,7 +38,7 @@ function viewCart() {
 
 function total() {
   let i = 0;
-  var total = 0;
+  var total = integer;
   for (let price of Object.values(cart[i])) {
     total += price
   } return total
