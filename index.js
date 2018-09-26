@@ -28,21 +28,24 @@ function viewCart() {
   }
 }
 
+function total() {
+  let i = 0;
+  var total = 0;
+  for (let i = 0; i < cart.length; i++); {
+    console.log(Object.values(cart[i]))
+    total += parseInt(Object.values(cart[i]))
+  } return total
+}
+
 /*function total() {
   let i = 0;
   var total = 0;
   for (let i = 0; i < cart.length; i++); {
-    total += Object.values(cart[i])
+    for (let price of Object.values(cart[i])) {
+    total += price
+    }
   } return total
 }*/
-
-function total() {
-  let i = 0;
-  var total = integer;
-  for (let price of Object.values(cart[i])) {
-    total += price
-  } return total
-}
 
 function removeFromCart(name) {
   let i = 0
