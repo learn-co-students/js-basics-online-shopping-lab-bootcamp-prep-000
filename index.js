@@ -16,6 +16,30 @@ function addToCart(item) {
   return cart
 }
 
+/*function addToCart(item) {
+  var newItem = { [item]: Math.floor(Math.random() * 100) };
+  cart.push(newItem);
+  console.log(`${item} has been added to your cart.`)
+  return cart
+}*/
+
+/*function addToCart(item) {
+  var newItem = { itemName: item, itemPrice: Math.floor(Math.random() * 100) };
+  cart.push(newItem);
+  console.log(`${item} has been added to your cart.`)
+  return cart
+}*/
+
+/*function addToCart(item) {
+
+ let toAdd = {
+   itemName: item,
+   itemPrice: Math.floor(Math.random()*100)
+ }
+ cart.push(toAdd)
+ return `${toAdd.itemName} has been added to your cart.`
+}*/
+
 function viewCart() {
   if (cart.length === 1) {
     console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}.`)
