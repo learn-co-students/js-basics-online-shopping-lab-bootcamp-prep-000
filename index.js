@@ -16,19 +16,19 @@ function setCart(c) {
   return cart
 }*/
 
-function addToCart(item) {
+/*function addToCart(item) {
   var newItem = { [item]: Math.floor(Math.random() * 100) };
   cart.push(newItem);
   console.log(`${item} has been added to your cart.`)
   return cart
-}
+}*/
 
-/*function addToCart(item) {
+function addToCart(item) {
   var newItem = { itemName: item, itemPrice: Math.floor(Math.random() * 100) };
   cart.push(newItem);
   console.log(`${item} has been added to your cart.`)
   return cart
-}*/
+}
 
 /*function addToCart(item) {
 
@@ -40,17 +40,26 @@ function addToCart(item) {
  return `${toAdd.itemName} has been added to your cart.`
 }*/
 
-function viewCart() {
+/*function viewCart() {
+  var cartItems = []
+  for (let i = 0; i < cart.length; i++) {
+    cartItems.push(`${Object.keys(cart[i])} at $${Object.values(cart[i])}`)
+  }
   if (cart.length === 1) {
-    console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}.`)
-  } else if (cart.length === 2) {
-    console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])} and ${Object.keys(cart[1])} at $${Object.values(cart[1])}.`)
-  } else if (cart.length > 2) {
-    console.log(`In your cart, you have ${Object.keys(cart[0])} at $${Object.values(cart[0])}, ${Object.keys(cart[1])} at $${Object.values(cart[1])}, and ${Object.keys(cart[2])} at $${Object.values(cart[2])}`)
+    console.log(`In your cart, you have ${cartItems[0]}.`)
+  } /*else if (cart.length === 2) {
+    for (let i = 0; i < cart.length; i++) {
+    console.log(`In your cart, you have ${cartItems[i]} and ${cartItems[i]}.`)
+  }
+
+} else if (cartItems.length > 1) {
+    for (let i = 0; i < cartItems.length - 1; i++)
+
+  } console.log(`In your cart, you have ${cartItems[i]} `
   } else {
   console.log('Your shopping cart is empty.')
   }
-}
+}*/
 
 function total() {
   var prices = []
