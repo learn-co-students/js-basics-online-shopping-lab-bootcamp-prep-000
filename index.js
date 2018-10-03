@@ -35,28 +35,18 @@ let str = "In your cart, you have ";
   
   
   else if (cart.length===1) {
-    
      for (let i=0; i<cart.length; i++)
-
       currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-     
       return (str) + (currentCart) + (".")
   }
       else if (cart.length===2) {
-    
      for (let i=0; i<cart.length; i++)
-
       currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-     
       return (str) + (currentCart.join(", and "))  + (".")
-
      }
    else { for (let i=0; i<cart.length; i++)
-
       currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-
       let lastItem = currentCart.pop()
-     
       return (str) + (currentCart.join(", ")) + (", and ") + (lastItem) + (".")
      }
 }
@@ -78,24 +68,21 @@ return currentCart.reduce(getSum)
 
 
 function removeFromCart(item) {
-  for (var i = 0; i < cart.length; i++) {
+  for (var i = 0; i < cart.length; i++) 
     if (cart[i].itemName==item) {
       cart.splice(i, 1);
-      return cart;
-    }
-  
-  else {
-  return ("That item is not in your cart.")}
+      return cart;}
+  {return ("That item is not in your cart.")}
 }
-}
+
+
+// PLACE ORDER 
 
 function placeOrder(cardNumber) {
-
   if (!cardNumber) {
     return ("Sorry, we don't have a credit card on file for you.")
   }
   else {
-
 let totalCost = total()
 cart = []
    return ("Your total cost is $" + totalCost +`, which will be charged to the card ${cardNumber}.`)
