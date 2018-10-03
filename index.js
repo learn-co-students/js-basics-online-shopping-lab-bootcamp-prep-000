@@ -9,19 +9,19 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
+/*function addToCart(item) {
   var newItem = { [item]: parseInt(Math.floor(Math.random() * 100) + 0) };
   cart.push(newItem);
   console.log(`${item} has been added to your cart.`)
   return cart
-}
+}*/
 
-/*function addToCart(item) {
+function addToCart(item) {
   var newItem = { [item]: Math.floor(Math.random() * 100) };
   cart.push(newItem);
   console.log(`${item} has been added to your cart.`)
   return cart
-}*/
+}
 
 /*function addToCart(item) {
   var newItem = { itemName: item, itemPrice: Math.floor(Math.random() * 100) };
