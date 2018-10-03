@@ -32,5 +32,20 @@ function viewCart(itemName, itemPrice) {
 }
 }
 
-//cartItems [banana, grapes, apples]
-//var lastItem = cartItems.pop()
+function total(itemPrice) {
+  var totalPrice = 0;
+  for (var i = 0; i < cart.length; i++) {
+      if (i === cart.length) {
+      totalPrice = totalPrice + `${cart[i].itemPrice}`;
+    }
+    return totalPrice;
+  }
+}
+
+function removeFromCart(item) {
+  // write your code here
+}
+
+function placeOrder(cardNumber) {
+  // write your code here
+}
