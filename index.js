@@ -32,15 +32,13 @@ function viewCart(itemName, itemPrice) {
 }
 }
 
-function total(itemPrice) {
+function total() {
   var totalPrice = 0;
   for (var i = 0; i < cart.length; i++) {
-      if (i === cart.length) {
-      totalPrice = totalPrice + `${cart[i].itemPrice}`;
+    totalPrice += cart[i].itemPrice
     }
     return totalPrice;
   }
-}
 
 function removeFromCart(item) {
   // write your code here
