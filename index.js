@@ -40,7 +40,7 @@ function total() {
   return total
 }
 
-function removeFromCart(name) {
+/*function removeFromCart(name) {
   var items = []
   let i = 0
   for (let i = 0; i < cart.length; i++) {
@@ -53,6 +53,17 @@ function removeFromCart(name) {
       return 'That item is not in your cart.'
     }
   }
+}*/
+
+function removeFromCart(name) {
+  let i = 0
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].itemName === name) {
+      return i;
+    } else {
+      return 'That item is not in your cart.'
+    }
+  } cart.splice(i, 1)
 }
 
 function placeOrder(number) {
