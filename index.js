@@ -33,7 +33,7 @@ function total() {
   var prices = []
   for (let i = 0; i < cart.length; i++) {
     prices.push(parseInt(`${cart[i].itemPrice}`));
-} var total = prices.reduce(add, 0);
+  } var total = prices.reduce(add, 0);
     function add(a, b) {
       return a + b;
     }
@@ -44,9 +44,12 @@ function removeFromCart(name) {
   var items = []
   let i = 0
   for (let i = 0; i < cart.length; i++) {
-    if (cart[i].itemName === name) {
-      console.log(cart[i]);
-    } else {
+    items.push(cart[i].itemName)
+  } console.log(items)
+  for (let i = 0; i < items.length; i++) {
+    if (items[i] === name) {
+      cart.splice(i, 1);
+  } else {
       return 'That item is not in your cart.'
     }
   }
