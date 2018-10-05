@@ -78,10 +78,9 @@ var i;
   
   for(var i = 0; i < cart.length; i++) 
   {
-    for (var item in cart[i]) 
-    {
-    totalPrice += cart[i][item];
-    }
+    
+    totalPrice += cart[i].itemPrice
+    
     
   }
   
