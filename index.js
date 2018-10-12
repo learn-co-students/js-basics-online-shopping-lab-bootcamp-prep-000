@@ -30,26 +30,27 @@ function viewCart() {
 
   var stringBase = `In your cart, you have`;
   var stringTwo = ``;
-
+  var stringThree = ``;
   for (var i = 0; i < cart.length; i++){
     var purchase = cart[i];
+    stringTwo = `${purchase.itemName} at $${purchase.itemPrice}`;
 
       if (cart.length === 1) {
-      stringTwo = `${purchase.itemName} at $${purchase.itemPrice}.`;
+      stringThree = `.`;
       }
      else if (cart.length > 1) {
-       var stringThree = ``;
+       
        if (i < cart.length - 1){
          stringThree = `,`;
-         stringTwo = `${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
+         //stringTwo = `${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
        }
        else {
          stringThree = `.`;
-       stringTwo = `and ${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
+       //stringTwo = `and ${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
        }
 
      }
-     stringBase = `${stringBase} ${stringTwo}`;
+     stringBase = `${stringBase} ${stringTwo} ${stringThree}`;
   }
   return stringBase;
 }
