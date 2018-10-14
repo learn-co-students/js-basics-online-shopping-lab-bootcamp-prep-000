@@ -21,38 +21,82 @@ function addToCart(item) {
 
 }
 
+//better way for function viewCart()
+
+
 function viewCart() {
   // write your code here
-  if (cart.length === 0) {
-     var StringBase = `Your shopping cart is empty.`;
-     return StringBase;
+   if (cart.length === 0) {
+      return `Your shopping cart is empty.`;
    }
 
-  var stringBase = `In your cart, you have`;
-  var stringTwo = ``;
+   var stringBase = `In your cart, you have`;
+   var cartItems = [];
 
-  for (var i = 0; i < cart.length; i++){
-    var purchase = cart[i];
+   for (var i = 0; i < cart.length; i++) {
+     var purchase = cart[i];
+     cartItems.push(`${purchase.itemName} at $${purchase.itemPrice}`);
+   }
+   // isolate the lastItem from all the other items
+  var lastItem = cartItems.slice(-1);
+  var itemsOther = cartItems.slice(0, -1);
 
-      if (cart.length === 1) {
-      stringTwo = `${purchase.itemName} at $${purchase.itemPrice}.`;
-      }
-     else if (cart.length > 1) {
-       var stringThree = ``;
-       if (i < cart.length - 1){
-         stringThree = `,`;
-         stringTwo = `${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
-       }
-       else {
-         stringThree = `.`;
-       stringTwo = `and ${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
-       }
+  //join all the other items in array with commas inbetween
+  var itemsBase = itemsOther.join(", ");
 
-     }
-     stringBase = `${stringBase} ${stringTwo}`;
+  if (cartItems.length === 1) {
+  //just use the last item and add period
+  //onlyBase = `${lastItem}.`;
+  return `${stringBase} ${lastItem}.`;
   }
-  return stringBase;
+
+  if (cartItems.length > 1) {
+  //put and in front of lastItem
+  return `${stringBase} ${itemsBase}, and ${lastItem}.`;
+  }
 }
+  viewCart();
+
+
+
+//old way to solve
+//function viewCart() {
+  // write your code here
+//   if (cart.length === 0) {
+//      var StringBase = `Your shopping cart is empty.`;
+//      return StringBase;
+//    }
+// <<<<<<< HEAD
+// =======
+//
+//   var stringBase = `In your cart, you have`;
+//   var stringTwo = ``;
+//
+//   for (var i = 0; i < cart.length; i++){
+//     var purchase = cart[i];
+//
+//       if (cart.length === 1) {
+//       stringTwo = `${purchase.itemName} at $${purchase.itemPrice}.`;
+//       }
+//      else if (cart.length > 1) {
+//        var stringThree = ``;
+//        if (i < cart.length - 1){
+//          stringThree = `,`;
+//          stringTwo = `${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
+//        }
+//        else {
+//          stringThree = `.`;
+//        stringTwo = `and ${purchase.itemName} at $${purchase.itemPrice}${stringThree}`;
+//        }
+//
+//      }
+//      stringBase = `${stringBase} ${stringTwo}`;
+//   }
+//   return stringBase;
+// }
+// >>>>>>> 7fbc5daabd2c6bcc1063f7a2b077b05da5176642
+
+
 function total() {
   // write your code here
 var sum = 0;
