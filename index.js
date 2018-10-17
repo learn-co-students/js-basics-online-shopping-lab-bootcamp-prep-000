@@ -10,21 +10,29 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+
 }
 
 function viewCart() {
-  // write your code here
-}
 
-function total() {
-  // write your code here
 }
 
 function removeFromCart(item) {
-  // write your code here
+
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+
+}
+
+function total() {
+  let t = 0
+
+  for (var i = 0, l = cart.length; i < l; i++) {
+    for (var item in cart[i]) {
+      t += cart[i][item]
+    }
+  }
+
+  return t
 }
