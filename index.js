@@ -34,6 +34,8 @@ function viewCart() {
        }  else if (cart.length > 2) {
             var addeditems = mycart.slice(0, mycart.length - 1)
             return `In your cart, you have ${addeditems.join(", ")}, and ${mycart.pop()}.`
+           return `In your cart, you have ${mycart[0]}, and
+          ${mycart[1]}.`  
        }
        return cart
 }
@@ -48,7 +50,8 @@ function total() {
 
 function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++) {
-     if (cart[i].itemName === item) {
+     if (cart[i].itemName === item)
+     {
       cart.splice(i, 1)
       return cart
     }
@@ -57,13 +60,15 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
+  var newTotal = total()
   if(cardNumber) {
-    return`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
-    }
+    var checkout = `Your total cost is $${newTotal}, which will be charged to the card ${cardNumber}.`
     cart.length = 0
-  
-  if(!cardNumber)
+    return checkout
+    }
+    
+    else if(!cardNumber) {
     return "Sorry, we don\'t have a credit card on file for you."
   }
-  return cart
+   return cart
 }
