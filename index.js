@@ -10,13 +10,13 @@ function setCart(c) {
 }
 
 function price() {
-  return Math.floor(Math.random() * Math.floor(100));
+  return Math.floor(Math.random() * 100);
 }
 
 function addToCart(item) {
-    let obj = { itemName: `${item}`, itemPrice: price() };
+    let obj = { itemName: item, itemPrice: price() };
 	cart.push(obj);
-	return (`${obj.itemName} has been added to your cart.`);
+	return (`${item} has been added to your cart.`);
 }
 
 function viewCart() {
@@ -44,15 +44,15 @@ function total() {
     } return wallet.reduce(add);
 }
 
+
 function removeFromCart(item) {
+    let cart = getCart()
     for (var i = 0; i < cart.length; i++) {
         if (cart[i].itemName === item) {
-            cart.splice(i, 1);
-            return cart;
-        } else if (i === (cart.length - 1) ) {
-            return ("That item is not in your cart.");
-        }
-    }
+            cart.splice(i, 1)
+            return cart
+        } } 
+            return `That item is not in your cart.`;
 }
 
 function placeOrder(cardNumber) {
