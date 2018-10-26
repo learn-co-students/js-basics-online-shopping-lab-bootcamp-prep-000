@@ -16,7 +16,13 @@ function price() {
 function addToCart(item) {
     let obj = { itemName: item, itemPrice: price() };
 	cart.push(obj);
-	return (`${item} has been added to your cart.`);
+	return `${item} has been added to your cart.`
+}
+
+function addToCart(item) {
+    let obj = { itemName: `${item}`, itemPrice: price() };
+	cart.push(obj);
+	return (`${obj.itemName} has been added to your cart.`);
 }
 
 function viewCart() {
@@ -56,5 +62,12 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  let cart = getCart()
+  if(cardNumber > 0) {
+    let x = []
+    x.push(total())
+    cart.splice(0, (cart.length))
+    return `Your total cost is $${x}, which will be charged to the card ${cardNumber}.`
+  } 
+  return `Sorry, we don't have a credit card on file for you.`
 }
