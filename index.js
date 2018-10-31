@@ -65,8 +65,8 @@ function placeOrder(cardNumber) {
   }
 
   var totalCost = total();
-  for (var i = 0; cart.length > i; i++) {
-    var itemName = cart[i]["itemName"];
+  while (cart.length > 0) {
+    var itemName = cart[0]["itemName"];
     removeFromCart(itemName);
   }
 
