@@ -55,8 +55,7 @@ function total() {
   //create variable to store total value
   var totalValue = 0;
   //loop over all items and add values
-  var stop = cart.length
-  for(var i = 0; i < stop; i++){
+  for(var i = 0; i < cart.length; i++){
     totalValue += cart[i].itemPrice
   }
   //return value
