@@ -45,8 +45,6 @@ function viewCart() {
      var temp = startString+cartContains+",";
      var tempRemoveLast = temp.slice(0,-templength);
     }
-    //console.log("jeg er templength" + templength);
-    //console.log("jeg er lastSrt"+lastStr);
     return (tempRemoveLast + "and"+ cartContains[cart.length-1]+".");
   }
   
@@ -60,7 +58,6 @@ for (var i=0, sum=0; i<cartItems.length; i++) {
  totalSum = sum;
  
 }
-//console.log(totalSum);
 return sum;
   
 }
@@ -68,26 +65,19 @@ return sum;
 function removeFromCart(item) {
   var cartItems = cart.map(cart=>{return cart.itemName;});
   if(cartItems.includes(item)){
-
-   //console.log(item + " is here"); 
-   //console.log(cartItems.indexOf(item));
+    
    var itemIndex = cartItems.indexOf(item);
-  // console.log (itemIndex);
    var removed = cart.splice(itemIndex, 1);
-   //console.log(cart);
    return cart;
   }
   else{
-    //console.log(item + " is not in cart");
+   
     return ("That item is not in your cart.");
   }
 }
 
 function placeOrder(cardNumber) {
   if (cardNumber !== undefined) {
-    //console.log(total);
-    //console.log(sum);
-    //console.log(cardNumber);
     total();
     var emptyCart = cart.splice(0);
     return (`Your total cost is $${totalSum}, which will be charged to the card ${cardNumber}.`);
