@@ -23,8 +23,8 @@ return (`${item.itemName} has been added to your cart.`);
 
 
 function viewCart() {
-  var startString = `In your cart, you have`;
- var cartContains = cart.map(cart=>{return ` ${cart.itemName} at $${cart.itemPrice}`;});
+var startString = `In your cart, you have`;
+var cartContains = cart.map(cart=>{return ` ${cart.itemName} at $${cart.itemPrice}`;});
  
   if (cart.length === 0){
     return ("Your shopping cart is empty.");
