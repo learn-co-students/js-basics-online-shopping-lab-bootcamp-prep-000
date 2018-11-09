@@ -14,6 +14,7 @@ function addToCart(item) {
                itemPrice: Math.floor(Math.random() * 99) + 2
  };
  cart.push(object);
+ return `${item} has been added to your cart.`;
 }
 
 /*
