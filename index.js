@@ -10,80 +10,22 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- var object = {itemName: `${item}`,
-               itemPrice: Math.floor(Math.random() * 99) + 2
+ var object = {
+   itemName: `${item}`,
+   itemPrice: Math.floor(Math.random() * 99) + 2
  };
  cart.push(object);
  return `${item} has been added to your cart.`;
 }
 
+function viewCart() {
+  if (cart.length === 0) {
+    return "Your shopping cart is empty.";
+  }
+}
+
 /*
-beforeEach(function() {
-  setCart([]);
-
-  expect.spyOn(console, "log");
-});
-
-afterEach(function() {
-  expect.restoreSpies();
-});
-
-describe("addToCart()", function() {
-  it("can add items to the cart", function() {
-    addToCart("apples");
-
-    expect(getCart().length).toEqual(1);
-
-    addToCart("bananas");
-
-    expect(getCart().length).toEqual(2);
-  });
-
-  it("turns items into JavaScript objects before adding them to the cart", function() {
-    addToCart("carrots");
-
-    let itemConstructor = getCart()[0].constructor;
-
-    expect(itemConstructor).toEqual(Object);
-  });
-
-  it("properly structures the cart item as object with a key of `itemName` and the corresponding value { itemName: itemName } format", function() {
-    addToCart("daikon");
-
-    let itemName = getCart()[0].itemName;
-
-    expect(itemName).toEqual("daikon");
-  });
-
-  it("sets the price (integer between 1 and 100) on the cart object using the key `price`", function() {
-    addToCart("eggplant");
-
-    let itemPrice = getCart()[0].itemPrice;
-
-    expect(itemPrice).toBeLessThanOrEqualTo(100)
-                     .toBeGreaterThanOrEqualTo(1);
-  });
-
-  it("chooses the price at random", function() {
-    // Note: this test has a 1-in-10,000 chance of a false negative.
-    addToCart("figs");
-    addToCart("grapes");
-    addToCart("halloumi");
-
-    let pricesArray = getCart().map(cartItem => cartItem.itemPrice);
-    let areAnyPricesEqual = pricesArray[0] === pricesArray[1] && pricesArray[1] === pricesArray[2];
-
-    expect(areAnyPricesEqual).toBe(false);
-  });
-
-  it("returns a message indicating that the item has been added", function() {
-    expect(addToCart("ice cream")).toEqual("ice cream has been added to your cart.");
-
-    expect(addToCart("juice")).toEqual("juice has been added to your cart.");
-  });
-});
-
-describe("viewCart()", function() {
+  describe("viewCart()", function() {
   it("prints 'Your shopping cart is empty.' if the cart is empty", function() {
     expect(viewCart()).toEqual("Your shopping cart is empty.")
   });
@@ -190,19 +132,6 @@ describe("placeOrder()", function() {
 */
 
 
-
-
-
-
-
-
-
-
-
-
-function viewCart() {
-  // write your code here
-}
 
 function total() {
   // write your code here
