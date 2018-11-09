@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- var object = {};
+ var object = {itemName: "daikon"};
  cart.push(object);
 }
 
