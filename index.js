@@ -81,7 +81,7 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
   var sum = "$" + total().toString()
-  if (cardNumber > 0){
+  if (cardNumber){
     cart = []
     return `Your total cost is ${sum}, which will be charged to the card ${cardNumber}.`
   }
