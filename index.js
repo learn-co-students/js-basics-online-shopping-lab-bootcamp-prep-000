@@ -42,13 +42,23 @@ function viewCart() {
   }
 }
 
+
+
 function total() {
-  for (var i = 0; i < cart.length; i++) {
-    return cart[i] += cart[i];
+  var pricePerItemInCart = [];
+  var totalPrice = 0
+  
+  for(var i = 0; i < cart.length; i++) {
+  var itemPrice = cart[i][Object.keys(cart[i])]
+    pricePerItemInCart.push(itemPrice)
+    }
+  
+  for (var j =0; j<pricePerItemInCart.length; j++) {
+    totalPrice = pricePerItemInCart[j]+=totalPrice
   }
+  return totalPrice
 }
-
-
+total(cart)
 
 /*
   describe("total()", function() {
