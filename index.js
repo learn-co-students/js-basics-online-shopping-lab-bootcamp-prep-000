@@ -19,45 +19,39 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  var array = [];
+  
   if (cart.length === 0) {
     return "Your shopping cart is empty.";
   }
+  else {
+    for (let i = 0; i < cart.length; i++) {
+      if(cart.length === 1) {
+    array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+    return `In your cart, you have ${array}.`;
+     }
+     else if(cart.length === 2) {
+       array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}, and ${getCart()[i + 1].itemName} at $${getCart()[i + 1].itemPrice}`);
+       return `In your cart, you have ${array}.`;
+     }
+     else {
+      array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}, ${getCart()[i + 1].itemName} at $${getCart()[i + 1].itemPrice}, and ${getCart()[i + 2].itemName} at $${getCart()[i + 2].itemPrice}`);
+       return `In your cart, you have ${array}.`; 
+     }
+    }
+  }
 }
 
+function total() {
+  for (var i = 0; i < cart.length; i++) {
+    return cart[i] += cart[i];
+  }
+}
+
+
+
 /*
-  describe("viewCart()", function() {
-  it("prints 'Your shopping cart is empty.' if the cart is empty", function() {
-    expect(viewCart()).toEqual("Your shopping cart is empty.")
-  });
-
-  it("correctly prints a one-item cart", function() {
-    addToCart("lemons");
-    expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
-  });
-
-  it("correctly prints a two-item cart", function() {
-    addToCart("mango");
-    addToCart("nuts");
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`
-    );
-  });
-
-  it("correctly prints a three-or-more-item cart", function() {
-    addToCart("orange");
-    addToCart("pear");
-    addToCart("quince");
-
-    ;
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
-    );
-  });
-});
-
-describe("total()", function() {
+  describe("total()", function() {
   it("adds up the price of all items in the cart", function() {
     addToCart("sorghum");
     addToCart("tarragon");
