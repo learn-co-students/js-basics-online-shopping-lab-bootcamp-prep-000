@@ -43,33 +43,16 @@ function viewCart() {
 }
   
 function total() {
-  getCart()[0].itemPrice.reduce((a, b) => a + b, 0);
-  return getCart();
+  var sum = 0;
+
+  for(var i = 0; i < cart.length; i++) {
+    sum += getCart()[i].itemPrice;
+  }
+  return sum;
 }
 
-/*
-describe("total()", function() {
-  it("adds up the price of all items in the cart", function() {
-    addToCart("sorghum");
-    addToCart("tarragon");
 
-    const sorghumCost = getCart()[0].itemPrice;
-    const tarragonCost = getCart()[1].itemPrice;
 
-    let totalCost = sorghumCost + tarragonCost;
-
-    expect(total()).toBe(totalCost);
-
-    addToCart("urchin");
-
-    const urchinCost = getCart()[2].itemPrice;
-
-    totalCost += urchinCost;
-
-    expect(total()).toBe(totalCost);
-  });
-});
-*/
 
 function removeFromCart(item) {
   // write your code here
