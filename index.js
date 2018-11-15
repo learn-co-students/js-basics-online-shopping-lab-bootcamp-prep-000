@@ -12,10 +12,10 @@ function setCart(c) {
 function addToCart(item) {
  // write your code here
 var newObj = {itemName: item, itemPrice: Math.floor(Math.random() * 101)}
-if(newObj.length !== 0){
+
   cart.push(newObj)
+  
   return `${item} has been added to your cart.`
-}
 }
 
 function viewCart() {
@@ -29,8 +29,10 @@ function viewCart() {
   
   var i = 0
   while (i < cart.length){
-    items.push(Object.values(cart[i])[0])
-    prices.push("$" + Object.values(cart[i])[1].toString())
+    // items.push(Object.values(cart[i])[0])
+    items.push(cart[i].itemName)
+    // prices.push("$" + Object.values(cart[i])[1].toString())
+    prices.push("$" + cart[i].itemPrice)
     i++
   }
   
