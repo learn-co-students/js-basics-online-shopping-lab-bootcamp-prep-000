@@ -52,21 +52,11 @@ function total() {
 }
 
 
-/*function removeFromCart(item) {
-  for (var i = 0; i < cart.length; i++) {
-    if (!!cart[i]) {
-      cart.splice(i, 1);
-    }
-  }
-  return cart;
-}*/
-
 
  function removeFromCart(item) {
   var itemInCart = false;
   for(var i = 0; i < cart.length; i++){
     if (item === getCart()[i].itemName) {
-      
       cart.splice(i, 1);
     }
   } 
@@ -76,34 +66,50 @@ function total() {
   return cart;
 }
 
-/*
-describe("removeFromCart()", function() {
-  it("removes the specified item from the cart", function() {
-    addToCart("vanilla");
-    addToCart("watermelon");
-    addToCart("yams");
-
-    removeFromCart("watermelon");
-
-    const firstItemName = getCart()[0].itemName;
-    const secondItemName = getCart()[1].itemName;
-
-    expect(firstItemName).toEqual("vanilla");
-    expect(secondItemName).toEqual("yams");
-
-    removeFromCart("yams");
-
-    expect(getCart().length).toEqual(1);
-  });
-
-  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
-    // Repeat item name from previous test to prevent hard-coding.
-    expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
-  });
-});
-*/
 
 
 function placeOrder(cardNumber) {
-  // write your code here
+  const cartTotal = total();
+
+ //how do I indicate if there is an arguement or not?
+ 
+ if (arguments.length === 0) {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  
+ else {
+    cart.length = 0;
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+  }
+  
+  
+  
 }
+
+/*
+describe("placeOrder()", function() {
+  it("doesn't place the order if a credit card number is not provided", function() {
+    
+    expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
+  });
+
+  it("places an order when a credit card number is provided", function() {
+    addToCart("zucchini");
+
+    const cartTotal = total();
+    const cardNumber = Math.floor(Math.random() * 100000000);
+
+    
+
+    expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+  });
+
+  it("empties the cart", function() {
+    addToCart("apples");
+
+    placeOrder(12345678);
+
+    expect(getCart()).toEqual([]);
+  });
+});
+*/
