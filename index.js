@@ -37,7 +37,7 @@ function viewCart() {
     } 
   }
 }
-  
+
 /*
 it("correctly prints a one-item cart", function() {
     addToCart("lemons");
@@ -69,8 +69,35 @@ it("correctly prints a one-item cart", function() {
 */
   
 function total() {
-  
+  for(var i = 0; i < cart.length; i++) {
+    
+  }
 }
+
+/*
+describe("total()", function() {
+  it("adds up the price of all items in the cart", function() {
+    addToCart("sorghum");
+    addToCart("tarragon");
+
+    const sorghumCost = getCart()[0].itemPrice;
+    const tarragonCost = getCart()[1].itemPrice;
+
+    let totalCost = sorghumCost + tarragonCost;
+
+    expect(total()).toBe(totalCost);
+
+    addToCart("urchin");
+
+    const urchinCost = getCart()[2].itemPrice;
+
+    totalCost += urchinCost;
+
+    expect(total()).toBe(totalCost);
+  });
+});
+
+*/
 
 
 
