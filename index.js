@@ -69,10 +69,9 @@ it("correctly prints a one-item cart", function() {
 */
   
 function total() {
-  
+  var sum = 0;
   for(var i = 0; i < cart.length; i++) {
-    sum = getCart()[i].itemPrice;
-    sum = sum + 1;
+    sum += getCart()[i].itemPrice;
   }
   return sum;
 }
