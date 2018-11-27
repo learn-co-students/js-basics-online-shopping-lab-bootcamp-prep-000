@@ -38,35 +38,7 @@ function viewCart() {
   }
 }
 
-/*
-it("correctly prints a one-item cart", function() {
-    addToCart("lemons");
-    expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
-  });
 
-  it("correctly prints a two-item cart", function() {
-    addToCart("mango");
-    addToCart("nuts");
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`
-    );
-  });
-
-  it("correctly prints a three-or-more-item cart", function() {
-    addToCart("orange");
-    addToCart("pear");
-    addToCart("quince");
-
-    ;
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
-    );
-  });
-});
-
-*/
   
 function total() {
   var sum = 0;
@@ -77,40 +49,87 @@ function total() {
 }
 
 /*
-describe("total()", function() {
-  it("adds up the price of all items in the cart", function() {
-    addToCart("sorghum");
-    addToCart("tarragon");
+if (item !== getCart()[i].itemName)
+*/
 
-    const sorghumCost = getCart()[0].itemPrice;
-    const tarragonCost = getCart()[1].itemPrice;
+ function removeFromCart(item) {
+  var string = "";
+  for(var i = 0; i < cart.length; i++) {
+  if(item === getCart()[i].itemName) {
+    cart.splice(i, 1);
+  }
+  }
+  {
+    return "That item is not in your cart.";
+  }
+  return cart;
+   }
 
-    let totalCost = sorghumCost + tarragonCost;
+/*
+describe("removeFromCart()", function() {
+  it("removes the specified item from the cart", function() {
+    addToCart("vanilla");
+    addToCart("watermelon");
+    addToCart("yams");
 
-    expect(total()).toBe(totalCost);
+    removeFromCart("watermelon");
 
-    addToCart("urchin");
+    const firstItemName = getCart()[0].itemName;
+    const secondItemName = getCart()[1].itemName;
 
-    const urchinCost = getCart()[2].itemPrice;
+    expect(firstItemName).toEqual("vanilla");
+    expect(secondItemName).toEqual("yams");
 
-    totalCost += urchinCost;
+    removeFromCart("yams");
 
-    expect(total()).toBe(totalCost);
+    expect(getCart().length).toEqual(1);
+  });
+
+  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+    // Repeat item name from previous test to prevent hard-coding.
+    expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
   });
 });
-
 */
 
 
-
- function removeFromCart(item) {
-  
-}
-
-
-
 function placeOrder(cardNumber) {
-
+  const cartTotal = total();
   
+  if(arguments.length === 0) {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  else {
+    cart.length = 0;
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+  }
 }
+
+/*
+describe("placeOrder()", function() {
+  it("doesn't place the order if a credit card number is not provided", function() {
+    
+    expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
+  });
+
+  it("places an order when a credit card number is provided", function() {
+    addToCart("zucchini");
+
+    const cartTotal = total();
+    const cardNumber = Math.floor(Math.random() * 100000000);
+
+    
+
+    expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+  });
+
+  it("empties the cart", function() {
+    addToCart("apples");
+
+    placeOrder(12345678);
+
+    expect(getCart()).toEqual([]);
+  });
+});
+*/
 
