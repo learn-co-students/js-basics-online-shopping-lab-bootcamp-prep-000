@@ -15,7 +15,7 @@ function addToCart(item) {
   return `${itemCart.itemName} has been added to your cart.`
 }
 function viewCart() {
-  // write your code here
+  return "Your shopping cart is empty."
 }
 
 function total() {
