@@ -154,7 +154,7 @@ describe("placeOrder()", function() {
     addToCart("zucchini");
 
     const cartTotal = total();
-    const cardNumber = Math.floor(Math.random() * 100000000);
+   
 
     
 
