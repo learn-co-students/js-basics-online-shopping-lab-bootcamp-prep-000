@@ -28,7 +28,7 @@ We've started you off with a `cart` variable that points at an empty array. Ther
     + If no argument is received, the function should print out `Sorry, we don't have a credit card on file for you.`.
     + If a card number is received, the function should
       + empty the `cart` array
-      + return `Your total cost is $71, which will be charged to the card 83296759.` (where `71` is the value returned by `total()` and `83296759` is the credit card number passed to `placeOrder()`)
+      + return `Your total cost is $71, which will be charged to the card 83296759.` (where `71` is the value returned by `total()` and `83296759` is the credit card number passed to `placeOrder()`) 
 
 ## The final send-off
 This lab is _not_ easy! The methods, especially `viewCart()` require careful planning and a sharp eye. The `cart` array is a non-trivial nested data structure, and it would be a good idea to periodically check the value of your variables (think: `console.log()`, `debugger`, etc.) at different points within your functions, _especially_ when attempting to iterate over the `cart` and its items.
