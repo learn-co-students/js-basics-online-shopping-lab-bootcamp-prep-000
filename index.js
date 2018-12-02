@@ -56,11 +56,10 @@ function total() {
   for (i=0; i<cart.length; i++){
     sum = sum + cart[i].itemPrice; 
   }
-  return `The total value of the items in your cart is $${sum}.`; 
+  return sum; 
 }
 
-var totally = sum; 
-console.log(total()); 
+console.log(`The total value of the items in your cart is $${total()}.`); 
 
 function removeFromCart(item) {
   /* The `removeFromCart()` function accepts one argument, the name of the item that should be removed.
@@ -89,13 +88,13 @@ function placeOrder(cardNumber) {
   // `Your total cost is $71, which will be charged to the card 83296759.`
   if (cardNumber === null){
     return `Sorry, we don't have a credit card on file for you.`; 
-  } else {
+  } else { 
+    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.` 
     for (i=cart.length-1; i>=0; i--){ 
       cart.pop(); 
     } 
-    return `Your total cost is ${total()}, which will be charged to the card ${cardNumber}.` ; 
     return `Your cart current has 0 items in it.`; 
-  }
+  } 
 } 
 console.log(placeOrder (1234567)); 
 
