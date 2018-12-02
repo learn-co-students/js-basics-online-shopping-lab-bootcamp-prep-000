@@ -59,7 +59,8 @@ function total() {
   return `The total value of the items in your cart is $${sum}.`; 
 }
 
-console.log(total());  
+var totally = sum; 
+console.log(total()); 
 
 function removeFromCart(item) {
   /* The `removeFromCart()` function accepts one argument, the name of the item that should be removed.
