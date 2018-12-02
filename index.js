@@ -10,8 +10,8 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
- let price = Math.floor(Math.random()*100);
- cart.push( {item : price});
+ let price = Math.floor(Math.random()*100)+1;
+ cart.push( {itemName : item, itemPrice: price});
  return`${item} has been added to your cart.`;
 }
 
@@ -24,7 +24,7 @@ function viewCart() {
   else{
      var array = [];
      for(var i = 0; i < cart.length; i++){
-       array.push(`${object.keys(cart[i])} at $${object.values(cart[i])}`);
+ array.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
      }
      var output = `In your cart, you have `;
      if(cart.length===1){
