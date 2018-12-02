@@ -18,11 +18,11 @@ function addToCart(item) {
   
   cart.push(itemObject); 
    
-  return `The product ${item} has been added to your cart.`; 
+  return `${item} has been added to your cart.`; 
 } 
 
-console.log(addToCart("apple")); 
-console.log(addToCart("kiwi")); 
+console.log(addToCart("ice cream")); 
+console.log(addToCart("lemons")); 
 console.log(addToCart("kale")); 
 
 function viewCart() {
@@ -30,12 +30,12 @@ function viewCart() {
   var message;
   
   if (cart.length===0){
-    message = "Your cart be empty."; 
+    message = "Your shopping cart is empty."; 
   } else { 
     message = `In your cart, you have `; 
-    message = `${message} ${cart.length} items:` ; 
+    //message = `${message} ${cart.length} items:` ; 
     
-    for (i=0; i< cart.length; i++){
+    for (var i=0; i< cart.length; i++){
       message = `${message} ${cart[i].itemName}`;
 
       if (i == cart.length-1){
