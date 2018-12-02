@@ -1,5 +1,4 @@
 var cart = [];
-var object ={};
 function getCart() {
  return cart;
 }
@@ -55,15 +54,16 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-   for(var i = 0; i<cart.length; i++){
-   if(object.keys(cart[i]) == item){
+   if(cart.hasOwnProperty(item)){
+       for(var i = 0; i<cart.length; i++){
     cart = cart.slice(0,i).concat(cart.slice(i+1));
-      }
-      return cart;
-   }
-    console.log(`That item is not in your cart.`);
     return cart;
-}
+       }
+   }
+      else{
+    return`That item is not in your cart.`;
+     }
+   }
 
 var cardNumber = Math.floor(Math.random()*100000000);
 function placeOrder(cardNumber) {
