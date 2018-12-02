@@ -46,7 +46,7 @@ function total() {
   // write your code here
    var  all = 0;
   for(var i=0; i<cart.length; i++){
-    all += `${object.values(cart[i])}`;
+    all += `${(cart[i].itemPrice)}`;
   }
    return all;
 }
@@ -64,7 +64,7 @@ function removeFromCart(item) {
      }
    }
 
-var cardNumber = Math.floor(Math.random()*100000000);
+var cardNumber = Math.floor(Math.random()*100000000)+1;
 function placeOrder(cardNumber) {
   // write your code here
   if(cardNumber){
