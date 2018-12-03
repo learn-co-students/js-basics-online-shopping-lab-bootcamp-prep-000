@@ -1,4 +1,5 @@
-var cart = [];
+
+  var cart = [];
 function getCart() {
  return cart;
 }
@@ -61,16 +62,17 @@ function removeFromCart(item) {
     }
     return`That item is not in your cart.`;
 }
-   
+
 var cardNumber = Math.floor(Math.random()*100000000)+1;
 function placeOrder(cardNumber) {
   // write your code here
-  if(cardNumber){
- cart.length =0;
-   return`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`;
-  }
-  
-  else{
-    return `Sorry, we don't have a credit card on file for you.`;
-  }
+    if(!cardNumber){
+  return `Sorry, we don\'t have a credit card on file for you.`;
+  } else {
+    var totalCost = total();
+   cart = [];
+ return `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`;
+    }
 }
+
+
