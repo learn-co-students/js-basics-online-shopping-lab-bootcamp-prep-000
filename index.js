@@ -14,65 +14,104 @@ function addToCart(item) {
    itemName: item,
    itemPrice: Math.floor(Math.random() * 100) + 1
  });
-  return `${item} has been added to your cart.`; 
+ return `${item} has been added to your cart.`;
 }
+
 
 
 function viewCart() {
-  var array = [];
-  if (cart.length === 0) {
-    return "Your shopping cart is empty.";
+  // write your code here
+  if(!cart.length){
+    return`Your shopping cart is empty.`;
   }
-  else {
-    for(var i = 0; i < cart.length; i++) {
-     if(cart.length === 1) {
-       return `In your cart, you have ${getCart()[i].itemName} at $${getCart()[i].itemPrice}.`;
+  
+  else{
+     var array = [];
+     for(var i = 0; i < cart.length; i++){
+ array.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
      }
-     else if(cart.length === 2) {
-       return `In your cart, you have ${getCart()[i].itemName} at $${getCart()[i].itemPrice}, and ${getCart()[i + 1].itemName} at $${getCart()[i + 1].itemPrice}.`;
+     var output = `In your cart, you have `;
+     if(cart.length===1){
+       output += `${array[0]}.`;
      }
-     else if(cart.length >= 3) {
-       return `In your cart, you have ${getCart()[i].itemName} at $${getCart()[i].itemPrice}, ${getCart()[i + 1].itemName} at $${getCart()[i + 1].itemPrice}, and ${getCart()[i + 2].itemName} at $${getCart()[i + 2].itemPrice}.`;
+     else if(cart.length===2){
+       output += `${array[0]}, and ${array[1]}.`;
      }
-    } 
-  }
+      else if(cart.length>2){
+          var last = array.pop();
+        var middle = array.join(', ');
+       output += `${middle}, and ${last}.`;
+     }
+     return`${output}`;
+   }
 }
-
 
 
 function total() {
   var sum = 0;
-  for(var i = 0; i < cart.length; i++) {
+  for(let i = 0; i < cart.length; i++) {
     sum += getCart()[i].itemPrice;
   }
   return sum;
 }
 
+/*
+describe("total()", function() {
+  it("adds up the price of all items in the cart", function() {
+    addToCart("sorghum");
+    addToCart("tarragon");
+
+    const sorghumCost = getCart()[0].itemPrice;
+    const tarragonCost = getCart()[1].itemPrice;
+
+    let totalCost = sorghumCost + tarragonCost;
+
+    expect(total()).toBe(totalCost);
+
+    addToCart("urchin");
+
+    const urchinCost = getCart()[2].itemPrice;
+
+    totalCost += urchinCost;
+
+    expect(total()).toBe(totalCost);
+  });
+});
+*/
 
  function removeFromCart(item) {
-  var string = "";
-  var unmatchedItem = true;
-  for(var i = 0; i < cart.length; i++) {
-  if(item === getCart()[i].itemName) {
-    cart.splice(i, 1);
-  }
-  }
-  if(unmatchedItem) {
-    return"That item is not in your cart.";
-  }
-  return cart;
-   }
+  
+}
+
+/*
+describe("removeFromCart()", function() {
+  it("removes the specified item from the cart", function() {
+    addToCart("vanilla");
+    addToCart("watermelon");
+    addToCart("yams");
+
+    removeFromCart("watermelon");
+
+    const firstItemName = getCart()[0].itemName;
+    const secondItemName = getCart()[1].itemName;
+
+    expect(firstItemName).toEqual("vanilla");
+    expect(secondItemName).toEqual("yams");
+
+    removeFromCart("yams");
+
+    expect(getCart().length).toEqual(1);
+  });
+
+  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+    // Repeat item name from previous test to prevent hard-coding.
+    expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
+  });
+});
+*/
 
 
 
 function placeOrder(cardNumber) {
-  const cartTotal = total();
   
-  if(arguments.length === 0) {
-    return "Sorry, we don't have a credit card on file for you.";
-  }
-  else {
-    cart.length = 0;
-    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
-  }
 }
