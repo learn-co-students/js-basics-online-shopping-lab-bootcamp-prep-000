@@ -20,7 +20,6 @@ function addToCart(item) {
 
 
 function viewCart() {
-  // write your code here
   if(!cart.length){
     return`Your shopping cart is empty.`;
   }
@@ -31,10 +30,10 @@ function viewCart() {
  array.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
      }
      var output = `In your cart, you have `;
-     if(cart.length===1){
+     if(cart.length === 1){
        output += `${array[0]}.`;
      }
-     else if(cart.length===2){
+     else if(cart.length === 2){
        output += `${array[0]}, and ${array[1]}.`;
      }
       else if(cart.length>2){
