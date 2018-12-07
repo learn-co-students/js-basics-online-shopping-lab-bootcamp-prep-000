@@ -1,3 +1,49 @@
+var cartItem = {}
+var price = Math.floor(Math.random() * 101);
+function addToCart(item) {
+ // write your code here
+
+
+ cartItem.itemName = item;
+ cartItem.itemPrice = price;
+
+ var output = `${cartItem.itemName} has been added to your cart. Item price is ${cartItem.itemPrice}`;
+
+
+
+return output
+}
+const fruits = {
+  apple: 28,
+  orange: 17,
+  pear: 54,
+}
+
+const entries = Object.entries(fruits)
+console.log(entries)
+for (const [fruit, count] of entries) {
+  console.log(`There are ${count} ${fruit}s`)
+}
+
+// Result
+// There are 28 apples
+// There are 17 oranges
+// There are 54 pears
+console.log(addToCart(""))
+function viewCart(){
+  //Should loop over every item in the cart
+  //return a statement of what items are in the cart
+  if (cartItem.itemName.length <= 0)
+  {
+    return "Your shopping cart is empty.";
+  } else {
+    return null};
+}
+console.log(viewCart())
+console.log(cartItem.itemName.length)
+
+
+
 var cart = [];
 
 
@@ -11,10 +57,10 @@ function setCart(c) {
 }
 
 function addToCart(item) { //1. The `addToCart()` function accepts one argument, the name of an item. adds to cart object two key pairs.
- var price = Math.floor(Math.random() * 101)+1;
+ var price = Math.floor(Math.random() * 101);
  var cartObj = {itemName: item, itemPrice: price}
  cart.push(cartObj);
-
+  //cart[itemPrice] = ;
   var output = `${item} has been added to your cart.`;
   return output;
 }
@@ -63,22 +109,14 @@ suma += parseInt(cart[i].itemPrice);
 }
 return suma
 }
+total()
 
 function removeFromCart(item) {
-  for (let i=0; i < cart.length; i++){
-    if (cart[i].itemName === item ){
-      cart.splice(i, 1)
-      return cart
-    }
-  }
-  return "That item is not in your cart."
-}
-function placeOrder(cardNumber) {
-  if (cardNumber == null){
-    return `Sorry, we don't have a credit card on file for you.`
-  }
-  var totalPrice = total()
-  cart = [];
-  return `Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`
   // write your code here
+/*4. The `removeFromCart()` function accepts one argument, the name of the item that should be removed.
++ If the item *is* present in the cart, the function should remove the object from the cart and then return the updated cart.
++ ***HINT***: 
+Check each object's itemName value key to see if it matches the parameter, then remove it if it matches.
+You might find [Array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to be useful.
++ If the cart does not contain a matching item, the function should return `That item is not in your cart.`*/
 }
