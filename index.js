@@ -10,43 +10,41 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- cart.push({
-   itemName: item,
-   itemPrice: Math.floor(Math.random() * 100) + 1 
- });
- return `${item} has been added to your cart.`;
+  cart.push({
+    itemName: item,
+    itemPrice: Math.floor(Math.random() * 100) + 1
+  });
+  return `${item} has been added to your cart.`;
 }
-
 
 
 function viewCart() {
-   var output = "In your cart, you have ";
-   
-   if (cart.length === 0) {
-    return "Your shopping cart is empty.";
-  }
-  else {
-    var array = [];
-    for(var i = 0; i < cart.length; i++) {
-      array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
-     }
+   if(cart.length === 0) {
+     return "Your shopping cart is empty.";
+   }
+   else {
+     var output = "In your cart, you have ";
+     var array = [];
      if(cart.length === 1) {
-       output += `${array}.`;
+       return output += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`;
      }
      else if(cart.length === 2) {
-       output += `${array[0]}, and ${array[1]}.`;
+       return output += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`;
      }
-     else if(cart.length > 2) {
-       var last = array.pop();
-       var middle = array.join(', ');
-       output += `${middle}, and ${last}.`;
+     else if(cart.length === 3) {
+       for(let i = 0; i < cart.length; i++) {
+         var end = array.pop();
+         var middle = array.join(', ');
+         array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+         output += `${middle} and ${end}`;
+       }
+       return `${output}.`;
      }
-    }
-    return `${output}`;
+   }
 }
 
 /*
-  it("correctly prints a one-item cart", function() {
+ it("correctly prints a one-item cart", function() {
     addToCart("lemons");
     expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
   });
@@ -71,7 +69,7 @@ function viewCart() {
       `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
     );
   });
-});
+}); 
 */
 
 
