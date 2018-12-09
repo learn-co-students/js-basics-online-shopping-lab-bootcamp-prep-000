@@ -28,13 +28,14 @@ function viewCart() {
     
   } else {
     var newItem = []
-    for (let i = 0; cart.length >0; i++) {
-    newItem.push( `${ cart[i].itemName } at $${ cart[i].itemPrice } and ${ cart[i = cart.length-1].itemName} at $${cart[i = cart.length-1].itemPrice}.`)
+    if ( getCart().length >= 2 ) {
+    for (var i=0; i<getCart().length -1; i++) {
+    newItem.push( `${ cart[i].itemName } at $${ cart[i].itemPrice }, and ${ cart[i = cart.length-1].itemName} at $${cart[i = cart.length-1].itemPrice}.`)
     }
-    return `In your cart, you have ${ newItem.join('') }`;
-  }
-}    
-    
+    return `In your cart, you have ${ newItem.join(',') }`;
+    }
+  }    
+}   
   
   
 function total() {
