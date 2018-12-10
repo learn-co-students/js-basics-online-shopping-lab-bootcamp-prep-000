@@ -23,25 +23,17 @@ function viewCart() {
      return "Your shopping cart is empty.";
    }
    else {
-     var output = "In your cart, you have ";
      var array = [];
-     if(cart.length === 1) {
-       return output += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`;
-     }
-     else if(cart.length === 2) {
-       return output += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`;
-     }
-     else if(cart.length > 2) {
-        
-          var middle = cart.join(', ');
-         var end = cart.pop();
-        
-         output += `${middle}, and ${end}.`;
-    }
-    return `${output}`; 
-   }
+     for(var i = 0; i < cart.length;i++) {
+       array.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
+  }
+  var output = `In your cart, you have `;
+  if(cart.length === 1) {
+    output += `${array[0]}.`;
+  }
+  return output;
 }
-
+}
 /*
  it("correctly prints a one-item cart", function() {
     addToCart("lemons");
