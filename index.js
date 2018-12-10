@@ -25,7 +25,7 @@ function viewCart() {
    else {
      var array = [];
      for(var i = 0; i < cart.length; i++) {
-       array.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
+       array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
      }
      var output = "In your cart, you have ";
      if(cart.length === 1){
@@ -39,7 +39,7 @@ function viewCart() {
        var middle = array.join(', ');
        output += `${middle}, and ${last}.`;
      }
-     return `${output}`;
+     return output;
    }
 }
 /*
