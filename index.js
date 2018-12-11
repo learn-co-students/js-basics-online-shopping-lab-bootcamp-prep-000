@@ -60,14 +60,16 @@ function total() {
   return sum
 }
 
-function removeFromCart(item) {
-  // write your code here
-  if (cart.includes(item) === false){
+function removeFromCart(item){
+  let found = cart.find(function(itemObject) {
+    return itemObject["itemName"] === item;
+  });
+  if(found){
+    cart.splice(cart.indexOf(found), 1)
+  } else {
     return 'That item is not in your cart.'
-  }else {
-    delete cart[cart.indexOf(item)];
-    return cart;
   }
+  
 }
 
 function placeOrder(cardNumber) {
