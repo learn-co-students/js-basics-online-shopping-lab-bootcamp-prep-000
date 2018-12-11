@@ -21,7 +21,20 @@ function viewCart() {
   // write your code here
   if (cart.length === 0){
     return "Your shopping cart is empty."
-  }else {
+  }else if(cart.length === 1){
+    let names = []
+    let prices = []
+    let str = '';
+    for(var i = 0; i < cart.length; i++){
+      names.push(cart[i]["itemName"])
+      prices.push(cart[i]["itemPrice"])
+    }
+    for(var j = 0; j<names.length; j++){
+       str +=`${names[j]} at $${prices[j]}. `
+    }
+    return "In your cart, you have " + str  
+  
+  }else{
     let names = []
     let prices = []
     let str = '';
