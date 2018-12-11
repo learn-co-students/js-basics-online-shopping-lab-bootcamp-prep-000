@@ -30,11 +30,11 @@ function viewCart() {
       prices.push(cart[i]["itemPrice"])
     }
     for(var j = 0; j<names.length; j++){
-       str +=`${names[j]} at $${prices[j]}. `
+       str +=`${names[j]} at $${prices[j]}.`
     }
     return "In your cart, you have " + str  
   
-  }else{
+  }else if(cart.length >= 2){
     let names = []
     let prices = []
     let str = '';
@@ -42,12 +42,14 @@ function viewCart() {
       names.push(cart[l]["itemName"])
       prices.push(cart[l]["itemPrice"])
     }
-    for(var k = 0; k<names.length; k++){
+    for(var k = 0; k<names.length - 1; k++){
        str +=`${names[k]} at $${prices[k]}, `
     }
-    return "In your cart, you have " + str  
+    let lastStr = `and ${names[names.length -1]} at $${prices[prices.length -1]}.`
+    return "In your cart, you have " + str + lastStr   
   }
 }
+
 
 function total() {
   // write your code here
