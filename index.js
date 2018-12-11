@@ -53,10 +53,21 @@ function viewCart() {
 
 function total() {
   // write your code here
+  let sum = 0;
+  for (var i=0; i < cart.length; i++){
+    sum += cart[i]["itemPrice"];
+  }
+  return sum
 }
 
 function removeFromCart(item) {
   // write your code here
+  if (cart.includes(item) === false){
+    return 'That item is not in your cart.'
+  }else {
+  delete cart[cart.indexOf(item)];
+  return cart;
+  }
 }
 
 function placeOrder(cardNumber) {
