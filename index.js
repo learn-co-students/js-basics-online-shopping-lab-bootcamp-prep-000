@@ -38,12 +38,12 @@ function viewCart() {
     let names = []
     let prices = []
     let str = '';
-    for(var i = 0; i < cart.length; i++){
-      names.push(cart[i]["itemName"])
-      prices.push(cart[i]["itemPrice"])
+    for(var l = 0; l < cart.length; l++){
+      names.push(cart[l]["itemName"])
+      prices.push(cart[l]["itemPrice"])
     }
-    for(var j = 0; j<names.length; j++){
-       str +=`${names[j]} at $${prices[j]}, `
+    for(var k = 0; k<names.length; k++){
+       str +=`${names[k]} at $${prices[k]}, `
     }
     return "In your cart, you have " + str  
   }
