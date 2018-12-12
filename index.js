@@ -10,19 +10,19 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  cart.push({'itemName':item, 'itemPrice':Math.floor(Math.random()*100)})
+  getCart().push({'itemName':item, 'itemPrice':Math.floor(Math.random()*100)})
   return `${item} has been added to your cart.`
 }
 
 function viewCart() {
-  if(!cart.length){
+  if(!getCart().length){
     return 'Your shopping cart is empty.'
-  } else if ( cart.length === 1){
-    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
+  } else if ( getCart().length === 1){
+    return `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`
   }
   let cartArray = []  
-  for ( let i = 0; i < cart.length; i++){
-    cartArray.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
+  for ( let i = 0; i < getCart().length; i++){
+    cartArray.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`)
     }
   let returnLine = 'In your cart, you have '
   for ( let j = 0; j < cartArray.length; j++){
@@ -44,10 +44,10 @@ function total() {
 }
 
 function removeFromCart(item) {
-  for ( let i = 0; i < cart.length; i++){
-    if ( cart[i].itemName === item){
-      cart.splice(i, 1)
-      return cart
+  for ( let i = 0; i < getCart().length; i++){
+    if ( getCart()[i].itemName === item){
+      getCart().splice(i, 1)
+      return getCart()
     }
   }
   return 'That item is not in your cart.'
