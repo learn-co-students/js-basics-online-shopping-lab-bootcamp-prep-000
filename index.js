@@ -19,55 +19,90 @@ function addToCart(item) {
 
 
 function viewCart() {
-  
+  if(cart.length === 0) {
+    return `Your shopping cart is empty.`;
+  }
+  else{
+    let array = [];
+    let output = `In your cart, you have `;
+    for(let i = 0; i < cart.length; i++) {
+      array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+    }
+    if(cart.length === 1) {
+      output += `${array[0]}.`;
+    }
+    else if(cart.length === 2) {
+      output += `${array[0]}, and ${array[1]}.`;
+    }
+    else if(cart.length > 2) {
+      let end = array.pop();
+      let middle = array.join(', ');
+      output += `${middle}, and ${end}.`;
+    }
+    return output;
+  }
 }
-
-/*
- describe("viewCart()", function() {
-  it("prints 'Your shopping cart is empty.' if the cart is empty", function() {
-    expect(viewCart()).toEqual("Your shopping cart is empty.")
-  });
-
-  it("correctly prints a one-item cart", function() {
-    addToCart("lemons");
-    expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
-  });
-
-  it("correctly prints a two-item cart", function() {
-    addToCart("mango");
-    addToCart("nuts");
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`
-    );
-  });
-
-  it("correctly prints a three-or-more-item cart", function() {
-    addToCart("orange");
-    addToCart("pear");
-    addToCart("quince");
-
-    
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
-    );
-  });
-});
-*/
 
 
 function total() {
-  
+  let sum = 0;
+  for(let i = 0; i < cart.length; i++) {
+    sum += cart[i].itemPrice;
+  }
+  return sum;
 }
-
 
  function removeFromCart(item) {
-  var itemNotInCart = true;
-  
+  let itemNotInCart = true;
+  for(let i = 0; i < cart.length; i++) {
+  if(item === getCart()[i].itemName) {
+    cart.splice(i, 1);
+  }
+ }
+ if(itemNotInCart) {
+   return `That item is not in your cart.`;
+ }
+ return cart;
 }
+
 
 
 function placeOrder(cardNumber) {
-  
+  if(arguments.length === 0) {
+    return `Sorry, we don't have a credit card on file for you.`;
+  }
+  else{
+    let cartTotal = total();
+    cart.length = 0;
+    return`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+    
+  }
 }
+
+/*
+describe("placeOrder()", function() {
+  it("doesn't place the order if a credit card number is not provided", function() {
+    
+    expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
+  });
+
+  it("places an order when a credit card number is provided", function() {
+    addToCart("zucchini");
+
+    const cartTotal = total();
+    const cardNumber = Math.floor(Math.random() * 100000000);
+
+    
+
+    expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+  });
+
+  it("empties the cart", function() {
+    addToCart("apples");
+
+    placeOrder(12345678);
+
+    expect(getCart()).toEqual([]);
+  });
+});
+*/
