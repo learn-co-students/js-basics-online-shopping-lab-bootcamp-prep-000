@@ -11,12 +11,12 @@ function setCart(c) {
 
 /*
 
-Takes the argument, "item" and stores in variable "itemName".
-Push random prices into an empty array.
+Takes the argument, "item" and stores in variable "name".
+Push random prices into an empty array, "price".
 
 itemObject has two keys: itemName and itemPrice with value
-of itemName(which holds the value of the "item" argument and
-itemPrice which parses an element in the itemPrice array).
+of name (which holds the value of the "item" argument) and
+price (which parses an element in the array).
 
 itemObject is pushed to the empty "cart" array and returns
 a message stating that "item" has been added to the cart.
@@ -24,14 +24,13 @@ a message stating that "item" has been added to the cart.
 */
 
 function addToCart(item) {
-  let itemName = item;
-  let itemPrice = [];
+  let name = item;
+  let price = [];
   
-  itemPrice.push(Math.floor((Math.random() * 100) + 1));
-  
-  var itemObject = {itemName: itemName, itemPrice: parseInt(itemPrice)};
+  price.push(Math.floor((Math.random() * 100) + 1));
+  var itemObject = {itemName: name, itemPrice: parseInt(price)};
   cart.push(itemObject);
-  return `${itemName} has been added to your cart.`;
+  return `${name} has been added to your cart.`;
   
 }
 
