@@ -21,9 +21,10 @@ function viewCart() {
     return "Your shopping cart is empty."
   } else {
     var newitem = []
-    var objectKey = Object.keys(cart[i])
     for (let i = 0; i< cart.length; i++) {
-      newitem.push(`In your cart, you have " + Object.keys() 
+      var objectKey = Object.keys(cart[i])
+      var objectValues = Object.values(cart[i])
+      newitem.push(`In your cart, you have ${objectKey[0]} at $ ${objectValues[0]}`);  
       }
     }
 }
