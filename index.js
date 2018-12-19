@@ -12,6 +12,7 @@ function setCart(c) {
 function addToCart(item) {
   var item = {itemName: item, itemPrice: Math.floor(Math.random() * 101)};
   cart.push(item)
+  return `${item.itemName} has been added to your cart.`
 }
 
 function viewCart() {
