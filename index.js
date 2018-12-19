@@ -52,7 +52,6 @@ function addToCart(item) {
 */
 
 function viewCart() {
-  
   if (cart.length === 0) {
     return `Your shopping cart is empty.`;
   }
@@ -92,7 +91,27 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+  if (cart.includes(item) === false){
+    return `That item is not in your cart.`; 
+  }
+  else {
+    var cartIndex = cart.indexOf(item);
+    cart.splice(cartIndex, 1);
+    return cart;
+  }
+  /*
+  else {
+    return `That item is not in your cart.`;
+  }
+  for (let i = 0; i < cart.length; i++) {
+    if (item === cart[i]) {
+      return `yes`;
+    }
+    else {
+      return `NO`;
+    }
+  }
+  */
 }
 
 function placeOrder(cardNumber) {
