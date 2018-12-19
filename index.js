@@ -16,7 +16,12 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
+  for (var counter = 0; counter < cart.length; counter++) { // try to rewrite as if statement below to else with for loop encasing all if / else /elseif statements
+    `In your cart, you have ${item.itemName} at ${item.itemPrice}.`
+  }
+  if (cart.length === 0) {
+    return `Your shopping cart is empty.`
+  }
 }
 
 function total() {
