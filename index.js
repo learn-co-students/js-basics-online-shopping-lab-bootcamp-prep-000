@@ -18,19 +18,24 @@ function addToCart(item) {
 }
 
 function viewCart() {
+  return getCart().length === 0 ? `Your shopping cart is empty.` : helperMethod()
+}
+
+function helperMethod() {
   var beginningMessage =  `In your cart, you have`
-  if (cart.length >= 1) {
-    beginningMessage += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+  if (getCart().length >= 1) {
+    beginningMessage += ` ${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
   }
   if (getCart().length >=2) {
     var messageTwo = ``
-    for (var counter i = 0; i < cart.length -1; counter++) {
-      messageTwo+= ` , ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+    for (var counter = 1; counter < getCart().length -1; counter++) {
+      messageTwo+= `, ${getCart()[counter].itemName} at $${getCart()[counter].itemPrice}`
     }
     beginningMessage += `${messageTwo}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
   }
-  return `${beginningMessage}`
+  return `${beginningMessage}.`
 }
+
 
 
 function total() {
