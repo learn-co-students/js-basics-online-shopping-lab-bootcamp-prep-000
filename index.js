@@ -39,7 +39,11 @@ function helperMethod() {
 
 
 function total() {
-  // write your code here
+  var total = 0
+  for (var counter = 0; counter < getCart().length; counter++) {
+    total = total + getCart()[counter].itemPrice
+  }
+  return total
 }
 
 function removeFromCart(item) {
