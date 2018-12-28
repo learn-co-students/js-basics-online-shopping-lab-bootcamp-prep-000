@@ -36,17 +36,21 @@ function viewCart() {
 }
 
 function total() {
-  var empty = [];
-  for (let i = 0; i <= cart.length; i++){
-  empty.push(cart[i].itemPrice);
-  var add = (a,b) => a+b;
-  var sum = empty.reduce(add);
+  var sum = 0;
+  for (let i = 0; i < cart.length; i++){
+  sum += cart[i].itemPrice; 
+  }
   return sum;
-}
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (let i = 0; i < cart.length; i++){
+    if (cart[i].hasOwnProperty(item)){
+      cart.splice(i,1);
+      return cart;
+    }
+  }
+  return 'That item is not in your cart.';
 }
 
 function placeOrder(cardNumber) {
