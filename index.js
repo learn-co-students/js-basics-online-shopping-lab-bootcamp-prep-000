@@ -9,11 +9,11 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(itemName) {
-let item = {itemName: itemName, 
+function addToCart(itemString) {
+  let item = {itemName: itemString, 
   itemPrice:Math.floor(Math.random() * 100) + 1};
   cart.push(item);
-  return `${[itemName]} has been added to your cart.`;
+  return `${[itemString]} has been added to your cart.`;
 }
 
 function viewCart() {
@@ -44,15 +44,21 @@ function total() {
 }
 
 function removeFromCart(item) {
-  for (let i = 0; i < cart.length; i++){
-    if (cart[i].hasOwnProperty(item)){
-      cart.splice(i,1);
+  for (let i=0; i < cart.length; i++) {
+    if (cart[i].itemName === item) {
+      cart.splice(i, 1);
       return cart;
     }
-  }
-  return 'That item is not in your cart.';
+  } 
+   return "That item is not in your cart.";
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  let cartTotal = total();
+  if (cardNumber === undefined){
+    return `Sorry, we don't have a credit card on file for you.`;
+  }else{
+  cart.splice(0,cart.length);
+  return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+  }
 }
