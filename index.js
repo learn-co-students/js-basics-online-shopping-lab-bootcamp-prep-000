@@ -1,4 +1,4 @@
-var cart = [];
+let cart = []
 
 function getCart() {
  return cart;
@@ -22,18 +22,18 @@ function viewCart() {
     let item = cart[i].itemName
     let price = '$' + cart[i].itemPrice
     if (i + 1 == cart.length && cart.length > 1) {
-      cart_str += `and ${item} at ${price}`;
+      cart_str += `and ${item} at ${price}`
     } else if (i != 0 && i != cart.length -1){
-      cart_str += `${item} at ${price}`;
+      cart_str += `${item} at ${price}`
     } else {
-      cart_str += `you have ${item} at ${price}`;
+      cart_str += `you have ${item} at ${price}`
     }
-    cart_str += cart.length == i + 1 ? '.' : ', ';
+    cart_str += cart.length == i + 1 ? '.' : ', '
   }
   if (cart.length == 0) {
-    return 'Your shopping cart is empty.';
+    return 'Your shopping cart is empty.'
   } else {
-    return cart_str;
+    return cart_str
   }
 }
 
@@ -59,7 +59,8 @@ function placeOrder(cardNumber) {
   if (cardNumber == null) {
     return 'Sorry, we don\'t have a credit card on file for you.'
   } else {
-    let reciept = `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+    let reciept = `Your total cost is $${total()}, which will be ` +
+                  `charged to the card ${cardNumber}.`
     cart = []
     return reciept
   }
