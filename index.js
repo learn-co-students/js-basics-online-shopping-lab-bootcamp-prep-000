@@ -10,15 +10,36 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ const itemPrice = Math.floor(Math.random()*10)
+ const newItem = {[item]: itemPrice}
+ console.log (`${item} has been added to your cart.`)
+ cart.push(newItem)
+ return cart
 }
 
 function viewCart() {
-  // write your code here
+  const cartCheck = []
+  const cartStatement = []
+  if (cart.length = 0){
+    cartStatement = "Your shopping cart is empty."
+ }
+  else{
+    cartStatement = "In your cart, you have"
+    for(let i=1; i < cart.length; i++){
+      cartCheck[i] =` ${cart[i]} at $${cart[i][i]},`
+      cartStatement.push(`${cartCheck[i]}`)
+    }
+    console.log(`${cartStatement.join()}`)
+  }
 }
 
+
 function total() {
-  // write your code here
+  var cartValue = 0
+  for(let i=0; i < cart.length; i++){
+    cartValue +=`${cart[i][i]},`
+  }
+  return cartvalue
 }
 
 function removeFromCart(item) {
