@@ -2,7 +2,6 @@
 
 beforeEach(function() {
   setCart([]);
-
   expect.spyOn(console, "log");
 });
 
