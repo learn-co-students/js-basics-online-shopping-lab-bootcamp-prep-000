@@ -124,7 +124,7 @@ describe("removeFromCart()", function() {
     addToCart("vanilla");
     addToCart("watermelon");
     addToCart("yams");
-
+    
     removeFromCart("watermelon");
 
     const firstItemName = getCart()[0].itemName;
