@@ -1,9 +1,7 @@
 var cart = [];
 
-function getCart(item) {
-  var price = Math.floor(Math.random()*100);
-  cart.push(new Object({[item]:price}))
- return cart
+function getCart(){
+  return cart;
 }
 
 function setCart(c) {
@@ -11,12 +9,23 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item){
-// item.each do |item|
+function addToCart(item) {
+  var price = Math.floor(Math.random()*100);
+  var object = {
+    itemName: item, 
+    itemPrice: price
+  }
+  cart.push(object)
+  return `${object.itemName} has been added to your cart.`;
 }
 
 function viewCart() {
-  // write your code here
+  list = []
+  for (var i = 1; i < 100; i++) {
+    list.push(`${cart.itemName} at ${cart.itemPrice})`)
+  }
+  
+  return `In you cart, you have 
 }
 
 function total() {
