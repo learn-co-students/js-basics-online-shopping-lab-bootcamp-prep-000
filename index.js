@@ -45,7 +45,15 @@ return totalVal
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for (var k = 0; k < cart.length; k++) {
+    if (cart[k].itemName === item) {
+      cart.splice(k, 1);
+      return cart
+    }
+
+  }
+  return "That item is not in your cart."
+
 }
 
 function placeOrder(cardNumber) {
