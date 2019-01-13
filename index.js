@@ -21,23 +21,27 @@ function viewCart() {
   }
   
   if (cart.length ===1) {
-    return `In your cart, you have ${cart[0].itemName} at ${cart[0].price}`
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
   }
   
  var newStr = ""
  for(var i=0; i<cart.length; i++) {
    var currentItem = cart[i];
    if (cart.length-1 === i) {
-     newStr += `and ${currentItem.itemName} at ${currentItem.itemPrice}.`;
+      newStr += `and ${currentItem.itemName} at $${currentItem.itemPrice}.`;
   } else {
-      newStr += `${currentItem.itemName} at ${currentItem.itemPrice},`;
+      newStr += `${currentItem.itemName} at $${currentItem.itemPrice}, `;
   }
- return "In your cart, you have" + newStr;
- }
+}
+ return "In your cart, you have " + newStr;
 }
 
 function total() {
-  // write your code here
+  var totalVal = 0;
+  for (var j=0; j<cart.length; j++) {
+    totalVal += cart[j].itemPrice;
+  }
+return totalVal
 }
 
 function removeFromCart(item) {
