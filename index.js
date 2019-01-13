@@ -1,7 +1,9 @@
 var cart = [];
 
-function getCart() {
- return cart;
+function getCart(item) {
+  var price = Math.floor(Math.random()*100);
+  cart.push(new Object({[item]:price}))
+ return cart
 }
 
 function setCart(c) {
@@ -9,8 +11,8 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
+function addToCart(item){
+// item.each do |item|
 }
 
 function viewCart() {
