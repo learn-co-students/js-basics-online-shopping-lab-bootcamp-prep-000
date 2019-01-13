@@ -21,12 +21,23 @@ function addToCart(item) {
 
 function viewCart() {
   list = []
-  for (var i = 1; i < 100; i++) {
-    list.push(`${cart.itemName} at ${cart.itemPrice})`)
+
+  if (cart.length == 1) {
+    return`In your cart, you have ${cart.itemName} at ${cart.itemPrice}.`
   }
   
-  return `In you cart, you have 
-}
+  if (cart.length == 2) {
+    return `In your cart, you have ${cart[0].itemName} at ${cart[0].itemPrice} and ${cart[1].itemName} at ${cart[1].itemPrice}.`
+    
+  if (cart.length > 2) {
+    var i = 0; i < cart.length; i++ 
+    while (i < cart.length - 1) {
+      list.push(`${cart.itemName} at ${cart.itemPrice}`)
+    }
+    return `In your cart, you have ${list}
+  }
+  }
+  
 
 function total() {
   // write your code here
