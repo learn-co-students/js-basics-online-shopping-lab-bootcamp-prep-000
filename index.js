@@ -18,52 +18,35 @@ function addToCart(name) {
 function viewCart() {
   // write your code here
   var viewString = "In your cart, you have " ;
-  var itemNamesArray = Object.keys(getCart());
-  var itemPricesArray = Object.values(getCart());
-//return `In your cart, you have ${itemNamesArray[0]} at $${itemPricesArray[0]}.`;
 
   if(getCart().length === 0){
     return 'Your shopping cart is empty.';
   }
   else if( getCart().length ===1 ){
   for(let i=0 ; i<getCart().length ; i++){
-    viewString += itemName[i] + " at $" + itemPrice[i] + ", " ;
+    viewString += Object.keys(getCart(i)) + " at $" + Object.values(getCart(i)) + ", " ;
       }
       return viewString;
   }
   else if(getCart().length === 2){
     for(let i=0 ; i<getCart().length ; i++){
-    viewString += itemName[i] + " at $" + itemPrice[i] + ", " ;
+    viewString += Object.keys(getCart(i)) + " at $" + Object.values(getCart(i)) + ", " ;
       }
       return viewString;
   }
   else{
     for(let i=0 ; i<getCart().length ; i++){
-    viewString += itemName[i] + " at $" + itemPrice[i] + ", " ;
+    viewString += Object.keys(getCart(i)) + " at $" + Object.values(getCart(i)) + ", " ;
           }
       return viewString;
       }
 }
   
-/*
- else if (getCart().length === 1){
-    //addToCart(1);
-    //setCart();
-    //while(i < getCart.length){
-    var itemNamesArray = Object.keys(getCart());
-    var itemPricesArray = Object.values(getCart());
-    return `In your cart, you have ${itemNamesArray[0]} at $${itemPricesArray[0]}.`;
-  }
-  */
-
-
-  
-
 function total() {
   // write your code here
+  var totalPrice
   for(let i=0 ; i<cart.length ; i++){
-     var totalPrice
-     totalPrice += itemPrice
+     totalPrice += Object.keys(getCart(i))
   }
   return totalPrice
 }
@@ -71,7 +54,7 @@ function total() {
 function removeFromCart(item) {
   // write your code here
   for(let i=0 ; i<cart.length ; i++){
-    if(itemName===item){
+    if(Object.keys(getCart(i))===item){
       delete cart.item 
       return cart
     }
