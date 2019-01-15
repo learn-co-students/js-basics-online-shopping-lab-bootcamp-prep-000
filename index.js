@@ -20,7 +20,7 @@ function addToCart(item) {
 }
 
 function viewCart() {
-var list = []
+var list = [];
 
   if (cart.length === 0) {
     return 'Your shopping cart is empty.'
@@ -40,8 +40,14 @@ var list = []
   
 
 function total() {
-  // write your code here
+  var sum = 0
+  for (let i = 0; i < cart.length; i++ ) {
+    sum += (cart[i].itemPrice)
+  }
+  return sum
 }
+  
+  
 
 function removeFromCart(item) {
   // write your code here
