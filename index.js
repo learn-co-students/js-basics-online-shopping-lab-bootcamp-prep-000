@@ -60,6 +60,14 @@ function removeFromCart(item) {
   return 'That item is not in your cart.'
 }
 
+
+
 function placeOrder(cardNumber) {
-  // write your code here
+  var totalDue = total()
+  cart = []
+  if (cardNumber) {
+    return `Your total cost is $${totalDue}, which will be charged to the card ${cardNumber}.`
+  } else {
+    return "Sorry, we don't have a credit card on file for you."
+  }
 }
