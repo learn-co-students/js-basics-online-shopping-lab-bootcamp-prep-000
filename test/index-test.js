@@ -11,7 +11,7 @@ afterEach(function() {
 });
 
 describe("addToCart()", function() {
-  it("can add items to the cart", function() {
+  console.log("can add items to the cart", function() {
     addToCart("apples");
 
     expect(getCart().length).toEqual(1);
@@ -21,7 +21,7 @@ describe("addToCart()", function() {
     expect(getCart().length).toEqual(2);
   });
 
-  it("turns items into JavaScript objects before adding them to the cart", function() {
+  console.log("turns items into JavaScript objects before adding them to the cart", function() {
     addToCart("carrots");
 
     let itemConstructor = getCart()[0].constructor;
@@ -29,7 +29,7 @@ describe("addToCart()", function() {
     expect(itemConstructor).toEqual(Object);
   });
 
-  it("properly structures the cart item as object with a key of `itemName` and the corresponding value { itemName: itemName } format", function() {
+  console.log("properly structures the cart item as object with a key of `itemName` and the corresponding value { itemName: itemName } format", function() {
     addToCart("daikon");
 
     let itemName = getCart()[0].itemName;
@@ -37,7 +37,7 @@ describe("addToCart()", function() {
     expect(itemName).toEqual("daikon");
   });
 
-  it("sets the price (integer between 1 and 100) on the cart object using the key `price`", function() {
+  console.log("sets the price (integer between 1 and 100) on the cart object using the key `price`", function() {
     addToCart("eggplant");
 
     let itemPrice = getCart()[0].itemPrice;
@@ -46,7 +46,7 @@ describe("addToCart()", function() {
                      .toBeGreaterThanOrEqualTo(1);
   });
 
-  it("chooses the price at random", function() {
+  console.log("chooses the price at random", function() {
     // Note: this test has a 1-in-10,000 chance of a false negative.
     addToCart("figs");
     addToCart("grapes");
@@ -58,7 +58,7 @@ describe("addToCart()", function() {
     expect(areAnyPricesEqual).toBe(false);
   });
 
-  it("returns a message indicating that the item has been added", function() {
+  console.log("returns a message indicating that the item has been added", function() {
     expect(addToCart("ice cream")).toEqual("ice cream has been added to your cart.");
 
     expect(addToCart("juice")).toEqual("juice has been added to your cart.");
@@ -66,16 +66,16 @@ describe("addToCart()", function() {
 });
 
 describe("viewCart()", function() {
-  it("prints 'Your shopping cart is empty.' if the cart is empty", function() {
+  console.log("prints 'Your shopping cart is empty.' if the cart is empty", function() {
     expect(viewCart()).toEqual("Your shopping cart is empty.")
   });
 
-  it("correctly prints a one-item cart", function() {
+  console.log("correctly prints a one-item cart", function() {
     addToCart("lemons");
     expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
   });
 
-  it("correctly prints a two-item cart", function() {
+  console.log("correctly prints a two-item cart", function() {
     addToCart("mango");
     addToCart("nuts");
 
@@ -84,7 +84,7 @@ describe("viewCart()", function() {
     );
   });
 
-  it("correctly prints a three-or-more-item cart", function() {
+  console.log("correctly prints a three-or-more-item cart", function() {
     addToCart("orange");
     addToCart("pear");
     addToCart("quince");
@@ -98,7 +98,7 @@ describe("viewCart()", function() {
 });
 
 describe("total()", function() {
-  it("adds up the price of all items in the cart", function() {
+  console.log("adds up the price of all items in the cart", function() {
     addToCart("sorghum");
     addToCart("tarragon");
 
@@ -120,7 +120,7 @@ describe("total()", function() {
 });
 
 describe("removeFromCart()", function() {
-  it("removes the specified item from the cart", function() {
+  console.log("removes the specified item from the cart", function() {
     addToCart("vanilla");
     addToCart("watermelon");
     addToCart("yams");
@@ -138,19 +138,19 @@ describe("removeFromCart()", function() {
     expect(getCart().length).toEqual(1);
   });
 
-  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+  console.log("alerts you if you're trying to remove an item that isn't in your cart", function() {
     // Repeat item name from previous test to prevent hard-coding.
     expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
   });
 });
 
 describe("placeOrder()", function() {
-  it("doesn't place the order if a credit card number is not provided", function() {
+  console.log("doesn't place the order if a credit card number is not provided", function() {
     
     expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
   });
 
-  it("places an order when a credit card number is provided", function() {
+  console.log("places an order when a credit card number is provided", function() {
     addToCart("zucchini");
 
     const cartTotal = total();
@@ -161,7 +161,7 @@ describe("placeOrder()", function() {
     expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
   });
 
-  it("empties the cart", function() {
+  console.log("empties the cart", function() {
     addToCart("apples");
 
     placeOrder(12345678);
