@@ -23,10 +23,15 @@ function viewCart() {
     return "Your shopping cart is empty.";
   }
   else{
-  if(cart.length === 0) {
-    
+  if(cart.length === 1) {
+    outline += ` ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`;
   }
-   
+   if(cart.length === 2) {
+     outline += ` ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`;
+   }
+   if(cart.length > 2) {
+     
+   }
   }
   return outline;
 }
