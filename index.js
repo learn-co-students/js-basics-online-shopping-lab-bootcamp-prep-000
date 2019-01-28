@@ -62,9 +62,11 @@ function total() {
   // write your code here
   var total = 0
   var myCart = {}
+  var i = 0
+  
   myCart = getCart()
   if(myCart.length > 0 ) {
-    for( var i = 0; i < myCart.length; i++ ) {
+    for( i = 0; i < myCart.length; i++ ) {
     total += parseInt(myCart.itemPrice[i])
     }
   }
