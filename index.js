@@ -62,12 +62,12 @@ function total() {
   // write your code here
   var total = 0
   var myCart = {}
-  var i = 0
+  var j = 0
   
   myCart = getCart()
   if(myCart.length > 0 ) {
-    for( i = 0; i < myCart.length; i++ ) {
-    total += parseInt(myCart.itemPrice[i])
+    for( j = 0; j < myCart.length; j++ ) {
+      total += myCart[j].itemPrice
     }
   }
   return total
@@ -75,6 +75,7 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  
 }
 
 function placeOrder(cardNumber) {
