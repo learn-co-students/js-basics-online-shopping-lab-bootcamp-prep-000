@@ -51,13 +51,16 @@ function total() {
   return sum;
 }
 
+function removeFromCart(item) {
+  
+}
 
 /*
 describe("total()", function() {
   it("adds up the price of all items in the cart", function() {
     addToCart("sorghum");
     addToCart("tarragon");
-
+ 
     const sorghumCost = getCart()[0].itemPrice;
     const tarragonCost = getCart()[1].itemPrice;
 
