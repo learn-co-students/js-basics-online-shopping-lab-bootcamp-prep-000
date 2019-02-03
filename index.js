@@ -34,7 +34,11 @@ function viewCart() {
     if(cart.length === 2) {
       output += `${array[0]}, and ${array[1]}.`;
     }
-    
+    if(cart.length > 2) {
+      let end = array.pop();
+      let middle = array.join(', ');
+      output += `${middle}, and ${end}.`;
+    }
     return output;
   }
 }
@@ -47,33 +51,21 @@ function total() {
   return sum;
 }
 
+
 function removeFromCart(item) {
+  let itemNotInCart = true;
   
+  for(let i = 0; i < cart.length; i++) {
+    if(item === getCart()[i].itemName)
+    cart.splice(i, 1);
+  }
+  
+  if(itemNotInCart) {
+    return 'That item is not in your cart.';
+  }
 }
 
 /*
-describe("total()", function() {
-  it("adds up the price of all items in the cart", function() {
-    addToCart("sorghum");
-    addToCart("tarragon");
- 
-    const sorghumCost = getCart()[0].itemPrice;
-    const tarragonCost = getCart()[1].itemPrice;
-
-    let totalCost = sorghumCost + tarragonCost;
-
-    expect(total()).toBe(totalCost);
-
-    addToCart("urchin");
-
-    const urchinCost = getCart()[2].itemPrice;
-
-    totalCost += urchinCost;
-
-    expect(total()).toBe(totalCost);
-  });
-});
-
 describe("removeFromCart()", function() {
   it("removes the specified item from the cart", function() {
     addToCart("vanilla");
