@@ -23,7 +23,6 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
   var myCart = {};
   myCart = getCart();
   var result = ""
@@ -59,7 +58,6 @@ function viewCart() {
 } 
 
 function total() {
-  // write your code here
   var total = 0
   var myCart = {}
   var j = 0
@@ -74,8 +72,9 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
   var found = 0;
+  
+  //Search through shopping cart to find the item to be removed and remove it
     for(var i = 0; i < cart.length; i++ ) {
       if(cart[i].itemName === item) {
         found = 1;
@@ -88,15 +87,16 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
-  if(cardNumber === null) {
+  //If no card number is passed through then alert user
+  if(cardNumber === undefined) {
     return "Sorry, we don\'t have a credit card on file for you."
   }
   
+  // Calculate total cost of items in shopping cart
   else {
-   cart = []
   var totalCost = total()
-   var result = `Your total cost is ${totalCost}, which will be charged to the card ${cardNumber}.`
+  cart = []
+   var result = `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`
   }
-  
+  return result
 }
