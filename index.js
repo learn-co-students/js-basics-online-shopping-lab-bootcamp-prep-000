@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var itemObj = {itemName:`${item}`, itemPrice: Math.floor(Math.random()*100)}
+var itemObj = {itemName:`${item}`, itemPrice: Math.floor(Math.random()*100)}
   cart.push(itemObj);
   return itemObj.itemName + " has been added to your cart."
 }
@@ -52,8 +52,8 @@ return totalPrice
 
 function removeFromCart(item) {
     for (var i = 0; i < cart.length; i++){
-      if (cart[i].itemName === 'item'){
-      cart.splice([i], 'item')
+      if (cart[i].itemName === item){
+      cart.splice(i, 1)
       return cart
        }
     }  
@@ -62,10 +62,12 @@ function removeFromCart(item) {
   }
 
 function placeOrder(cardNumber) {
-  if (cardNumber){
-    return "Your total cost is $" + `${total()}` + ", which will be charged to the card " + `${cardNumber}` + "."
+if (cardNumber){
+  for (var i = cart.length; i>= 0; i--) {
+      cart.pop();
+    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
   }
-  else
+  }
   
   return "Sorry, we don't have a credit card on file for you."
   }
