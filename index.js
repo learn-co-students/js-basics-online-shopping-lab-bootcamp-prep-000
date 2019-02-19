@@ -4,16 +4,19 @@ function getCart() {
  return cart;
 }
 
+
 function setCart(c) {
   cart = c;
   return cart;
 }
+
 
 function addToCart(item) {
 var itemObj = {itemName:`${item}`, itemPrice: Math.floor(Math.random()*100)}
   cart.push(itemObj);
   return itemObj.itemName + " has been added to your cart."
 }
+
 
 function viewCart() {
   if (cart.length === 0){
@@ -42,6 +45,7 @@ function viewCart() {
  
 }}
  
+ 
 function total() {
  var totalPrice = 0
   for (let i = 0; i < cart.length; i++){
@@ -50,6 +54,7 @@ function total() {
 return totalPrice
 }
 
+
 function removeFromCart(item) {
     for (var i = 0; i < cart.length; i++){
       if (cart[i].itemName === item){
@@ -57,9 +62,9 @@ function removeFromCart(item) {
       return cart
        }
     }  
- 
     return "That item is not in your cart."
-  }
+}
+
 
 function placeOrder(cardNumber) {
 if (cardNumber){
