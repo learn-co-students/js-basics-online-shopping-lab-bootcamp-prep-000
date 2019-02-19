@@ -51,12 +51,10 @@ return totalPrice
 }
 
 function removeFromCart(item) {
-  var newCart = []
     for (var i = 0; i < cart.length; i++){
       if (cart[i].itemName === 'item'){
-      cart.splice(i, 'item')
-      newCart.push(cart[i].itemName)
-      return newCart
+      cart.splice([i], 'item')
+      return cart
        }
     }  
  
