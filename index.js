@@ -51,11 +51,16 @@ function removeFromCart(item) {
   for (var i = 0; i < cart.length; i++)
   if (cart[i].itemName === item) {
      cart.splice(i,1)
-     } //else if (cart[i].itemName != item){ 
-       //return `That item is not in your cart.`
- // }
+     } 
+     return `That item is not in your cart.`
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+ var cartTotal = total()
+  if (cardNumber == null) {
+    return `Sorry, we don't have a credit card on file for you.`
+  } else { 
+    cart.length = 0
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`
+  }
 }
