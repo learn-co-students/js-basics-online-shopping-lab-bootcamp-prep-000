@@ -38,11 +38,22 @@ return message + messageArray.toString() + `.`;
 }
 
 function total() {
-  // write your code here
+    var sum = 0
+    for (var i = 0; i < cart.length; i++) {
+    sum += cart[i].itemPrice
+    }
+      return sum
+ 
 }
 
 function removeFromCart(item) {
-  // write your code here
+ 
+  for (var i = 0; i < cart.length; i++)
+  if (cart[i].itemName === item) {
+     cart.splice(i,1)
+     } //else if (cart[i].itemName != item){ 
+       //return `That item is not in your cart.`
+ // }
 }
 
 function placeOrder(cardNumber) {
