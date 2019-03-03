@@ -11,61 +11,65 @@ function setCart(c) {
 
 function addToCart(item) {
   var price = Math.ceil(Math.random()*100)
-  cart.push({[item]: price})
-  console.log(`${item} has been added to your cart.`)
-  return cart;
+  cart.push({itemName: item, itemPrice: price})
+  return `${item} has been added to your cart.`
 }
 
 function viewCart() {
   if (cart.length === 0) {
-    console.log ("Your shopping cart is empty.")
+    return "Your shopping cart is empty."
   }
   
   var newArray = [];
     for (var i = 0; i < cart.length; i++) {
-      var keys = Object.keys(cart[i])[0];
-      newArray.push(keys + " at $" + cart[i][keys])
+      var name = Object.values(cart[i])[0];
+      newArray.push(name + " at $" + cart[i].itemPrice)
     }
     
-    var myString = "In your cart you have ";
+    var myString = "In your cart, you have ";
     if (newArray.length === 1) {
       myString += newArray + "."
     } else if (newArray.length === 2) {
-      myString += (newArray[0] + " and " + newArray[1] + ".")
+      myString += (newArray[0] + "," + " and " + newArray[1] + ".")
     } else if (newArray.length > 2) {
       var lastElement = newArray.pop()
       var otherItem = newArray.join(", ")
       myString += (otherItem + ", and " + lastElement + ".")
     }
-    console.log(myString)
+    return myString
 }
 
 function total() {
-  var initial = 0;
-  for (var i = 0; i < cart.length; i++) {
-    initial += cart[i] [Object.keys(cart[i])]
+  // write your code here
+  var totalCost = 0;
+  for(var i = 0; i < cart.length ; i++){
+    totalCost += cart[i].itemPrice;
   }
-  return initial;
+  return totalCost;
 }
 
-
-function removeFromCart(item) {
+  function removeFromCart(item) {
+  // write your code here
+  var itemInCart = false;
   for (var i = 0; i < cart.length; i++) {
-    if (Object.keys(cart[i]) === item) {
-      cart = [...cart.slice(0,i), ...cart.slice(i+1)];
-      return cart;
+    if (cart[i].itemName === item) {
+      cart.splice(i,1);
+      itemInCart = true;
     }
-    console.log ("That item is not in your cart.")
+  }
+  if(itemInCart){
     return cart;
   }
+  return "That item is not in your cart.";
 }
 
 
 function placeOrder(cardNumber) {
-  if (cardNumber === null) {
-    console.log('Sorry, we don\'t have a credit card on file for you.')
-  } else {
-    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+  // write your code here
+  if(cardNumber === undefined){
+    return "Sorry, we don't have a credit card on file for you."
   }
+  var totalCost = total();
   cart = [];
+  return `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`
 }
