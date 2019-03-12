@@ -53,14 +53,25 @@ function total() {
 }
 
 function removeFromCart(item) {
-
+  var i
+  if (!cart.length){
+    return `That item is not in your cart.`
+  } else {
+    for (i = 0; i < cart.length; i++){
+      if (cart[i].itemName === item){
+        cart.splice(i,1)
+        return cart
+      }
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
   if (!cardNumber){
     return `Sorry, we don\'t have a credit card on file for you.`
   } else {
+    var totalCharge = total()
     cart = []
-    return `Your total cost is `+ $${totalCost} + `, which will be charged to the card ${cardNumber}.`
+    return `Your total cost is $${totalCharge}, which will be charged to the card ${cardNumber}.`
   }
 }
