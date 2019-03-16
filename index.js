@@ -24,28 +24,18 @@ function viewCart() {
 } 
 else {
  var array = [];
- for(let i = 0; i < cart.length; i++) {
-  
-  array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
-    
-    var output = 'In your cart, you have ';
-    
-    if(cart.length === 1) {
-    output += `${array[0]}.`;
-  }
-  if(cart.length === 2) {
-    output += `${array[0]}, and ${array[1]}.`;
-  }
-  
-  if(cart.length > 2) {
-    
-    var end = array.pop();
-    var middle = array.join(', ');
-    
-    output += `${middle}, and ${end}.`
-  }
-  }
-  return `${output}`;
+ for(var i = 0; i < cart.length; i++) {
+   array.push(`${getCart()[i].itemName} at $${getCart()[i].itemPrice}`);
+ }
+ var output = 'In your cart, you have ';
+ if(cart.length === 1) {
+   output += `${array[0]}.`;
+ }
+ if(cart.length === 2) {
+   output += `${array[0]}, and ${array[1]}.`;
+ }
+
+return output; 
 }
 }
 
