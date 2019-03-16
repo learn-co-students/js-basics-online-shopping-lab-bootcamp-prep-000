@@ -10,8 +10,8 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- item.name = item;
- item.price =  Math.floor((Math.random()*1000)+1)
+ cart.push(item.name = item);
+ cart.push(item.price =  Math.floor((Math.random()*1000)+1))
 
 }
 
