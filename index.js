@@ -23,14 +23,22 @@ function viewCart() {
   }
 
   if( cart.length === 1){
-  return  `In your cart, you have ${cart[0].itemName}  at ${cart[0].itemPrice}.`;
+  return  `In your cart, you have ${cart[0].itemName}  at $${cart[0].itemPrice}.`;
     
   }
-  
-  for( var i = 0; i < (cart.length - 1); i++)
-  
-    
-    
+
+var firstItem = [`In your cart, you have ${cart[0].itemName}  at $${cart[0].itemPrice}, `]  
+
+  for( var i = 1; i < (cart.length - 1 ); i++){
+
+var otherItems =`${cart[i].itemName}  at $${cart[i].itemPrice},`;
+firstItem.push(otherItems);
+  }
+
+    if( i === (cart.length - 1)){
+    var lastItem = `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
+    firstItem.push(lastItem);
+    return firstItem.join(" ")
 }
 
 function total() {
