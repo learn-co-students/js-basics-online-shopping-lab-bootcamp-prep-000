@@ -27,7 +27,7 @@ function viewCart() {
     
   }
 
-var firstItem = [`In your cart, you have ${cart[0].itemName}  at $${cart[0].itemPrice}, `]  
+var firstItem = [`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice},`]  
 
   for( var i = 1; i < (cart.length - 1 ); i++){
 
@@ -38,7 +38,7 @@ firstItem.push(otherItems);
     if( i === (cart.length - 1)){
     var lastItem = `and ${cart[i].itemName} at $${cart[i].itemPrice}.`
     firstItem.push(lastItem);
-    return firstItem.join("");
+    return firstItem.join(" ");
 }
 }
 
