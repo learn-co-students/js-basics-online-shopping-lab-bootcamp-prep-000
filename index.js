@@ -40,6 +40,7 @@ firstItem.push(otherItems);
     firstItem.push(lastItem);
     return firstItem.join(" ")
 }
+}
 
 function total() {
   var p = [];
