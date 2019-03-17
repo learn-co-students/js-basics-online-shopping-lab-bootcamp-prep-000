@@ -34,13 +34,22 @@ else {
  if(cart.length === 2) {
    output += `${array[0]}, and ${array[1]}.`;
  }
+ if(cart.length === 3) {
+   var end = array.pop();
+   var middle = array.join(', ');
+   output += `${middle}, and ${end}.`;
+ }
 
 return output; 
 }
 }
 
 function total() {
-
+let sum = 0;
+for(let i = 0; i < cart.length; i++) {
+  sum += getCart()[i].itemPrice;
+}
+return sum;
 }
 
 
