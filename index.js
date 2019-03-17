@@ -18,11 +18,23 @@ var c = {itemName: `${item}`, itemPrice: (Math.floor((Math.random()*100)+1))}
 }
 
 function viewCart() {
-  // write your code here
+  if( cart.length < 1){
+    return 'Your shopping cart is empty.';
+  }
+
+    
 }
 
 function total() {
-  // write your code here
+  var p = [];
+  var t = 0;
+  for(var i = 0; i < cart.length; i++){
+  p.push(cart[i].itemPrice)
+ 
+ t += p[i];
+  }
+  return t;
+  
 }
 
 function removeFromCart(item) {
