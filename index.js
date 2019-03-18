@@ -58,6 +58,11 @@ for(let i = 0; i < cart.length; i++) {
   if(item === getCart()[i].itemName) {
     cart.splice(i, 1);
   }
+
+}
+let itemNotInCart = true;
+if(itemNotInCart) {
+  return 'That item is not in your cart.';
 }
 }
 
