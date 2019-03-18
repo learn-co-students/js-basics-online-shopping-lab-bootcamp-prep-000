@@ -31,7 +31,7 @@ var firstItem = [`In your cart, you have ${cart[0].itemName} at $${cart[0].itemP
 
   for( var i = 1; i < (cart.length - 1 ); i++){
 
-var otherItems =`${cart[i].itemName} at $${cart[i].itemPrice},`;
+var otherItems =`${cart[i].itemName} at $${cart[i].itemPric},`;
 firstItem.push(otherItems);
   }
 
@@ -41,6 +41,8 @@ firstItem.push(otherItems);
     return firstItem.join(" ");
 }
 }
+
+
 
 function total() {
   var p = [];
@@ -54,6 +56,8 @@ function total() {
   
 }
 
+
+
 function removeFromCart(item) {
     
     for( var i = 0; i < cart.length; i++ ){
@@ -64,6 +68,8 @@ function removeFromCart(item) {
   }}
    return 'That item is not in your cart.';
    } 
+
+
 
 
 function placeOrder(cardNumber) {
@@ -80,16 +86,3 @@ else{
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
