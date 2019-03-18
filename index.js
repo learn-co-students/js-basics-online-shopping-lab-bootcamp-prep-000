@@ -67,7 +67,19 @@ if(itemNotInCart) {
 }
 
 function placeOrder(cardNumber) {
-  
+  if(arguments.length === 0) {
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  if(arguments.length === 1) {
+    
+    let cartTotal = total();
+    
+    cart.length = 0;
+    
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+    
+    
+  }
 }
 
 
