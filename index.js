@@ -31,7 +31,7 @@ var firstItem = [`In your cart, you have ${cart[0].itemName} at $${cart[0].itemP
 
   for( var i = 1; i < (cart.length - 1 ); i++){
 
-var otherItems =`${cart[i].itemName} at $${cart[i].itemPric},`;
+var otherItems =`${cart[i].itemName} at $${cart[i].itemPrice},`;
 firstItem.push(otherItems);
   }
 
