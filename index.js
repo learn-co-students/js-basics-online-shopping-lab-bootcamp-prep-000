@@ -19,7 +19,7 @@ function addToCart(item) {
 
 function viewCart() {
  if(cart.length === 0) {
-   return "Your shopping cart is empty.";
+   return 'Your shopping cart is empty.';
  }
  else{
    let output = 'In your cart, you have ';
@@ -43,36 +43,34 @@ function viewCart() {
 }
 
 function total() {
-let sum = 0;
-for(let i = 0; i < cart.length; i++) {
-  sum += getCart()[i].itemPrice;
- }
- return sum;
+  let sum = 0;
+  for(let i = 0; i < cart.length; i++) {
+    sum += getCart()[i].itemPrice;
+  }
+  return sum;
 }
 
 
 function removeFromCart(item) {
-for(let i = 0; i < cart.length; i++) {
-  if(item === getCart()[i].itemName) {
-    cart.splice(i, 1);
+  for(let i = 0; i < cart.length; i++) {
+    if(item === getCart()[i].itemName) {
+      cart.splice(i, 1);
+    }
   }
-}
-let itemNotInCart = true;
-if(itemNotInCart) {
-  return 'That item is not in your cart.';
-}
-return cart;
+  let itemNotInCart = true;
+  if(itemNotInCart) {
+    return 'That item is not in your cart.';
+  }
 }
 
 function placeOrder(cardNumber) {
   if(arguments.length === 0) {
     return "Sorry, we don't have a credit card on file for you.";
   }
-  
-  if(arguments.length === 1) {
-  let cartTotal = total();
-  cart.length = 0; 
-  return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+  else {
+   let cartTotal = total();
+   cart.length = 0;
+   return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`; 
   }
 }
 
