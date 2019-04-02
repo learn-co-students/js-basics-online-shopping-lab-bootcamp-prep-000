@@ -9,11 +9,20 @@ function setCart(c) {
   return cart;
 }
 
+
 function addToCart(item) {
-  [ { itemName: "apples", itemPrice: 2},
-  { itemName: "doritos", itemPrice: 5},
-  { itemName: "nutella", itemPrice: 8}];
+ var newItem = generateCartItem(item);
+ getCart().push(newItem);
+ return `${newItem.itemName} has been added to your cart.`;
 }
+
+function generateCartItem(newItemName) {
+  return {
+    itemName: newItemName, 
+    itemPrice: Math.floor(Math.random()*100)
+  }
+}
+
 
 function viewCart() {
   console.log`In your cart, you have apples at ${2}, doritos at ${5} and nutella at ${8}`;
