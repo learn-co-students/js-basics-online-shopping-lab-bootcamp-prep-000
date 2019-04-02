@@ -10,8 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
-}
+[ itemName: "apple" , itemPrice: 2 },
+[ { itemName: "doritos", itemPrice: 5},
+[ { itemName: "nutella", itemPrice: 8}
+}]
 
 function viewCart() {
   // write your code here
