@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  [{ itemName: "apples", itemPrice: 2},
+  [ { itemName: "apples", itemPrice: 2},
   { itemName: "doritos", itemPrice: 5},
   { itemName: "nutella", itemPrice: 8}];
 }
@@ -31,5 +31,4 @@ function removeFromCart(doritos) {
 
 function placeOrder(cardNumber) {
   console.log `Your total cost is ${'15'}, which will be charged to the card 12345678`;
-  return placeOrder();
 }
