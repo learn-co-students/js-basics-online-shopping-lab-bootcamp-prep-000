@@ -9,7 +9,6 @@ function setCart(c) {
   return cart;
 }
 
-
 function addToCart(item) {
  var newItem = generateCartItem(item);
  getCart().push(newItem);
@@ -23,9 +22,9 @@ function generateCartItem(newItemName) {
   }
 }
 
-
 function viewCart() {
-  console.log`In your cart, you have apples at ${2}, doritos at ${5} and nutella at ${8}`;
+  console.log`'In your cart, you have apples at ${2}, doritos at ${4}, and doritos at ${8}.'`;
+  return viewCart()
 }
 
 function total(item) {
