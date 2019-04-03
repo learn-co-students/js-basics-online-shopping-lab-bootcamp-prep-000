@@ -22,21 +22,53 @@ function generateCartItem(newItemName) {
   }
 }
 
+function generateCartDescription() {
+  var cartDescription = 'In your cart, you have '
+  if ( getCart().length >= 1 ) {
+    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+  }
+  if ( getCart().length >= 2 ) {
+    var middleCartItemsDescription = ''
+    for (var i=1; i<getCart().length -1; i++) {
+      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+    }
+    cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+  }
+
+  return `${cartDescription}.`
+}
+
+function searchCartForItemToRemove(itemName) {
+  var searchResult
+  for (var i=0; i<getCart().length; i++) {
+    if (getCart()[i].itemName === itemName) {searchResult = getCart()[i]}
+  }
+  return searchResult
+}
+
+
 function viewCart() {
-  console.log`'In your cart, you have apples at ${2}, doritos at ${4}, and doritos at ${8}.'`;
-  return viewCart()
+   return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription(); 
 }
 
-function total(item) {
-return total;
+function total() {
+  var sum = sumUpPrices();
+  return sum;
 }
 
-function removeFromCart(doritos) {
-  var array = doritos;
-  array.prototype.splice(doritos);
-  return total;
+function removeFromCart(itemName) {
+  var itemToRemove = searchCartForItemToRemove(itemName)
+  return itemToRemove ? removeItemFromCart(itemToRemove) : notifyUserThereIsNoItemToRemove()
 }
 
-function placeOrder(cardNumber) {
-  console.log `Your total cost is ${'15'}, which will be charged to the card 12345678`;
+function sumUpPrices() {
+  var sum = 0
+  for (var i=0; i<getCart().length; i++) {
+    sum = sum + getCart()[i].itemPrice
+  }
+  return sum
+}
+
+function notifyUserThereIsNoItemToRemove() {
+  return 'That item is not in your cart.'
 }
