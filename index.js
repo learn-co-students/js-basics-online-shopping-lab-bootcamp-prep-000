@@ -41,7 +41,7 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
   if (arguments[0] === undefined) {
-    return `Sorry, we do not have a credit card on file for you.`
+    return `Sorry, we don\'t have a credit card on file for you.`
   } else {
     return `Your total cost is $$(sumToCharge), which will be charged to the card ${cardNumber}`;
   }
@@ -56,9 +56,9 @@ function generateCartItem(itemName) {
   }
 }
 
-function generateCartDescription() {
+function generateCartItem() {
   var cartDescription = `In your cart, you have.`;
-  if (getCart(),length >= 1)  {
+  if (getCart().length >= 1)  {
     cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`;
   }
 }
@@ -66,7 +66,7 @@ function generateCartDescription() {
 if ( getCart().length += 2 ) {
   var middleCartItemsDescription = '';
   for (var i = 1; i < getCart().length -1; i++); {
-    middleCartItemsDescription += `${getCart()[i].itemName}`  `$${getCart()[i].itemPrice}`;
+    middleCartItemsDescription += `${getCart()[i].itemName} at  $${getCart()[i].itemPrice}`;
   }
 }
 getCart().splice(indexOfItemToRemove,1);
