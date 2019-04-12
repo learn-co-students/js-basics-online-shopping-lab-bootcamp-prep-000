@@ -9,32 +9,50 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item){
-  
-  var price = Math.floor(Math.random()*100) + 1;
-  var itemName = {};
-  itemName[item] = price
-  cart.push(itemName)
-  console.log(item + " has been added to your cart.");
-  return cart
+function addToCart (item) {
+  var price = Math.floor(100*(Math.random()));
+  var itemObj = {[item]: price};
+  cart.push(itemObj);
+  console.log(`${item} has been added to your cart.`);
+  return cart;
 
  
 }
 
 function viewCart() {
+  var cartItems = [];
   if (cart.length === 0) {
-    console.log("Your shopping cart is empty.")
-  } else {
-    var items = [];
-    for (var i = 0; i < cart.length; i++) // it should loop over every item in your cart, returning the contents as one long, coherent statement in this format: 
-    {
-      for (var item in cart[i]) {
-        items.push(item + " at $" + cart[i][item])
-      }
-    }
-    console.log("In your cart, you have " + items.join(", ") + ".");
-  }
-  }
+    console.log('Your shopping cart is empty.') }
+    
+  var newarray = [];
+      for (var i = 0; i < cart.length; i++) {
+        var keys = Object.keys(cart[i])[0]
+        newarray.push(keys + "at $" + cart[i])[keys]
+        
+        var mystring = "In your cart, you have"
+        if(newarray.length === 1 ){
+          mystring += newarray + "."
+        } else if (newarray.length === 2){
+          mystring += newarray[0] + "and" + newarray[1] + "." 
+        } else if(newarray.length > 2) {
+          var lastelement = newarray.pop()
+          var other_item = newarray.join(". ")
+          mystring += (other_item + ", and " + lastelement + ".")
+        }
+        console.log(mystring)
+          
+        }
+          
+        
+        
+      
+    
+    
+    
+    
+  
+  
+}
 
 function total() {
   
