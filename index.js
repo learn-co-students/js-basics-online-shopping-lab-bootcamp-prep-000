@@ -9,53 +9,71 @@ function setCart(c) {
   return cart;
 }
 // { itemName: name of the item, itemPrice: price of the item, } 
-function addToCart (item) {
-  var price = Math.floor(100*(Math.random()));
-  var itemObj = {itemName: item,itemPrice: price}; 
-  debugger
-  cart.push(itemObj);
-  console.log(itemObj);
-  return cart;
+
+
+function addToCart(item){
+ var price = Math.random()*Math.floor(100);
+ var newItem = {itemName: item, itemPrice: price}
+ cart.push(newItem)
+ return `${item} has been added to your cart.`
 }
 
 function viewCart() {
-  var cartItems = [];
-  if (cart.length === 0) {
-    console.log('Your shopping cart is empty.') }
-    
-  var newarray = [];
-      for (var i = 0; i < cart.length; i++) {
-        var keys = Object.keys(cart[i])[0]
-        newarray.push(keys + "at $" + cart[i])[keys]
-        
-        var mystring = "In your cart, you have"
-        if(newarray.length === 1 ){
-          mystring += newarray + "."
-        } else if (newarray.length === 2){
-          mystring += newarray[0] + "and" + newarray[1] + "." 
-        } else if(newarray.length > 2) {
-          var lastelement = newarray.pop()
-          var other_item = newarray.join(". ")
-          mystring += (other_item + ", and " + lastelement + ".")
-        }
-        console.log(mystring)
-          
-        }
-      }
+  // write your code here
+  var output = "";
+  var len = cart.length;
+  if(len === 0){
+    output = "Your shopping cart is empty."
+  }
+  else if(len === 1){
+    output = "In your cart, you have ";
+    output = output.concat(cart[0].itemName, " at $", cart[0].itemPrice, ".")
+  }
+  else{ //need to take care of oxford comma
+    var remaining = len; //number of items remaining
+    var index = 0;
+    output = "In your cart, you have ";
+    for(let i = 0; i < len - 1; i++){
+      output = output.concat(cart[i].itemName, " at $", cart[i].itemPrice, ", ")
+    }
+    output = output.concat("and ", cart[len - 1].itemName, " at $", cart[len - 1].itemPrice, ".")
+  }
+  return output
+}
 
 function total() {
-  var sum = 0 
-  for(var i = 0; i < cart.length; i++) {
-    sum += cart[i][Object.keys(cart[i])]
+  // write your code here
+  var total = 0;
+  for(let i = 0; i < cart.length; i++){
+    total +=  cart[i].itemPrice;
   }
-  return sum
-  
+  return total
 }
 
 function removeFromCart(item) {
   // write your code here
+  //var found = false;
+  var cart2;
+  for(let i = 0; i < cart.length; i++){
+    if(cart[i].itemName === item){
+      cart2 = [cart.splice(i,1)]
+      return cart2
+    }
+  }
+  return "That item is not in your cart."
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  
+  var output;
+  if(cardNumber){
+    output = "Your total cost is $";
+    output = output.concat(total(), ", which will be charged to the card ", cardNumber, ".");
+    cart = [];
+  }
+  else{
+    output = "Sorry, we don't have a credit card on file for you.";
+  }
+  return output; 
+  
 }
