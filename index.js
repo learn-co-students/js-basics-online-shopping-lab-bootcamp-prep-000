@@ -8,15 +8,14 @@ function setCart(c) {
   cart = c;
   return cart;
 }
-
+// { itemName: name of the item, itemPrice: price of the item, } 
 function addToCart (item) {
   var price = Math.floor(100*(Math.random()));
-  var itemObj = {[item]: price};
+  var itemObj = {itemName: item,itemPrice: price}; 
+  debugger
   cart.push(itemObj);
-  console.log(`${item} has been added to your cart.`);
+  console.log(itemObj);
   return cart;
-
- 
 }
 
 function viewCart() {
@@ -42,19 +41,14 @@ function viewCart() {
         console.log(mystring)
           
         }
-          
-        
-        
-      
-    
-    
-    
-    
-  
-  
-}
+      }
 
 function total() {
+  var sum = 0 
+  for(var i = 0; i < cart.length; i++) {
+    sum += cart[i][Object.keys(cart[i])]
+  }
+  return sum
   
 }
 
