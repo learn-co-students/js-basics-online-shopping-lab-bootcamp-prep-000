@@ -8,8 +8,6 @@ function setCart(c) {
   cart = c;
   return cart;
 }
-// { itemName: name of the item, itemPrice: price of the item, } 
-
 
 function addToCart(item){
  var price = Math.random()*Math.floor(100);
@@ -18,8 +16,8 @@ function addToCart(item){
  return `${item} has been added to your cart.`
 }
 
-function viewCart() {
-  // write your code here
+function viewCart() { //  function does not accept any arguments. It should loop over every item in your cart, returning the contents as one long, coherent statement in this format:
+
   var output = "";
   var len = cart.length;
   if(len === 0){
@@ -28,8 +26,7 @@ function viewCart() {
   else if(len === 1){
     output = "In your cart, you have ";
     output = output.concat(cart[0].itemName, " at $", cart[0].itemPrice, ".")
-  }
-  else{ //need to take care of oxford comma
+  } else { 
     var remaining = len; //number of items remaining
     var index = 0;
     output = "In your cart, you have ";
@@ -41,8 +38,10 @@ function viewCart() {
   return output
 }
 
-function total() {
-  // write your code here
+function total() { 
+  
+  // The total() function accepts no arguments, iterates through the cart array, and returns the current total value of the items in the cart.
+
   var total = 0;
   for(let i = 0; i < cart.length; i++){
     total +=  cart[i].itemPrice;
@@ -50,8 +49,11 @@ function total() {
   return total
 }
 
-function removeFromCart(item) {
-  // write your code here
+function removeFromCart(item) { 
+
+// If the item is present in the cart, the function should remove the object from the cart and then return the updated cart.
+
+  
   //var found = false;
   var cart2;
   for(let i = 0; i < cart.length; i++){
