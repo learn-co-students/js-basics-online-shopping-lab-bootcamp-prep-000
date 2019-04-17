@@ -23,21 +23,20 @@ var object = {
  return `${item} has been added to your cart.`
 }
 
- function viewCart() {
-//   // write your code here
-for (let i = 0; i < cart.length; i++) {
-  var cartSummary = [];
+function viewCart() {
+  var cartSummary = []; //has to be outside the for loop because otherwise it will empty each time.
+  for (let i = 0; i < cart.length; i++) {
     cartSummary.push(`${cart[i].itemName} at \$${cart[i].itemPrice}`);
   }
   if (cart.length === 0) {
     return 'Your shopping cart is empty.';
   }
-  if (cart.length === 1) {
-    return `In your cart, you have ${cartSummary[0]}.`;
+    if (cart.length === 1) {
+      return `In your cart, you have ${cartSummary[0]}.`;
     }
-    else {
-      var final = cartSummary.slice(0, cartSummary.length - 1) //remove the last entry and add to the end of the sentence.
-      return `In your cart, you have ${cartSummary.join(', ')} and ${final}.`
+      else {
+        var final = cartSummary.pop() //remove the last entry and add to the end of the sentence.
+        return `In your cart, you have ${cartSummary.join(', ')}, and ${final}.`
     }
 }
 
