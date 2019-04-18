@@ -15,10 +15,10 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
-var object = {
-  itemName: item,
-  itemPrice: getRandomInt(100)
-};
+  var object = {
+    itemName: item,
+    itemPrice: getRandomInt(100)
+  };
  cart.push(object) //this adds the items to the cart
  return `${item} has been added to your cart.`
 }
@@ -37,7 +37,7 @@ function viewCart() {
       else {
         var final = cartSummary.pop() //remove the last entry and add to the end of the sentence.
         return `In your cart, you have ${cartSummary.join(', ')}, and ${final}.`
-    }
+      }
 }
 
 function total() {
@@ -59,20 +59,15 @@ function removeFromCart(item) {
     if (item === cart[i].itemName) {
       cart.splice([i], 1)
     }
-    // if (item === cart[i].itemName !== false) {
-    //return 'That item is not in your cart.'
-    //   }
-    }
+  } return 'That item is not in your cart.' // for an if () {} statement you can essentially set the two conditions like this: if (condition {true}) {true action} false action
 }
-//  var tie = cart.indexOf({itemName: "item", itemPrice: })
-//const cardNumber = Math.floor(Math.random() * 100000000);
 
 function placeOrder(card) {
   if (card === undefined) {
     var message = 'Sorry, we don\'t have a credit card on file for you.'
-    cart = [];
-  } else {
-    var message = `Your total cost is \$${total()}, which will be charged to the card ${card}.`
-    }
-    return message
+    } else {
+      var message = `Your total cost is \$${total()}, which will be charged to the card ${card}.`
+      cart = []; // works in else not in if
+      }
+  return message
 }
