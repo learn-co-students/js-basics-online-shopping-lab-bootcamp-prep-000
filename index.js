@@ -25,7 +25,7 @@ var object = {
 
 function viewCart() {
   var cartSummary = []; //has to be outside the for loop because otherwise it will empty each time.
-  for (let i = 0; i < cart.length; i++) {
+  for (var i = 0; i < cart.length; i++) {
     cartSummary.push(`${cart[i].itemName} at \$${cart[i].itemPrice}`);
   }
   if (cart.length === 0) {
@@ -40,54 +40,39 @@ function viewCart() {
     }
 }
 
-
-// if (cart.length === 0) {
-//   return 'Your shopping cart is empty.'
-// } if (cart.length === 1) {
-//   return `In your cart, you have ${cartSummary[0]}.`
-//   } else {
-// //    let cartSummary = [];
-//       for (let i = 0; i < cart.length; i++) {
-// //        cartSummary.push(`${cart[i].itemName} at \$${cart[i].itemPrice}`)
-//         let cartSummary = [
-//           `${cart[i].itemName} at \$${cart[i].itemPrice}`
-//         ]
-//         let final = cartSummary.pop //remove the last entry and add to the end of the sentence.
-//         return `In your cart, you have ${cartSummary.join(', ')} and ${final}.`
-// //    return `In your cart, you have ${cart[0].itemName} at \$${cart[0].itemPrice}.`; //opens the values inside the cart array
-//       }
-//   }
-// }
-
-//create a new array with the entries of item and price and then to a join command join(', ').
-    //  let i = 0;
-    //  while (i < whatIGot.length) {
-    //      whatIGot.push(`${i+1}. ${line[i]}`)
-    //      ++i
-    //    } return `The line is currently: ${whosLeft.join(', ')}`;
-
-
 function total() {
   // write your code here
+  var costSummary = [];
+  for (var i = 0; i < cart.length; i++) {
+    costSummary.push(`${cart[i].itemPrice}`); //this adds all the costs to an array
+  }
+  var sum = 0;
+
+  for (var i = 0; i < costSummary.length; i++) {
+    sum += parseInt(costSummary[i])
+  }
+  return sum
 }
 
 function removeFromCart(item) {
-  // write your code here
-  // delete cart.
-}
-
-function placeOrder(cardNumber) {
-  // write your code here
-    if (cardNumber === 12345678) {
-      return `Your total cost is $undefined, which will be charged to the card 73013897.`
-    } else {
-      return 'Sorry, we don\'t have a credit card on file for you.'
+  for (var i = 0; i < cart.length; i++) {
+    if (item === cart[i].itemName) {
+      cart.splice([i], 1)
     }
-  }
+    // if (item === cart[i].itemName !== false) {
+    //return 'That item is not in your cart.'
+    //   }
+    }
+}
+//  var tie = cart.indexOf({itemName: "item", itemPrice: })
+//const cardNumber = Math.floor(Math.random() * 100000000);
 
-//   if (cardNumber === cardNumber) {
-//     return 'Sorry, we don\'t have a credit card on file for you.'
-//   } else {
-//     return `Your total cost is $undefined, which will be charged to the card 73013897.`
-//   }
-// }
+function placeOrder(card) {
+  if (card === undefined) {
+    var message = 'Sorry, we don\'t have a credit card on file for you.'
+    cart = [];
+  } else {
+    var message = `Your total cost is \$${total()}, which will be charged to the card ${card}.`
+    }
+    return message
+}
