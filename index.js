@@ -14,7 +14,7 @@ function addToCart(item) {
   var itemName;
   var itemPrice;
   
-  // itemPrice is a random integer from 0 to 100
+  // itemPrice = price is a random integer from 0 to 100
   var price = Math.floor(Math.random() * 100) + 1;
   
   // cart has 2 key-value pairs: {itemName: "value", itemPrice: "value"}
