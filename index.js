@@ -30,7 +30,7 @@ function viewCart() {
          str += "."
        else if (i > 1 && i !==cart.length-1)
           str += ", "
-       else {
+       else if (cart.length === i+1){
           str += ", and "
           str += `${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
        }
