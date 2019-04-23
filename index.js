@@ -23,25 +23,19 @@ function viewCart() {
   if (cart === undefined || cart.length === 0){
     str +="Your shopping cart is empty."
   } else {
-    var obj = {}
-    for (var i = 0; i < cart.length; i++){
-       obj.i = cart[i]
+    str += "In your cart, you have "
+    for (var i = 0; i <cart.length-1; i++){
+      str += `${cart[i].itemName} at $${cart[i].itemPrice}` 
+       if (i === cart.length - 1)
+         str += "."
+       else if (i > 1 && i !==cart.length-1)
+          str += ", "
+       else {
+          str += ", and "
+          str += `${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
+       }
     }
-    str +="In your cart, you have "
-    // for (var item in obj){
-      // const values = Object.values(item)
-      // const keys = Object.keys(item)
-    //const entries = Object.entries(obj)
-        
-    
-      // for (const [item, count] of entries){
-      // str += `${item} at $${count}.`
-      for (const key of obj){
-        let value = obj[key];
-        str += `${key} at $${value}.`
-      }
-    }
-  // }
+  }
   return str
 }
 

@@ -1,4 +1,7 @@
-# Online Shopping
+1) viewCart() correctly prints a two-item cart:
+
+      Error: Expected 'In your cart, you have mango at $14, nuts at $38.' to equal 'In your cart, you have mango at $14, and nuts at $38.'
+      # Online Shopping
 
 ## Objectives
 + Model a shopping cart full of items as an array of objects in JavaScript.
