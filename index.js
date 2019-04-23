@@ -24,16 +24,16 @@ function viewCart() {
     str +="Your shopping cart is empty."
   } else {
     str += "In your cart, you have "
-    for (var i = 0; i <cart.length-1; i++){
+    for (var i = 0; i < cart.length-1; i++){
       str += `${cart[i].itemName} at $${cart[i].itemPrice}` 
-       if (i === cart.length - 1)
-         str += "."
-       else if (i > 1 && i !==cart.length-1)
-          str += ", "
-       else if (cart.length === i+1){
-          str += ", and "
-          str += `${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
-       }
+      if (i === cart.length - 1){
+        str += "."
+      } else if (i > 1 && i !==cart.length-1){
+        str += ", "
+      } else if (cart.length === i+1){
+        str += ", and "
+        str += `${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
+      }
     }
   }
   return str
