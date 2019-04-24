@@ -12,9 +12,12 @@ function setCart(c) {
 function addToCart(item) {
 
  var price = Math.floor(Math.random()*(100-1 +1))+1
- var obj = Object.assign({},{itemName:item,itemPrice:price});
- cart.push(obj)
- return `${obj.itemName} has been added to your cart.` 
+// var obj = Object.assign({},{itemName:item,itemPrice:price});
+// cart.push(obj)
+// return `${obj.itemName} has been added to your cart.` 
+  
+  cart.push({itemName:item,itemPrice:price})
+   return `${item} has been added to your cart.` 
 }
 
 function viewCart() {
@@ -31,6 +34,7 @@ function viewCart() {
       } else if (i > 1 && i !==cart.length-1){
         str += ", "
       } else if (cart.length === i+1){
+          
         str += ", and "
         str += `${cart[cart.length].itemName} at $${cart[cart.length].itemPrice}.`
       }
