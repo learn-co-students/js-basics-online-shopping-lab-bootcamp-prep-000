@@ -74,9 +74,10 @@ function removeFromCart(item) {
   let idx = cart.indexOf(tbd);
   
   // Delete the item.
-  cart.splice(tbd, 1);
+  let newCart = cart.splice(tbd, 1);
 
-  // Return updated cart.
+  cart = newCart;
+  
   return cart;
 }
 
