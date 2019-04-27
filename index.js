@@ -21,13 +21,13 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  let statement;
+  let statement = '';
   
   if (cart.length === 0) {
     return 'Your shopping cart is empty.';
   } else {
     for(let i=0; i<cart.length; i++) {
-      statement += cart[i].itemName + "at" + cart[i].itemPrice
+      statement += cart[i].itemName + " at $" + cart[i].itemPrice
       
       
       
