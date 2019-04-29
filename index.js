@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var newItem = new Object();
+  var newItem = {};
   newItem.itemName = item;
   newItem.itemPrice = Math.floor(Math.random() * 100);
 
@@ -20,32 +20,31 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
   let statement = '';
   
+  //if there's nothing in the cart return this statement
   if (cart.length === 0) {
     return 'Your shopping cart is empty.';
-  } else {
-    for(let i=0; i<cart.length; i++) {
-      statement += cart[i].itemName + " at $" + cart[i].itemPrice 
-      
-      if (i>0 && i!==cart.length-1) {
-        statement += ', ';
-      } else {
-        if (i === cart.length - 2) {
-          statement += ', and ';
-        }
-      }
-      
-      // let current = cart[i];
-      // let currentInfo = `${current.itemName} at $${current
-      // .itemPrice}` ;
-      //statement += currentInfo;
-    }
-    
-    return `In your cart, you have ${statement}.`;
-  };
+  }  
   
+  //looks at each item and adds item and price to statement string
+  for(let i=0; i<cart.length; i++) {
+    //adds banana at $17 to the statement string
+    statement += cart[i].itemName + " at $" + cart[i].itemPrice; 
+
+    //if it's second to last, add Oxford comma
+    if (i === cart.length - 2) {
+      statement += ', and ';
+      continue;
+    }
+
+    //if it's not the last item, add punctuation
+    if (i!==cart.length-1) {
+      statement += ', ';
+    }
+  }
+    
+  return `In your cart, you have ${statement}.`;
 }
 
 function total() {
