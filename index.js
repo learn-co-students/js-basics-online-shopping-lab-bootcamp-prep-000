@@ -14,6 +14,7 @@ function addToCart(item) {
   newItem.itemName = item;
   newItem.itemPrice = Math.floor(Math.random() * 100);
 
+//add new item object to cart
   cart.push(newItem);
 
   return `${item} has been added to your cart.`;
@@ -48,11 +49,19 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var sum = 0;
+  
+  //iterate over items in the cart, summing them up
+  for (var i=0; i<cart.length; i++) {
+    sum += cart[i].itemPrice;
+  }
+  
+  return sum;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  //make array of itemNames in the cart
+  var cartItems = Object.keys
 }
 
 function placeOrder(cardNumber) {
