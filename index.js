@@ -60,8 +60,21 @@ function total() {
 }
 
 function removeFromCart(item) {
-  //make array of itemNames in the cart
-  var cartItems = Object.keys
+  //create boolean to reflect presence/absence of specificied item
+  var present = false;
+  
+  //loop over itemNames and check if item matches any itemName; delete from cart array if it matches
+  for (var i=0; i<cart.length; i++) {
+    if (cart[i].itemName === item) {
+      present = true;
+      cart.splice(i, 1);
+    }
+  }
+
+  //if no match was found, return statement
+  if (present === false) {
+    return 'That item is not in your cart.';
+  }
 }
 
 function placeOrder(cardNumber) {
