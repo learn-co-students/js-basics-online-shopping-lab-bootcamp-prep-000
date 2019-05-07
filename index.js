@@ -63,13 +63,11 @@ return sum
 
 
 function removeFromCart(item) {
-
   for (var i = 0; i < cart.length; i++) {
     var itemName = Object.keys(cart[i])
     var currentItemObj = cart[i]
     if (currentItemObj.hasOwnProperty(item)) {
       cart = cart.slice(0,i).concat(cart.slice(i+1))
-  
           return cart
     }
   }
