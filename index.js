@@ -20,20 +20,16 @@ cart.push({
 }
 
 function viewCart() {
-  let list = "";
-  if(cart.length === 0) {
-    list += `Your shopping cart is empty`;
-  } else {
+  let list = "Your shopping cart is empty";
     for(let i = 0;i < cart.length;i++) {
       if (cart.length > 0 && i === 0) {
-        list += `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}`;
+        list = `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}`;
       } else if (i < cart.length - 1){
         list += `, ${cart[i].itemName} at $${cart[i].itemPrice}`;
       } else {
         list += `, and ${cart[i].itemName} at $${cart[i].itemPrice}`;
       } 
     }
-  }
   list = list + '.';
   return list;
 }
