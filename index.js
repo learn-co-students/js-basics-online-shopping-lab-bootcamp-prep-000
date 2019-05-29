@@ -1,4 +1,4 @@
-var cart = [];
+let cart = [];
 
 function getCart() {
  return cart;
@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var newObject = {};
+  const newObject = {};
   newObject.itemName = item;
   newObject.itemPrice = Math.round(Math.random() * 100);
   cart.push(newObject);
@@ -42,7 +42,7 @@ function total() {
 }
 
 function removeFromCart(item) {
-  var index = cart.findIndex(x => x.itemName === item);
+  let index = cart.findIndex(x => x.itemName === item);
   console.log(index);
   if(index === -1) {
     return "That item is not in your cart."
@@ -57,7 +57,7 @@ function placeOrder(cardNumber) {
     return "Sorry, we don't have a credit card on file for you.";
   }
   else {
-    var totalCost = total();
+    let totalCost = total();
     cart = [];
     return `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`;
   }
