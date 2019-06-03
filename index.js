@@ -55,12 +55,14 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
-   if (typeof(cardNumber) === "undefined"){
-    return "Sorry, we don't have a credit card on file for you."
-  } else {
-    cart = [];
-    return `Your total cost is $${total}, which will be charged to the card ${cardNumber}.`
+  if(cardNumber) {
+    console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+    for (var i = cart.length; i>= 0; i--) {
+      cart.pop();
+    } 
+    } else 
+      console.log('Sorry, we don\'t have a credit card on file for you.')
+return cart;
   }
-  
-}
+
+placeOrder()
