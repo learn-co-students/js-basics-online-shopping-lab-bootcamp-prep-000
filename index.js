@@ -18,10 +18,10 @@ function addToCart(item) {
 function viewCart() {
   // write your code here
 if(cart.length === 0){
-  return `Your shopping cart is empty`;
+  return `Your shopping cart is empty.`;
 }
 for(let i=0;i < cart.length; i++){
-  return `In your cart, you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}`
+  return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
 }
 }
 
