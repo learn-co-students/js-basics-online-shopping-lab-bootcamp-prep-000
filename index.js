@@ -21,20 +21,24 @@ if(cart.length === 0){
   return `Your shopping cart is empty.`;
 }
 
-for(let i=0;i < cart.length; i++){
-  if(i == 1){
-    return `In your cart, you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}.`;
+
+  if(cart.length === 1){
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
   }
-  else if(i == 2){
-    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}.`;
+  else if(cart.length === 2){
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   }
-    else
-    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}, ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]}.`;
-  }
+   /* else 
+    var startingString = `In your cart, you have
+    for(i=0; i < cart.length; i++){
+    startingString += string that you want to add
+    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}, ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]}.*/
   
   
-  //return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
 }
+
+  //return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
+
 
 
 function total() {
