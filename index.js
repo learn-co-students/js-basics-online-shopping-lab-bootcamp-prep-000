@@ -20,10 +20,22 @@ function viewCart() {
 if(cart.length === 0){
   return `Your shopping cart is empty.`;
 }
+
 for(let i=0;i < cart.length; i++){
-  return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
+  if(i == 1){
+    return `In your cart, you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}.`;
+  }
+  else if(i == 2){
+    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}.`;
+  }
+    else
+    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}, ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]}.`;
+  }
+  
+  
+  //return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
 }
-}
+
 
 function total() {
   // write your code here
