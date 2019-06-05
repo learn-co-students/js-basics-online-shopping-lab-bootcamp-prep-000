@@ -28,12 +28,12 @@ if(cart.length === 0){
   else if(cart.length === 2){
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   }
-   else
+   else{
    var startingString = `In your cart, you have`;
    for(i=0;i < cart.length-1;i++){
      startingString += `${cart[i].itemName} at $${cart[i].itemPrice}`
    }
-   startingString += `and ${cart[i].itemName} at $${cart[i]`
+startingString += `and ${cart[i].itemName} at $${cart[i].itemPrice}`
 }
 
 
