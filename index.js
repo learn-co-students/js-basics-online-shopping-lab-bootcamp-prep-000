@@ -30,14 +30,13 @@ if(cart.length === 0){
   }
    else
    var startingString = `In your cart, you have`;
-   for(i=0;i < cart.length;i++){
-   return  startingString += `${cart[i].itemName} at $${cart[i].itemPrice}, and ${cart[i].itemName} at $${cart[i].itemPrice}.`;
-  
+   for(i=0;i < cart.length-1;i++){
+     startingString += `${cart[i].itemName} at $${cart[i].itemPrice}`
    }
+   startingString += `and ${cart[i].itemName} at $${cart[i]`
 }
 
 
-  //return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
 
 
 
