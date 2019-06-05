@@ -29,11 +29,13 @@ if(cart.length === 0){
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   }
    else
-    //startingString += string that you want to add
-   return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`;
+   var startingString = `In your cart, you have`;
+   for(i=0;i < cart.length;i++){
+   return  startingString += `${cart[i].itemName} at $${cart[i].itemPrice}, and ${cart[i].itemName} at $${cart[i].itemPrice}.`;
   
-  
+   }
 }
+
 
   //return `In your cart, you have ${cart.item[i]} at ${cart.item[i]}`// working on this
 
@@ -41,6 +43,7 @@ if(cart.length === 0){
 
 function total() {
   // write your code here
+  
 }
 
 function removeFromCart(item) {
