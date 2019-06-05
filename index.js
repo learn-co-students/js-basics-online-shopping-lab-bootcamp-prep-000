@@ -28,11 +28,10 @@ if(cart.length === 0){
   else if(cart.length === 2){
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
   }
-   /* else 
-    var startingString = `In your cart, you have
-    for(i=0; i < cart.length; i++){
-    startingString += string that you want to add
-    return `In your cart you have ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]}, ${cart.itemName.item[i]} at ${cart.itemPrice.price[i]} and ${cart.itemName.item[i]}.*/
+   else 
+    var startingString = `In your cart, you have`;
+    //startingString += string that you want to add
+   return `In your cart you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice} and ${cart[3].itemName} at $${cart[3].itemPrice}.`;
   
   
 }
