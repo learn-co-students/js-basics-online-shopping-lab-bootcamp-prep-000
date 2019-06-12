@@ -58,9 +58,15 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  if(!cart.length){
+    return `That item is not in your cart.`;
+  } else {
+    return cart.splice(1,1);
+  }
   
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  
 }
