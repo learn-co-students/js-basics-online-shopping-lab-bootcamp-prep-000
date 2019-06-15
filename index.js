@@ -10,9 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  for (let i=0;i<cart.length;i++){
-    cart+={itemName:item,itemPrice:Math.floor(Math.random() * 100) + 1}
-  }
+    var items={
+      itemName:item,itemPrice:Math.floor(Math.random() * 100) + 1
+    }
+    cart.push(items)
  return `${item} has been added to your cart.`
 }
 
