@@ -49,17 +49,15 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  let newSum = []
-  function newTotal() {
-  let sum = 0
-  for (let i = 0; i < newSum.length; i+=1) {
-    sum += newSum[i].itemPrice
-  } return sum
-} if (!cardNumber) {
-    return `Sorry, we don't have a credit card on file for you.`
-  } if (cardNumber) {
-  newSum = cart.slice(0)
-  cart.splice(0)
-    return `Your total cost is $${newTotal()}, which will be charged to the card ${cardNumber}.`
-  }
+  // write your code here
 }
+
+
+console.log(addToCart("Milk"))
+console.log(cart)
+console.log(addToCart("Apple"))
+console.log(cart)
+console.log(addToCart("Eggs"))
+console.log(addToCart("Bananna"))
+console.log(addToCart("Oranges"))
+console.log(cart)
