@@ -58,12 +58,18 @@ function removeFromCart(item) {
     if (cart[i].itemName === item) {
       cart.splice(i, 1);
       return cart;
-    } else if (cart[i].itemName != item) {
-      return 'That item is not in your cart.';
     }
   }
+
+  return 'That item is not in your cart.';
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  var cartTotal = total(cart);
+  if (cardNumber === undefined) {
+    return "Sorry, we don't have a credit card on file for you.";
+  } else {
+    cart = [];
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`;
+  }
 }
