@@ -10,7 +10,12 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+    function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+    var newItem = {itemName: (item),
+                   itemPrice: (Math.floor(Math.random() * 6) + 1)};
+	cart.push(newItem)
 }
 
 function viewCart() {
