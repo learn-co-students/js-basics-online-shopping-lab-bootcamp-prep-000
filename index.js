@@ -10,16 +10,15 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-    function getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-    var newItem = {itemName: (item),
-                   itemPrice: (Math.floor(Math.random() * 6) + 1)};
+  var newItem = {itemName: (item),
+                   itemPrice: (Math.floor(Math.random() * 100) + 1)};
 	cart.push(newItem)
+  return(`${item} has been added to your cart.`)
 }
 
-function viewCart() {
-  // write your code here
+function viewCart(cart) {
+  if (cart.length === 0){
+    return("Your shopping cart is empty."")}
 }
 
 function total() {
