@@ -26,7 +26,7 @@ function viewCart() {
   if(i === 0){
     return 'Your shopping cart is empty.'
   }
-  if( i > 1){
+  if( i > 1){ //else or switch case
     for(let j = 0; j < cart.length - 1; j++) {
       stdtext +=`${cart[j].itemName} at $${cart[j].itemPrice}, `
     }
@@ -35,13 +35,30 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+  var totalPrice = 0
+  for(let i = 0; i != cart.length; i++){ //index and lenght index will always be minor than the //lenght is possible to use != or <
+    totalPrice += cart[i].itemPrice
+  }
+  return totalPrice
 }
 
 function removeFromCart(item) {
-  // write your code here
+  for(let i = 0; i < cart.length; i++){
+    if(item === cart[i].itemName){
+      cart.splice(i, 1)
+      return cart
+    } 
+    
+  }
+  return 'That item is not in your cart.'
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+  if(cardNumber === undefined){
+    return `Sorry, we don't have a credit card on file for you.`
+  } else {
+    var finalPrice = `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+    cart = []
+    return finalPrice
+  }
 }
