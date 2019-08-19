@@ -22,14 +22,23 @@ function addToCart(item) {
 
 
 function viewCart() {
-  // write your code here
-  getCart();
+  
+ var currentCart = getCart();
+
   if(cart.length === 0) {return 'Your shopping cart is empty.'}
+
+  var itemsWithPrice=[];
   for(let i = 0; i < cart.length; i++){
-    let items=[];
-    items.push(`${item[i].itemName} at ${item[i].itemPrice}$.`);
+    
+  itemsWithPrice.push(`${cart[i].itemName} at $${cart[i].itemPrice}`);
   }
-  return 'In your cart, you have' + items.join(', ');
+  
+  if(cart.length > 1) {
+  
+   var last = itemsWithPrice.pop();
+   return 'In your cart, you have ' + itemsWithPrice.join(', ') +', and '+ last + '.';
+  }
+  return 'In your cart, you have ' + itemsWithPrice.join(', ') + '.';
 }
 
 
@@ -41,7 +50,7 @@ function total() {
   // write your code here
   var sum = 0;
   for(let i=0; i < cart.length; i++){
-   sum += item[i].itemPrice;
+   sum += cart[i].itemPrice;
   }
   return sum;
 }
@@ -51,9 +60,9 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  
-  for(let i = 0; i < cart.length; i++) {
-    if(item === item.itemName[i]){ delete item.itemName[i];}
+  var currentCart = getCart();
+  for(let i =0; i< cart.length; i++) {
+    if(item === cart[i].itemName){ cart.splice(i,1);}
     return cart;
   }
   return 'That item is not in your cart.';
@@ -63,7 +72,14 @@ function removeFromCart(item) {
 
 
 
-
 function placeOrder(cardNumber) {
   // write your code here
+  var currentCart = getCart();
+  if(cardNumber ===undefined ) {return 'Sorry, we don\'t have a credit card on file for you.'}
+  else {var Price = total();
+  cart = [];
+  return `Your total cost is $${Price}, which will be charged to the card ${cardNumber}.`;
+  }
+  
+  
 }
