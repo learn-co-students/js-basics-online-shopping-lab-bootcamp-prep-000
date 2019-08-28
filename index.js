@@ -14,12 +14,42 @@ function addToCart(item) {
   var itemObject = {itemName:item,itemPrice:price };
   cart.push(itemObject);
   return `${itemObject.itemName} has been added to your cart.`;
- 
 }
 
+
+
 function viewCart() {
-  // write your code here
+  if (cart.length === 0) {
+    return`Your shopping cart is empty.`;
+  }
+  else{
+      var myString = "In your cart, you have "
+  
+        for(var i = 0; i < cart.length; i++){
+         
+           myString+=`${cart[i].itemName} at $${cart[i].itemPrice}`;
+           
+              if(i!==cart.length-1 &&cart.length!==1){
+                 
+                  myString+=",";
+                }
+               
+                else if (i===cart.length-2){
+                 myString+= " and"
+                }
+                else {
+              
+                  myString+="."
+                  
+                }
+              }
+
+         
+
+     return myString;
+  }
 }
+
 
 function total() {
   // write your code here
