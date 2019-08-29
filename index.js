@@ -16,39 +16,26 @@ function addToCart(item) {
   return `${itemObject.itemName} has been added to your cart.`;
 }
 
-
-
-function viewCart() {
-  if (cart.length === 0) {
-    return`Your shopping cart is empty.`;
-  }
-  else{
-      var myString = "In your cart, you have "
-  
-        for(var i = 0; i < cart.length; i++){
-         
-           myString+=`${cart[i].itemName} at $${cart[i].itemPrice}`;
-           
-              if(i!==cart.length-1 &&cart.length!==1){
-                 
-                  myString+=",";
-                }
-               
-                else if (i===cart.length-2){
-                 myString+= "and"
-                }
-                else {
-              
-                  myString+="."
-                  
-                }
-              }
-
-         
-
-     return myString;
-  }
+  function viewCart() {
+ // write your code here
+  if (cart.length === 0){
+    return`Your shopping cart is empty.`
+  } else if (cart.length === 1){
+    var oneItem = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
+    return oneItem;
+  } else if (cart.length === 2){
+    var twoItems = `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`
+   return twoItems;
+  } else {
+    var cartData = []
+    for (var i = 0; i < cart.length-1; i++){
+      cartData.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
 }
+    var threePlusItems = `In your cart, you have ${cartData.join(', ')}, and ${cart[cart.length-1].itemName} at $${cart[cart.length-1].itemPrice}.`
+  }
+  return threePlusItems;
+}
+
 
 
 function total() {
