@@ -24,7 +24,17 @@ function addToCart(itemName) {
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length === 0) {
+    return ('Your shopping cart is empty.');
+  }
+  // In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.
+  var cartContents = "In your cart, you have "
+  //In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}
+  
+  for (var i = 0; i < cart.length; i++) {
+    cartContents = (cartContents  + getCart()[i] + " at $" + getCart()[i].itemPrice + ", ");
+  }
+  return cartContents;
 }
 
 function total() {
