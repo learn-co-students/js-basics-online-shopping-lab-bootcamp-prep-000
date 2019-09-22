@@ -5,7 +5,7 @@ function getCart() {
   if (resetCart === true) {
     cart = [];
   }
-    return cart;
+  return cart;
 }
 
 function setCart(c) {
