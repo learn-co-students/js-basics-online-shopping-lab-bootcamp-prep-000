@@ -11,7 +11,7 @@ function setCart(c) {
 
 function addToCart(itemName) {
   // make random price for itemObj
-  var itemPrice = Math.floor(Math.random() * 100);
+  var itemPrice = Math.floor((Math.random() + 0.01)* 100);
 
   // make into an object - { itemName: name of the item, itemPrice: price of the item, }
   var itemObj = {itemName:itemName, itemPrice:itemPrice};
@@ -32,13 +32,30 @@ function viewCart() {
   //In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}
   
   for (var i = 0; i < cart.length; i++) {
-    cartContents = (cartContents  + getCart()[i] + " at $" + getCart()[i].itemPrice + ", ");
+    var pos = i +1 ;
+    if (cart.length == 1) {
+      cartContents = (cartContents  + cart[i].itemName + " at $" + cart[i].itemPrice + ".");
+      return cartContents;
+    }
+    
+    // for items 2 --> 2nd to last ...
+    if (pos != cart.length) {    
+      cartContents = (cartContents  + cart[i].itemName + " at $" + cart[i].itemPrice + ", ");
+    }  
+    // for last item ...
+    if (pos == cart.length) {
+        cartContents =  (cartContents  + "and " + cart[i].itemName + " at $" + cart[i].itemPrice + ".");
+    }
   }
   return cartContents;
 }
 
 function total() {
-  // write your code here
+  var priceSum = 0;
+  for (var i = 0; i < cart.length; i++) {
+    priceSum += cart[i].itemPrice;
+  }
+  return priceSum;
 }
 
 function removeFromCart(item) {
