@@ -10,11 +10,21 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ return item.push ('itemName')
+  // write your code here
 }
 
 function viewCart() {
-  // write your code here
+  var viewCart = {'itemName'; 'price'};
+var random (price) = Math.floor(Math.random ()*100)+1
+  return (viewCart)
+
+if   {
+  var ("itemName"= var())
+  console.log ("In your cart, you have bananas at $('price'), pancake batter at $('price'), and eggs at $('price').")
+} else{
+  console.log ("Your shopping cart is empty")
+}// write your code here
 }
 
 function total() {
