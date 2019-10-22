@@ -1,93 +1,68 @@
-var cart = [];
+let cart = [];
 
-function getCart() {
- return cart;
-}
+const cartStrings = {
+	added: ' has been added to your cart.',
+	empty: 'Your shopping cart is empty.',
+	contents: 'In your cart, you have '
+};
 
-function setCart(c) {
-  cart = c;
-  return cart;
-}
+const generateRandomPrice = () => Math.round(Math.random() * 10);
 
+const getCart = () => cart;
 
-//ADD TO CART FUNCTION!!
+const setCart = c => (cart = c);
 
 function addToCart(item) {
- let price = Math.floor(Math.random() * 100) + 1  
- let i = cart.length
- let nameAndPrice = {itemName: item,
-                     itemPrice: price} 
-cart.push(nameAndPrice)
-return `${cart[i].itemName} has been added to your cart.`
+	cart.push({
+		itemName: item,
+		itemPrice: generateRandomPrice()
+	});
+
+	return item + cartStrings.added;
 }
 
-//VIEW CART FUNCTION
+const lastItem = () => {
+	const lastItem = cart[cart.length - 1];
+	return `${lastItem.itemName} at $${lastItem.itemPrice}.`;
+};
 
+const oneItem = () => lastItem();
 
-function viewCart() {
+const multipleItems = () => {
+	const itemsAndPrices = [];
+	for (let i = 0; i < cart.length - 1; i++) {
+		const item = cart[i];
+		itemsAndPrices.push(`${item.itemName} at $${item.itemPrice}`);
+	}
+	return itemsAndPrices.join(', ') + ', and ' + lastItem();
+};
 
-let currentCart = []  
-  
-let str = "In your cart, you have "; 
-    if (!cart.length) {
-    return ("Your shopping cart is empty.")
-  }
-  
-  
-  else if (cart.length===1) {
-     for (let i=0; i<cart.length; i++)
-      currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-      return (str) + (currentCart) + (".")
-  }
-      else if (cart.length===2) {
-     for (let i=0; i<cart.length; i++)
-      currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-      return (str) + (currentCart.join(", and "))  + (".")
-     }
-   else { for (let i=0; i<cart.length; i++)
-      currentCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
-      let lastItem = currentCart.pop()
-      return (str) + (currentCart.join(", ")) + (", and ") + (lastItem) + (".")
-     }
-}
+const formatCartContents = () => cartStrings.contents + (cart.length > 1 ? multipleItems() : oneItem());
 
-//TOTAL FUNTION
+const viewCart = () => (cart.length === 0 ? cartStrings.empty : formatCartContents());
 
-   function total() {
+const total = () => {
+	let priceCounter = 0;
+	for (const i in cart) {
+		priceCounter += cart[i].itemPrice;
+	}
+	return priceCounter;
+};
 
-var currentCart=[]
-     for (let i=0; i<cart.length; i++)
-      currentCart.push(cart[i].itemPrice)
-function getSum(total, num) {
-    return total + num;}
-return currentCart.reduce(getSum)
-     }
+const removeFromCart = item => {
+	const newCart = cart.filter(itemObj => itemObj.itemName !== item);
 
+	if (newCart.length === cart.length) {
+		return 'That item is not in your cart.';
+	}
+	cart = newCart;
+};
 
-//REMOVE FROM CART
-
-
-function removeFromCart(item) {
-  for (var i = 0; i < cart.length; i++) 
-    if (cart[i].itemName==item) {
-      cart.splice(i, 1);
-      return cart;}
-  {return ("That item is not in your cart.")}
-}
-
-
-// PLACE ORDER 
-
-function placeOrder(cardNumber) {
-  if (!cardNumber) {
-    return ("Sorry, we don't have a credit card on file for you.")
-  }
-  else {
-let totalCost = total()
-cart = []
-   return ("Your total cost is $" + totalCost +`, which will be charged to the card ${cardNumber}.`)
-  }
-  
-}
-
-
+const placeOrder = cardNumber => {
+	if (!cardNumber) {
+		return "Sorry, we don't have a credit card on file for you.";
+	}
+	const totalPrice = total();
+	cart = [];
+	return `Your total cost is $${totalPrice}, which will be charged to the card ${cardNumber}.`;
+};
