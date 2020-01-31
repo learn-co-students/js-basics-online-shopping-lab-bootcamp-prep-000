@@ -9,7 +9,10 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
+function addToCart(apples) {
+  "bananas", itemPrice: 17
+  Math.random(1..100)
+  return apples
  // write your code here
 }
 
