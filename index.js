@@ -80,18 +80,33 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  const found = cart.find(element => element.indexName == item)
+  const found = cart.findIndex(element => element.itemName == item);
+  console.log(`The value found = ${found}`);
   var returnValue = "";
-  if(found === undefined)
-    returnValue = `That value is not in your cart`;
+  if((found === undefined) || (found === -1))
+  {
+    returnValue = `That item is not in your cart.`;
     return returnValue;
+  }
   else
-    {
-      cart.splice(found,1);
-      return cart;
-    }
+  {
+    cart.splice(found,1);
+    return cart;
+  }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  var returnString = "";
+  if(cardNumber === undefined)
+  {
+    returnString = "Sorry, we don't have a credit card on file for you."
+  }
+  else
+  {
+    var totalCharge = total();
+    cart.splice(0,cart.length);
+    returnString = `Your total cost is $${totalCharge}, which will be charged to the card ${cardNumber}.`;
+  }
+  return returnString;
 }
