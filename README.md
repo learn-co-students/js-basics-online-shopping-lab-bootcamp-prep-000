@@ -1,5 +1,5 @@
 # Online Shopping
-
+rem
 ## Objectives
 + Model a shopping cart full of items as an array of objects in JavaScript.
 + Iterate over arrays with `for` loops
