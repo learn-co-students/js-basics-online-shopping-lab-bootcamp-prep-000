@@ -1,4 +1,4 @@
-var cart = [];
+var cart = [];  //global var is empty array
 
 function getCart() {
  return cart;
@@ -10,7 +10,10 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+
+  var item = {};
+  cart.push(item);
+
 }
 
 function viewCart() {
