@@ -12,7 +12,7 @@ function setCart(c) {
 function addToCart(item) {
 
   var item = {};
-  cart.push({item});
+  cart.push({'item': ${item}});
 
 }
 
