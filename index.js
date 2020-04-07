@@ -38,19 +38,20 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  var result;
+  var result = '';
   for (var k = 0; k < getCart().length; k++){
     if (getCart()[k].itemName === item){
       result = getCart()[k];
       }
-    if (result === undefined) {  
+   }
+  if (result === '') {  
       return 'That item is not in your cart.';
     } else {
       var toRemove = cart.indexOf(result);
       var removed = getCart().splice(toRemove,1);
       return removed;
   }
-}}
+}
 
 function placeOrder(cardNumber) {
   // write your code here
