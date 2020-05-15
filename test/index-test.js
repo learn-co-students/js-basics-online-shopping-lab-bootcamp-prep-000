@@ -1,171 +1,129 @@
 /*global afterEach, beforeEach, describe, it */
 
 beforeEach(function() {
-  setCart([]);
+  setCart([])
 
-  expect.spyOn(console, "log");
-});
+  expect.spyOn(console, 'log')
+})
 
 afterEach(function() {
-  expect.restoreSpies();
-});
+  expect.restoreSpies()
+})
 
-describe("addToCart()", function() {
-  it("can add items to the cart", function() {
-    addToCart("apples");
-
-    expect(getCart().length).toEqual(1);
-
-    addToCart("bananas");
-
-    expect(getCart().length).toEqual(2);
-  });
-
-  it("turns items into JavaScript objects before adding them to the cart", function() {
-    addToCart("carrots");
-
-    let itemConstructor = getCart()[0].constructor;
-
-    expect(itemConstructor).toEqual(Object);
-  });
-
-  it("properly structures the cart item as object with a key of `itemName` and the corresponding value { itemName: itemName } format", function() {
-    addToCart("daikon");
-
-    let itemName = getCart()[0].itemName;
-
-    expect(itemName).toEqual("daikon");
-  });
-
-  it("sets the price (integer between 1 and 100) on the cart object using the key `price`", function() {
-    addToCart("eggplant");
-
-    let itemPrice = getCart()[0].itemPrice;
-
-    expect(itemPrice).toBeLessThanOrEqualTo(100)
-                     .toBeGreaterThanOrEqualTo(1);
-  });
-
-  it("chooses the price at random", function() {
-    // Note: this test has a 1-in-10,000 chance of a false negative.
-    addToCart("figs");
-    addToCart("grapes");
-    addToCart("halloumi");
-
-    let pricesArray = getCart().map(cartItem => cartItem.itemPrice);
-    let areAnyPricesEqual = pricesArray[0] === pricesArray[1] && pricesArray[1] === pricesArray[2];
-
-    expect(areAnyPricesEqual).toBe(false);
-  });
-
-  it("returns a message indicating that the item has been added", function() {
-    expect(addToCart("ice cream")).toEqual("ice cream has been added to your cart.");
-
-    expect(addToCart("juice")).toEqual("juice has been added to your cart.");
-  });
-});
-
-describe("viewCart()", function() {
-  it("prints 'Your shopping cart is empty.' if the cart is empty", function() {
-    expect(viewCart()).toEqual("Your shopping cart is empty.")
-  });
-
-  it("correctly prints a one-item cart", function() {
-    addToCart("lemons");
-    expect(viewCart()).toEqual(`In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}.`);
-  });
-
-  it("correctly prints a two-item cart", function() {
-    addToCart("mango");
-    addToCart("nuts");
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, and ${getCart()[1].itemName} at $${getCart()[1].itemPrice}.`
-    );
-  });
-
-  it("correctly prints a three-or-more-item cart", function() {
-    addToCart("orange");
-    addToCart("pear");
-    addToCart("quince");
-
-    ;
-
-    expect(viewCart()).toEqual(
-      `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
-    );
-  });
-});
-
-describe("total()", function() {
-  it("adds up the price of all items in the cart", function() {
-    addToCart("sorghum");
-    addToCart("tarragon");
-
-    const sorghumCost = getCart()[0].itemPrice;
-    const tarragonCost = getCart()[1].itemPrice;
-
-    let totalCost = sorghumCost + tarragonCost;
-
-    expect(total()).toBe(totalCost);
-
-    addToCart("urchin");
-
-    const urchinCost = getCart()[2].itemPrice;
-
-    totalCost += urchinCost;
-
-    expect(total()).toBe(totalCost);
-  });
-});
-
-describe("removeFromCart()", function() {
-  it("removes the specified item from the cart", function() {
-    addToCart("vanilla");
-    addToCart("watermelon");
-    addToCart("yams");
-
-    removeFromCart("watermelon");
-
-    const firstItemName = getCart()[0].itemName;
-    const secondItemName = getCart()[1].itemName;
-
-    expect(firstItemName).toEqual("vanilla");
-    expect(secondItemName).toEqual("yams");
-
-    removeFromCart("yams");
+describe('#addToCart', function() {
+  it("should add an item to the cart", function() {
+    addToCart('pizza')
 
     expect(getCart().length).toEqual(1);
   });
 
-  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
-    // Repeat item name from previous test to prevent hard-coding.
-    expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
+  it("logs that the item has been added", function() {
+    addToCart('pizza')
+
+    expect(console.log).toHaveBeenCalledWith("pizza has been added to your cart.")
+  })
+
+  it("returns the cart", function() {
+    expect(addToCart("pizza")).toEqual(getCart())
+  })
+});
+
+describe('#viewCart', function() {
+  it("should print each item in the cart and their cost", function() {
+    addToCart("socks");
+    addToCart("puppy");
+    addToCart("iPhone");
+
+    const socksCost = getCart()[0]["socks"];
+    const puppyCost = getCart()[1]["puppy"];
+    const iPhoneCost = getCart()[2]["iPhone"];
+
+    viewCart();
+
+    expect(console.log).toHaveBeenCalledWith(
+      `In your cart, you have socks at $${socksCost}, puppy at $${puppyCost}, iPhone at $${iPhoneCost}.`
+    )
+  });
+
+  it("should print 'Your shopping cart is empty.' if the cart is empty", function() {
+    viewCart();
+
+    expect(console.log).toHaveBeenCalledWith("Your shopping cart is empty.")
   });
 });
 
-describe("placeOrder()", function() {
-  it("doesn't place the order if a credit card number is not provided", function() {
-    
-    expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
-  });
+describe('#total', function() {
+  it('adds up the prices of the items in the cart', function() {
+    addToCart("socks");
+    addToCart("puppy");
+    addToCart("iPhone");
 
-  it("places an order when a credit card number is provided", function() {
-    addToCart("zucchini");
+    const socksCost = getCart()[0]["socks"];
+    const puppyCost = getCart()[1]["puppy"];
+    const iPhoneCost = getCart()[2]["iPhone"];
 
-    const cartTotal = total();
-    const cardNumber = Math.floor(Math.random() * 100000000);
+    const totalCost = socksCost + puppyCost + iPhoneCost;
 
-    
+    expect(total()).toEqual(totalCost)
+  })
+})
 
-    expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
-  });
+describe('#removeFromCart', function() {
+  it("removes the item from the cart", function() {
+    addToCart('pizza')
 
-  it("empties the cart", function() {
-    addToCart("apples");
+    expect(hasItem(getCart(), 'pizza')).toBe(true)
 
-    placeOrder(12345678);
+    removeFromCart("pizza");
 
     expect(getCart()).toEqual([]);
   });
+
+  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+    removeFromCart("sock")
+
+    expect(console.log).toHaveBeenCalledWith("That item is not in your cart.")
+  });
 });
+
+describe('#placeOrder', function() {
+  it("doesn't let you place an order if you don't provide a credit card number", function() {
+    placeOrder();
+
+    expect(console.log).toHaveBeenCalledWith(
+      "We don't have a credit card on file for you to place your order."
+    )
+  });
+
+  it("lets you place an order with a credit card", function() {
+    addToCart('pizza')
+
+    const t = total()
+
+    placeOrder(123);
+
+    expect(console.log).toHaveBeenCalledWith(
+      `Your total cost is $${t}, which will be charged to the card 123.`
+    )
+  });
+
+  it('empties the cart', function() {
+    addToCart('pizza')
+
+    expect(hasItem(getCart(), 'pizza')).toBe(true)
+
+    placeOrder(123);
+
+    expect(getCart()).toEqual([])
+  })
+})
+
+function hasItem(c, item) {
+  for (let i = 0, l = c.length; i < l; i++) {
+    if (c[i].hasOwnProperty(item)) {
+      return true
+    }
+  }
+
+  return false
+}
