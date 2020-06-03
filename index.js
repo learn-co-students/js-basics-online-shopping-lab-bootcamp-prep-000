@@ -22,20 +22,21 @@ function addToCart(passedInItemNameString) {
 function viewCart() {
   if (cart.length === 0) {
     return `Your shopping cart is empty.`
+  } else if (cart.length === 1) {
+    return 'In your cart, you have ' + cart[0].itemName + " at " + "$" + cart[0].itemPrice + "."
   }
   var item_status_string = 'In your cart, you have ';
-  for(let i = 0; i < cart.length; i++) {
-    item_status_string = item_status_string + cart[i].itemName + " at " + "$" + cart[i].itemPrice + "."
+  for(let i = 0; i < cart.length - 1; i++) {
+    item_status_string = item_status_string +cart[i].itemName + " at " + "$" + cart[i].itemPrice + ", "
   }
-  var item_status_string_two = `and`
-  for(let i = 0; i < cart.length; i++) {
-    item_status_string_two = "In your cart, you have" + cart[i].itemName + " at " + "$" + cart[i].itemPrice + item_status_string_two + "."
+  if (cart.length > 1) {
+    item_status_string += 'and ' + cart[cart.length-1].itemName + " at " + "$" + cart[cart.length-1].itemPrice + "."
   }
 
-  return item_status_string.concat(item_status_string_two);
+  return item_status_string;
 
 } 
-// write your code here
+ 
 
   /**
    * cart = [
