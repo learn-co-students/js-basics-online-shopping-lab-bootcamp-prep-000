@@ -88,17 +88,17 @@ function removeFromCart(item) {
 }
 
 
-function placeOrder(cardNumber) { // set parameter to undefined
-  if (cardNumber) {
+function placeOrder(cardNumber) { 
+  if (cardNumber) { // if CC  is in parameter
     const customerTotal = total()// sets constant for prior function of returned value
-    cart = []
-    return (`Your total cost is $${customerTotal}, which will be charged to the card ${cardNumber}.`)
+    cart = []// set cart to empty array-changes global value
+    return (`Your total cost is $${customerTotal}, which will be charged to the card ${cardNumber}.`)//string interpolation of constant and CC number
   }
-    for (let i = 0; i < cart.length; cart[i++] = 0){
+    for (let i = 0; i < cart.length; cart[i++] = 0){// returns empty cart
       return (cart)
     }
-  if (cardNumber === undefined) {
-    return(`Sorry, we don't have a credit card on file for you.`)
+  if (cardNumber === undefined) {//if no value for parameter 
+    return(`Sorry, we don't have a credit card on file for you.`) // returns string
   }
 
 }
