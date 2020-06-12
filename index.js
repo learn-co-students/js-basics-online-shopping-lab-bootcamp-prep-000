@@ -88,9 +88,9 @@ function removeFromCart(item) {
 }
 
 
-function placeOrder(cardNumber = undefined) {
+function placeOrder(cardNumber) { // set parameter to undefined
   if (cardNumber) {
-    const customerTotal = total()
+    const customerTotal = total()// sets constant for prior function of returned value
     cart = []
     return (`Your total cost is $${customerTotal}, which will be charged to the card ${cardNumber}.`)
   }
