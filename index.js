@@ -1,3 +1,5 @@
+
+
 var cart = [];
 
 function getCart() {
@@ -65,14 +67,60 @@ function viewCart() {
 
 
 
-function total() {
+  function total() {
+   let sum = 0
+   for (let i = 0; i < cart.length; i++){
+    sum += cart[i].itemPrice
+   }
   // write your code here
+  return (sum)
 }
+
 
 function removeFromCart(item) {
-  // write your code here
+  for (let i = 0; i < cart.length; i++){
+    if(item === cart[i].itemName){
+    cart.splice(i,1)
+    return(cart)
+  }
+}
+  return (`That item is not in your cart.`)
 }
 
-function placeOrder(cardNumber) {
-  // write your code here
+
+function placeOrder(cardNumber = undefined) {
+  if (cardNumber) {
+    const customerTotal = total()
+    cart = []
+    return (`Your total cost is $${customerTotal}, which will be charged to the card ${cardNumber}.`)
+  }
+    for (let i = 0; i < cart.length; cart[i++] = 0){
+      return (cart)
+    }
+  if (cardNumber === undefined) {
+    return(`Sorry, we don't have a credit card on file for you.`)
+  }
+
 }
+
+// function placeOrder(cardNumber = undefined) {
+ 
+//   if (cardNumber) {
+//     const customerTotal = total()
+//      cart = []
+// return (`Your total cost is $${customerTotal}, which will be charged to the card ${cardNumber}.`)
+//   }
+
+//   if (cardNumber === undefined) {
+//     return(`Sorry, we don't have a credit card on file for you.`)
+//   }
+ 
+// }
+
+
+// Procedure: comparison of CC value true or false (CC number, cart value)
+// Cc number = true or false
+// If true then return interpolated string with cart value
+// Pull items out of cart to show empty cart
+
+// If false then return string indicating no CC
