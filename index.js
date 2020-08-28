@@ -10,7 +10,12 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  function priceGenerator() {
+    var fprice = Math.random();
+    var sprice = (fprice * 100) + 1;
+    return Math.floor(sprice);
+  }
+  var itemInfro = {`itemName`: `${item}`, `itemPrice`: `${priceGenerator()}`};
 }
 
 function viewCart() {
