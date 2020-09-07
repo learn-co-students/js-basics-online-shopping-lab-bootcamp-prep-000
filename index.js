@@ -22,15 +22,20 @@ function viewCart() {
     return `Your shopping cart is empty.`;
   }
   else{
-  var viewCartList = [];
+  //var viewCartList = [];
   for(let i=0; i< length; i++){
-    let cartList = cart[i];
-    let listItem = cartList.item;
-    let listPrice = cartList.price;
-    viewCartList = [...viewCartList, listItem at listPrice];
+    var cartList = cart[i];
+    var cartItem = cartList.item;
+    var it emPrice = cartList.price;
+    for (let key in cart)
+    var itemAtPrice = `${itemName} at ${itemPrice}`;
+    viewCartList = [...viewCartList, itemAtPrice];
   }
-  return `In your cart, you have ${viewCartList.join(', ')}.`;
-  }
+   return `In your cart, you have  ${viewCartList.join(', ')}.`;
+    }
+    for ( let prop in person ) {
+  console.log(`${prop}: ${person[prop]}`);
+}
 }
 
 function total() {
