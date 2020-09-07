@@ -22,7 +22,14 @@ function viewCart() {
     return `Your shopping cart is empty.`;
   }
   else{
-  //var viewCartList = [];
+    let message = [];
+    for (let key in cart){
+      
+    }     
+  }
+  
+      `
+  /*var viewCartList = [];
   for(let i=0; i< length; i++){
     var cartList = cart[i];
     var cartItem = cartList.item;
@@ -30,7 +37,7 @@ function viewCart() {
     for (let key in cart)
     var itemAtPrice = `${itemName} at ${itemPrice}`;
     viewCartList = [...viewCartList, itemAtPrice];
-  }
+  }*/
    return `In your cart, you have  ${viewCartList.join(', ')}.`;
     }
     for ( let prop in person ) {
