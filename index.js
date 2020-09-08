@@ -22,29 +22,46 @@ function viewCart() {
     return `Your shopping cart is empty.`;
   }
   else{
-    let message = [];
-    for (let key in cart){
-      
-    }     
-  }
-  
-      `
+    const itemPriceList = [];
+    for(var i = 0; i < cart.length; i++){
+      //let cartItem = cart[i].item;
+      //let cartPrice = cart[i].price;
+      var itemAtPrice = `${cart[i].item} at ${cart[i].price}`;
+      itemPriceList.push(itemAtPrice);
+    }
+    return `In your cart, you have ${itemPriceList.join(", ")}.`;
+}
+}
+
+
   /*var viewCartList = [];
   for(let i=0; i< length; i++){
     var cartList = cart[i];
     var cartItem = cartList.item;
-    var it emPrice = cartList.price;
+    var itemPrice = cartList.price;
     for (let key in cart)
     var itemAtPrice = `${itemName} at ${itemPrice}`;
     viewCartList = [...viewCartList, itemAtPrice];
-  }*/
+  }
    return `In your cart, you have  ${viewCartList.join(', ')}.`;
     }
     for ( let prop in person ) {
   console.log(`${prop}: ${person[prop]}`);
+}*/
+/*
+  //var viewCartList = [];
+  for(let i=0; i< length; i++){
+    var cartList = getCart()[i];
+    var itemName = cartList.item;
+    var itemPrice = cartList.price;
+    var itemAtPrice = `${itemName} at ${itemPrice}`;
+    viewCartList = [...viewCartList, itemAtPrice];
+  }
+   return `In your cart, you have  ${viewCartList.join(', ')}.`;
+    }
+>>>>>>> 26f6a05cbbb7ea7befacda25d41b2297ac43a82e
 }
-}
-
+*/
 function total() {
   // write your code here
 }
@@ -56,3 +73,5 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+
+
