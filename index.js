@@ -23,12 +23,18 @@ function viewCart() {
   }
   else{
     const itemPriceList = [];
+    var itemAtPrice;
     for(var i = 0; i < cart.length; i++){
-      //let cartItem = cart[i].item;
-      //let cartPrice = cart[i].price;
-      var itemAtPrice = `${cart[i].itemName} at $${cart[i].itemPrice}`;
-      itemPriceList.push(itemAtPrice);
-    }
+      if(i > 0 && i === cart.length - 1){
+        itemAtPrice = `and ${cart[i].itemName} at $${cart[i].itemPrice}`;
+        itemPriceList.push(itemAtPrice);
+      }
+      else{
+        itemAtPrice = `${cart[i].itemName} at $${cart[i].itemPrice}`;
+        itemPriceList.push(itemAtPrice);
+      }
+   }
+      
     return `In your cart, you have ${itemPriceList.join(", ")}.`;
 }
 }
