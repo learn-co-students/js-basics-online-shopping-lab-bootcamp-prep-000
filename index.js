@@ -26,7 +26,7 @@ function viewCart() {
     for(var i = 0; i < cart.length; i++){
       //let cartItem = cart[i].item;
       //let cartPrice = cart[i].price;
-      var itemAtPrice = `${cart[i].item} at ${cart[i].price}`;
+      var itemAtPrice = `${cart[i].itemName} at $${cart[i].itemPrice}`;
       itemPriceList.push(itemAtPrice);
     }
     return `In your cart, you have ${itemPriceList.join(", ")}.`;
