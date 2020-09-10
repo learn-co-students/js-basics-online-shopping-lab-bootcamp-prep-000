@@ -47,7 +47,7 @@ function total() {
     return totalPrice;
   }
 
-
+/*
 function removeFromCart(item) {
   var itemInCart = false
   for(var i = 0; i < cart.length; i++){
@@ -62,21 +62,21 @@ function removeFromCart(item) {
   return cart
 }
 
+*/
 
 
-/*
 function removeFromCart(item) {
   // write your code here
   for(let i = 0; i < cart.length; i++){
      if(cart[i].itemName === item){
-        cart.splice(i, 1);
+        cart.splice([i], 1);
     }
     else{
       return `That item is not in your cart.`;
       }
     }
     return cart;
-}*/
+}
 
 function placeOrder(cardNumber) {
   // write your code here
