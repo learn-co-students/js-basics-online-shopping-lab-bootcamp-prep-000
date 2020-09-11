@@ -60,26 +60,41 @@ function removeFromCart(item) {
     console.log("That item is not in your cart.");
   }
   return cart
-}
+}*/
 
-*/
 
 
 function removeFromCart(item) {
   // write your code here
   for(let i = 0; i < cart.length; i++){
      if(cart[i].itemName === item){
-        cart.splice([i], 1);
+        cart.splice(i, 1);
+        return cart;
     }
     else{
       return `That item is not in your cart.`;
       }
     }
-    return cart;
+    
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  let yourTotal = total();
+  if (!cardNumber){
+    return "Sorry, we don't have a credit card on file for you."
+  } else {
+   // const total1 = total()
+    cart = []
+   // return `Your total cost is $${total1}, which will be charged to the card ${cardNumber}.`
+   return `Your total cost is $${yourTotal}, which will be charged to the card ${cardNumber}.`
+  }
 }
+
+
+
+
+
+
 
 
