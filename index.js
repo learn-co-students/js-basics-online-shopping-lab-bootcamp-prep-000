@@ -47,43 +47,42 @@ function viewCart() {
 }
 
 function total() {
-  var sum = 0;
-  if(cart.length ===0)
-    return sum = 0
-  for(var item = 0; item < cart.length; item++) {
+    var sum = 0;
+    if(cart.length ===0){
+      sum = 0
+    }else{
+      for(var item = 0; item < cart.length; item++) {
         var itemValue = cart[item]
         sum += itemValue.itemPrice
       }
       return sum;
+    }
 }
 
 
 function removeFromCart(item) { 
- 
-  for(var i = 0; i < cart.length; i++){
-    
-    var strComp = item.localeCompare(cart[i].itemName)
-    console.log("strComp: ",strComp)
-    if(strComp  === 0){
-    getCart().splice(i,1)
-      
-    }else{ 
-      
-     return `That item is not in your cart.`
+  
+     const found = cart.find(cart => cart.itemName === item)
+     if(!found){
+         return `That item is not in your cart.`
+     }else {
+       var itemIndex = cart.indexOf(found)
+       cart.splice(itemIndex,1)
+       return cart
     }
-  }
-
-}
-
-
-
-
-function placeOrder(cardNumber) {
-  // write your code here
-  
-  
-  
-  
-  
   
 }
+
+
+
+ function placeOrder(cardNumber) {
+
+   if(!cardNumber){
+    
+     return "Sorry, we don\'t have a credit card on file for you."
+   }else {
+     var totalCost = total();
+     cart.splice(0, cart.length)
+     return  `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`
+   }
+ }
