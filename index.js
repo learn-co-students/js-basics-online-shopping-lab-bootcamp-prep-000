@@ -10,7 +10,9 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ var item = shoppingList(item)
+ getCart().push(item)
+ return `${itemName} has been added to your cart.`
 }
 
 function viewCart() {
