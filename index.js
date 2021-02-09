@@ -11,8 +11,8 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
- item = {[itemName]: ["nameOfTheItem"], [itemPrice]: [priceOfTheItem]};
- return [ ${itemName} "has been added to your cart"`];
+ cart = {[item]: ["nameOfTheItem"], [Price]: [priceOfTheItem]};
+ return [`${item} " has been added to your cart"`];
 }
 
 function viewCart() {
