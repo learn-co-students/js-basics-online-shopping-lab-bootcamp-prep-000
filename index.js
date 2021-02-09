@@ -18,7 +18,21 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  
+  var i;
+  var cartLength = Object.keys(cart).length;
+  var cartContents = "In your cart, you have ";
+  for (i=0; cartLength > i; i++) {
+    cartContents = [`${cartContents} ${item} at ${price},`];
+    if (cartLenght > i) {
+      cartContents = [`${cartContents} and `];
+    } else { cartContents =[`${cartContents}. `]; 
+      }
+  }
+  if (cartLenght > 0) {
+    return cartContents
+  } else {
+    return "Your shopping cart is empty."
+  }
 }
 
 function total() {
