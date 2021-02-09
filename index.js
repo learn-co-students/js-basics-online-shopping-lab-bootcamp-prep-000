@@ -11,12 +11,14 @@ function setCart(c) {
 
 function addToCart(item) {
  // write your code here
- cart = {[item]: ["nameOfTheItem"], [Price]: [priceOfTheItem]};
- return [`${item} " has been added to your cart"`];
+ var price = Math.random() * 100;
+ cart.push({"itemName": item, "itemPrice": price});
+ return [`${item} has been added to your cart.`];
 }
 
 function viewCart() {
   // write your code here
+  
 }
 
 function total() {
