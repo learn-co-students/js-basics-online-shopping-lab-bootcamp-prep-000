@@ -20,7 +20,7 @@ function viewCart() {
   // write your code here
   var i;
   var cartLength = Object.keys(cart).length;
-  var cartContents = "In your cart, you have ";
+  var cartContents = "In your cart, you have";
   if (cartLength === 0) {
     return "Your shopping cart is empty.";
   } else {
