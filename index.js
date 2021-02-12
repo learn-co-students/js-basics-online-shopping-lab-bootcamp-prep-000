@@ -26,11 +26,11 @@ function viewCart() {
   } else {
     for (i=0; i < cartLength; i++) {
       if (i === 0) {  
-      cartContents = [`${cartContents} ${cart[i].itemName} at ${cart[i].itemPrice}`];
+      cartContents = [`${cartContents} ${cart[i].itemName} at $${cart[i].itemPrice}`];
       } else if (i === cartLength) {
-        cartContents = [`${cartContents}, and ${cart[i].itemName} at ${cart[i].itemPrice}`];
+        cartContents = [`${cartContents}, and ${cart[i].itemName} at $${cart[i].itemPrice}`];
       } else {
-        cartContents = [`${cartContents}, ${cart[i].itemName} at ${cart[i].itemPrice}`];
+        cartContents = [`${cartContents}, ${cart[i].itemName} at $${cart[i].itemPrice}`];
       }
     }
     return [`${cartContents}.`]  
