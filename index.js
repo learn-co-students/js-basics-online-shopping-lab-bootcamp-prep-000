@@ -21,12 +21,17 @@ function viewCart() {
   var i;
   var cartLength = Object.keys(cart).length;
   var cartContents = "In your cart, you have ";
-  If (cartLength = 0) {
+  if (cartLength === 0) {
     return "Your shopping cart is empty.";
   } else {
     for (i=0; i < cartLength; i++) {
+      if (i === cartLength - 1) {  
       cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price},`];
+      } else {
+        cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price},`];
+      }
     }
+    return [`${cartContents}.`]  
   }
   // for (i=0; cartLength > i; i++) {
   //   // console.log(cartContents)
