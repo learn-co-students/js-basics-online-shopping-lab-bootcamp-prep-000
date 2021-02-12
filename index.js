@@ -21,18 +21,26 @@ function viewCart() {
   var i;
   var cartLength = Object.keys(cart).length;
   var cartContents = "In your cart, you have ";
-  for (i=0; cartLength > i; i++) {
-    cartContents = [`${cartContents} ${item} at ${price},`];
-    if (cartLenght > i) {
-      cartContents = [`${cartContents} and `];
-    } else { cartContents =[`${cartContents}. `]; 
-      }
-  }
-  if (cartLenght > 0) {
-    return cartContents
+  If (cartLength = 0) {
+    return "Your shopping cart is empty.";
   } else {
-    return "Your shopping cart is empty."
+    for (i=0; i < cartLength; i++) {
+      cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price},`];
+    }
   }
+  // for (i=0; cartLength > i; i++) {
+  //   // console.log(cartContents)
+  //   cartContents = [`${cartContents} ${cart.item[i]} at ${cart.price[i]},`];
+  //   if (cartLength > i) {
+  //     cartContents = [`${cartContents} and `];
+  //   } else { cartContents =[`${cartContents}. `]; 
+  //     }
+  // }
+  // if (cartLength > 0) {
+  //   return cartContents
+  // } else {
+  //   return "Your shopping cart is empty."
+  // }
 }
 
 function total() {
@@ -46,3 +54,4 @@ function removeFromCart(item) {
 function placeOrder(cardNumber) {
   // write your code here
 }
+bkjbll
