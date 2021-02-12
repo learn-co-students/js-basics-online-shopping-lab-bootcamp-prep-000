@@ -26,7 +26,9 @@ function viewCart() {
   } else {
     for (i=0; i < cartLength; i++) {
       if (i === cartLength - 1) {  
-      cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price},`];
+      cartContents = [`${cartContents} and ${cart[i].item} at ${cart[i].price},`];
+      } else if (i === 0) {
+        cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price}`];
       } else {
         cartContents = [`${cartContents} ${cart[i].item} at ${cart[i].price},`];
       }
