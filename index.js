@@ -53,20 +53,22 @@ function viewCart() {
 function total() {
   // write your code here
   var cartLength = Object.keys(cart).length;
-  var cartTotal = 0
-  var i
+  var cartTotal = 0;
+  var i;
   for (i=0; i < cartLength; i++) {
-    cartTotal += cart[i].itemPrice
+    cartTotal += cart[i].itemPrice;
   }
-  return cartTotal
+  return cartTotal;
 }
 
 function removeFromCart(item) {
   // write your code here
-  return "That item is not in your cart."
+  
+  return "That item is not in your cart.";
 }
 
 function placeOrder(cardNumber) {
   // write your code here
   
+  return "Sorry, we don't have a credit card on file for you.";
 }
