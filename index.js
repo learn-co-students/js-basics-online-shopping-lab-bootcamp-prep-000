@@ -69,13 +69,13 @@ function removeFromCart(item) {
   for (i=0; i < cartLength; i++) {
     if (item === cart[i].itemName) {
       itemName = item;
-      cart.splice(i);
+      cart.splice(i,1);
       i = cartLength;
       return cart;
     } 
-    if (itemName === "") {
+  }
+  if (itemName === "") {
       return "That item is not in your cart.";
-    }
   }
 }
 
