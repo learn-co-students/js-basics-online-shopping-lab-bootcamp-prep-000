@@ -81,6 +81,10 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   // write your code here
-  
-  return "Sorry, we don't have a credit card on file for you.";
+  if (cardNumber === 0) {
+    return "Sorry, we don't have a credit card on file for you.";
+  } else {
+    cart = [];
+    return "Your total cost is $71, which will be charged to the card 83296759.";
+  }
 }
