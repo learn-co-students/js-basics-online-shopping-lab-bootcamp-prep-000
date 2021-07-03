@@ -1,3 +1,4 @@
+ls
 # Online Shopping
 
 ## Objectives
