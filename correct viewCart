@@ -1,0 +1,13 @@
+function viewCart() {
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty.")
+  } else {
+    var itemPriceArray = [];
+    for (let i = 0; i < cart.length; i++) {
+        let item = Object.keys(cart[i])[0];
+        let itemObject = cart[i]
+        itemPriceArray.push(`${item} at $${itemObject[item]}`);
+    }
+    console.log(`In your cart, you have ${itemPriceArray.join(", ")}.`);
+  }
+}
