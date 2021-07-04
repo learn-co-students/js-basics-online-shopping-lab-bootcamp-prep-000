@@ -1,0 +1,13 @@
+var cart = ['orange', 'pear', 'quince']
+
+var array = []
+for ( var i=0; i < cart.length-1; i++){
+  console.log(i)
+  var arrayKey = Object.keys(cart[i])[0]
+  console.log(arrayKey)
+  array.push(arrayKey + " at $" + ((cart[i])[arrayKey]))
+  console.log(array)
+}
+  var lastString = " and " + arrayKey + " at $" + ((cart[cart.length-1])[arrayKey])
+  console.log(line + array.join(', ') + lastString + ".")
+}
