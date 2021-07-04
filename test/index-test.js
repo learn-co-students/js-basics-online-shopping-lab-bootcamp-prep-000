@@ -63,6 +63,7 @@ describe("addToCart()", function() {
 
     expect(addToCart("juice")).toEqual("juice has been added to your cart.");
   });
+
 });
 
 describe("viewCart()", function() {
