@@ -132,7 +132,6 @@ describe("removeFromCart()", function() {
 
     expect(firstItemName).toEqual("vanilla");
     expect(secondItemName).toEqual("yams");
-
     removeFromCart("yams");
 
     expect(getCart().length).toEqual(1);
@@ -146,7 +145,7 @@ describe("removeFromCart()", function() {
 
 describe("placeOrder()", function() {
   it("doesn't place the order if a credit card number is not provided", function() {
-    
+
     expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
   });
 
@@ -156,7 +155,7 @@ describe("placeOrder()", function() {
     const cartTotal = total();
     const cardNumber = Math.floor(Math.random() * 100000000);
 
-    
+
 
     expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
   });
