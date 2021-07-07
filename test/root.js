@@ -4,10 +4,15 @@ const babel = require('babel-core');
 const jsdom = require('jsdom');
 const path = require('path');
 
-before(function(done) {
-  const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'index.js'), {
-    presets: ['es2015']
-  });
+// before(function(done) {
+//   const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'index.js'), {
+//     presets: ['es2015']
+//   });
+
+  before(function(done) {
+    const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'indexAgainAgain.js'), {
+      presets: ['es2015']
+    });
 
   jsdom.env('<div></div>', [], {
     src: babelResult.code,
