@@ -158,7 +158,7 @@ describe("placeOrder()", function() {
 
     
 
-    expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
+    expect(placeOrder(cardNumber)).toEqual(`Your total cost is ${cartTotal}, which will be charged to the card ${cardNumber}.`);
   });
 
   it("empties the cart", function() {
