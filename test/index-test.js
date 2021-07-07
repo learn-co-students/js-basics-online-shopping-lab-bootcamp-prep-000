@@ -42,7 +42,7 @@ describe("addToCart()", function() {
 
     let itemPrice = getCart()[0].itemPrice;
 
-    expect(itemPrice).toBeLessThanOrEqualTo(100)
+    expect(itemPrice).toBeLessThanOrEqualTo(5)
                      .toBeGreaterThanOrEqualTo(1);
   });
 
@@ -89,7 +89,7 @@ describe("viewCart()", function() {
     addToCart("pear");
     addToCart("quince");
 
-    ;
+    
 
     expect(viewCart()).toEqual(
       `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
