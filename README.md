@@ -2,7 +2,7 @@
 
 ## Objectives
 + Model a shopping cart full of items as an array of objects in JavaScript.
-+ Iterate over arrays with `for` loops
++ Iterate over arrays with `for` loopsc
 + Use ES6 `${template literals}` instead of `"regular, " + "old " + string + " concatenation."`
 + Brush up on conditionals and control flow to make some Oxford comma magic happen.
 
