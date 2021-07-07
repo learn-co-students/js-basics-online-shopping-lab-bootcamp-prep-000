@@ -1,8 +1,10 @@
 var cart = [];
 
-function getCart() {
- return cart;
+function getCart(item) {
+   
 }
+return getCart
+
 
 function setCart(c) {
   cart = c;
