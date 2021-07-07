@@ -1,0 +1,1 @@
+const coll5 = [{first:{hat:6},second:{swan:7},third:{fish:8}}, [1,2,3], [0, ['e', 'o']]];
