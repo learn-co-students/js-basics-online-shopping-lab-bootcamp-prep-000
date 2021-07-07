@@ -9,22 +9,13 @@ function setCart(c) {
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
+function addToCart(itemName) {
+  var itemPrice = Math.random;
+  cart.push({ [itemName]: itemPrice});
 }
 
-function viewCart() {
-  // write your code here
+function placeOrder() {
+
 }
 
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
-function placeOrder(cardNumber) {
-  // write your code here
-}
+function total() {}
