@@ -89,7 +89,7 @@ describe("viewCart()", function() {
     addToCart("pear");
     addToCart("quince");
 
-    ;
+    
 
     expect(viewCart()).toEqual(
       `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
@@ -151,13 +151,14 @@ describe("placeOrder()", function() {
   });
 
   it("places an order when a credit card number is provided", function() {
+    debugger;
     addToCart("zucchini");
-
+debugger;
     const cartTotal = total();
     const cardNumber = Math.floor(Math.random() * 100000000);
 
     
-
+debugger;
     expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
   });
 
