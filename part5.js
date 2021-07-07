@@ -1,4 +1,5 @@
 
+//Code
 var cart = [];
 function getCart() {
  return cart;
@@ -91,7 +92,6 @@ function removeFromCart(itemToRemove) {
   }
 
   var itemPricePair = getCart()[theCount]
-  if(`${itemPricePair}` === 'undefined') {itemPricePair = 0}
   var evaluation = Object.keys(itemPricePair)
   var itemRemovalCheck = evaluation[0]
 
@@ -113,3 +113,18 @@ function placeOrder(creditCardNumber) {
     cart = []
   }
 }
+
+//Part 5 placeOrder() Test
+  //Doesn't place the order if a credit card number is not provided
+    placeOrder()
+    console.log(`Expect: Sorry, we don't have a credit card on file for you.`) // expect(console.log).toHaveBeenCalledWith("Sorry, we don't have a credit card on file for you.")
+  //Places an order when a credit card number is provided
+    addToCart("zucchini")
+    const cartTotal = total()
+    const cardNumber = Math.floor(Math.random() * 100000000)
+    placeOrder(cardNumber)
+    console.log(`Expect: Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`) //expect(console.log).toHaveBeenCalledWith(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`)
+  //Empties the cart
+    addToCart("apples")
+    placeOrder(12345678)
+    console.log(`Expect: ${getCart()} to equal ${[]}`) //expect(getCart()).toEqual([])
