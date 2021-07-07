@@ -10,7 +10,7 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var item = generateCartItem(item)
+  item = generateCartItem(item)
   getCart().push(item)
   return `${item.itemName} has been added to your cart.`
 }
@@ -30,7 +30,7 @@ function removeFromCart(itemName) {
 }
 
 function placeOrder(cardNumber) {
-  if (arguments[0] == undefined) {
+  if (arguments[0] === undefined) {
     return "Sorry, we don't have a credit card on file for you."
   } else {
     var sumToCharge = total()
