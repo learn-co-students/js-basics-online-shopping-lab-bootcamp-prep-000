@@ -32,9 +32,10 @@ describe("addToCart()", function() {
   it("properly structures the cart item as object with a key of `itemName` and the corresponding value { itemName: itemName } format", function() {
     addToCart("daikon");
 
-    let itemName = getCart()[0].itemName;
+let itemName = getCart()[0].itemName;
 
-    expect(itemName).toEqual("daikon");
+
+expect(itemName).toEqual("daikon");
   });
 
   it("sets the price (integer between 1 and 100) on the cart object using the key `price`", function() {
@@ -43,7 +44,7 @@ describe("addToCart()", function() {
     let itemPrice = getCart()[0].itemPrice;
 
     expect(itemPrice).toBeLessThanOrEqualTo(100)
-                     .toBeGreaterThanOrEqualTo(1);
+                    .toBeGreaterThanOrEqualTo(1);
   });
 
   it("chooses the price at random", function() {
@@ -53,9 +54,9 @@ describe("addToCart()", function() {
     addToCart("halloumi");
 
     let pricesArray = getCart().map(cartItem => cartItem.itemPrice);
-    let areAnyPricesEqual = pricesArray[0] === pricesArray[1] && pricesArray[1] === pricesArray[2];
+    let areAllPricesEqual = pricesArray[0] === pricesArray[1] && pricesArray[1] === pricesArray[2];
 
-    expect(areAnyPricesEqual).toBe(false);
+    expect(areAllPricesEqual).toBe(false);
   });
 
   it("returns a message indicating that the item has been added", function() {
@@ -89,7 +90,7 @@ describe("viewCart()", function() {
     addToCart("pear");
     addToCart("quince");
 
-    ;
+    
 
     expect(viewCart()).toEqual(
       `In your cart, you have ${getCart()[0].itemName} at $${getCart()[0].itemPrice}, ${getCart()[1].itemName} at $${getCart()[1].itemPrice}, and ${getCart()[2].itemName} at $${getCart()[2].itemPrice}.`
@@ -138,15 +139,15 @@ describe("removeFromCart()", function() {
     expect(getCart().length).toEqual(1);
   });
 
-  it("alerts you if you're trying to remove an item that isn't in your cart", function() {
-    // Repeat item name from previous test to prevent hard-coding.
-    expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
-  });
+   it("alerts you if you're trying to remove an item that isn't in your cart", function() {
+     // Repeat item name from previous test to prevent hard-coding.
+     expect(removeFromCart("yams")).toEqual("That item is not in your cart.");
+   });
 });
 
 describe("placeOrder()", function() {
   it("doesn't place the order if a credit card number is not provided", function() {
-    
+  
     expect(placeOrder()).toEqual("Sorry, we don't have a credit card on file for you.");
   });
 
@@ -156,7 +157,7 @@ describe("placeOrder()", function() {
     const cartTotal = total();
     const cardNumber = Math.floor(Math.random() * 100000000);
 
-    
+  
 
     expect(placeOrder(cardNumber)).toEqual(`Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`);
   });
