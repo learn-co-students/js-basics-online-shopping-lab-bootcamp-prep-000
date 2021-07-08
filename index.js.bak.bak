@@ -1,0 +1,59 @@
+var cart = [];
+
+function getCart() {
+ return cart;
+}
+
+function setCart(c) {
+  cart = c;
+  return cart;
+}
+
+// turns items into Javascript objects, properly structuring them in the
+// { itemName: itemPrice } format, setting the itemPrice at random number between 1 and
+// 100, before adding them to the cart, printing a message to console indicating that
+// the item has been added and returning the cart
+
+function addToCart(item) {
+  var itemName = item;
+  var itemPrice = (Math.floor(Math.random() * 100) + 1);
+  cart.push( { [itemName]: itemPrice });
+  console.log(`${itemName} has been added to your cart.`);
+  return cart;
+}
+
+function countProperties(cart) {
+    var count = 0;
+    for(var itemName in cart) {
+        if(cart.hasOwnProperty(itemName))
+            ++count;
+    }
+    return count;
+}
+
+function viewCart() {
+  var checkItemsInCart = countProperties(cart);
+//  var last = Object.keys(cart)[Object.keys(cart).length-1];
+  var itemList = (Object.entries(cart));
+  if ( checkItemsInCart === 0 ) {
+    console.log(`Your shopping cart is empty.`);
+    } else if (checkItemsInCart === 1 ) {
+    console.log(`In your cart, you have ${itemList[0][0]} at $${itemList[0][1]}.`);
+} else if (checkItemsInCart === 2 ) {
+   console.log(`In your cart, you have ${itemList[0][0]} at $${itemList[0][1]}, and ${itemList[1][0]} at $${itemList[1][1]}.`);
+  } else { console.log(`In your cart, you have ${itemList[0][0]} at $${itemList[0][1]}, ${itemList[1][0]} at $${itemList[1][1]}, and ${itemList[2][0]} at $${itemList[2][1]}.`);
+    }
+}
+
+
+function total() {
+  // write your code here
+}
+
+function removeFromCart(item) {
+  // write your code here
+}
+
+function placeOrder(cardNumber) {
+  // write your code here
+}
